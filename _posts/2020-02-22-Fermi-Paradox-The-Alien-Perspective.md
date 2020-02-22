@@ -14,6 +14,6 @@ Let's assume that there are extraterrestrial species that have figured out that 
 
 Would it be wise to investigate a signal that is 75.000 years old? The chances are high that the discovered civilization has gone extinct while traveling there. The closest star system is around 4.5 light-years away.
 
-In my opinion, the search for artificial signals should be restricted to our close neighborhood where we can keep a conversation somehow flowing.
+In my opinion, the search for artificial signals should be restricted to our close neighborhood where we can expect a response in a reasonable amount of time.
 
 [home](https://zackdev.github.io/)
