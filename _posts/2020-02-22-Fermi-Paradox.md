@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Fermi Paradox
-published: true
+title: Fermi's Paradox
+published: false
 ---
 
 The human web of knowledge is filled with probable solutions to Fermi's Paradox. Distilled into the following phrases it goes like this:
