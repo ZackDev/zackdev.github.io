@@ -4,15 +4,19 @@
 
 <script>
   var context = document.getElementById('corona_germany').getContext('2d');
+
+  var labels = ['1','2','3']
+  var data = [1,2,3]
+
   var coronachart = new Chart(context, {
     type: 'line',
     data: {
-      labels: ['1', '2', '3'],
+      labels: labels,
       datasets: [{
         label: 'confirmed cases of corona in germany',
         backgroundColor: 'rgb(00, 90, 255)',
         borderColor: 'rgb(00, 90, 255)',
-        data: [1,2,3]
+        data: data
       }]
     },
     options: {}
