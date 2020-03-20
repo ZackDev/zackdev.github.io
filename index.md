@@ -12,3 +12,5 @@ title: homepage
     </li>
   {% endfor %}
 </ul>
+
+Build date: {% site.time %}
