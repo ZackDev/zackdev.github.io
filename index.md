@@ -13,4 +13,4 @@ title: homepage
   {% endfor %}
 </ul>
 
-Build date: {% site.time %}
+Build date: {{ site.time }}
