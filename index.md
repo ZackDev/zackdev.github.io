@@ -3,7 +3,7 @@ layout: default
 title: homepage
 ---
 
-<script type="text/javascript" src="/scripts/Chart.min.js"></script>
+{% include chart.html %}
 
 <ul>
   {% for post in site.posts %}
@@ -13,4 +13,4 @@ title: homepage
   {% endfor %}
 </ul>
 
-Build date: {{ site.time }}
+build date: {{ site.time }}
