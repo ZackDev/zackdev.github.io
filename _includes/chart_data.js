@@ -8,7 +8,7 @@
     var sum_rates;
     c.forEach(function(n){
       if (n > 0 && last_data > 0){
-        r.append(n/last_data);
+        r.push(n/last_data);
         last_data = n;
       } else if (n > 0){
         last_data = n;
