@@ -1,18 +1,34 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
 
-<canvas id="corona_germany"></canvas>
+<canvas id="total_infections_germany"></canvas>
+<canvas id="infection_rate_germany"></canvas>
 
-<script>
-  var context = document.getElementById('corona_germany').getContext('2d');
-  var coronachart = new Chart(context, {
+<script type="text/javascript">
+  var tig = document.getElementById('total_infections_germany').getContext('2d');
+  var coronachart = new Chart(tig, {
     type: 'line',
     data: {
       labels: dates,
       datasets: [{
-        label: 'infections',
+        label: 'total infections',
         backgroundColor: 'rgb(00, 144, 255)',
         borderColor: 'rgb(00, 144, 255)',
         data: cases,
+        fill: false
+      }]
+    },
+    options: {}
+  });
+  var irg = document.getElementById('infection_rate_germany').getContext('2d');
+  var coronachart = new Chart(irg, {
+    type: 'line',
+    data: {
+      labels: dates,
+      datasets: [{
+        label: 'rate of infection',
+        backgroundColor: 'rgb(00, 144, 255)',
+        borderColor: 'rgb(00, 144, 255)',
+        data: rates,
         fill: false
       }]
     },
