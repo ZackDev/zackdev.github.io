@@ -5,7 +5,7 @@
 
 <script type="text/javascript">
   var tig = document.getElementById('total_infections_germany').getContext('2d');
-  var coronachart = new Chart(tig, {
+  var total_infections_chart = new Chart(tig, {
     type: 'line',
     data: {
       labels: dates,
@@ -20,7 +20,7 @@
     options: {}
   });
   var irg = document.getElementById('infection_rate_germany').getContext('2d');
-  var coronachart = new Chart(irg, {
+  var infection_rate = new Chart(irg, {
     type: 'line',
     data: {
       labels: dates,
