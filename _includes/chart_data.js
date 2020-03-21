@@ -15,8 +15,8 @@
       }
     });
     r.forEach(function(n){
-      sum_rates = sum_rates + n;
+      s = s + n;
     });
-    av = sum_rates/r.length;
+    av = s/r.length;
   }(cases, rates, average_rate, sum_rates));
 </script>
