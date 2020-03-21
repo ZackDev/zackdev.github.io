@@ -19,22 +19,4 @@
     });
     average = rates.length;
   }(cases, rates, average));
-
-
-  def infection_rate(dataset):
-      last_data = 0
-      rates = []
-      average = 0
-      sum_rates = 0
-      for data in dataset:
-          if data > 0 and last_data > 0:
-              rates.append(data/last_data)
-              last_data = data
-          elif data > 0:
-              last_data = data
-      for r in rates:
-          sum_rates += r
-      print("{} - {}".format(len(dataset), len(rates)))
-      average = sum_rates/len(rates)
-      print(average)
 </script>
