@@ -3,10 +3,9 @@
   var cases = [1,4,4,4,5,8,10,12,12,12,12,13,13,14,14,16,16,16,16,16,16,16,16,16,16,16,16,16,16,17,27,46,48,79,130,159,196,262,482,670,799,1040,1176,1457,1908,2078,3675,4585,5795,7272,9257,12327,15320,19848];
   var rates = [0];
   var average_rate = 0.0555;
-  var unused_block = 0;
-  (function (c, r, av) {
+  var sum_rates = 0;
+  (function (c, r, av, s) {
     var last_data = 0;
-    var sum_rates = 0;
     c.forEach(function(n){
       if (n > 0 && last_data > 0){
         r.push(n/last_data);
@@ -19,8 +18,5 @@
       sum_rates = sum_rates + n;
     });
     av = sum_rates/r.length;
-    console.log(av)
-    console.log(average_rate)
-    console.log(r)
-  }(cases, rates, average_rate));
+  }(cases, rates, average_rate, sum_rates));
 </script>
