@@ -1,6 +1,9 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
 
+<p id="summary"></p>
+
 <canvas id="total_infections_germany"></canvas>
+
 <canvas id="infection_rate_germany"></canvas>
 
 <script type="text/javascript">
@@ -34,4 +37,6 @@
     },
     options: {}
   });
+  var summary = document.getElementById('summary');
+  summary.innerHTML = "The following graphs show the total cases (" + cases[cases.length -1] + ") and the day to day rate of infection. The average rate of infection is" + average + "."
 </script>
