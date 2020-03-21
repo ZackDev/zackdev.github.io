@@ -19,7 +19,7 @@
     });
     av = sum_rates/r.length;
     console.log(av)
-    console.log(average)
+    console.log(average_rate)
     console.log(r)
   }(cases, rates, average_rate));
 </script>
