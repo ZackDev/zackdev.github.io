@@ -5,7 +5,7 @@
   var average = 0;
   (function (c, r, a) {
     var last_data = 0;
-    var sum_rates;
+    var sum_rates = 0;
     c.forEach(function(n){
       if (n > 0 && last_data > 0){
         r.push(n/last_data);
