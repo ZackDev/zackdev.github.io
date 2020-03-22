@@ -4,8 +4,9 @@
 
 <canvas id="total_infections_germany"></canvas>
 
+<!--
 <canvas id="infection_rate_germany"></canvas>
-
+-->
 <script type="text/javascript">
   var tig = document.getElementById('total_infections_germany').getContext('2d');
   var total_infections_chart = new Chart(tig, {
@@ -22,6 +23,7 @@
     },
     options: {}
   });
+  /*
   var irg = document.getElementById('infection_rate_germany').getContext('2d');
   var infection_rate = new Chart(irg, {
     type: 'line',
@@ -37,6 +39,7 @@
     },
     options: {}
   });
+  */
   var summary = document.getElementById('summary');
   summary.innerHTML = "The following graphs show the total COVID-19 cases and the day to day rate of infection for germany."
 </script>
