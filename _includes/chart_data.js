@@ -6,7 +6,7 @@
     var last_data = 0;
     c.forEach(function(n){
       if (n > 0 && last_data > 0){
-        r.push(n/last_data);
+        r.push((n/last_data).toFixed(4));
         last_data = n;
       } else if (n > 0){
         last_data = n;
