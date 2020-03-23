@@ -1,6 +1,7 @@
 ---
 layout: default
 title: homepage
+published: true
 ---
 
 {% include chart_data.js%}
