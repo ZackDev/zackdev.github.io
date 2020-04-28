@@ -4,6 +4,8 @@
 
 <canvas id="total_infections_germany"></canvas>
 
+<canvas id="daily_cases_germany"></canvas>
+
 <!--
 <canvas id="infection_rate_germany"></canvas>
 -->
@@ -23,23 +25,23 @@
     },
     options: {}
   });
-  /*
-  var irg = document.getElementById('infection_rate_germany').getContext('2d');
+
+  var irg = document.getElementById('daily_cases_germany').getContext('2d');
   var infection_rate = new Chart(irg, {
     type: 'line',
     data: {
       labels: dates,
       datasets: [{
-        label: 'rate of infection',
+        label: 'daily cases',
         backgroundColor: 'rgb(255, 100, 0)',
         borderColor: 'rgb(255, 100, 0)',
-        data: rates,
-        fill: false
+        data: daily_cases,
+        fill: true
       }]
     },
     options: {}
   });
-  */
+
   var summary = document.getElementById('summary');
   summary.innerHTML = "The following graph shows the total SARS-CoV-2 infections for germany."
 </script>
