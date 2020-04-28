@@ -27,8 +27,8 @@
   });
 
   var irg = document.getElementById('daily_cases_germany').getContext('2d');
-  var infection_rate = new Chart(irg, {
-    type: 'line',
+  var daily_cases_chart = new Chart(irg, {
+    type: 'bar',
     data: {
       labels: dates,
       datasets: [{
