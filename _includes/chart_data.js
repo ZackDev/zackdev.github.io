@@ -5,7 +5,7 @@
   var daily_cases = [1];
   (function (c, d) {
     var last_data = 0;
-    d.forEach(function(n){
+    c.forEach(function(n){
       if (n > 0 && last_data > 0){
         d.push(n - last_data);
         last_data = n;
