@@ -20,12 +20,31 @@
         backgroundColor: 'rgb(00, 144, 255)',
         borderColor: 'rgb(00, 144, 255)',
         data: cases,
-        fill: false
+        fill: false,
+        yAxisID: 'left-y-axis'
+      },{
+        label: 'daily infections',
+        backgroundColor: 'rgb(255, 100, 0)',
+        borderColor: 'rgb(255, 100, 0)',
+        data: daily_cases,
+        fill: true,
+        yAxisID: 'right-y-axis',
+        type: 'bar'
       }]
     },
-    options: {}
+    options: {
+      scales: {
+        yAxes: [{
+          id: 'left-y-axis',
+          type: 'linear'
+        },{
+          id: 'right-y-axis'
+          type: 'linear'
+        }]
+      }
+    }
   });
-
+  /*
   var irg = document.getElementById('daily_cases_germany').getContext('2d');
   var daily_cases_chart = new Chart(irg, {
     type: 'bar',
@@ -41,7 +60,7 @@
     },
     options: {}
   });
-
+  */
   var summary = document.getElementById('summary');
-  summary.innerHTML = "The following graphs show the total and daily SARS-CoV-2 infections for germany."
+  summary.innerHTML = "The following graph shows the total and daily SARS-CoV-2 infections for germany."
 </script>
