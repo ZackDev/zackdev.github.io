@@ -11,12 +11,14 @@
     data: {
       labels: dates,
       datasets: [{
+        label: 'total infections',
         backgroundColor: 'rgb(00, 144, 255)',
         borderColor: 'rgb(00, 144, 255)',
         data: cases,
         fill: false,
         yAxisID: 'total-y-axis'
       },{
+        label: 'daily infections',
         backgroundColor: 'rgb(46, 46, 46)',
         borderColor: 'rgb(46, 46, 46)',
         data: daily_cases,
