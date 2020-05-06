@@ -38,19 +38,25 @@
           id: 'total-y-axis',
           type: 'linear',
           position: 'left',
-          labelString: 'total infections',
-          fontColor: 'rgb(00, 144, 255)',
           gridLines: {
             display: false
+          },
+          scaleLabel: {
+            display: true,
+            labelString: 'total infections',
+            fontColor: 'rgb(00, 144, 255)'
           }
         },{
           id: 'daily-y-axis',
           type: 'linear',
           position: 'right',
-          labelString: 'daily infections',
-          fontColor: 'rgb(46, 46, 46)',
           gridLines: {
             display: false
+          },
+          scaleLabel: {
+            dispay: true,
+            labelString: 'daily infections',
+            fontColor: 'rgb(46, 46, 46)'
           }
         }]
       }
