@@ -2,16 +2,11 @@
 
 <p id="summary"></p>
 
-<canvas id="total_infections_germany"></canvas>
+<canvas id="covid_germany"></canvas>
 
-<canvas id="daily_cases_germany"></canvas>
-
-<!--
-<canvas id="infection_rate_germany"></canvas>
--->
 <script type="text/javascript">
-  var tig = document.getElementById('total_infections_germany').getContext('2d');
-  var total_infections_chart = new Chart(tig, {
+  var cg = document.getElementById('covid_germany').getContext('2d');
+  var total_infections_chart = new Chart(cg, {
     type: 'line',
     data: {
       labels: dates,
@@ -52,23 +47,7 @@
       }
     }
   });
-  /*
-  var irg = document.getElementById('daily_cases_germany').getContext('2d');
-  var daily_cases_chart = new Chart(irg, {
-    type: 'bar',
-    data: {
-      labels: dates,
-      datasets: [{
-        label: 'daily infections',
-        backgroundColor: 'rgb(255, 100, 0)',
-        borderColor: 'rgb(255, 100, 0)',
-        data: daily_cases,
-        fill: true
-      }]
-    },
-    options: {}
-  });
-  */
+
   var summary = document.getElementById('summary');
   summary.innerHTML = "The following graph shows the total and daily SARS-CoV-2 infections for germany."
 </script>
