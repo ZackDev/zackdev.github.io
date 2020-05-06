@@ -16,28 +16,28 @@
         borderColor: 'rgb(00, 144, 255)',
         data: cases,
         fill: false,
-        yAxisID: 'left-y-axis'
+        yAxisID: 'total-y-axis'
       },{
         label: 'daily infections',
         backgroundColor: 'rgb(255, 100, 0)',
         borderColor: 'rgb(255, 100, 0)',
         data: daily_cases,
         fill: true,
-        yAxisID: 'right-y-axis',
+        yAxisID: 'daily-y-axis',
         type: 'bar'
       }]
     },
     options: {
       scales: {
         yAxes: [{
-          id: 'left-y-axis',
+          id: 'total-y-axis',
           type: 'linear',
           position: 'left',
           gridLines: {
             display: false
           }
         },{
-          id: 'right-y-axis',
+          id: 'daily-y-axis',
           type: 'linear',
           position: 'right',
           gridLines: {
