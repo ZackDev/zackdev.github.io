@@ -14,7 +14,7 @@ title: homepage
 <ul>
   {% for page in site.pages %}
     <li>
-      <a href="{{ page.url }}">{{ page.title }}</a>
+      <a href="{{ page.url }}">{{ page.title }}aaa</a>
     </li>
   {% endfor %}
 </ul>
