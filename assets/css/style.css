@@ -271,14 +271,6 @@ Full-Width Styles
   text-shadow: #111 0px 0px 10px;
 }
 
-#project_tagline {
-  color: #fff;
-  font-size: 24px;
-  font-weight: 300;
-  background: none;
-  text-shadow: #111 0px 0px 10px;
-}
-
 #main_content_wrap {
   background: #f2f2f2;
   border-top: 1px solid #111;
@@ -308,10 +300,6 @@ Small Device Styles
 @media screen and (max-width: 480px) {
   body {
     font-size:14px;
-  }
-
-  #downloads {
-    display: none;
   }
 
   .inner {
@@ -356,10 +344,6 @@ Small Device Styles
 @media screen and (max-width: 320px) {
   body {
     font-size:14px;
-  }
-
-  #downloads {
-    display: none;
   }
 
   .inner {
