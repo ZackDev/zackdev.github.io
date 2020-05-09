@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Fermi's Paradox
-published: false
+published: true
 ---
 
 The human web of knowledge is filled with probable solutions to Fermi's Paradox. Distilled into the following phrases it goes like this:
@@ -17,5 +17,3 @@ Let's assume that there are extraterrestrial species with their own version of *
 Given the time that it takes to get here, would it be wise to investigate the source of a signal that is 75.000 years old by going there? Asides from such a striking discovery, chances are high that our civilization has gone extinct and their artifacts withered away while traveling there.
 
 In my opinion, the search for artificial signals should be restricted to our galactic neighborhood where we can expect a response in a reasonable amount of time.
-
-[home](https://zackdev.github.io/)
