@@ -6,13 +6,26 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
   </head>
   <body>
-    <div id="header">
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <h1 id="project_title">{{ site.title | default: site.github.repository_name }}</h1>
+          <h2 id="project_tagline">{{ site.description | default: site.github.project_tagline }}</h2>
+        </header>
     </div>
-    <div id="content">
-      {{ content }}
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        {{ content }}
+      </section>
     </div>
-    <div id="footer">
-      <a href="{{ site. url }}">back home</a>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>back home<a href="{{ site.url }}"></a></p>
+      </footer>
     </div>
   </body>
 </html>
