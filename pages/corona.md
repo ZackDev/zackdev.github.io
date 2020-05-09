@@ -1,10 +1,7 @@
 ---
 layout: default
-title: corona chart Germany
+title: corona chart germany
 published: true
 ---
-
 {% include chart_data.js %}
 {% include chart.html %}
-
-Last website update: {{ site.time }}
