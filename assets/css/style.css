@@ -60,9 +60,7 @@ h1 {
 }
 
 h2 {
-  padding-bottom: 10px;
   font-size: 32px;
-  background: url('../images/bg_hr.png') repeat-x bottom;
 }
 
 h3 {
@@ -91,7 +89,7 @@ footer p {
 
 a {
   text-decoration: none;
-  color: #0F79D0;
+  color: #0090FF;
   text-shadow: none;
 
   transition: color 0.5s ease;
