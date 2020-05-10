@@ -24,7 +24,7 @@
     <div id="footer_wrap" class="outer">
       <footer class="inner">
         <a style="float:left;" href="{{ site.url }}">back home</a>
-        <div style="text-align:right;">last update: {{ site.time }}</div>
+        <div style="text-align:right;">last update: {{ site.time | date_to_rfc822 }}</div>
       </footer>
     </div>
   </body>
