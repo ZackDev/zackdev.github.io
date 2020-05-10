@@ -6,4 +6,4 @@ title: index page
   * [{{ page.title }}]({{ page.url }})
 {% endfor %}
 
-[corona chart]({{ site.url }}/pages/corona)
+[{{ site.pages.corona.title }}]({{ site.pages.corona.url }})
