@@ -1,6 +1,6 @@
 ---
-layout: default
 title: Lorem Ipsum
+layout: default
 published: false
 ---
 

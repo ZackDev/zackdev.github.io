@@ -1,6 +1,6 @@
 ---
-layout: default
 title: thoughts on fermi's paradox
+layout: default
 published: false
 ---
 
