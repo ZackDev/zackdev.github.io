@@ -3,5 +3,5 @@ title: index page
 layout: default
 published: true
 ---
-[corona chart]({{ site.url }}/pages/corona)
+[corona chart]({{ site.url }}/pages/corona)  
 [morse generator]({{ site.url}}/pages/morse)
