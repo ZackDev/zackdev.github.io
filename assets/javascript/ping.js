@@ -6,6 +6,7 @@ function init(interval, target_url, target_div){
 }
 
 function ping(target_url, target_div){
+  target_url += '?r=' + now_ms;
   http_request.open("GET", target_url, true);
   http_request.responseType = "json";
   http_request.onreadystatechange = function () {
