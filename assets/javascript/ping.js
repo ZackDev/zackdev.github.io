@@ -14,7 +14,7 @@ function ping(target_url, target_div){
     if (http_request.readyState === done && http_request.status === ok) {
       my_JSON_object = http_request.response;
       let time_elapsed = Date.now() - now_ms;
-      target_div.html(time_elapsed);
+      target_div.html(time_elapsed + 'ms');
       console.log(Date.now() - now_ms);
       console.log(http_request.readyState + " " + http_request.status);
       console.log(my_JSON_object);
