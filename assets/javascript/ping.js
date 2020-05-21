@@ -1,6 +1,7 @@
 var http_request = new XMLHttpRequest();
 
 function init(interval, target_url, target_div){
+  target_div.html('999ms');
   setInterval(ping, interval, target_url, target_div);
 }
 
