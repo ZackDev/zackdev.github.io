@@ -1,10 +1,10 @@
 function init(interval, target_url, target_div){
-  var http_request = new XMLHttpRequest();
   target_div.html('');
   setInterval(ping, interval, target_url, target_div);
 }
 
 function ping(target_url, target_div){
+  var http_request = new XMLHttpRequest();
   target_url += '?r=' + Date.now(); /* prevent json file from getting cached */
   http_request.open("GET", target_url, true);
   http_request.responseType = "json";
