@@ -13,7 +13,7 @@ function ping(target_url, target_div){
     var done = 4, ok = 200;
     if (http_request.readyState === done && http_request.status === ok) {
       let time_elapsed = Date.now() - now_ms;
-      target_div.html(time_elapsed + 'ms');
+      target_div.html('ping: ' + time_elapsed + 'ms');
     }
   };
   const now_ms = Date.now();
