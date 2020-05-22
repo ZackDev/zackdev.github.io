@@ -13,7 +13,8 @@
         var footer_height = $("#footer_wrap").height();
         var header_height = $("#header_wrap").height();
         var window_height = $(window).height();
-        $('main_content_wrap').height(window_height - header_height - footer_height + 'px');
+        $('#main_content_wrap').height(window_height - header_height - footer_height + 'px');
+
         var url = "https://zackdev.github.io/assets/json/dummy.json";
         var div = $("#ping_output");
         init_ping(10000, url, div);
