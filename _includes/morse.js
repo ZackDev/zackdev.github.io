@@ -83,7 +83,7 @@
   }
 
   function on_morse_input(){
-    let str_input = $("#morse_input").val();
+    let str_input = $("#text_input").val();
     let str_regex = new RegExp("[A-Z0-9 ]+");
     str_input = str_input.toUpperCase();
     str_output = "";
