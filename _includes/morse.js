@@ -91,7 +91,7 @@
     for (let i=0; i<array.length; i++){
       str_output = str_output + array[i];
     }
-    $("#morse_input").val(str_output);
+    $("#text_input").val(str_output);
     alphanum_to_morse(str_output);
   }
 </script>
