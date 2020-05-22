@@ -10,9 +10,13 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
     <script>
       $(document).ready(function(){
+        var footer_height = $("#footer_wrap").heigth();
+        var header_height = $("#header_wrap").heigth();
+        var window_height = $(window).height();
+        $('main_content_wrap').height(window_height - header_height - footer_height + 'px');
         var url = "https://zackdev.github.io/assets/json/dummy.json";
         var div = $("#ping_output");
-        init(10000, url, div);
+        init_ping(10000, url, div);
       });
     </script>
   </head>

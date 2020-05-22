@@ -1,4 +1,4 @@
-function init(interval, target_url, target_div){
+function init_ping(interval, target_url, target_div){
   target_div.html('');
   setInterval(ping, interval, target_url, target_div);
 }
