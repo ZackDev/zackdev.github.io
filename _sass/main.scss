@@ -84,9 +84,8 @@ p {
 }
 
 a {
-  text-decoration: underline;
+  text-decoration: underline dotted;
   color: #373737;;
-  text-shadow: none;
 }
 
 a:hover, a:focus {
@@ -95,7 +94,6 @@ a:hover, a:focus {
 
 footer a {
   color: #ff4500;
-  text-decoration: underline;
 }
 
 cite {
