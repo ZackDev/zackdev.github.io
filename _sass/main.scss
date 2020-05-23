@@ -111,6 +111,7 @@ ul {
   list-style: square;
 }
 
+/*
 img {
   position: relative;
   margin: 0 auto;
@@ -125,10 +126,7 @@ img {
   -o-box-shadow: 0 0 5px #ebebeb;
   -ms-box-shadow: 0 0 5px #ebebeb;
 }
-
-#site_logo_image {
-  float: right;
-}
+*/
 /*******************************************************************************
 Full-Width Styles
 *******************************************************************************/
@@ -183,7 +181,9 @@ Full-Width Styles
   background: #212121;
 }
 
-
+#site_logo_image {
+  float: right;
+}
 
 /*******************************************************************************
 Small Device Styles
