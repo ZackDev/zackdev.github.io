@@ -14,7 +14,7 @@ var daily_cases = [1];
   });
 }(cases, daily_cases));
 
-var cg = document.getElementById('covid_germany').getContext('2d');
+var cg = document.getElementById('chart_corona_germany').getContext('2d');
 var total_infections_chart = new Chart(cg, {
   type: 'line',
   data: {
