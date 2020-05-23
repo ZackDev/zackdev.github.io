@@ -71,4 +71,3 @@ var total_infections_chart = new Chart(cg, {
     }
   }
 });
-$("#summary").html("The following graph shows the total and daily SARS-CoV-2 infections for germany.");
