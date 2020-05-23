@@ -7,18 +7,12 @@
     <script type="text/javascript" src="/assets/javascript/ping.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
-    <link rel="stylesheet" type="text/css" media="screen" href="/assets/css/style.css">
     <script>
       $(document).ready(function(){
         var footer_height = $("#footer_wrap").height();
         var header_height = $("#header_wrap").height();
         var window_height = $(window).height();
         $('#main_content_wrap').css('min-height', window_height - header_height - footer_height - 40 + 'px');
-        /*
-        var url = "https://zackdev.github.io/assets/json/dummy.json";
-        var div = $("#ping_output");
-        init_ping(10000, url, div);
-        */
       });
     </script>
   </head>

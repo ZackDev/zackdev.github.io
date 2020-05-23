@@ -18,3 +18,9 @@ function ping(target_url, target_div){
   const now_ms = Date.now();
   http_request.send(null);
 }
+
+var interval = 10000;
+var target_url = "https://zackdev.github.io/assets/json/dummy.json";
+var target_div = $("#ping_output");
+
+init_ping(interval, target_url, target_div);
