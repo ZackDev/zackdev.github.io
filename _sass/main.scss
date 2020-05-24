@@ -1,3 +1,4 @@
+/* equalize attributes */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -32,7 +33,7 @@ table {
   border-spacing: 0;
 }
 
-/* basic theme */
+/* theme colors */
 $light_grey: #f2f2f2;
 $medium_grey: #373737;
 $dark_grey: #212121;
@@ -111,10 +112,6 @@ ul {
   list-style: square;
 }
 
-/*******************************************************************************
-Full-Width Styles
-*******************************************************************************/
-
 .outer {
   width: 100%;
 }
@@ -170,10 +167,7 @@ Full-Width Styles
   float: right;
 }
 
-/*******************************************************************************
-Small Device Styles
-*******************************************************************************/
-
+/* small display adjustments */
 @media screen and (max-width: 992px) {
   img {
     max-width: 100%;
