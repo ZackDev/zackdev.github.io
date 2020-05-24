@@ -32,14 +32,16 @@ table {
   border-spacing: 0;
 }
 
-/*******************************************************************************
-Theme Styles
-*******************************************************************************/
+/* basic theme */
+$light_grey: #f2f2f2;
+$medium_grey: #373737;
+$dark_grey: #212121;
+$orange: #ff4500;
 
 body {
   box-sizing: border-box;
-  color:#373737;
-  background: #212121;
+  color: $medium_grey;
+  background: $dark_grey;
   font-size: 16px;
   font-family: 'Myriad Pro', 'Calibri', Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -49,7 +51,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: 700;
-  color:#222222;
+  color: $light_grey;
   font-family: 'Lucida Grande', 'Calibri', Helvetica, Arial, sans-serif;
   letter-spacing: -1px;
 }
@@ -84,16 +86,16 @@ p {
 }
 
 a {
-  text-decoration: underline dotted #ff4500;
-  color: #373737;;
+  text-decoration: underline dotted $orange;
+  color: $medium_grey;
 }
 
 a:hover, a:focus {
-  text-decoration: underline #ff4500;
+  text-decoration: underline $orange;
 }
 
 footer a {
-  color: #ff4500;
+  color: $orange;
 }
 
 cite {
@@ -101,7 +103,6 @@ cite {
 }
 
 blockquote {
-  color: #666;
   margin-bottom: 20px;
   padding: 0 0 0 20px;
   border-left: 3px solid #bbb;
@@ -136,7 +137,7 @@ Full-Width Styles
 }
 
 #header_wrap {
-  background: #212121;
+  background: $dark_grey;
 }
 
 #header_wrap .inner {
@@ -145,16 +146,16 @@ Full-Width Styles
 
 #site_title {
   margin: 0;
-  color: #373737;
+  color: $medium_grey;
 }
 
 #page_title {
   margin: 0;
-  color: #ff4500;
+  color: $orange;
 }
 
 #main_content_wrap {
-  background: #f2f2f2;
+  background: $light_grey;
 }
 
 #main_content {
@@ -162,7 +163,7 @@ Full-Width Styles
 }
 
 #footer_wrap {
-  background: #212121;
+  background: $dark_grey;
 }
 
 #site_logo_image {
