@@ -5,7 +5,7 @@ published: true
 ---
 {% for page in site.pages %}
   {% if page.list == true %}
-    - [page.title]({{ page.url }})
+    - [{{ page.title }}]({{ page.url }})
   {% endif %}
 {% endfor %}
 
