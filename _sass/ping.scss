@@ -1,6 +1,9 @@
+#ping_wrapper {
+  text-align: center;
+}
 #ping_output {
   font-size: 30px;
   color: $orange;
-  text-align: center;
-  background_color: $medium_grey;
+  display: inline-block;
+  background-color: $medium_grey;
 }
