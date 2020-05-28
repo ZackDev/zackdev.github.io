@@ -14,6 +14,9 @@ var daily_cases = [1];
   });
 }(cases, daily_cases));
 
+Chart.defaults.global.defaultFontFamily = ''Myriad Pro', 'Calibri', Helvetica, monospace, sans-serif';
+Chart.defaults.global.defaultFontSize = 16;
+
 var cg = document.getElementById('chart_corona_germany').getContext('2d');
 var total_infections_chart = new Chart(cg, {
   type: 'line',
