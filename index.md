@@ -11,6 +11,7 @@ published: true
       </li>
     {% endif %}
   {% endfor %}
+  <div style="clear: both;"></div>
 </ul>
 
 <ul class="index_menu">
