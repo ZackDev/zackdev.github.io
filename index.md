@@ -3,7 +3,7 @@ title: index page
 layout: default
 published: true
 ---
-<ul>
+<ul class="index_menu">
   {% for page in site.pages %}
     {% if page.list == true %}
       <li>
@@ -13,7 +13,7 @@ published: true
   {% endfor %}
 </ul>
 
-<ul>
+<ul class="index_menu">
   {% for post in site.posts %}
     <li>
       <a href="{{ post.url }}">{{ post.title }}</a>
