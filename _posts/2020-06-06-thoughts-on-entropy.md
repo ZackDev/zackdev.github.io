@@ -1,7 +1,7 @@
 ---
 title: thoughts on entropy
 layout: default
-published: true
+published: false
 ---
 {% include image.html url="https://imgs.xkcd.com/comics/eventual_consistency.png" description="webcomic taken from <a href='https://xkcd.com'>XKCD.COM</a>" %}
 
