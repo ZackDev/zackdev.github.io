@@ -1,7 +1,7 @@
 ---
 title: primes
 layout: default
-published: false
+published: true
 list: true
 ---
 {% include primes.html %}
