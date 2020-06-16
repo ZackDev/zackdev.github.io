@@ -9,6 +9,7 @@ var cg = document.getElementById('chart_primes').getContext('2d');
 var primes_chart = new Chart(cg, {
   type: 'line',
   data: {
+    labels: primes,
     datasets: [{
       label: 'primes',
       backgroundColor: 'rgb(00, 144, 255)',
