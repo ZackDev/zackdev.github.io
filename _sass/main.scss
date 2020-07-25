@@ -96,7 +96,12 @@ a:hover, a:focus {
 }
 
 footer a {
+  text-decoration: underline dotted $white;
   color: $white;
+}
+
+footer a:hover, a:focus {
+  text_decoration: underline $white;
 }
 
 cite {
