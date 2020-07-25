@@ -5,7 +5,7 @@ published: true
 list: true
 ---
 # Why styling code is useful:
-One of the skills a developer should have is a sense for readable code. Not just for oneself, but also for other developers working on the same code. I won't get into design patterns here, they contribute to the architecture e.g. maintenance and extend-ability of a program, not necessarily to it's readability.
+One of the skills a developer should have is a sense for readable code. Not just for oneself, but also for other developers working on or with the same code. I won't get into design patterns here, they contribute to the architecture e.g. maintenance and extend-ability of a program, not necessarily to it's readability.
 
 A consistent coding style makes code recognizable across different functions, classes, modules and possible programs at different times. Let's have a look at the following example code that doesn't apply any coding style:
 
@@ -55,19 +55,23 @@ class ExampleClass:
 # Coding Style Guidelines:
 The following guidelines are the ones I use for, not only, but also for Python programs.
 
-
 ## Imports:
+For imports I use two separate lines at the beginning of the Python file.
 * group imports into two sections, one for known modules, the second for custom module imports
 
 
 ## Classes:
+Class definitions and their instantiation are easily recognizable and distinguishable from variables or functions within the code.
 * use first letter capitalization for classes
-* define object class functions like init(self) and del(self) at the start of the class body
+* define init(self) and del(self) at the start and end of the class body
+* define public methods after init(self)
+* private methods follow public methods
 * keep a line spacing of two lines between classes
 * use brackets only if class inherits from other classes
 
 
 ## Functions:
+The same reasoning as for classes applies to functions. Distinguishable from other forms of code and their scope is well defined.
 * function name in lower case letters
 * code follows function definition without a blank line
 * separate function names which consist of multiple words by and underscore
@@ -79,3 +83,6 @@ The following guidelines are the ones I use for, not only, but also for Python p
 ## Variables:
 * variable name in lower case letters
 * use underscore for separation of variables which names consist of multiple words
+
+
+In general, following coding style guidelines when writing code makes it easier to read when accessing it at a later point in time. Easier to navigate when it comes to maintenance and making additions. Less complicated to use within a program when class names, methods and variables tell you what they are doing without having to guess or to do tedious backtracking.
