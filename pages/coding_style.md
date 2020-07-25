@@ -49,7 +49,7 @@ class ExampleClass:
         pass
 
     def __del__(self):
-      pass
+        pass
 
 ```
 
