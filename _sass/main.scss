@@ -48,6 +48,7 @@ body {
   font-family: 'Myriad Pro', 'Calibri', Helvetica, monospace, sans-serif;
   line-height: 1.5;
   text-align: justify;
+  margin-bottom: 84px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -169,7 +170,7 @@ ul {
   position: fixed;
   left: 0;
   bottom: 0;
-  height: 40px;
+  height: 84px;
   background: $dark_grey;
 }
 
