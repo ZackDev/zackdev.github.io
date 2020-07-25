@@ -55,7 +55,8 @@ class ExampleClass:
 
 
 # Coding Style Guidelines:
-The following guidelines are grouped by where in the Python code they apply, namely imports, classes, functions & methods and variables & parameters.
+The following guidelines are grouped by where in the Python code they apply, namely imports, classes, functions & methods and variables & parameters. In general, names you give to classes, variables etc. should give away their intention.
+
 
 ## Imports:
 For imports, use two separate lines at the beginning of the Python file.
@@ -87,4 +88,4 @@ The same reasoning as for classes applies to functions and methods. Distinguisha
 * private names start with the underscore
 
 
-In general, following coding style guidelines makes it easier to read when accessing it at a later point in time. Less complicated to navigate when it comes to maintenance and making additions. Easier to use within a program when class names, methods and variables tell you what they are doing without having to guess or to do tedious backtracking.
+Following coding style guidelines makes it easier to read when accessing it at a later point in time. Less complicated to navigate when it comes to maintenance and making additions. Easier to use within a program when class names, methods and variables tell you what they are doing without having to guess or to do tedious backtracking.
