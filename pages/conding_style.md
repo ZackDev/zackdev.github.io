@@ -28,6 +28,7 @@ class exampleclass():
     def __init__(self):
         self.DoSomething()
         self.Doprivate()
+
 ```
 
 
@@ -49,6 +50,7 @@ class ExampleClass:
 
     def __del__(self):
       pass
+
 ```
 
 
