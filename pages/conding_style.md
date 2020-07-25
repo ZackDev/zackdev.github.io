@@ -54,7 +54,6 @@ class ExampleClass:
 ```
 
 
-
 # Coding Style Guidelines:
 The following guidelines are the ones I use for, not only, but also for Python programs.
 
