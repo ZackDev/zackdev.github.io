@@ -24,7 +24,8 @@ class exampleclass():
     def Doprivate(self):
         pass
     def __init__(self):
-        pass
+        self.DoSomething()
+        self.Doprivate()
 ```
 For a better understanding how an applied coding style to the above piece of code looks like, have a look at the following code. Though the code doesn't do anything, you may notice that it is better readable, like a well structured text.
 ```python
@@ -32,7 +33,8 @@ import turtle, time, math
 
 class ExampleClass:
     def __init__(self):
-        pass
+        self.do_something()
+        self._do_private()
 
     def __del__(self):
         pass
