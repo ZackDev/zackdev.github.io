@@ -55,13 +55,18 @@ class ExampleClass:
 # Coding Style Guidelines:
 The following guidelines are the ones I use for, not only, but also for Python programs.
 
+
 ## Imports:
 * group imports into two sections, one for known modules, the second for custom module imports
+
+
 ## Classes:
 * use first letter capitalization for classes
 * define object class functions like init(self) and del(self) at the start of the class body
 * keep a line spacing of two lines between classes
 * use brackets only if class inherits from other classes
+
+
 ## Functions:
 * function name in lower case letters
 * code follows function definition without a blank line
@@ -69,6 +74,8 @@ The following guidelines are the ones I use for, not only, but also for Python p
 * pseudo private functions with preceding underscore
 * have a line spacing of one line between functions
 * for parameters see the 'Variables' section
+
+
 ## Variables:
 * variable name in lower case letters
 * use underscore for separation of variables which names consist of multiple words
