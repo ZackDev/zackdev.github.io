@@ -55,10 +55,10 @@ class ExampleClass:
 
 
 # Coding Style Guidelines:
-The following guidelines are the ones I use for, not only, but also for Python programs.
+The following guidelines are grouped by where in the Python code they apply, namely imports, classes, functions & methods and variables & parameters.
 
 ## Imports:
-For imports I use two separate lines at the beginning of the Python file.
+For imports, use two separate lines at the beginning of the Python file.
 * group imports into two sections, one for known modules, the second for custom module imports
 
 
@@ -73,17 +73,18 @@ Class definitions and their instantiation are easily recognizable and distinguis
 
 
 ## Functions & Methods:
-The same reasoning as for classes applies to functions. Distinguishable from other forms of code and their scope is well defined.
-* function name in lower case letters
-* code follows function definition without a blank line
-* separate function names which consist of multiple words by and underscore
-* pseudo private functions with preceding underscore
+The same reasoning as for classes applies to functions and methods. Distinguishable from other forms of code and their scope is well defined.
+* name in lower case letters
+* code follows the function definition without a blank line
+* separate function names which consist of multiple words by an underscore
+* private names are denoted with preceding underscore
 * have a line spacing of one line between functions
 
 
 ## Variables & Parameters:
-* variable name in lower case letters
-* use underscore for separation of variables which names consist of multiple words
+* name in lower case letters
+* use underscore for separation of variables names which consist of multiple words
+* private names start with the underscore
 
 
 In general, following coding style guidelines makes it easier to read when accessing it at a later point in time. Less complicated to navigate when it comes to maintenance and making additions. Easier to use within a program when class names, methods and variables tell you what they are doing without having to guess or to do tedious backtracking.
