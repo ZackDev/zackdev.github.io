@@ -1,5 +1,6 @@
 function init_ping(interval, target_url, target_div){
   target_div.html('');
+  ping(target_url, target_div)
   setInterval(ping, interval, target_url, target_div);
 }
 
