@@ -10,6 +10,7 @@ One of the skills a developer should have is a sense for readable code. Not just
 A consistent coding style makes code recognizable across different functions, classes, modules and possible programs at different times. Let's have a look at the following example code that doesn't apply any coding style:
 
 ```python
+#unstructured code
 import turtle
 import time
 import math
@@ -35,6 +36,7 @@ class exampleclass():
 For a better understanding how an applied coding style to the above piece of code looks like, have a look at the following code. Though the code doesn't do anything, you may notice that it is better readable, like a well structured text.
 
 ```python
+#structured code
 import turtle, time, math
 
 class ExampleClass:
