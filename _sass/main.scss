@@ -133,6 +133,10 @@ ul {
 #build_details {
   color: $white;
   float: right;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 #home_link {
