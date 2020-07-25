@@ -37,7 +37,6 @@ table {
 $light_grey: #F2F2F2;
 $medium_grey: #373737;
 $dark_grey: #212121;
-$orange: #FF4500;
 $white: #FFFFFF;
 $black: #000000;
 
@@ -93,7 +92,7 @@ a {
 }
 
 a:hover, a:focus {
-  text-decoration: underline $orange;
+  text-decoration: underline $black;
 }
 
 footer a {
