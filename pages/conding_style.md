@@ -52,6 +52,7 @@ class ExampleClass:
 ```
 
 
+
 # Coding Style Guidelines:
 The following guidelines are the ones I use for, not only, but also for Python programs.
 
@@ -70,17 +71,16 @@ Class definitions and their instantiation are easily recognizable and distinguis
 * use brackets only if class inherits from other classes
 
 
-## Functions:
+## Functions & Methods:
 The same reasoning as for classes applies to functions. Distinguishable from other forms of code and their scope is well defined.
 * function name in lower case letters
 * code follows function definition without a blank line
 * separate function names which consist of multiple words by and underscore
 * pseudo private functions with preceding underscore
 * have a line spacing of one line between functions
-* for parameters see the 'Variables' section
 
 
-## Variables:
+## Variables & Parameters:
 * variable name in lower case letters
 * use underscore for separation of variables which names consist of multiple words
 
