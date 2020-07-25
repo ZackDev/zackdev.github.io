@@ -87,4 +87,4 @@ The same reasoning as for classes applies to functions. Distinguishable from oth
 * use underscore for separation of variables which names consist of multiple words
 
 
-In general, following coding style guidelines when writing code makes it easier to read when accessing it at a later point in time. Easier to navigate when it comes to maintenance and making additions. Less complicated to use within a program when class names, methods and variables tell you what they are doing without having to guess or to do tedious backtracking.
+In general, following coding style guidelines makes it easier to read when accessing it at a later point in time. Less complicated to navigate when it comes to maintenance and making additions. Easier to use within a program when class names, methods and variables tell you what they are doing without having to guess or to do tedious backtracking.
