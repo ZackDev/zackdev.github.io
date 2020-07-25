@@ -41,14 +41,14 @@ class ExampleClass:
         self.do_something()
         self._do_private()
 
-    def __del__(self):
-        pass
-
     def do_something(self):
         pass
 
     def _do_private(self):
         pass
+
+    def __del__(self):
+      pass
 ```
 
 
