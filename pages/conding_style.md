@@ -55,7 +55,7 @@ The following guidelines are the ones I use for, not only, but also for Python p
   * group imports into two sections, one for known modules, the second for custom module imports
 * Classes
   * use first letter capitalization for classes
-  * define object class functions like __init__(self) and __del__(self) at the start of the class body
+  * define object class functions like init(self) and del(self) at the start of the class body
   * keep a line spacing of two lines between classes
   * use brackets only if class inherits from other classes
 * Functions
