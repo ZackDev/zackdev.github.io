@@ -58,7 +58,7 @@ class ExampleClass:
 
 # Coding Style Guidelines:
 The following guidelines are grouped by where in the Python code they apply, namely imports, classes, functions & methods and variables & parameters.
-* In general, names you give to classes, variables etc. should give away their intention.
+* In general, names you give to classes, variables etc. should tell the user their intention.
 
 
 ## Imports:
