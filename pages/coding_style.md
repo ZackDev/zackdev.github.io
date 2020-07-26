@@ -32,7 +32,6 @@ class exampleclass():
 
 ```
 
-
 For a better understanding how an applied coding style to the above piece of code looks like, have a look at the following code. Though the code doesn't do anything, you may notice that it is better readable, like a well structured text.
 
 ```python
@@ -60,11 +59,9 @@ class ExampleClass:
 The following guidelines are grouped by where in the Python code they apply, namely imports, classes, functions & methods and variables & parameters.
 * In general, names you give to classes, variables etc. should tell the user their intention.
 
-
 ## Imports:
 For imports, use two separate lines at the beginning of the Python file.
 * group imports into two sections, one for known modules, the second for custom module imports
-
 
 ## Classes:
 Class definitions and their instantiation are easily recognizable and distinguishable from variables or functions within the code.
@@ -75,7 +72,6 @@ Class definitions and their instantiation are easily recognizable and distinguis
 * keep a line spacing of two lines between classes
 * use brackets only if class inherits from other classes
 
-
 ## Functions & Methods:
 The same reasoning as for classes applies to functions and methods. Distinguishable from other forms of code and their scope is well defined.
 * name in lower case letters
@@ -84,11 +80,9 @@ The same reasoning as for classes applies to functions and methods. Distinguisha
 * private names are denoted with preceding underscore
 * have a line spacing of one line between functions
 
-
 ## Variables & Parameters:
 * name in lower case letters
 * use underscore for separation of variables names which consist of multiple words
 * private names start with the underscore
-
 
 Following coding style guidelines makes it easier to read when accessing it at a later point in time. Less complicated to navigate when it comes to making additions. Easier to use within a program when class names, methods and variables tell you what they are doing without having to guess or to do tedious backtracking.
