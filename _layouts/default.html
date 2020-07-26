@@ -17,22 +17,24 @@
     </script>
   </head>
   <body>
-    <!-- header -->
+    <!-- header start -->
     <div id="header_wrap" class="outer">
         <header class="inner">
           <h5 id="page_title">{{ page.title }}</h5>
           <h1 id="site_title">{{ site.title | default: site.github.repository_name }}</h1>
         </header>
     </div>
+    <!-- header end -->
 
-    <!-- content -->
+    <!-- content start -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         {{ content }}
       </section>
     </div>
+    <!-- content end -->
 
-    <!-- footer  -->
+    <!-- footer start -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
         {% if page.url != "/" %}
@@ -41,5 +43,6 @@
         <div id="build_details">Jekyll {{ site.github.versions.jekyll }} | last update on {{ site.time | date_to_long_string }}</div>
       </footer>
     </div>
+    <!-- footer end -->
   </body>
 </html>
