@@ -1,10 +1,9 @@
 ---
-title: coding style
+title: Why Coding Style Is Useful
 layout: default
 published: true
 list: true
 ---
-# Why Styling Code Is Useful:
 One of the skills a developer should have is a sense for readable code. Not just for oneself, but also for other developers working on or with the same code. I won't get into design patterns here, they contribute to the architecture e.g. maintenance and extend-ability of a program, not necessarily to it's readability.
 
 A consistent coding style makes code recognizable across different functions, classes, modules and possible programs at different times. Let's have a look at the following example code that doesn't apply any coding style:
