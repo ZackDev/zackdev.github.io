@@ -15,7 +15,7 @@ This bias is responsible for filter bubbles. One looks for information that conf
 # Hindsight Bias:
 > The rationalization of an event after it occurred.
 
-An indication for this bias is when one experiences *I've known it before*, but didn't act on it. Maybe there was conflicting information before, that made it unclear or too risky to adjust to it. The rationalization's direction is backwards.
+An indication for this bias is when one experiences *I've known it before*, but didn't act on it. Maybe there was conflicting information, that made it unclear or too risky to adjust to it. The rationalization's direction is backwards.
 
 # Repetition Bias:
 > Projecting past experiences into the future.
