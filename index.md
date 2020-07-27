@@ -3,6 +3,14 @@ title: Index Page
 layout: default
 published: true
 ---
+# This Blog Is:
+For any topic that I stumble upon.
+
+An online reference.
+
+Personal playground.
+
+# Links Show Up Here:
 <ul class="index_menu">
   {% for page in site.pages %}
     {% if page.list == true %}
@@ -21,9 +29,3 @@ published: true
     </li>
   {% endfor %}
 </ul>
-# This Blog Is:
-For any topic that I stumble upon.
-
-An online reference.
-
-Personal playground.
