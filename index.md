@@ -1,5 +1,5 @@
 ---
-title: index page
+title: Index Page
 layout: default
 published: true
 ---
