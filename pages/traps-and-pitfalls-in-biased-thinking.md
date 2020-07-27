@@ -24,4 +24,4 @@ The alignment of one's way of thinking with that of the authority.
 
 Though one may be convinced that their decision making process is purely rational, biases distort thinking. By being aware of those biases, one maintains his ability of critical thinking.
 
-See [Wikipedia List Of Cognitive Biases](https://en.wikipedia.org/wiki/List_of_cognitive_biases) for a more exhaustive list of biases.
+See [Wikipedia List Of Cognitive Biases](https://en.wikipedia.org/wiki/List_of_cognitive_biases) for a more exhaustive list.
