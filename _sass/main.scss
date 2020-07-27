@@ -136,8 +136,8 @@ ul {
   top: 0;
   height: 84px;
   background: $dark_grey;
-  z-index: 1;
-  opacity: 0.9;
+  z-index: 2;
+  opacity: 0.95;
 }
 
 #header_wrap .inner {
@@ -159,7 +159,7 @@ ul {
   position: relative;
   top: 84px;
   background: $light_grey;
-  z-index: 0;
+  z-index: 1;
 }
 
 #main_content {
@@ -172,8 +172,8 @@ ul {
   bottom: 0;
   height: 84px;
   background: $dark_grey;
-  z-index: 1;
-  opacity: 0.9;
+  z-index: 2;
+  opacity: 0.95;
 }
 
 #footer_background {
