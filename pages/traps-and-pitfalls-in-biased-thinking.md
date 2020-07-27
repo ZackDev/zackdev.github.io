@@ -5,7 +5,7 @@ layout: default
 published: true
 list: true
 ---
-A bias is a preconceived way of thinking that affects our everyday life. Not implicitly faulty, because biases strengthen group cohesion and have a stabilizing effect on our inner world, they have a great amount of influence on how we act in the world. Let's have a look at some biases.
+A bias is a preconceived way of thinking that affects our everyday life. Not implicitly faulty, because biases strengthen group cohesion and have a stabilizing effect on our inner world, they have a great amount of influence on how we act. Let's have a look at some biases.
 
 # Confirmation Bias:
 The tendency to seek for information that corresponds with our acquired mindset.
