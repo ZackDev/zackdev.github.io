@@ -145,6 +145,7 @@ ul {
   top: 0;
   height: 84px;
   background: $dark_grey;
+  z-index: 1;
 }
 
 #header_wrap .inner {
@@ -163,7 +164,10 @@ ul {
 }
 
 #main_content_wrap {
+  position: relative;
+  top: 84px;
   background: $light_grey;
+  z-index: 0;
 }
 
 #main_content {
@@ -176,6 +180,7 @@ ul {
   bottom: 0;
   height: 84px;
   background: $dark_grey;
+  z-index: 1;
 }
 
 
