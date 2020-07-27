@@ -42,7 +42,7 @@ $black: #000000;
 
 body {
   box-sizing: border-box;
-  color: $medium_grey;
+  color: $light_grey;
   background: $dark_grey;
   font-size: 18px;
   font-family: 'Myriad Pro', 'Calibri', Helvetica, monospace, sans-serif;
@@ -54,7 +54,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: 700;
-  color: $black;
+  color: $medium_grey;
   font-family: 'Lucida Grande', 'Calibri', Helvetica, monospace, sans-serif;
 }
 
