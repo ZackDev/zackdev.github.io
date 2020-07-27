@@ -21,3 +21,9 @@ published: true
     </li>
   {% endfor %}
 </ul>
+# This Blog Is:
+For any topic that I stumble upon.
+
+An online reference.
+
+Personal playground.
