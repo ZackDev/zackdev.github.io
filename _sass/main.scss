@@ -140,6 +140,10 @@ ul {
 }
 
 #header_wrap {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 84px;
   background: $dark_grey;
 }
 
