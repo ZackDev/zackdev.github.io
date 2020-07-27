@@ -1,5 +1,6 @@
 ---
 title: Corona Chart For Germany
+permalink: /pages/corona-chart-for-germany.html
 layout: default
 published: true
 list: true

@@ -1,5 +1,6 @@
 ---
 title: A Simple Browser-Based Ping
+permalink: /pages/a-simple-browser-based-ping.html
 layout: default
 published: true
 list: true

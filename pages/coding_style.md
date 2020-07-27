@@ -1,5 +1,6 @@
 ---
 title: Why Coding Style Is Useful
+permalink: /pages/why-coding-style-is-useful.html
 layout: default
 published: true
 list: true
