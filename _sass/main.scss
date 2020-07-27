@@ -59,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 700;
 }
 
@@ -68,19 +68,19 @@ h2 {
 }
 
 h3 {
-  font-size: 25px;
+  font-size: 26px;
 }
 
 h4 {
-  font-size: 22px;
+  font-size: 24px;
 }
 
 h5 {
-  font-size: 19px;
+  font-size: 22px;
 }
 
 h6 {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 p {
@@ -130,15 +130,6 @@ ul {
   margin: 0 auto;
 }
 
-#build_details {
-  color: $white;
-  float: right;
-}
-
-#home_link {
-  float: left;
-}
-
 #header_wrap {
   position: fixed;
   left: 0;
@@ -154,14 +145,13 @@ ul {
   line-height: 1.0;
 }
 
-#site_title {
-  margin: 0;
-  color: $medium_grey;
-}
-
 #page_title {
   margin: 0;
   color: $white;
+}
+
+#main_content {
+  padding-top: 40px;
 }
 
 #main_content_wrap {
@@ -169,10 +159,6 @@ ul {
   top: 84px;
   background: $light_grey;
   z-index: 0;
-}
-
-#main_content {
-  padding-top: 40px;
 }
 
 #footer_wrap {
@@ -185,6 +171,14 @@ ul {
   opacity: 0.9;
 }
 
+#build_details {
+  color: $white;
+  float: right;
+}
+
+#home_link {
+  float: left;
+}
 
 /* small display adjustments */
 @media screen and (max-width: 992px) {
@@ -208,15 +202,15 @@ ul {
   }
 
   h1 {
-    font-size: 28px;
-  }
-
-  h2 {
     font-size: 24px;
   }
 
+  h2 {
+    font-size: 22px;
+  }
+
   h3 {
-    font-size: 21px;
+    font-size: 20px;
   }
 
   h4 {
@@ -232,7 +226,7 @@ ul {
   }
 
   code, pre {
-    font-size: 11px;
+    font-size: 10px;
   }
 
 }
@@ -248,15 +242,15 @@ ul {
   }
 
   #project_title {
-    font-size: 28px;
-  }
-
-  h1 {
     font-size: 24px;
   }
 
+  h1 {
+    font-size: 22px;
+  }
+
   h2 {
-    font-size: 21px;
+    font-size: 20px;
   }
 
   h3 {
