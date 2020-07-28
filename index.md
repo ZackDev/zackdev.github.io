@@ -8,7 +8,7 @@ For any topic that I stumble upon.
 
 An online reference.
 
-A Personal playground.
+A personal playground.
 
 # Links Show Up Here:
 <ul class="index_menu">
