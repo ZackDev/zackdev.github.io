@@ -46,8 +46,6 @@ table {
 $light_grey: #F2F2F2;
 $medium_grey: #373737;
 $dark_grey: #212121;
-$white: #FFFFFF;
-$black: #000000;
 
 body {
   box-sizing: border-box;
@@ -97,21 +95,21 @@ p {
 }
 
 a {
-  text-decoration: underline dotted $black;
-  color: $medium_grey;
+  text-decoration: underline dotted $dark_grey;
+  color: $dark_grey;
 }
 
 a:hover, a:focus {
-  text-decoration: underline $black;
+  text-decoration: underline $dark_grey;
 }
 
 footer a {
-  text-decoration: underline dotted $white;
-  color: $white;
+  text-decoration: underline dotted $light_grey;
+  color: $light_grey;
 }
 
 footer a:hover, a:focus {
-  text_decoration: underline $white;
+  text_decoration: underline $light_grey;
 }
 
 cite {
@@ -197,7 +195,7 @@ ul {
 
 #page_title {
   margin: 0;
-  color: $white;
+  color: $light_grey;
 }
 
 #site_details {
