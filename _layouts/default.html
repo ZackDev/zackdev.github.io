@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.5.1"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3"></script>
+    <script type="text/javascript" src="/assets/javascript/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/javascript/Chart.min.js"></script>
     <link href="/assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
@@ -41,7 +41,7 @@
         {% if page.url != "/" %}
         <a id="home_link" href="{{ site.url }}">back home</a>
         {% endif %}
-        <div id="build_details">Jekyll {{ site.github.versions.jekyll }} | last update on {{ site.time | date_to_long_string }}</div>
+        <div id="site_details"><s>3rd Party Tracking</s> | <s>Cookies</s> | Jekyll {{ site.github.versions.jekyll }} | {{ site.time | date_to_long_string }}</div>
       </footer>
     </div>
     <div id="footer_background"></div>
