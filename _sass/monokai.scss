@@ -4,6 +4,9 @@
   border-radius: 10px;
   padding: 10px;
 }
+.lineno {
+  color: $light_grey;
+}
 .highlight .hll { background-color: $medium_grey; }
 .highlight .c { color: #75715e } /* Comment */
 .highlight .err { color: #960050; background-color: #1e0010 } /* Error */
