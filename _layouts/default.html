@@ -21,7 +21,9 @@
     <!-- header start -->
     <div id="header_wrap" class="outer">
         <header class="inner">
+          {% if page.url != "/" %}
           <h1 id="page_title">{{ page.title }}:</h1>
+          {% endif %}
         </header>
     </div>
     <div id="header_background"></div>
@@ -41,7 +43,7 @@
         {% if page.url != "/" %}
         <a id="home_link" href="{{ site.url }}">back home</a>
         {% endif %}
-        <div id="site_details"><s>3rd Party Tracking</s> | <s>Cookies</s> | Jekyll {{ site.github.versions.jekyll }} | {{ site.time | date_to_long_string }}</div>
+        <div id="site_details"><s>3rd Party Tracking</s> | <s>Cookies</s> | {{ site.time | date_to_long_string }}</div>
       </footer>
     </div>
     <div id="footer_background"></div>
