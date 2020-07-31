@@ -1,5 +1,6 @@
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
+var http_request = new XMLHttpRequest();
+http_request.open("GET", "/assets/json/corona_germany_daily_cases.json", true);
+http_request.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
     var json_response = JSON.parse(this.responseText);
     var cases = json_response.cases;
@@ -7,8 +8,7 @@ xmlhttp.onreadystatechange = function() {
     draw_chart(cases, dates);
   }
 };
-xmlhttp.open("GET", "/assets/json/corona_germany_daily_cases.json", true);
-xmlhttp.send();
+http_request.send(null);
 
 function draw_chart(cases, dates) {
   var daily_cases = [1];
