@@ -20,7 +20,7 @@ function ping(target_url, target_div){
   http_request.send(null);
 }
 
-var interval = 1000;
+var interval = 3000;
 var target_url = "https://zackdev.github.io/assets/json/dummy.json";
 var target_div = $("#ping_output");
 
