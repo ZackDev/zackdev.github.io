@@ -10,8 +10,7 @@ function ping(target_url, target_div){
   http_request.open("GET", target_url, true);
   http_request.responseType = "json";
   http_request.onreadystatechange = function () {
-    var done = 4, ok = 200;
-    if (http_request.readyState === done && http_request.status === ok) {
+    if (this.readyState == 4 && this.status == 200) {
       let time_elapsed = Date.now() - now_ms;
       target_div.html('ping: ' + time_elapsed + 'ms');
     }
