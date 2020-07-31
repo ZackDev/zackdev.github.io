@@ -1,6 +1,6 @@
 ---
 title: stub
-permalink: /pages/stub.html
+permalink: /stub.html
 layout: default
 published: false
 list: true
