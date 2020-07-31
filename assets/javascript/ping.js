@@ -21,7 +21,7 @@ function ping(target_url, target_div){
 }
 
 var interval = 3000;
-var target_url = "https://zackdev.github.io/assets/json/dummy.json";
+var target_url = "/assets/json/dummy.json";
 var target_div = $("#ping_output");
 
 init_ping(interval, target_url, target_div);
