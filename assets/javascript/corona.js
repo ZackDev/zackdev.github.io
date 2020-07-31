@@ -1,10 +1,10 @@
 var http_request = new XMLHttpRequest();
 http_request.open("GET", "/assets/json/corona_germany_daily_cases.json", true);
+http_request.responseType = "json"
 http_request.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
-    var json_response = JSON.parse(this.responseText);
-    var cases = json_response.cases;
-    var dates = json_response.dates;
+    var cases = this.response.cases;
+    var dates = this.response.dates;
     draw_chart(cases, dates);
   }
 };
