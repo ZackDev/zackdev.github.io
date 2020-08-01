@@ -2,3 +2,5 @@ timezone: DE
 encoding: utf-8
 highlighter: rouge
 #theme: jekyll-theme-slate
+plugins:
+  - jekyll-seo-tag

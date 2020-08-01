@@ -2,7 +2,6 @@
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
     <meta charset="utf-8">
-    <title>{{ page.title }}</title>
     <script type="text/javascript" src="/assets/javascript/jquery.min.js"></script>
     <script type="text/javascript" src="/assets/javascript/Chart.min.js"></script>
     <link href="/assets/css/style.css" rel="stylesheet" type="text/css">
@@ -16,6 +15,7 @@
         $('#main_content_wrap').css('min-height', window_height - header_height - footer_height + 'px');
       });
     </script>
+    {% seo %}
   </head>
   <body>
     <!-- header start -->
