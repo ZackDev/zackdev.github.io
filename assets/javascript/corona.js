@@ -1,4 +1,6 @@
 function init() {
+  Chart.defaults.global.defaultFontFamily = "'Myriad Pro', 'Calibri', Helvetica, sans-serif";
+  Chart.defaults.global.defaultFontSize = 16;
   init_daily_cases();
   init_weekly_tests();
 };
@@ -44,9 +46,6 @@ function draw_daily_cases_chart(cases, dates) {
       }
     });
   }(cases, daily_cases));
-
-  Chart.defaults.global.defaultFontFamily = "'Myriad Pro', 'Calibri', Helvetica, sans-serif";
-  Chart.defaults.global.defaultFontSize = 16;
 
   var cg = document.getElementById('chart_corona_cases_germany').getContext('2d');
   var total_infections_chart = new Chart(cg, {
@@ -108,13 +107,9 @@ function draw_daily_cases_chart(cases, dates) {
 };
 
 function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
-
-  Chart.defaults.global.defaultFontFamily = "'Myriad Pro', 'Calibri', Helvetica, sans-serif";
-  Chart.defaults.global.defaultFontSize = 16;
-
   var cg = document.getElementById('chart_corona_tests_germany').getContext('2d');
   var total_infections_chart = new Chart(cg, {
-    type: 'line',
+    type: 'bar',
     data: {
       labels: calendar_weeks,
       datasets: [{
