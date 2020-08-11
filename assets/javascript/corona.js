@@ -43,6 +43,8 @@ function draw_daily_cases_chart(cases, dates) {
         last_data = n;
       } else if (n > 0){
         last_data = n;
+      } else if (n === 0){
+        d.push(n);
       }
     });
   }(cases, daily_cases));
