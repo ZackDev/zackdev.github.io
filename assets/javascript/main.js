@@ -1,3 +1,4 @@
+/* reusable javascript @ zackdev.github.io */
 const get_async_json = function get_async_json(url, callback) {
   let http_request = new XMLHttpRequest();
   http_request.open("GET", url, true);
