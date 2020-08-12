@@ -2,7 +2,7 @@ function init_ping(interval, target_url, target_div){
   target_div.html('');
   ping(target_url, target_div)
   setInterval(ping, interval, target_url, target_div);
-}
+};
 
 function ping(target_url, target_div){
   var http_request = new XMLHttpRequest();
@@ -17,10 +17,14 @@ function ping(target_url, target_div){
   };
   const now_ms = Date.now();
   http_request.send(null);
-}
+};
 
-var interval = 3000;
-var target_url = "/assets/json/dummy.json";
-var target_div = $("#ping_output");
+function init() {
+  let interval = 3000;
+  let target_url = "/assets/json/dummy.json";
+  let target_div = $("#ping_output");
 
-init_ping(interval, target_url, target_div);
+  init_ping(interval, target_url, target_div);
+};
+
+init();
