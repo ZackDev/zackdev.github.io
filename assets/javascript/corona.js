@@ -1,36 +1,34 @@
 function init() {
   Chart.defaults.global.defaultFontFamily = "'Myriad Pro', 'Calibri', Helvetica, sans-serif";
   Chart.defaults.global.defaultFontSize = 16;
-  init_daily_cases();
-  init_weekly_tests();
+  let daily_cases_url = "/assets/json/corona_germany_daily_cases.json";
+  let weekly_tests_url = "/assets/json/corona_germany_weekly_tests.json";
+  get_async_json(daily_cases_url, get_async_daily_cases_callback);
+  get_async_json(weekly_tests_url, get_async_weekly_tests_callback);
 };
 
-function init_daily_cases() {
-  var http_request = new XMLHttpRequest();
-  http_request.open("GET", "/assets/json/corona_germany_daily_cases.json", true);
+const get_async_json = function get_async_json(url, callback) {
+  let http_request = new XMLHttpRequest();
+  http_request.open("GET", url, true);
   http_request.responseType = "json"
   http_request.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      var cases = this.response.cases;
-      var dates = this.response.dates;
-      draw_daily_cases_chart(cases, dates);
+      callback(this);
     }
   };
   http_request.send(null);
 };
 
-function init_weekly_tests() {
-  var http_request = new XMLHttpRequest();
-  http_request.open("GET", "/assets/json/corona_germany_weekly_tests.json", true);
-  http_request.responseType = "json"
-  http_request.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      var weekly_tests = this.response.weekly_tests;
-      var calendar_weeks = this.response.calendar_weeks;
-      draw_weekly_tests_chart(weekly_tests, calendar_weeks);
-    }
-  };
-  http_request.send(null);
+const get_async_daily_cases_callback = function get_async_daily_cases_callback(callback_object) {
+  let cases = callback_object.response.cases;
+  let dates = callback_object.response.dates;
+  draw_daily_cases_chart(cases, dates);
+};
+
+const get_async_weekly_tests_callback = function get_async_weekly_tests_callback(callback_object) {
+  let weekly_tests = callback_object.response.weekly_tests;
+  let calendar_weeks = callback_object.response.calendar_weeks;
+  draw_weekly_tests_chart(weekly_tests, calendar_weeks);
 };
 
 function draw_daily_cases_chart(cases, dates) {
