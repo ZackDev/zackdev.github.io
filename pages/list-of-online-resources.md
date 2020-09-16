@@ -16,3 +16,7 @@ Prolekult is a Marxist film, writing and culture platform based in Birmingham, E
 # Quanta Magazine
 Explore mind-bending developments in basic science and math research. Quanta is an award-winning, editorially independent magazine published by the Simons Foundation.
 - [Quanta Magazine](https://www.quantamagazine.org/)
+
+# xkdc
+A webcomic of romance, sarcasm, math, and language.
+- [xkdc](https://xkcd.com/)
