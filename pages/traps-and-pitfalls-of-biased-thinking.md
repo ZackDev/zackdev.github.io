@@ -32,6 +32,13 @@ A bias dominated by group cohesion. To operate successfully as a group, there ne
 
 Herein lies a tendency to trust information that is presented by an authority more than that of an actor with less authority. If the authority over-arches into other domains, or the authority becomes corrupt, the bias leads to faulty decisions.
 
+# Sunk Cost Fallacy:
+> Overvaluation of past investment.
+
+Sticking to a project that has already consumed a notable amount of investment, be it time, money or emotions, simply because the investment made makes it hard to cancel that project, even if it is bound to become non-profitable or a loss.
+
+An example of *Sunk Cost Fallacy* could be the restoration of the sailing ship [Gorch Fock](https://en.wikipedia.org/wiki/Gorch_Fock_(1958)), where the actual costs for restoration exceed the proposed costs by the factor 10.
+
 Though one may be convinced that his or her decision making process is purely rational, biases distort thinking. By being aware of those biases, one maintains his ability of critical thinking.
 
 See [Wikipedia List Of Cognitive Biases](https://en.wikipedia.org/wiki/List_of_cognitive_biases) for a more exhaustive list.
