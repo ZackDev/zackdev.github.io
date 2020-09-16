@@ -4,6 +4,7 @@ permalink: /list-of-online-resources.html
 layout: default
 published: true
 list: true
+index: 5
 ---
 # The Quintessential Mind
 The Quintessential Mind is creating video essays on Personal Development, Psychology, Philosophy and Culture.

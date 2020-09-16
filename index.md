@@ -12,7 +12,8 @@ A personal playground.
 
 # Links Show Up Here:
 <ul class="index_menu">
-  {% for page in site.pages %}
+  {% assign sorted_pages = site.pages | sort: "index" %}
+  {% for page in sorted_pages %}
     {% if page.list == true %}
       <li>
         <a href="{{ page.permalink }}">{{ page.title }}</a>
