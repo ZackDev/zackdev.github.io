@@ -12,7 +12,7 @@ A personal playground.
 
 # Links Show Up Here:
 <ul class="index_menu">
-  {% assign sorted_pages = site.pages | sort: "index" %}
+  {% assign sorted_pages = site.pages | sort: "index" | reverse %}
   {% for page in sorted_pages %}
     {% if page.list == true %}
       <li>
