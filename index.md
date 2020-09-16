@@ -13,7 +13,7 @@ A personal playground.
 # Links Show Up Here:
 <ul class="index_menu">
   {% assign sorted_pages = site.pages | sort: "index" | reverse %}
-  {% for page in sorted_pages %}
+  {% for page in sorted_pages limit:5 %}
     {% if page.list == true %}
       <li>
         <a href="{{ page.permalink }}">{{ page.title }}</a>
@@ -30,3 +30,4 @@ A personal playground.
     </li>
   {% endfor %}
 </ul>
+[Archive](/archive.html)
