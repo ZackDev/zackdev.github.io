@@ -4,10 +4,11 @@
   white-space: pre-wrap;      /* current browsers */
 }
 
-#text_input {
+#text_input, #morse_input {
   width: 98%;
+  font-size: 30px;
 }
 
-#morse_code {
+#text_output, #morse_output {
   font-size: 30px;
 }
