@@ -30,4 +30,6 @@ A personal playground.
     </li>
   {% endfor %}
 </ul>
-[Archive](/archive.html)
+{% if sorted_pages.size > 5 %}
+  [Archive](/archive.html)
+{% endif %}
