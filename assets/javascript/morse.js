@@ -73,13 +73,13 @@ function draw_morse(morse){
 }
 
 function draw_text(text){
-  var output = $("#text_output");
+  let output = $("#text_output");
   output.html("");
   output.html(text);
 }
 
 function alphanum_to_morse(alphanum){
-  var array_morse = new Array();
+  let array_morse = new Array();
   for (let i=0; i<alphanum.length; i++){
     let values = morse_map.get(alphanum[i]);
     for (let j=0; j<values.length; j++){
@@ -122,15 +122,15 @@ function on_morse_input(){
   let str_output = "";
   console.log(reverse_map.keys());
   for (let i=0; i<input_array.length; i++){
-    for (let [key, value] of reverse_map){
-      if (key.startsWith(input_array[i]) === true) {
-        if (i < input_array.length -1){
-          str_output = str_output + input_array[i] + " ";
-        }
-        else if (i == input_array.length -1){
+    if (i < input_array.length -1 && reverse_map.has(input_array[i]) === true) {
+      str_output = str_output + input_array[i] + " ";
+    }
+    else if (i == input_array.length -1){
+      for (let [key, value] of reverse_map){
+        if (key.startsWith(input_array[i]) === true) {
           str_output = str_output + input_array[i];
+          break;
         }
-        break;
       }
     }
   }
