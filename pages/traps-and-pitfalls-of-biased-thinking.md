@@ -16,7 +16,7 @@ This bias is responsible for filter bubbles. One looks for information that conf
 # Hindsight Bias:
 > The rationalization of an event after it occurred.
 
-An indication for this bias is when one experiences *I've known it before*, but didn't act on it. Maybe there was conflicting information, that made it unclear or too risky to adjust to it. The rationalization's direction is backwards.
+An indication for this bias is when one experiences *I've known it before*, but didn't act on it. Maybe there was conflicting information, that made it unclear or too risky to adjust. The rationalization's direction is backwards.
 
 # Repetition Bias:
 > Projecting past experiences into the future.
@@ -38,8 +38,7 @@ Herein lies a tendency to trust information that is presented by an authority mo
 
 Sticking to a project that has already consumed a notable amount of investment, be it time, money or emotions, simply because the investment made makes it hard to cancel that project, even if it is bound to become non-profitable or a loss.
 
-An example of *Sunk Cost Fallacy* could be the restoration of the sailing ship [Gorch Fock](https://en.wikipedia.org/wiki/Gorch_Fock_(1958)), where the actual costs for restoration exceed the proposed costs by the factor 10.
-
+# Conclusion:
 Though one may be convinced that his or her decision making process is purely rational, biases distort thinking. By being aware of those biases, one maintains his ability of critical thinking.
 
 See [Wikipedia List Of Cognitive Biases](https://en.wikipedia.org/wiki/List_of_cognitive_biases) for a more exhaustive list.
