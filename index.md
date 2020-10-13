@@ -12,13 +12,11 @@ A personal playground.
 
 # Links Show Up Here:
 <ul class="index_menu">
-  {% assign sorted_pages = site.pages | sort: "index" | reverse %}
+  {% assign sorted_pages = site.pages | where: 'list', true | sort: "index" | reverse %}
   {% for page in sorted_pages limit:5 %}
-    {% if page.list == true %}
-      <li>
-        <a href="{{ page.permalink }}">{{ page.title }}</a>
-      </li>
-    {% endif %}
+    <li>
+      <a href="{{ page.permalink }}">{{ page.title }}</a>
+    </li>
   {% endfor %}
   <div style="clear: both;"></div>
 </ul>
@@ -31,5 +29,5 @@ A personal playground.
   {% endfor %}
 </ul>
 {% if sorted_pages.size > 5 %}
-  [Archive](/archive.html)
+  [Archive ({{ sorted_pages.size | minus: 5 }})](/archive.html)
 {% endif %}
