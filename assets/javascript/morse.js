@@ -105,7 +105,7 @@ function morse_to_alphanum(morse){
 
 function on_text_input(){
   let str_input = $("#text_input").val();
-  let str_regex = new RegExp("[A-Z0-9 ]+");
+  let str_regex = new RegExp("[A-Z0-9 ]+","g");
   str_input = str_input.toUpperCase();
   str_output = "";
   let array = [...str_input.matchAll(str_regex)];
