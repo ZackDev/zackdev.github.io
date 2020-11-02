@@ -2,7 +2,7 @@
 title: List Of Online Resources
 permalink: /list-of-online-resources.html
 layout: default
-published: true
+published: false
 list: true
 index: 5
 ---
