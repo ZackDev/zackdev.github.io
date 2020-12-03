@@ -41,14 +41,14 @@ function draw_daily_cases_chart(cases, dates) {
     data: {
       labels: dates,
       datasets: [{
-        label: 'total infections',
+        label: 'total positive PCR tests',
         backgroundColor: 'rgb(00, 144, 255)',
         borderColor: 'rgb(00, 144, 255)',
         data: cases,
         fill: false,
         yAxisID: 'total-y-axis'
       },{
-        label: 'daily infections',
+        label: 'daily positive PCR tests',
         backgroundColor: 'rgb(46, 46, 46)',
         borderColor: 'rgb(46, 46, 46)',
         data: daily_cases,
@@ -73,7 +73,7 @@ function draw_daily_cases_chart(cases, dates) {
           },
           scaleLabel: {
             display: true,
-            labelString: 'total infections',
+            labelString: 'total positive PCR tests',
             fontColor: 'rgb(00, 144, 255)'
           }
         },{
@@ -85,7 +85,7 @@ function draw_daily_cases_chart(cases, dates) {
           },
           scaleLabel: {
             display: true,
-            labelString: 'daily infections',
+            labelString: 'daily positive PCR tests',
             fontColor: 'rgb(46, 46, 46)'
           }
         }]
@@ -101,7 +101,7 @@ function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
     data: {
       labels: calendar_weeks,
       datasets: [{
-        label: 'weekly tests',
+        label: 'weekly performed PCR tests',
         backgroundColor: 'rgb(00, 144, 255)',
         borderColor: 'rgb(00, 144, 255)',
         data: weekly_tests,
@@ -125,7 +125,7 @@ function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
           },
           scaleLabel: {
             display: true,
-            labelString: 'weekly tests',
+            labelString: 'weekly performed PCR tests',
             fontColor: 'rgb(00, 144, 255)'
           }
         }]

@@ -6,7 +6,7 @@ published: true
 list: true
 index: 2
 ---
-The following chart uses [chart.js](https://www.chartjs.org/) to display the total number (blue line) of confirmed SARS-CoV-2 cases for Germany. The daily increase (black bars) shows the day to day increase in cases.
+The following chart uses [chart.js](https://www.chartjs.org/) to display the total number (blue line) of confirmed SARS-CoV-2 cases for Germany, as tested with the PCR test. The daily increase (black bars) shows the day to day increase in cases.
 
 The second chart is showing the weekly performed tests for the SARS-CoV-2 virus. The displayed data lags behind two days, because they get officially published on the week's following Wednesdays.
 
