@@ -3,8 +3,8 @@ function init() {
   Chart.defaults.global.defaultFontSize = 16;
   let daily_cases_url = "/assets/json/corona_germany_daily_cases.json";
   let weekly_tests_url = "/assets/json/corona_germany_weekly_tests.json";
-  get_async_json(daily_cases_url, get_async_daily_cases_callback);
-  get_async_json(weekly_tests_url, get_async_weekly_tests_callback);
+  async_request(daily_cases_url, "json", get_async_daily_cases_callback);
+  async_request(weekly_tests_url, "json", get_async_weekly_tests_callback);
 };
 
 const get_async_daily_cases_callback = function get_async_daily_cases_callback(callback_object) {
