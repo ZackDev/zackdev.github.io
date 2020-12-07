@@ -38,6 +38,28 @@ Herein lies a tendency to trust information that is presented by an authority mo
 
 Sticking to a project that has already consumed a notable amount of investment, be it time, money or emotions, simply because the investment made makes it hard to cancel that project, even if it is bound to become non-profitable or a loss.
 
+# Illusory Pattern Perception:
+> The arrangement of coincidences into a pattern.
+
+Though patterns provide a shortcut in dealing with the complexity of life, namely an extraction of relevant mechanisms into something one can handle, there is also the pitfall of finding patterns where there are none. I'm oversimplifying here, but to get the point across consider the following output of a program [1, 1, 1, 1] and try to guess what the next element would be. Given only the output from above, you'll easily come to the conclusion that the next element is also [1].
+Let's have a look at the program or generator that produces the output.
+
+{% highlight python linenos %}
+import random
+
+def random_pattern(x):
+    values = [-1, 1]
+    output = []
+    [output.append(random.choice(values)) for i in range(x)]
+    print(output)
+
+
+if __name__ == '__main__':
+    random_pattern(4)
+{% endhighlight %}
+
+Line 4 defines the values that are chosen at random and appended to the output at line 6. Only by chance it happened that there are only positive 1s in the previous output. The next run's output could be [1, -1, -1, 1].
+
 # Conclusion:
 Though one may be convinced that his or her decision making process is purely rational, biases distort thinking. By being aware of those biases, one maintains his ability of critical thinking.
 
