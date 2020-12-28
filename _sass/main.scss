@@ -50,7 +50,6 @@ table {
 $light_grey: #F2F2F2;
 $medium_grey: #667;
 $dark_grey: #212121;
-$icy_blue: #21e3ec;
 
 body {
   box-sizing: border-box;
@@ -107,12 +106,12 @@ a:hover, a:focus {
 }
 
 footer a {
-  text-decoration: underline dotted $icy_blue;
-  color: $icy_blue;
+  text-decoration: underline dotted $light_grey;
+  color: $light_grey;
 }
 
 footer a:hover, a:focus {
-  text_decoration: underline $icy_blue;
+  text_decoration: underline $light_grey;
 }
 
 cite {
@@ -193,11 +192,11 @@ ul {
 }
 
 #page_title {
-  color: $icy_blue;
+  color: $light_grey;
 }
 
 #site_details {
-  color: $icy_blue;
+  color: $light_grey;
   float: right;
 }
 
