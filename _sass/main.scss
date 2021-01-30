@@ -159,7 +159,7 @@ ul {
   height: 84px;
   background: $dark_grey;
   z-index: 2;
-  opacity: 0.9;
+  opacity: 0.75;
 }
 
 #header_background {
@@ -168,7 +168,7 @@ ul {
   top: 0;
   height: 84px;
   width: 100%;
-  background: $light_grey;
+  background: $white;
   z-index: 0;
 }
 
@@ -191,7 +191,7 @@ ul {
   height: 84px;
   background: $dark_grey;
   z-index: 2;
-  opacity: 0.9;
+  opacity: 0.75;
 }
 
 #footer_background {
@@ -200,7 +200,7 @@ ul {
   bottom: 0;
   height: 84px;
   width: 100%;
-  background: $light_grey;
+  background: $white;
   z-index: 0;
 }
 
