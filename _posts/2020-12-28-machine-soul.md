@@ -3,8 +3,6 @@ title: Machine Soul
 permalink: /machine-soul.html
 layout: default
 published: true
-list: true
-index: 6
 ---
 {% include image.html url="assets/img/pexels-philippe-donn-1169754.jpg" description="" %}
 The once sphere-like planet, deprived of its atmosphere, landmass ripped wide open, the excess mass shoved outwards in concentric circles, forming artificial mountains of dust and dirt. Peeking down through earths layers, bare lies the core, a solid metallic sphere. A machine, with it's tripod feet standing on the crater's edge, with a drill so razor sharp, it's artificial mind applying godless, cold mathematics, though it is destined to produce copies of itself. It's trained algorithms never made the distinction between matter and the life that evolved from it. Any source of material, which allowed it to replicate was good enough.
