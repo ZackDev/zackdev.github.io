@@ -12,22 +12,12 @@ A personal playground.
 
 # Links Show Up Here:
 <ul class="index_menu">
-  {% assign sorted_pages = site.pages | where: 'list', true | sort: "index" | reverse %}
-  {% for page in sorted_pages limit:5 %}
+  {% for post in site.posts limit:5 %}
     <li>
-      <a href="{{ page.permalink }}">{{ page.title }}</a>
-    </li>
-  {% endfor %}
-  <div style="clear: both;"></div>
-</ul>
-
-<ul class="index_menu">
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
+      <a href="{{ post.permalink }}">{{ post.date | date_to_string }} | {{ post.title }}</a>
     </li>
   {% endfor %}
 </ul>
-{% if sorted_pages.size > 5 %}
-  [Archive ({{ sorted_pages.size | minus: 5 }})](/archive.html)
+{% if site.posts.size > 5 %}
+  [Archive ({{ site.posts.size | minus: 5 }})](/archive.html)
 {% endif %}
