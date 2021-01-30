@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url('/assets/fonts/Raleway-VariableFont_wght.ttf') format('truetype');
+}
+
 /* equalize attributes */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -56,8 +61,8 @@ body {
   box-sizing: border-box;
   color: $medium_grey;
   background: $dark_grey;
-  font-size: 18px;
-  font-family: 'Myriad Pro', 'Calibri', Helvetica, monospace, sans-serif;
+  font-size: 20px;
+  font-family: 'Raleway', Helvetica, monospace, sans-serif;
   line-height: 1.5;
   text-align: justify;
   margin-bottom: 168px;
