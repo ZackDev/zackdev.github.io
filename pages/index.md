@@ -15,7 +15,13 @@ a personal playground.
 <ul class="index_menu">
   {% for post in site.posts limit:5 %}
     <li>
-      {{ post.date | date: "%Y-%m-%d" }} <a href="{{ post.permalink }}">{{ post.title | downcase }}</a>
+      <a href="{{ post.permalink }}">{{ post.title | downcase }}</a>
+      <div class="post_info">
+      <span class="publish_date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      {% for tag in post.tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+      </div>
     </li>
   {% endfor %}
 </ul>
