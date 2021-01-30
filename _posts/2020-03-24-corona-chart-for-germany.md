@@ -2,6 +2,7 @@
 title: Corona Chart For Germany
 permalink: /corona-chart-for-germany.html
 layout: default
+tags: [corona, virus, germany]
 published: true
 ---
 The following chart uses [chart.js](https://www.chartjs.org/) to display the total number (blue line) of confirmed SARS-CoV-2 cases for Germany, as tested with the PCR test. The daily increase (black bars) shows the day to day increase in cases.

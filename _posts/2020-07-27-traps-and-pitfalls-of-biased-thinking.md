@@ -2,6 +2,7 @@
 title: Traps And Pitfalls Of Biased Thinking
 permalink: /traps-and-pitfalls-of-biased-thinking.html
 layout: default
+tags: [psychology, biases]
 published: true
 ---
 A bias is a preconceived way of thinking that affects our everyday life. Not implicitly faulty, because biases strengthen group cohesion and have a stabilizing effect on our inner world, they have a great amount of influence on how we act. Let's have a look at some biases.

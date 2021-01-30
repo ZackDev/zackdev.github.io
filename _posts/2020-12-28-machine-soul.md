@@ -2,6 +2,7 @@
 title: Machine Soul
 permalink: /machine-soul.html
 layout: default
+tags: [fiction]
 published: true
 ---
 {% include image.html url="assets/img/pexels-philippe-donn-1169754.jpg" description="" %}
