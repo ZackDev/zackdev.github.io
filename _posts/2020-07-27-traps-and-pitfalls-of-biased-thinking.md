@@ -24,7 +24,7 @@ One way to avoid possible negative events or repeat possible positive events in 
 # Group-think Bias:
 > Goes along with the confirmation bias, it applies to one's group.
 
-A bias dominated by group cohesion. To operate successfully as a group, there needs to be a cohesion in the form of shared values and goals. But this can also inevitably lead to it's demise when an individual of the group holds back critical information in favor of the integrity of the group.
+A bias dominated by group cohesion. To operate successfully as a group, there needs to be a cohesion in the form of shared values and goals. But this mechanic also leads to it's downfall because *Group Think* limits the bandwidth of ideas.
 
 # Authority Bias:
 > The alignment of one's way of thinking with that of the authority.
