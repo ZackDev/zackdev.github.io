@@ -17,11 +17,11 @@ The entry file contains at least the following information:
 - `Icon=<icon_path>`
 - `Terminal=<true|false>`
 
-Given the above example, the entry file for the custom application *My App* looks like this:
+Given the above example, the entry file, named `myapp.desktop`, for the custom application *MyApp* looks like this:
 
 ```
 [Desktop Entry]
-Name=My App
+Name=MyApp
 Type=Application
 Exec=<path_to_my_app>/my_app
 Icon=<path_to_icon>/my_app.icon
