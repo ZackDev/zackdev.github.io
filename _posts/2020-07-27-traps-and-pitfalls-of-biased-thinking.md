@@ -19,7 +19,7 @@ An indication for this bias is when one experiences *I've known it before*, but 
 # Repetition Bias:
 > Projecting past experiences into the future.
 
-One way to avoid possible negative events or repeat possible positive events in the future by generalizing the outcome of past events.
+One overgeneralized mode of thinking to avoid possible negative events or repeat possible positive events in the future by projecting the outcome of past events.
 
 # Group-think Bias:
 > Goes along with the confirmation bias, it applies to one's group.
