@@ -7,7 +7,7 @@ published: true
 <ul class="index_menu">
   {% for post in site.posts offset:5 %}
     <li>
-      {{ post.date | date: "%Y-%m-%d" }} <a href="{{ post.permalink }}">{{ post.title }}</a>
+      {{ post.date | date: "%Y-%m-%d" }} <a href="{{ post.permalink }}">{{ post.title | downcase }}</a>
     </li>
   {% endfor %}
   <div style="clear: both;"></div>
