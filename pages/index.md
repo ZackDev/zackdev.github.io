@@ -1,6 +1,7 @@
 ---
 title: Index Page
 layout: default
+permalink: /
 published: true
 ---
 # This Blog Is:
@@ -14,7 +15,7 @@ A personal playground.
 <ul class="index_menu">
   {% for post in site.posts limit:5 %}
     <li>
-      <a href="{{ post.permalink }}">{{ post.date | date: "%Y-%m-%d" }} {{ post.title }}</a>
+      {{ post.date | date: "%Y-%m-%d" }} <a href="{{ post.permalink }}">{{ post.title }}</a>
     </li>
   {% endfor %}
 </ul>
