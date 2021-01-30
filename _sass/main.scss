@@ -50,6 +50,7 @@ table {
 $light_grey: #F2F2F2;
 $medium_grey: #667;
 $dark_grey: #212121;
+$white: #FFF;
 
 body {
   box-sizing: border-box;
@@ -60,6 +61,12 @@ body {
   line-height: 1.5;
   text-align: justify;
   margin-bottom: 168px;
+}
+
+code {
+  color: $dark_grey;
+  background-color: $white;
+  border-radius: 5px;
 }
 
 h1, h2, h3, h4, h5, h6 {
