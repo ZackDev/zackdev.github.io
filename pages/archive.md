@@ -10,7 +10,8 @@ published: true
       <a href="{{ post.permalink }}">{{ post.title | downcase }}</a>
       <div class="post_info">
       <span class="publish_date">{{ post.date | date: "%Y-%m-%d" }}</span>
-      {% for tag in post.tags %}
+      {% assign tags = post.tags | sort %}
+      {% for tag in tags %}
       <span class="tag">{{ tag }}</span>
       {% endfor %}
       </div>
