@@ -24,7 +24,7 @@ class BasicMath():
     def __del__(self):
         pass
 
-    def add(self, x, y):
+    def add(self,x, y):
         return x+y
 
     def __init__(self):
@@ -47,7 +47,7 @@ class BasicMath:
         if operator == '+':
           return self._add(x, y)
 
-    def _add(self):
+    def _add(self, x, y):
         return x + y
 
     def __del__(self):
