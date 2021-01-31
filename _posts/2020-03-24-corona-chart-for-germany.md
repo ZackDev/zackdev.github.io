@@ -11,8 +11,11 @@ The second chart is showing the weekly performed tests for the SARS-CoV-2 virus.
 
 {% include corona.html %}
 
-The total daily cases in the first chart is taken from the [COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University](https://github.com/CSSEGISandData/COVID-19) repository. The day to day increase in cases is a calculation on that data.
-The second chart's data comes from [RKI - Situations Report](https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Daten/Testzahlen-gesamt.xlsx?__blob=publicationFile).
+The total daily cases in the first chart is taken from the [CSSE Github Repository][1] repository. The day to day increase in cases is a calculation on that data.
+The second chart's weekly performed tests data comes from [Robert Koch Institute][2].
+
+[1]: <https://github.com/CSSEGISandData/COVID-19> "COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University"
+[2]: <https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Daten/Testzahlen-gesamt.xlsx?__blob=publicationFile> "Erfassung der SARS-CoV-2-Testzahlen in Deutschland"
 
 # Update 2021-01-31:
 After updating the daily and weekly data-sets by hand, it was time to automate that process. Not only does it save time, it also removes the risk of error when transcribing the data.
