@@ -17,7 +17,7 @@ a personal playground.
       <a href="{{ post.permalink }}">{{ post.title | downcase }}</a>
       <div class="post_info">
       <span class="publish_date">{{ post.date | date: "%Y-%m-%d" }}</span>
-      {% assign tags = post.tags | sort %}
+      {% assign tags = post.tags | sort_natural %}
       {% for tag in tags %}
       <span class="tag">{{ tag }}</span>
       {% endfor %}
