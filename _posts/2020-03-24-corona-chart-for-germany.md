@@ -11,7 +11,7 @@ The second chart is showing the weekly performed tests for the SARS-CoV-2 virus.
 
 {% include corona.html %}
 
-The total daily cases in the first chart is taken from the [CSSE Github Repository][1] repository. The day to day increase in cases is a calculation on that data.
+The total daily cases in the first chart is taken from the [CSSE Github Repository][1]. The day to day increase in cases is a calculation on that data.
 The second chart's weekly performed tests data comes from [Robert Koch Institute][2].
 
 [1]: <https://github.com/CSSEGISandData/COVID-19> "COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University"
