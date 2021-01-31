@@ -32,7 +32,7 @@ class BasicMath():
 
 {% endhighlight %}
 
-For a better understanding how an applied coding style to the above piece of code looks like, have a look at the same code below with coding styles applied. You may notice that it is better readable, like a well structured text.
+For a better understanding how an applied coding style to the above piece of code looks like, have a look at the same code below. You may notice that it is better readable, like a well structured text.
 
 {% highlight python linenos %}
 #structured code
