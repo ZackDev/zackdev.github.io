@@ -1,10 +1,9 @@
 ---
-title: Index Page
+title: This Blog Is
 layout: default
 permalink: /
 published: true
 ---
-# this blog is:
 for any topic that I stumble upon.
 
 an online reference.
