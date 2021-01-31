@@ -15,39 +15,40 @@ import turtle
 import time
 import math
 
-class exampleclass():
+class BasicMath():
 
-    def DoSomething(self):
-        pass
-
+    def operation(self,x,y,operator):
+        if operator == '+':
+          return self.add(x, y)
 
     def __del__(self):
         pass
 
-    def Doprivate(self):
-        pass
+    def add(self, x, y):
+        return x+y
+
     def __init__(self):
-        self.DoSomething()
-        self.Doprivate()
+        pass
 
 {% endhighlight %}
 
-For a better understanding how an applied coding style to the above piece of code looks like, have a look at the following code. Though the code doesn't do anything, you may notice that it is better readable, like a well structured text.
+For a better understanding how an applied coding style to the above piece of code looks like, have a look at the same code below with coding styles applied. You may notice that it is better readable, like a well structured text.
 
 {% highlight python linenos %}
 #structured code
 import turtle, time, math
 
-class ExampleClass:
+class BasicMath:
+
     def __init__(self):
-        self.do_something()
-        self._do_private()
-
-    def do_something(self):
         pass
 
-    def _do_private(self):
-        pass
+    def operation(self, x, y, operator):
+        if operator == '+':
+          return self._add(x, y)
+
+    def _add(self):
+        return x + y
 
     def __del__(self):
         pass
