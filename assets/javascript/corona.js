@@ -1,6 +1,6 @@
 function init() {
-  Chart.defaults.global.defaultFontFamily = "'Myriad Pro', 'Calibri', Helvetica, sans-serif";
-  Chart.defaults.global.defaultFontSize = 16;
+  Chart.defaults.global.defaultFontFamily = "Raleway";
+  Chart.defaults.global.defaultFontSize = 20;
   let daily_cases_url = "/assets/json/corona_germany_daily_cases.json";
   let weekly_tests_url = "/assets/json/corona_germany_weekly_tests.json";
   async_request(daily_cases_url, "json", get_async_daily_cases_callback);
@@ -121,7 +121,7 @@ function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
           type: 'linear',
           position: 'right',
           gridLines: {
-            display: false
+            display: true
           },
           scaleLabel: {
             display: true,
