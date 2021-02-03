@@ -150,8 +150,8 @@ function draw_daily_vaccinations_chart(vaccinations, dates) {
       labels: dates,
       datasets: [{
         label: 'daily performed vaccinations',
-        backgroundColor: 'rgb(00, 144, 255)',
-        borderColor: 'rgb(00, 144, 255)',
+        backgroundColor: 'rgb(00, 200, 0)',
+        borderColor: 'rgb(00, 200, 0)',
         data: vaccinations,
         fill: false,
         yAxisID: 'daily-vaccinations-y-axis'
@@ -174,7 +174,7 @@ function draw_daily_vaccinations_chart(vaccinations, dates) {
           scaleLabel: {
             display: true,
             labelString: 'daily performed vaccinations',
-            fontColor: 'rgb(00, 144, 255)'
+            fontColor: 'rgb(00, 200, 0)'
           }
         }]
       }
