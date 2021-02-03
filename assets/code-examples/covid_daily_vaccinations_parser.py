@@ -49,7 +49,6 @@ def run():
                 raw_vaccination = raw_vaccination.replace(',', '')
                 raw_vaccination = raw_vaccination.replace(']', '')
                 raw_vaccination = raw_vaccination.replace("'", '')
-                print(raw_vaccination)
                 vaccination = int(raw_vaccination)
                 vaccinations.append(vaccination)
 
