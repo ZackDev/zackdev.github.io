@@ -3,8 +3,10 @@ function init() {
   Chart.defaults.global.defaultFontSize = 20;
   let daily_cases_url = "/assets/json/corona_germany_daily_cases.json";
   let weekly_tests_url = "/assets/json/corona_germany_weekly_tests.json";
+  let daily_vaccinations_url = "/assets/json/corona_germany_daily_vaccinations.json"
   async_request(daily_cases_url, "json", get_async_daily_cases_callback);
   async_request(weekly_tests_url, "json", get_async_weekly_tests_callback);
+  async_request(daily_vaccinations_url, "json", get_async_daily_vaccinations_callback);
 };
 
 const get_async_daily_cases_callback = function get_async_daily_cases_callback(callback_object) {
@@ -18,6 +20,12 @@ const get_async_weekly_tests_callback = function get_async_weekly_tests_callback
   let calendar_weeks = callback_object.response.calendar_weeks;
   draw_weekly_tests_chart(weekly_tests, calendar_weeks);
 };
+
+const get_async_daily_vaccinations_callback = function get_async_daily_vaccinations_callback(callback_object) {
+  let vaccinations = callback_object.response.vaccinations;
+  let dates = callback_object.response.dates;
+  draw_daily_vaccinations_chart(vaccinations, dates);
+}
 
 function draw_daily_cases_chart(cases, dates) {
   var daily_cases = [1];
@@ -126,6 +134,46 @@ function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
           scaleLabel: {
             display: true,
             labelString: 'weekly performed PCR tests',
+            fontColor: 'rgb(00, 144, 255)'
+          }
+        }]
+      }
+    }
+  });
+};
+
+function draw_daily_vaccinations_chart(vaccinations, dates) {
+  var cg = document.getElementById('chart_corona_vaccinations_germany').getContext('2d');
+  var daily_vaccinations_chart = new Chart(cg, {
+    type: 'bar',
+    data: {
+      labels: dates,
+      datasets: [{
+        label: 'daily performed vaccinations',
+        backgroundColor: 'rgb(00, 144, 255)',
+        borderColor: 'rgb(00, 144, 255)',
+        data: vaccinations,
+        fill: false,
+        yAxisID: 'daily-vaccinations-y-axis'
+      }]
+    },
+    options: {
+      scales: {
+        xAxes: [{
+          gridLines: {
+            display: false
+          }
+        }],
+        yAxes: [{
+          id: 'daily-vaccinations-y-axis',
+          type: 'linear',
+          position: 'right',
+          gridLines: {
+            display: true
+          },
+          scaleLabel: {
+            display: true,
+            labelString: 'daily performed vaccinations',
             fontColor: 'rgb(00, 144, 255)'
           }
         }]
