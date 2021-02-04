@@ -16,8 +16,6 @@ def run():
         for line in csv_reader:
             if index > 0:
                 raw_date = str(line).split(',')[0]
-                raw_date = raw_date.replace('[', '')
-                raw_date = raw_date.replace("'", '')
                 if index <= 29:
                     raw_vaccination = str(line).split('"')[1]
                 elif index > 29:
@@ -34,6 +32,8 @@ def run():
 
             ''' do some date parsing, provided format is M/D/Y, to YYYY-MM-DD '''
             for raw_date in dates_raw:
+                raw_date = raw_date.replace('[', '')
+                raw_date = raw_date.replace("'", '')
                 date_array = raw_date.split('/')
                 day = int(date_array[1])
                 month = int(date_array[0])
@@ -44,7 +44,7 @@ def run():
                     month = f'0{month}'
                 dates.append(f"{year}-{month}-{day}")
 
-            ''' simple string to integer conversion '''
+            ''' remove artifact characters, do simple string to integer conversion '''
             for raw_vaccination in vaccinations_raw:
                 raw_vaccination = raw_vaccination.replace(',', '')
                 raw_vaccination = raw_vaccination.replace(']', '')
