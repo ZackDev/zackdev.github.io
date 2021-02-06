@@ -12,7 +12,18 @@ function init() {
 const get_async_daily_cases_callback = function get_async_daily_cases_callback(callback_object) {
   let cases = callback_object.response.cases;
   let dates = callback_object.response.dates;
-  draw_daily_cases_chart(cases, dates);
+  let daily_cases = [];
+  let last_cases = 0;
+  for (let i=0; i < cases.length; i++) {
+    if (cases[i] > 0 && last_cases > 0) {
+      daily_cases.push(cases[i] - last_data);
+      last_data = cases[i];
+    }
+    else if (cases[i] === 0) {
+      daily_cases.push(last_data)
+    }
+  }
+  draw_daily_cases_chart(cases, daily_cases, dates);
 };
 
 const get_async_weekly_tests_callback = function get_async_weekly_tests_callback(callback_object) {
@@ -35,22 +46,7 @@ const get_async_daily_vaccinations_callback = function get_async_daily_vaccinati
   draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates);
 }
 
-function draw_daily_cases_chart(cases, dates) {
-  var daily_cases = [1];
-  (function (c, d) {
-    var last_data = 0;
-    c.forEach(function(n){
-      if (n > 0 && last_data > 0){
-        d.push(n - last_data);
-        last_data = n;
-      } else if (n > 0){
-        last_data = n;
-      } else if (n === 0){
-        d.push(n);
-      }
-    });
-  }(cases, daily_cases));
-
+function draw_daily_cases_chart(cases, daily_cases, dates) {
   var cg = document.getElementById('chart_corona_cases_germany').getContext('2d');
   var total_infections_chart = new Chart(cg, {
     type: 'line',
