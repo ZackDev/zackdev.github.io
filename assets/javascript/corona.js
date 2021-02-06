@@ -32,7 +32,7 @@ const get_async_daily_vaccinations_callback = function get_async_daily_vaccinati
     }
     total_vaccinations.push(t_vac);
   }
-  //draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates);
+  draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates);
 }
 
 function draw_daily_cases_chart(cases, dates) {
