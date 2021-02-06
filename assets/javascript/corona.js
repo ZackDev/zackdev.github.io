@@ -65,6 +65,20 @@ function draw_daily_cases_chart(cases, daily_cases, dates) {
       }]
     },
     options: {
+      /*
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              console.log("hello ");
+              var label = context.label;
+              var value = context.parsed.y;
+              return label + int_to_dotted(value);
+            }
+          }
+        }
+      },
+      */
       scales: {
         xAxes: [{
           gridLines: {
