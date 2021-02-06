@@ -24,7 +24,15 @@ const get_async_weekly_tests_callback = function get_async_weekly_tests_callback
 const get_async_daily_vaccinations_callback = function get_async_daily_vaccinations_callback(callback_object) {
   let vaccinations = callback_object.response.vaccinations;
   let dates = callback_object.response.dates;
-  draw_daily_vaccinations_chart(vaccinations, dates);
+  let total_vaccinations = []
+  for (let i=0; i < vaccinations.length; i++) {
+    let t_vac = 0;
+    for (let j=0; j <= i; j++) {
+      t_vac+= vaccinations[j];
+    }
+    total_vaccinations.push(t_vac);
+  }
+  //draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates);
 }
 
 function draw_daily_cases_chart(cases, dates) {
@@ -142,7 +150,7 @@ function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
   });
 };
 
-function draw_daily_vaccinations_chart(vaccinations, dates) {
+function draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates) {
   var cg = document.getElementById('chart_corona_vaccinations_germany').getContext('2d');
   var daily_vaccinations_chart = new Chart(cg, {
     type: 'bar',
@@ -155,6 +163,14 @@ function draw_daily_vaccinations_chart(vaccinations, dates) {
         data: vaccinations,
         fill: false,
         yAxisID: 'daily-vaccinations-y-axis'
+      }, {
+        label: 'total performed vaccinations',
+        backgroundColor: 'rgb(00, 144, 255)',
+        borderColor: 'rgb(00, 144, 255)',
+        data: total_vaccinations,
+        fill: false,
+        yAxisID: 'total-vaccinations-y-axis',
+        type: 'line'
       }]
     },
     options: {
@@ -167,16 +183,28 @@ function draw_daily_vaccinations_chart(vaccinations, dates) {
         yAxes: [{
           id: 'daily-vaccinations-y-axis',
           type: 'linear',
-          position: 'right',
+          position: 'left',
           gridLines: {
-            display: true
+            display: false
           },
           scaleLabel: {
             display: true,
             labelString: 'daily performed vaccinations',
             fontColor: 'rgb(00, 200, 0)'
           }
-        }]
+        }, {
+          id: 'total-vaccinations-y-axis',
+          type: 'linear',
+          position: 'right',
+          gridLines: {
+            display: false
+          },
+          scaleLabel: {
+            display: true,
+            labelString: 'total performed vaccinations',
+            fontColor: 'rgb(00, 144, 255)'
+        }
+      }]
       }
     }
   });
