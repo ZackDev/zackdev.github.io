@@ -199,8 +199,8 @@ function draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates) 
             display: true,
             labelString: 'total performed vaccinations',
             fontColor: 'rgb(00, 144, 255)'
-        }
-      }]
+          }
+        }]
       }
     }
   });
