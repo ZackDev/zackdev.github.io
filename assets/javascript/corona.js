@@ -15,16 +15,8 @@ const get_async_daily_cases_callback = function get_async_daily_cases_callback(c
   let daily_cases = [];
   let previous_cases = 0;
   for (let i=0; i < cases.length; i++) {
-    if (cases[i] > 0 && previous_cases > 0) {
-      daily_cases.push(cases[i] - previous_cases);
-      previous_cases = cases[i];
-    }
-    else if (cases[i] > 0) {
-      previous_cases = cases[i];
-    }
-    else if (cases[i] === 0) {
-      daily_cases.push(previous_cases)
-    }
+    daily_cases.push(cases[i] - previous_cases);
+    previous_cases = cases[i];
   }
   draw_daily_cases_chart(cases, daily_cases, dates);
 };
