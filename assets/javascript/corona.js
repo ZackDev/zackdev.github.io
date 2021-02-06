@@ -82,6 +82,11 @@ function draw_daily_cases_chart(cases, daily_cases, dates) {
             display: true,
             labelString: 'total positive PCR tests',
             fontColor: 'rgb(00, 144, 255)'
+          },
+          ticks: {
+            callback: function(value, index, values) {
+              return int_to_dotted(value);
+            }
           }
         },{
           id: 'daily-y-axis',
@@ -94,6 +99,11 @@ function draw_daily_cases_chart(cases, daily_cases, dates) {
             display: true,
             labelString: 'daily positive PCR tests',
             fontColor: 'rgb(46, 46, 46)'
+          },
+          ticks: {
+            callback: function(value, index, values) {
+              return int_to_dotted(value);
+            }
           }
         }]
       }
@@ -134,6 +144,11 @@ function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
             display: true,
             labelString: 'weekly performed PCR tests',
             fontColor: 'rgb(00, 144, 255)'
+          },
+          ticks: {
+            callback: function(value, index, values) {
+              return int_to_dotted(value);
+            }
           }
         }]
       }
@@ -182,6 +197,11 @@ function draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates) 
             display: true,
             labelString: 'daily performed vaccinations',
             fontColor: 'rgb(00, 200, 0)'
+          },
+          ticks: {
+            callback: function(value, index, values) {
+              return int_to_dotted(value);
+            }
           }
         }, {
           id: 'total-vaccinations-y-axis',
@@ -194,6 +214,11 @@ function draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates) 
             display: true,
             labelString: 'total performed vaccinations',
             fontColor: 'rgb(00, 144, 255)'
+          },
+          ticks: {
+            callback: function(value, index, values) {
+              return int_to_dotted(value);
+            }
           }
         }]
       }
