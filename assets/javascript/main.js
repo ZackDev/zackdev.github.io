@@ -11,22 +11,3 @@ const async_request = function async_request(url, type, callback_function) {
   };
   http_request.send(null);
 };
-
-// returns a dotted string of a passed integer
-// e.g. 123456789 becomes 123.456.789
-const int_to_dotted = function int_to_dotted(number) {
-  var str = number.toString().split("").reverse();
-  var output = new Array();
-  for (let i=0; i < str.length; i++) {
-    if (i > 0 && i % 3 == 0) {
-      output.push('.');
-    }
-    output.push(str[i]);
-  }
-  return output.reverse().join("");
-};
-
-
-Number.prototype.toDottedString = function() {
-  return int_to_dotted(this);
-};
