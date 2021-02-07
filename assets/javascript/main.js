@@ -12,6 +12,8 @@ const async_request = function async_request(url, type, callback_function) {
   http_request.send(null);
 };
 
+// returns a dotted string of a passed integer
+// e.g. 123456789 becomes 123.456.789
 const int_to_dotted = function int_to_dotted(number) {
   var str = number.toString().split("").reverse();
   var output = new Array();
