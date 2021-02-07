@@ -70,7 +70,7 @@ function draw_daily_cases_chart(cases, daily_cases, dates) {
           label: function(tooltipItem, data) {
             var value = tooltipItem.value;
             var label_name = data.datasets[tooltipItem.datasetIndex].label;
-            return [label_name + ':', int_to_dotted(value)].join(" ");
+            return [label_name + ':', Number(value).toDottedString()].join(" ");
           }
         }
       },
@@ -94,7 +94,7 @@ function draw_daily_cases_chart(cases, daily_cases, dates) {
           },
           ticks: {
             callback: function(value, index, values) {
-              return int_to_dotted(value);
+              return Number(value).toDottedString();
             }
           }
         },{
@@ -111,7 +111,7 @@ function draw_daily_cases_chart(cases, daily_cases, dates) {
           },
           ticks: {
             callback: function(value, index, values) {
-              return int_to_dotted(value);
+              return Number(value).toDottedString();
             }
           }
         }]
@@ -141,7 +141,7 @@ function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
           label: function(tooltipItem, data) {
             var value = tooltipItem.value;
             var label_name = data.datasets[tooltipItem.datasetIndex].label;
-            return [label_name + ':', int_to_dotted(value)].join(" ");
+            return [label_name + ':', Number(value).toDottedString()].join(" ");
           }
         }
       },
@@ -165,7 +165,7 @@ function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
           },
           ticks: {
             callback: function(value, index, values) {
-              return int_to_dotted(value);
+              return Number(value).toDottedString();
             }
           }
         }]
@@ -203,7 +203,7 @@ function draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates) 
           label: function(tooltipItem, data) {
             var value = tooltipItem.value;
             var label_name = data.datasets[tooltipItem.datasetIndex].label;
-            return [label_name + ':', int_to_dotted(value)].join(" ");
+            return [label_name + ':', Number(value).toDottedString()].join(" ");
           }
         }
       },
@@ -227,7 +227,7 @@ function draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates) 
           },
           ticks: {
             callback: function(value, index, values) {
-              return int_to_dotted(value);
+              return Number(value).toDottedString();
             }
           }
         }, {
@@ -244,7 +244,7 @@ function draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates) 
           },
           ticks: {
             callback: function(value, index, values) {
-              return int_to_dotted(value);
+              return Number(value).toDottedString();
             }
           }
         }]

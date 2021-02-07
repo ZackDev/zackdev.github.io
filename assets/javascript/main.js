@@ -25,3 +25,8 @@ const int_to_dotted = function int_to_dotted(number) {
   }
   return output.reverse().join("");
 };
+
+
+Number.prototype.toDottedString = function() {
+  return int_to_dotted(this);
+};
