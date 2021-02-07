@@ -216,7 +216,7 @@ function draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates) 
         yAxes: [{
           id: 'daily-vaccinations-y-axis',
           type: 'linear',
-          position: 'left',
+          position: 'right',
           gridLines: {
             display: false
           },
@@ -233,7 +233,7 @@ function draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates) 
         }, {
           id: 'total-vaccinations-y-axis',
           type: 'linear',
-          position: 'right',
+          position: 'left',
           gridLines: {
             display: false
           },
