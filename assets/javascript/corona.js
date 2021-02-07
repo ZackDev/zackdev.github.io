@@ -65,20 +65,15 @@ function draw_daily_cases_chart(cases, daily_cases, dates) {
       }]
     },
     options: {
-      /*
-      plugins: {
-        tooltip: {
-          callbacks: {
-            label: function(context) {
-              console.log("hello ");
-              var label = context.label;
-              var value = context.parsed.y;
-              return label + int_to_dotted(value);
-            }
+      tooltips: {
+        callbacks: {
+          label: function(tooltipItem, data) {
+            var value = tooltipItem.value;
+            var label_name = data.datasets[tooltipItem.datasetIndex].label;
+            return [label_name + ':', int_to_dotted(value)].join(" ");
           }
         }
       },
-      */
       scales: {
         xAxes: [{
           gridLines: {
@@ -141,6 +136,15 @@ function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
       }]
     },
     options: {
+      tooltips: {
+        callbacks: {
+          label: function(tooltipItem, data) {
+            var value = tooltipItem.value;
+            var label_name = data.datasets[tooltipItem.datasetIndex].label;
+            return [label_name + ':', int_to_dotted(value)].join(" ");
+          }
+        }
+      },
       scales: {
         xAxes: [{
           gridLines: {
@@ -194,6 +198,15 @@ function draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates) 
       }]
     },
     options: {
+      tooltips: {
+        callbacks: {
+          label: function(tooltipItem, data) {
+            var value = tooltipItem.value;
+            var label_name = data.datasets[tooltipItem.datasetIndex].label;
+            return [label_name + ':', int_to_dotted(value)].join(" ");
+          }
+        }
+      },
       scales: {
         xAxes: [{
           gridLines: {
