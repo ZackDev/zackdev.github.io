@@ -53,7 +53,8 @@ function draw_daily_cases_chart(cases, daily_cases, dates) {
         borderColor: 'rgb(00, 144, 255)',
         data: cases,
         fill: false,
-        yAxisID: 'total-y-axis'
+        yAxisID: 'total-y-axis',
+        order: 1
       },{
         label: 'daily positive PCR tests',
         backgroundColor: 'rgb(46, 46, 46)',
@@ -61,7 +62,8 @@ function draw_daily_cases_chart(cases, daily_cases, dates) {
         data: daily_cases,
         fill: true,
         yAxisID: 'daily-y-axis',
-        type: 'bar'
+        type: 'bar',
+        order: 2
       }]
     },
     options: {
@@ -186,7 +188,8 @@ function draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates) 
         borderColor: 'rgb(00, 200, 0)',
         data: vaccinations,
         fill: false,
-        yAxisID: 'daily-vaccinations-y-axis'
+        yAxisID: 'daily-vaccinations-y-axis',
+        order: 2
       }, {
         label: 'total performed vaccinations',
         backgroundColor: 'rgb(00, 144, 255)',
@@ -194,7 +197,8 @@ function draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates) 
         data: total_vaccinations,
         fill: false,
         yAxisID: 'total-vaccinations-y-axis',
-        type: 'line'
+        type: 'line',
+        order: 1
       }]
     },
     options: {
