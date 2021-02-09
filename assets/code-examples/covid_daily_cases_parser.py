@@ -1,8 +1,9 @@
+import argparse
 import csv
 import json
 
-def run():
-    with open('time_series_covid19_confirmed_global.csv') as daily_cases_csv:
+def run(inputfile, outputfile):
+    with open(inputfile) as daily_cases_csv:
         raw_dates = None
         raw_cases = None
         dates = None
@@ -63,11 +64,20 @@ def run():
             return
 
         dict = { 'dates':dates, 'cases':cases}
-        with open('corona_germany_daily_cases.json' ,'w') as output:
+        with open(outputfile ,'w') as output:
             output.write(json.dumps(dict))
 
         print('wrote dict to file. program finished.')
+        exit(0)
+    exit(1)
 
 
 if __name__ == '__main__':
-    run()
+    arg_parser = argparse.ArgumentParser()
+    arg_parser.add_argument("-i", "--inputfile", type=str)
+    arg_parser.add_argument("-o", "--outputfile", type=str)
+    args = arg_parser.parse_args()
+    if (args.inputfile and args.outputfile):
+        run(args.inputfile, args.outputfile)
+    else:
+        arg_parser.print_help()

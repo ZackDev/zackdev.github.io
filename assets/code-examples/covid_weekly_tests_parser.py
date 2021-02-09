@@ -1,8 +1,9 @@
+import argparse
 import csv
 import json
 
-def run():
-    with open('Testzahlen-gesamt.csv') as weekly_tests_csv:
+def run(inputfile, outputfile):
+    with open(inputfile, newline='') as weekly_tests_csv:
         calendar_weeks = []
         calendar_weeks_raw = []
         weekly_tests = []
@@ -14,19 +15,17 @@ def run():
             calendar_weeks_raw.append(f'{x}/2020')
 
         ''' NOTE: the interesting data starts from line 4 '''
-        csv_reader = csv.reader(weekly_tests_csv, delimiter='\n')
+        csv_reader = csv.reader(weekly_tests_csv, delimiter=',', dialect='excel')
         index = 0
         for line in csv_reader:
             raw_test = None
             raw_date = None
             if index == 3:
                 raw_week = '10/2020'
-                raw_test = str(line).split('"')[3]
-                raw_test = raw_test.replace(',', '')
+                raw_test = line[2]
             elif index >= 4:
-                raw_week = str(line).split(',')[1]
-                raw_test = str(line).split('"')[1]
-                raw_test = raw_test.replace(',', '')
+                raw_week = line[1]
+                raw_test = line[2]
             if raw_test is not None and raw_week is not None:
                 weekly_tests_raw.append(raw_test)
                 calendar_weeks_raw.append(raw_week)
@@ -61,11 +60,18 @@ def run():
             return
 
         dict = {'calendar_weeks':calendar_weeks, 'weekly_tests':weekly_tests}
-        with open('corona_germany_weekly_tests.json' ,'w') as output:
+        with open(outputfile ,'w') as output:
             output.write(json.dumps(dict))
 
         print('wrote dict to file. program finished.')
 
 
 if __name__ == '__main__':
-    run()
+    arg_parser = argparse.ArgumentParser()
+    arg_parser.add_argument("-i", "--inputfile", type=str)
+    arg_parser.add_argument("-o", "--outputfile", type=str)
+    args = arg_parser.parse_args()
+    if (args.inputfile and args.outputfile):
+        run(args.inputfile, args.outputfile)
+    else:
+        arg_parser.print_help()
