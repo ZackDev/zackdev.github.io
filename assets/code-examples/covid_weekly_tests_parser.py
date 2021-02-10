@@ -20,10 +20,10 @@ def run(inputfile, outputfile):
         for line in csv_reader:
             raw_test = None
             raw_date = None
-            if index == 3:
+            if index == 1:
                 raw_week = '10/2020'
                 raw_test = line[2]
-            elif index >= 4:
+            elif index >= 2:
                 raw_week = line[1]
                 raw_test = line[2]
             if raw_test is not None and raw_week is not None:
@@ -32,8 +32,8 @@ def run(inputfile, outputfile):
             index+=1
 
         ''' the last two lines are comments only '''
-        calendar_weeks_raw = calendar_weeks_raw[:-2]
-        weekly_tests_raw = weekly_tests_raw[:-2]
+        calendar_weeks_raw = calendar_weeks_raw[:-3]
+        weekly_tests_raw = weekly_tests_raw[:-3]
 
         ''' do some calendar week conversion '''
         for raw_week in calendar_weeks_raw:
