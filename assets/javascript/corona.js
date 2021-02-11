@@ -43,230 +43,104 @@ const get_async_daily_vaccinations_callback = function get_async_daily_vaccinati
 }
 
 function draw_daily_cases_chart(cases, daily_cases, dates) {
-  var cg = document.getElementById('chart_corona_cases_germany').getContext('2d');
-  var total_infections_chart = new Chart(cg, {
-    type: 'line',
-    data: {
-      labels: dates,
-      datasets: [{
-        label: 'total positive PCR tests',
-        backgroundColor: 'rgb(00, 144, 255)',
-        borderColor: 'rgb(00, 144, 255)',
-        data: cases,
-        fill: false,
-        yAxisID: 'total-y-axis',
-        order: 1
-      },{
-        label: 'daily positive PCR tests',
-        backgroundColor: 'rgb(46, 46, 46)',
-        borderColor: 'rgb(46, 46, 46)',
-        data: daily_cases,
-        fill: true,
-        yAxisID: 'daily-y-axis',
-        type: 'bar',
-        order: 2
-      }]
+  var daily_cases_chart = Highcharts.chart('chart_corona_cases_germany', {
+    chart: {
+      type: 'column'
     },
-    options: {
-      tooltips: {
-        callbacks: {
-          label: function(tooltipItem, data) {
-            var value = tooltipItem.value;
-            var label_name = data.datasets[tooltipItem.datasetIndex].label;
-            return [label_name + ':', Number(value).toLocaleString()].join(" ");
-          }
-        }
-      },
-      scales: {
-        xAxes: [{
-          gridLines: {
-            display: false
-          }
-        }],
-        yAxes: [{
-          id: 'total-y-axis',
-          type: 'linear',
-          position: 'left',
-          gridLines: {
-            display: false
-          },
-          scaleLabel: {
-            display: true,
-            labelString: 'total positive PCR tests',
-            fontColor: 'rgb(00, 144, 255)'
-          },
-          ticks: {
-            callback: function(value, index, values) {
-              return Number(value).toLocaleString();
-            }
-          }
-        },{
-          id: 'daily-y-axis',
-          type: 'linear',
-          position: 'right',
-          gridLines: {
-            display: false
-          },
-          scaleLabel: {
-            display: true,
-            labelString: 'daily positive PCR tests',
-            fontColor: 'rgb(46, 46, 46)'
-          },
-          ticks: {
-            callback: function(value, index, values) {
-              return Number(value).toLocaleString();
-            }
-          }
-        }]
+    title: {
+      text: 'Positive PCR Tests'
+    },
+    xAxis: {
+      categories: dates
+    },
+    yAxis: [{
+      title: {
+        text: 'daily cases'
       }
-    }
+    }, {
+      title: {
+        text: 'total cases'
+      },
+      opposite: true
+    }],
+    series: [{
+      yAxis: 0,
+      name: 'daily',
+      data: daily_cases
+    }, {
+      yAxis: 1,
+      name: 'total',
+      data: cases
+    }]
   });
-};
+}
+
 
 function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
-  var cg = document.getElementById('chart_corona_tests_germany').getContext('2d');
-  var total_infections_chart = new Chart(cg, {
-    type: 'bar',
-    data: {
-      labels: calendar_weeks,
-      datasets: [{
-        label: 'weekly performed PCR tests',
-        backgroundColor: 'rgb(00, 144, 255)',
-        borderColor: 'rgb(00, 144, 255)',
-        data: weekly_tests,
-        fill: false,
-        yAxisID: 'weekly-tests-y-axis'
-      }]
+  var weekly_tests_chart = Highcharts.chart('chart_corona_tests_germany', {
+    chart: {
+      type: 'column'
     },
-    options: {
-      tooltips: {
-        callbacks: {
-          label: function(tooltipItem, data) {
-            var value = tooltipItem.value;
-            var label_name = data.datasets[tooltipItem.datasetIndex].label;
-            return [label_name + ':', Number(value).toLocaleString()].join(" ");
-          }
-        }
-      },
-      scales: {
-        xAxes: [{
-          gridLines: {
-            display: false
-          }
-        }],
-        yAxes: [{
-          id: 'weekly-tests-y-axis',
-          type: 'linear',
-          position: 'right',
-          gridLines: {
-            display: true
-          },
-          scaleLabel: {
-            display: true,
-            labelString: 'weekly performed PCR tests',
-            fontColor: 'rgb(00, 144, 255)'
-          },
-          ticks: {
-            callback: function(value, index, values) {
-              return Number(value).toLocaleString();
-            }
-          }
-        }]
+    title: {
+      text: 'weekly tests'
+    },
+    xAxis: {
+      categories: calendar_weeks
+    },
+    yAxis: {
+      title: {
+        text: 'weekly tests'
       }
-    }
+    },
+    series: [{
+      name: 'tests',
+      data: weekly_tests
+    }]
   });
-};
+}
 
 function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinations, total_vaccinations, dates) {
-  var cg = document.getElementById('chart_corona_vaccinations_germany').getContext('2d');
-  var daily_vaccinations_chart = new Chart(cg, {
-    type: 'bar',
-    data: {
-      labels: dates,
-      datasets: [{
-        label: 'primary vaccinations',
-        backgroundColor: 'rgb(00, 150, 0)',
-        borderColor: 'rgb(00, 150, 0)',
-        data: primary_vaccinations,
-        fill: false,
-        yAxisID: 'daily-vaccinations-y-axis',
-        order: 2
-      },{
-        label: 'secondary vaccinations',
-        backgroundColor: 'rgb(00, 200, 0)',
-        borderColor: 'rgb(00, 200, 0)',
-        data: secondary_vaccinations,
-        fill: false,
-        yAxisID: 'daily-vaccinations-y-axis',
-        order: 3
-      }, {
-        label: 'total vaccinations',
-        backgroundColor: 'rgb(00, 144, 255)',
-        borderColor: 'rgb(00, 144, 255)',
-        data: total_vaccinations,
-        fill: false,
-        yAxisID: 'total-vaccinations-y-axis',
-        type: 'line',
-        order: 1
-      }]
+  var weekly_tests_chart = Highcharts.chart('chart_corona_vaccinations_germany', {
+    chart: {
+      type: 'column'
     },
-    options: {
-      tooltips: {
-        callbacks: {
-          label: function(tooltipItem, data) {
-            var value = tooltipItem.value;
-            var label_name = data.datasets[tooltipItem.datasetIndex].label;
-            return [label_name + ':', Number(value).toLocaleString()].join(" ");
-          }
-        }
-      },
-      scales: {
-        xAxes: [{
-          gridLines: {
-            display: false
-          },
-          stacked: true
-        }],
-        yAxes: [{
-          id: 'daily-vaccinations-y-axis',
-          type: 'linear',
-          position: 'right',
-          stacked: true,
-          gridLines: {
-            display: false
-          },
-          scaleLabel: {
-            display: true,
-            labelString: 'daily vaccinations',
-            fontColor: 'rgb(00, 200, 0)'
-          },
-          ticks: {
-            callback: function(value, index, values) {
-              return Number(value).toLocaleString();
-            }
-          }
-        }, {
-          id: 'total-vaccinations-y-axis',
-          type: 'linear',
-          position: 'left',
-          stacked: true,
-          gridLines: {
-            display: false
-          },
-          scaleLabel: {
-            display: true,
-            labelString: 'total vaccinations',
-            fontColor: 'rgb(00, 144, 255)'
-          },
-          ticks: {
-            callback: function(value, index, values) {
-              return Number(value).toLocaleString();
-            }
-          }
-        }]
+    title: {
+      text: 'Daily Vaccinations'
+    },
+    xAxis: {
+      categories: dates
+    },
+    yAxis: [{
+      title: {
+        text: 'daily vaccinations'
       }
-    }
+    }, {
+      title: {
+        text: 'total vaccinations'
+      },
+      opposite: true
+    }],
+    plotOptions: {
+      column: {
+        stacking: 'normal'
+      }
+    },
+    series: [{
+      yAxis: 0,
+      stack: 0,
+      name: 'Primary Vaccinations',
+      data: primary_vaccinations
+    }, {
+      yAxis: 0,
+      stack: 0,
+      name: 'Secondary Vaccinations',
+      data: secondary_vaccinations
+    }, {
+      yAxis: 1,
+      name: 'Total Vaccinations',
+      data: total_vaccinations
+    }]
   });
-};
+}
 
 init();
