@@ -28,17 +28,18 @@ const get_async_weekly_tests_callback = function get_async_weekly_tests_callback
 };
 
 const get_async_daily_vaccinations_callback = function get_async_daily_vaccinations_callback(callback_object) {
-  let vaccinations = callback_object.response.vaccinations;
+  let primary_vaccinations = callback_object.response.primary_vaccinations;
+  let secondary_vaccinations = callback_object.response.secondary_vaccinations;
   let dates = callback_object.response.dates;
   let total_vaccinations = []
-  for (let i=0; i < vaccinations.length; i++) {
+  for (let i=0; i < primary_vaccinations.length; i++) {
     let t_vac = 0;
     for (let j=0; j <= i; j++) {
-      t_vac+= vaccinations[j];
+      t_vac+= primary_vaccinations[j] + secondary_vaccinations[j];
     }
     total_vaccinations.push(t_vac);
   }
-  draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates);
+  draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinations, total_vaccinations, dates);
 }
 
 function draw_daily_cases_chart(cases, daily_cases, dates) {
@@ -176,22 +177,30 @@ function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
   });
 };
 
-function draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates) {
+function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinations, total_vaccinations, dates) {
   var cg = document.getElementById('chart_corona_vaccinations_germany').getContext('2d');
   var daily_vaccinations_chart = new Chart(cg, {
     type: 'bar',
     data: {
       labels: dates,
       datasets: [{
-        label: 'daily performed vaccinations',
-        backgroundColor: 'rgb(00, 200, 0)',
-        borderColor: 'rgb(00, 200, 0)',
-        data: vaccinations,
+        label: 'primary vaccinations',
+        backgroundColor: 'rgb(00, 150, 0)',
+        borderColor: 'rgb(00, 150, 0)',
+        data: primary_vaccinations,
         fill: false,
         yAxisID: 'daily-vaccinations-y-axis',
         order: 2
+      },{
+        label: 'secondary vaccinations',
+        backgroundColor: 'rgb(00, 200, 0)',
+        borderColor: 'rgb(00, 200, 0)',
+        data: secondary_vaccinations,
+        fill: false,
+        yAxisID: 'daily-vaccinations-y-axis',
+        order: 3
       }, {
-        label: 'total performed vaccinations',
+        label: 'total vaccinations',
         backgroundColor: 'rgb(00, 144, 255)',
         borderColor: 'rgb(00, 144, 255)',
         data: total_vaccinations,
@@ -215,18 +224,20 @@ function draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates) 
         xAxes: [{
           gridLines: {
             display: false
-          }
+          },
+          stacked: true
         }],
         yAxes: [{
           id: 'daily-vaccinations-y-axis',
           type: 'linear',
           position: 'right',
+          stacked: true,
           gridLines: {
             display: false
           },
           scaleLabel: {
             display: true,
-            labelString: 'daily performed vaccinations',
+            labelString: 'daily vaccinations',
             fontColor: 'rgb(00, 200, 0)'
           },
           ticks: {
@@ -238,12 +249,13 @@ function draw_daily_vaccinations_chart(vaccinations, total_vaccinations, dates) 
           id: 'total-vaccinations-y-axis',
           type: 'linear',
           position: 'left',
+          stacked: true,
           gridLines: {
             display: false
           },
           scaleLabel: {
             display: true,
-            labelString: 'total performed vaccinations',
+            labelString: 'total vaccinations',
             fontColor: 'rgb(00, 144, 255)'
           },
           ticks: {
