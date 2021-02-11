@@ -23,8 +23,9 @@ const tacho = function tacho(initial_value, target_value, step_value, step_speed
     numsteps = (initial_value - target_value) / step_value;
     direction = "decrease;"
   }
-  $(target_div).html(prefix + initial_value + suffix);
-  for (let i=1; i<=numsteps; i++) {
+  for (let i=0; i<=numsteps; i++) {
+    step_speed = step_speed * dynamic_speed;
+    let timeout = i * step_speed;
     setTimeout(function(){
       let value = 0;
       if (direction === "increase") {
@@ -34,6 +35,6 @@ const tacho = function tacho(initial_value, target_value, step_value, step_speed
         value = initial_value - step_value * i;
       }
       $(target_div).html(prefix + value + suffix);
-    }, i * step_speed * dynacmic_speed);
+    }, timeout);
   }
 };
