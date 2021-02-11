@@ -11,3 +11,29 @@ const async_request = function async_request(url, type, callback_function) {
   };
   http_request.send(null);
 };
+
+const tacho = function tacho(initial_value, target_value, step_value, step_speed, dynamic_speed, target_div, prefix, suffix) {
+  let numsteps = 0;
+  let direction = "";
+  if (initial_value < target_value) {
+    numsteps = (target_value - initial_value) / step_value;
+    direction = "increase";
+  }
+  else if (initial_value > target_value) {
+    numsteps = (initial_value - target_value) / step_value;
+    direction = "decrease;"
+  }
+  $(target_div).html(prefix + initial_value + suffix);
+  for (let i=1; i<=numsteps; i++) {
+    setTimeout(function(){
+      let value = 0;
+      if (direction === "increase") {
+        value = initial_value + step_value * i;
+      }
+      else if (direction === "decrease") {
+        value = initial_value - step_value * i;
+      }
+      $(target_div).html(prefix + value + suffix);
+    }, i * step_speed * dynacmic_speed);
+  }
+};
