@@ -1,6 +1,4 @@
 function init() {
-  Chart.defaults.global.defaultFontFamily = "Raleway";
-  Chart.defaults.global.defaultFontSize = 20;
   let daily_cases_url = "/assets/json/corona_germany_daily_cases.json";
   let weekly_tests_url = "/assets/json/corona_germany_weekly_tests.json";
   let daily_vaccinations_url = "/assets/json/corona_germany_daily_vaccinations.json"
