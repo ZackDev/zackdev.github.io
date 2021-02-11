@@ -5,9 +5,11 @@ import json
 def run(inputfile, outputfile):
     with open(inputfile, newline='') as daily_vaccinations_csv:
         dates_raw = []
-        vaccinations_raw = []
+        primary_vaccinations_raw = []
+        secondary_vaccinations_raw = []
         dates = []
-        vaccinations = []
+        primary_vaccinations = []
+        secondary_vaccinations = []
         dict = None
 
         ''' NOTE: the first line contains the header '''
@@ -17,16 +19,19 @@ def run(inputfile, outputfile):
         for line in csv_reader:
             if index > 0:
                 raw_date = line[0]
-                raw_vaccination = line[3]
-                if raw_date is not None and raw_vaccination is not None:
+                primary_raw_vaccination = line[1]
+                secondary_raw_vaccination = line[2]
+                if raw_date is not None and primary_raw_vaccination is not None and secondary_raw_vaccination is not None:
                     if raw_date != '' and raw_date != 'Gesamt':
                         dates_raw.append(raw_date)
-                        vaccinations_raw.append(raw_vaccination)
+                        primary_vaccinations_raw.append(primary_raw_vaccination)
+                        secondary_vaccinations_raw.append(secondary_raw_vaccination)
             index+=1
 
-        if dates_raw and vaccinations_raw:
+        if dates_raw and primary_vaccinations_raw and secondary_vaccinations_raw:
             dates = []
-            vaccinations = []
+            primary_vaccinations = []
+            secondary_vaccinations = []
 
             ''' do some date parsing, provided format is M/D/Y, to YYYY-MM-DD '''
             for raw_date in dates_raw:
@@ -41,21 +46,26 @@ def run(inputfile, outputfile):
                 dates.append(f"{year}-{month}-{day}")
 
             ''' do simple string to integer conversion '''
-            for raw_vaccination in vaccinations_raw:
+            for raw_vaccination in primary_vaccinations_raw:
                 vaccination = int(raw_vaccination)
-                vaccinations.append(vaccination)
+                primary_vaccinations.append(vaccination)
+
+            for raw_vaccination in secondary_vaccinations_raw:
+                vaccination = int(raw_vaccination)
+                secondary_vaccinations.append(vaccination)
+
 
         ''' check data for consistency, equal amount of dates and cases '''
-        if len(dates) != len(vaccinations):
+        if len(dates) != len(primary_vaccinations) != len(secondary_vaccinations):
             print('length mismatch. ending programm.')
-            print(f'dates: {len(dates)} cases: {len(vaccinations)}')
+            print(f'dates: {len(dates)} primary_vaccinations: {len(primary_vaccinations)} secondary_vaccinations: {len(secondary_vaccinations)}')
             return
 
-        if len(dates) < 1 and len(vaccinations) < 1:
+        if len(dates) < 1 and len(primary_vaccinations) < 1 and len(secondary_vaccinations):
             print('no data extracted. ending programm.')
             return
 
-        dict = { 'dates':dates, 'vaccinations':vaccinations }
+        dict = { 'dates':dates, 'primary_vaccinations':primary_vaccinations, 'secondary_vaccinations':secondary_vaccinations }
         with open(outputfile ,'w') as output:
             output.write(json.dumps(dict))
 
