@@ -53,23 +53,28 @@ function draw_daily_cases_chart(cases, daily_cases, dates) {
     },
     yAxis: [{
       title: {
-        text: 'daily cases'
+        text: 'Daily Cases'
       }
     }, {
       title: {
-        text: 'total cases'
+        text: 'Total Cases'
       },
       opposite: true
     }],
     series: [{
       yAxis: 0,
-      name: 'daily',
+      index: 1,
+      name: 'Daily',
       data: daily_cases
     }, {
       yAxis: 1,
-      name: 'total',
+      index: 0,
+      name: 'Total',
       data: cases
-    }]
+    }],
+    credits: {
+      enabled: false
+    }
   });
 }
 
@@ -80,20 +85,23 @@ function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
       type: 'column'
     },
     title: {
-      text: 'weekly tests'
+      text: 'Weekly Tests'
     },
     xAxis: {
       categories: calendar_weeks
     },
     yAxis: {
       title: {
-        text: 'weekly tests'
+        text: 'Weekly Tests'
       }
     },
     series: [{
-      name: 'tests',
+      name: 'Tests',
       data: weekly_tests
-    }]
+    }],
+    credits: {
+      enabled: false
+    }
   });
 }
 
@@ -103,18 +111,18 @@ function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinati
       type: 'column'
     },
     title: {
-      text: 'Daily Vaccinations'
+      text: 'Vaccinations'
     },
     xAxis: {
       categories: dates
     },
     yAxis: [{
       title: {
-        text: 'daily vaccinations'
+        text: 'Daily Vaccinations'
       }
     }, {
       title: {
-        text: 'total vaccinations'
+        text: 'Total Vaccinations'
       },
       opposite: true
     }],
@@ -126,18 +134,24 @@ function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinati
     series: [{
       yAxis: 0,
       stack: 0,
+      index: 1,
       name: 'Primary Vaccinations',
       data: primary_vaccinations
     }, {
       yAxis: 0,
       stack: 0,
+      index: 0,
       name: 'Secondary Vaccinations',
       data: secondary_vaccinations
     }, {
+      type: 'line',
       yAxis: 1,
       name: 'Total Vaccinations',
       data: total_vaccinations
-    }]
+    }],
+    credits: {
+      enabled: false
+    }
   });
 }
 
