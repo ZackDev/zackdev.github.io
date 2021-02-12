@@ -46,30 +46,30 @@ function draw_daily_cases_chart(cases, daily_cases, dates) {
       type: 'column'
     },
     title: {
-      text: 'Positive PCR Tests'
+      text: 'Daily And Total Positive PCR Tests'
     },
     xAxis: {
       categories: dates
     },
     yAxis: [{
       title: {
-        text: 'Daily Cases'
+        text: 'Daily Positive PCR Tests'
       }
     }, {
       title: {
-        text: 'Total Cases'
+        text: 'Total Positive PCR Tests'
       },
       opposite: true
     }],
     series: [{
       yAxis: 0,
       index: 1,
-      name: 'Daily',
+      name: 'Daily Positive PCR Tests',
       data: daily_cases
     }, {
       yAxis: 1,
       index: 0,
-      name: 'Total',
+      name: 'Total Positive PCR Tests',
       data: cases
     }],
     credits: {
@@ -85,18 +85,18 @@ function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
       type: 'column'
     },
     title: {
-      text: 'Weekly Tests'
+      text: 'Weekly Performed PCR Tests'
     },
     xAxis: {
       categories: calendar_weeks
     },
     yAxis: {
       title: {
-        text: 'Weekly Tests'
+        text: 'Weekly PCR Tests'
       }
     },
     series: [{
-      name: 'Tests',
+      name: 'Weekly PCR Tests',
       data: weekly_tests
     }],
     credits: {
@@ -111,7 +111,7 @@ function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinati
       type: 'column'
     },
     title: {
-      text: 'Vaccinations'
+      text: 'Daily And Total Vaccinations'
     },
     xAxis: {
       categories: dates
@@ -135,17 +135,20 @@ function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinati
       yAxis: 0,
       stack: 0,
       index: 1,
+      color: 'rgb(0, 200, 0)',
       name: 'Primary Vaccinations',
       data: primary_vaccinations
     }, {
       yAxis: 0,
       stack: 0,
       index: 0,
+      color: 'rgb(0, 150, 0)',
       name: 'Secondary Vaccinations',
       data: secondary_vaccinations
     }, {
       type: 'line',
       yAxis: 1,
+      color: 'rgb(250, 150, 0)',
       name: 'Total Vaccinations',
       data: total_vaccinations
     }],
