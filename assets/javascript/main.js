@@ -12,29 +12,42 @@ const async_request = function async_request(url, type, callback_function) {
   http_request.send(null);
 };
 
-const tacho = function tacho(initial_value, target_value, step_value, step_speed, dynamic_speed, target_div, prefix, suffix) {
-  let numsteps = 0;
-  let direction = "";
-  if (initial_value < target_value) {
-    numsteps = (target_value - initial_value) / step_value;
-    direction = "increase";
+class Tacho {
+  constructor(initial_value, target_value, step_value, step_speed, dynamic_speed, target_div, prefix, suffix) {
+    this.initial_value = initial_value;
+    this.target_value = target_value;
+    this.step_value = step_value;
+    this.step_speed = step_speed;
+    this.dynamic_speed = dynamic_speed;
+    this.target_div = target_div;
+    this.prefix = prefix;
+    this.suffix = suffix;
+    this.direction = "";
+    this.numsteps = 0;
+    if (this.initial_value < this.target_value) {
+      this.numsteps = (this.target_value - this.initial_value) / this.step_value;
+      this.direction = "increase";
+    }
+    else if (this.initial_value > this.target_value) {
+      this.numsteps = (this.initial_value - this.target_value) / this.step_value;
+      this.direction = "decrease;"
+    }
   }
-  else if (initial_value > target_value) {
-    numsteps = (initial_value - target_value) / step_value;
-    direction = "decrease;"
+  run(){
+    console.log('hi');
+    for (let i=0; i<=this.numsteps; i++) {
+      this.step_speed = this.step_speed * this.dynamic_speed;
+      let timeout = i * this.step_speed;
+      setTimeout(function(){
+        let value = 0;
+        if (this.direction === "increase") {
+          value = this.initial_value + this.step_value * i;
+        }
+        else if (this.direction === "decrease") {
+          value = this.initial_value - this.step_value * i;
+        }
+        $(this.target_div).html(this.prefix + value + this.suffix);
+      }.bind(this), timeout);
+    }
   }
-  for (let i=0; i<=numsteps; i++) {
-    step_speed = step_speed * dynamic_speed;
-    let timeout = i * step_speed;
-    setTimeout(function(){
-      let value = 0;
-      if (direction === "increase") {
-        value = initial_value + step_value * i;
-      }
-      else if (direction === "decrease") {
-        value = initial_value - step_value * i;
-      }
-      $(target_div).html(prefix + value + suffix);
-    }, timeout);
-  }
-};
+}
