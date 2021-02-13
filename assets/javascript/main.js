@@ -30,7 +30,7 @@ class Tacho {
     }
     else if (this.initial_value > this.target_value) {
       this.numsteps = (this.initial_value - this.target_value) / this.step_value;
-      this.direction = "decrease;"
+      this.direction = "decrease";
     }
   }
   run(){
