@@ -34,7 +34,6 @@ class Tacho {
     }
   }
   run(){
-    console.log('hi');
     for (let i=0; i<=this.numsteps; i++) {
       this.step_speed = this.step_speed * this.dynamic_speed;
       let timeout = i * this.step_speed;
