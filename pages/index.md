@@ -33,5 +33,5 @@ a personal playground.
 
 
 <script>
-  new Tacho(1, {{ site.posts.size }}, 1, 1000, 0.9, '#tacho', 'total posts: ', '.').run();
+  new Tacho(1, {{ site.posts.size }}, 1, 1000, 0.9, 'tacho', 'total posts: ', '.').run();
 </script>

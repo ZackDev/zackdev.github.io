@@ -32,6 +32,12 @@ class Tacho {
       this.numsteps = (this.initial_value - this.target_value) / this.step_value;
       this.direction = "decrease";
     }
+    try {
+      this.target_div = document.getElementById(target_div);
+    }
+    catch(error){
+      console.log(error.message);
+    }
   }
   run(){
     for (let i=0; i<=this.numsteps; i++) {
@@ -39,13 +45,18 @@ class Tacho {
       let timeout = i * this.step_speed;
       setTimeout(function(){
         let value = 0;
-        if (this.direction === "increase") {
-          value = this.initial_value + this.step_value * i;
+        if (i == this.numsteps) {
+          value = this.target_value;
         }
-        else if (this.direction === "decrease") {
-          value = this.initial_value - this.step_value * i;
+        else if (i < this.numsteps) {
+          if (this.direction === "increase") {
+            value = this.initial_value + this.step_value * i;
+          }
+          else if (this.direction === "decrease") {
+            value = this.initial_value - this.step_value * i;
+          }
         }
-        $(this.target_div).html(this.prefix + value + this.suffix);
+        this.target_div.innerHTML = this.prefix + value + this.suffix;
       }.bind(this), timeout);
     }
   }

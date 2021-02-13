@@ -1,5 +1,5 @@
 function init_ping(interval, target_url, target_div){
-  target_div.html('');
+  target_div.innerHTML = '';
   ping(target_url, target_div)
   setInterval(ping, interval, target_url, target_div);
 };
@@ -12,7 +12,7 @@ function ping(target_url, target_div){
     if (this.readyState == 4) {
       if (this.status == 200) {
         let time_elapsed = Date.now() - now_ms;
-        target_div.html('ping: ' + time_elapsed + 'ms');
+        target_div.innerHTML = 'ping: ' + time_elapsed + 'ms';
       }
       else {
         console.log('ping.js: request completed with status code: ' + this.status);
@@ -27,7 +27,7 @@ function ping(target_url, target_div){
 function init() {
   let interval = 3000;
   let target_url = "/assets/json/dummy.json";
-  let target_div = $("#ping_output");
+  let target_div = document.getElementById("ping_output");
 
   init_ping(interval, target_url, target_div);
 };
