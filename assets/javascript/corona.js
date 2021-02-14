@@ -114,6 +114,9 @@ function draw_incidence_chart(incidences, dates) {
     title: {
       text: '7 Day Incidence'
     },
+    subtitle: {
+      text: 'for a population of 83m'
+    },
     xAxis: {
       categories: dates
     },
