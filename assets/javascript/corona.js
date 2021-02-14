@@ -24,9 +24,11 @@ const get_async_daily_cases_callback = function get_async_daily_cases_callback(c
     daily_cases.push(cases[i] - previous_cases);
     previous_cases = cases[i];
   }
-  let incidences = incidence(7, daily_cases);
+  let incidences_3 = incidence(3, daily_cases);
+  let incidences_7 = incidence(7, daily_cases);
+  let incidences_14 = incidence(14, daily_cases);
   draw_daily_cases_chart(cases, daily_cases, dates);
-  draw_incidence_chart(incidences, dates);
+  draw_incidence_chart(incidences_3, incidences_7, incidences_14, dates);
 };
 
 const get_async_weekly_tests_callback = function get_async_weekly_tests_callback(callback_object) {
@@ -106,13 +108,13 @@ function draw_daily_cases_chart(cases, daily_cases, dates) {
   });
 }
 
-function draw_incidence_chart(incidences, dates) {
+function draw_incidence_chart(incidences_3, incidences_7, incidences_14, dates) {
   var incidence_chart = Highcharts.chart('chart_corona_incidence_germany', {
     chart: {
       type: 'line'
     },
     title: {
-      text: '7 Day Incidence'
+      text: 'Incidences'
     },
     subtitle: {
       text: 'for a population of 83m'
@@ -126,8 +128,14 @@ function draw_incidence_chart(incidences, dates) {
       }
     },
     series: [{
+      name: '3 day incidence',
+      data: incidences_3
+    }, {
       name: '7 day incidence',
-      data: incidences
+      data: incidences_7
+    }, {
+      name: '14 day incidence',
+      data: incidences_14
     }],
     credits: {
       enabled: false
