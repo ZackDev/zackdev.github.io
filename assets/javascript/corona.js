@@ -117,7 +117,7 @@ function draw_incidence_chart(incidences_3, incidences_7, incidences_14, dates) 
       text: 'Incidences'
     },
     subtitle: {
-      text: 'for a population of 83m'
+      text: 'for a population of 100.000'
     },
     xAxis: {
       categories: dates
@@ -152,6 +152,9 @@ function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
     title: {
       text: 'Weekly Performed PCR Tests'
     },
+    subtitle: {
+      text: 'updated on Wednesdays'
+    },
     xAxis: {
       categories: calendar_weeks
     },
@@ -177,6 +180,9 @@ function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinati
     },
     title: {
       text: 'Daily And Total Vaccinations'
+    },
+    subtitle: {
+      text: 'includes primary and secondary vaccinations'
     },
     xAxis: {
       categories: dates
