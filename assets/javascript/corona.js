@@ -24,7 +24,9 @@ const get_async_daily_cases_callback = function get_async_daily_cases_callback(c
     daily_cases.push(cases[i] - previous_cases);
     previous_cases = cases[i];
   }
+  let incidences = incidence(7, daily_cases);
   draw_daily_cases_chart(cases, daily_cases, dates);
+  draw_incidence_chart(incidences, dates);
 };
 
 const get_async_weekly_tests_callback = function get_async_weekly_tests_callback(callback_object) {
@@ -46,6 +48,24 @@ const get_async_daily_vaccinations_callback = function get_async_daily_vaccinati
     total_vaccinations.push(t_vac);
   }
   draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinations, total_vaccinations, dates);
+}
+
+const incidence = function incidence(span, cases) {
+  var incidences = new Array();
+  for (let i=0; i < cases.length; i++) {
+    var temp_incidences = new Array();
+    var inc = 0;
+    for (let j=i; j>=0 && j >= i - span + 1; j--) {
+      temp_incidences.push(cases[j]);
+    }
+    for (let x=0; x < temp_incidences.length; x++) {
+      inc += temp_incidences[x];
+      if (x == temp_incidences.length -1) {
+        incidences.push(Number((inc / 831).toFixed(2)));
+      }
+    }
+  }
+  return incidences;
 }
 
 function draw_daily_cases_chart(cases, daily_cases, dates) {
@@ -79,6 +99,32 @@ function draw_daily_cases_chart(cases, daily_cases, dates) {
       index: 0,
       name: 'Total Positive PCR Tests',
       data: cases
+    }],
+    credits: {
+      enabled: false
+    }
+  });
+}
+
+function draw_incidence_chart(incidences, dates) {
+  var incidence_chart = Highcharts.chart('chart_corona_incidence_germany', {
+    chart: {
+      type: 'line'
+    },
+    title: {
+      text: '7 Day Incidence'
+    },
+    xAxis: {
+      categories: dates
+    },
+    yAxis: {
+      title: {
+        text: 'incidence'
+      }
+    },
+    series: [{
+      name: '7 day incidence',
+      data: incidences
     }],
     credits: {
       enabled: false
