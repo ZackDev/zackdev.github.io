@@ -10,7 +10,11 @@ The following charts use publicly available data surrounding the SARS-CoV-2 viru
 {% include corona.html %}
 
 The total daily cases in the first chart is taken from the [CSSE Github Repository][1]. The day to day increase in cases is a calculation on that data.
-The second chart's weekly performed tests data comes from [Robert Koch Institute (1)][2].
+
+7 Day Incidence Chart's data is also derived from the source above.
+
+The third chart's weekly performed tests data comes from [Robert Koch Institute (1)][2].
+
 The daily vaccinations data is also available from [Robert Koch Institute (2)][3].
 
 [1]: <https://github.com/CSSEGISandData/COVID-19> "COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University"
