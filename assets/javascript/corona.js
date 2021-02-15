@@ -206,20 +206,17 @@ function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinati
       yAxis: 0,
       stack: 0,
       index: 1,
-      color: 'rgb(0, 200, 0)',
       name: 'Primary Vaccinations',
       data: primary_vaccinations
     }, {
       yAxis: 0,
       stack: 0,
       index: 0,
-      color: 'rgb(0, 150, 0)',
       name: 'Secondary Vaccinations',
       data: secondary_vaccinations
     }, {
       type: 'line',
       yAxis: 1,
-      color: 'rgb(250, 150, 0)',
       name: 'Total Vaccinations',
       data: total_vaccinations
     }],
