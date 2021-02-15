@@ -21,8 +21,12 @@ const get_async_daily_cases_callback = function get_async_daily_cases_callback(c
   let daily_cases = [];
   let previous_cases = 0;
   for (let i=0; i < cases.length; i++) {
-    daily_cases.push(cases[i] - previous_cases);
-    previous_cases = cases[i];
+    if (i == 0) {
+      daily_cases.push(cases[i]);
+    }
+    else {
+      daily_cases.push(cases[i] - cases[i-1])
+    }
   }
   let incidences_3 = incidence(3, daily_cases);
   let incidences_7 = incidence(7, daily_cases);
