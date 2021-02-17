@@ -163,7 +163,7 @@ function draw_weekly_tests_chart(weekly_tests, total_tests, calendar_weeks) {
       type: 'column'
     },
     title: {
-      text: 'Weekly Performed PCR Tests'
+      text: 'Weekly And Total Performed PCR Tests'
     },
     subtitle: {
       text: 'updated on Wednesdays'
