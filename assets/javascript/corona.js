@@ -38,7 +38,16 @@ const get_async_daily_cases_callback = function get_async_daily_cases_callback(c
 const get_async_weekly_tests_callback = function get_async_weekly_tests_callback(callback_object) {
   let weekly_tests = callback_object.response.weekly_tests;
   let calendar_weeks = callback_object.response.calendar_weeks;
-  draw_weekly_tests_chart(weekly_tests, calendar_weeks);
+  let total_tests = [];
+  for (let i=0; i < weekly_tests.length; i++) {
+    if (i == 0) {
+      total_tests.push(weekly_tests[i]);
+    }
+    else {
+      total_tests.push(total_tests[i-1] + weekly_tests[i]);
+    }
+  }
+  draw_weekly_tests_chart(weekly_tests, total_tests, calendar_weeks);
 };
 
 const get_async_daily_vaccinations_callback = function get_async_daily_vaccinations_callback(callback_object) {
@@ -148,7 +157,7 @@ function draw_incidence_chart(incidences_3, incidences_7, incidences_14, dates) 
 }
 
 
-function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
+function draw_weekly_tests_chart(weekly_tests, total_tests, calendar_weeks) {
   var weekly_tests_chart = Highcharts.chart('chart_corona_tests_germany', {
     chart: {
       type: 'column'
@@ -162,14 +171,25 @@ function draw_weekly_tests_chart(weekly_tests, calendar_weeks) {
     xAxis: {
       categories: calendar_weeks
     },
-    yAxis: {
+    yAxis: [{
       title: {
         text: 'Weekly PCR Tests'
       }
-    },
+    }, {
+      title: {
+        text: 'Total PCR Tests'
+      },
+      opposite: true
+    }],
     series: [{
+      yAxis: 0,
       name: 'Weekly PCR Tests',
       data: weekly_tests
+    }, {
+      type: 'line',
+      yAxis: 1,
+      name: 'Total PCR Tests',
+      data: total_tests
     }],
     credits: {
       enabled: false
