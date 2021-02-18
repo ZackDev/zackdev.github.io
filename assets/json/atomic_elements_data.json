@@ -1,6 +1,7 @@
 {
   "elements": [{
     "name": "Hydrogen",
+    "protons": 1,
     "atomic_weight": 1,
     "density": 0.00008988,
     "melting_point": 14.01,
@@ -9,6 +10,7 @@
     "electro_negativity": 2.20
   }, {
     "name": "Helium",
+    "protons": 2,
     "atomic_weight": 4.002602,
     "density": 0.0001785,
     "melting_point": 0,
@@ -17,6 +19,7 @@
     "electro_negativity": 0
   }, {
     "name": "Lithium",
+    "protons": 3,
     "atomic_weight": 6.94,
     "density": 0.534,
     "melting_point": 453.69,
@@ -25,11 +28,39 @@
     "electro_negativity": 0.98
   }, {
     "name": "Beryllium",
+    "protons": 4,
     "atomic_weight": 9.0121831,
     "density": 1.85,
     "melting_point": 1560,
     "boiling_point": 2742,
     "specific_heat_capacity": 1.825,
     "electro_negativity": 1.57
+  }, {
+    "name": "Boron",
+    "protons": 5,
+    "atomic_weight": 10.81,
+    "density": 2.34,
+    "melting_point": 2349,
+    "boiling_point": 4200,
+    "specific_heat_capacity": 1.026,
+    "electro_negativity": 2.04
+  }, {
+    "name": "Carbon",
+    "protons": 6,
+    "atomic_weight": 12.011,
+    "density": 2.267,
+    "melting_point": 4000,
+    "boiling_point": 4300,
+    "specific_heat_capacity": 0.709,
+    "electro_negativity": 2.55
+  }, {
+    "name": "Nitrogen",
+    "protons": 7,
+    "atomic_weight": 9.0121831,
+    "density": 1.85,
+    "melting_point": 63.15,
+    "boiling_point": 77.36,
+    "specific_heat_capacity": 1.04,
+    "electro_negativity": 3.04
   }]
 }
