@@ -39,4 +39,4 @@ The two separate scripts for can be downloaded below:
 - [daily cases parser](/assets/code-examples/covid_daily_cases_parser.py)
 - [weekly tests parser](/assets/code-examples/covid_weekly_tests_parser.py)
 
-{% include javascript.html src="/assets/javascript/corona.js" %}
+{% include javascript.html src="/assets/js/corona.js" %}

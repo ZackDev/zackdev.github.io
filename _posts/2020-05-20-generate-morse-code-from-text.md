@@ -9,4 +9,4 @@ Use the following input to translate your text into a visual representation of M
 
 {% include morse.html %}
 
-{% include javascript.html src="/assets/javascript/morse.js" %}
+{% include javascript.html src="/assets/js/morse.js" %}

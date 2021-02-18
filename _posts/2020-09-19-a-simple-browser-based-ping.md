@@ -9,4 +9,4 @@ Since the well-known ping is not available at browser level, the script on this 
 
 {% include ping.html %}
 
-{% include javascript.html src="/assets/javascript/ping.js" %}
+{% include javascript.html src="/assets/js/ping.js" %}
