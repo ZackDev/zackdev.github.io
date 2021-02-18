@@ -2,7 +2,7 @@
 title: Corona Chart For Germany
 permalink: /corona-chart-for-germany.html
 layout: default
-tags: [corona, virus, germany]
+tags: [corona, virus, germany, chart]
 published: true
 ---
 The following charts use publicly available data surrounding the SARS-CoV-2 virus.
