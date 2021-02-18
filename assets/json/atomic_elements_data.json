@@ -1,0 +1,35 @@
+{
+  "elements": [{
+    "name": "Hydrogen",
+    "atomic_weight": 1,
+    "density": 0.00008988,
+    "melting_point": 14.01,
+    "boiling_point": 20.28,
+    "specific_heat_capacity": 14.304,
+    "electro_negativity": 2.20
+  }, {
+    "name": "Helium",
+    "atomic_weight": 4.002602,
+    "density": 0.0001785,
+    "melting_point": 0,
+    "boiling_point": 4.22,
+    "specific_heat_capacity": 5.193,
+    "electro_negativity": 0
+  }, {
+    "name": "Lithium",
+    "atomic_weight": 6.94,
+    "density": 0.534,
+    "melting_point": 453.69,
+    "boiling_point": 1560,
+    "specific_heat_capacity": 3.582,
+    "electro_negativity": 0.98
+  }, {
+    "name": "Beryllium",
+    "atomic_weight": 9.0121831,
+    "density": 1.85,
+    "melting_point": 1560,
+    "boiling_point": 2742,
+    "specific_heat_capacity": 1.825,
+    "electro_negativity": 1.57
+  }]
+}
