@@ -8,4 +8,4 @@ published: false
 
 {% include chart.html name="atomic_elements_chart" %}
 
-{% include javascript.html src="/assets/javascript/atomic_elements.js" %}
+{% include javascript.html src="/assets/js/atomic_elements.js" %}
