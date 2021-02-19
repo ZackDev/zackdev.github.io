@@ -55,6 +55,7 @@ const get_async_daily_vaccinations_callback = function get_async_daily_vaccinati
   let secondary_vaccinations = callback_object.response.secondary_vaccinations;
   let dates = callback_object.response.dates;
   let total_vaccinations = []
+  let percentage = []
   for (let i=0; i < primary_vaccinations.length; i++) {
     let t_vac = 0;
     for (let j=0; j <= i; j++) {
@@ -62,7 +63,11 @@ const get_async_daily_vaccinations_callback = function get_async_daily_vaccinati
     }
     total_vaccinations.push(t_vac);
   }
-  draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinations, total_vaccinations, dates);
+  for (index in total_vaccinations) {
+    p = parseFloat((total_vaccinations[index] / 83100000 * 100).toFixed(2));
+    percentage.push(p);
+  }
+  draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinations, total_vaccinations, percentage, dates);
 }
 
 const incidence = function incidence(span, cases) {
@@ -197,7 +202,7 @@ function draw_weekly_tests_chart(weekly_tests, total_tests, calendar_weeks) {
   });
 }
 
-function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinations, total_vaccinations, dates) {
+function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinations, total_vaccinations, percentage, dates) {
   var weekly_tests_chart = Highcharts.chart('chart_corona_vaccinations_germany', {
     chart: {
       type: 'column'
