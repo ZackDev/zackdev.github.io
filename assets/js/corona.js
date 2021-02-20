@@ -247,7 +247,13 @@ function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinati
       type: 'line',
       yAxis: 1,
       name: 'Total Vaccinations',
-      data: total_vaccinations
+      data: total_vaccinations,
+      tooltip: {
+        pointFormatter: function(){
+          console.log(this);
+          return '<span style="color:' + this.series.color + ';">&bull;</span>' + ' ' + this.series.name + ': ' + '<b>' + Highcharts.numberFormat(this.y, -1, ' ', ' ') + '</b>' + ': ' + percentage[this.x] + '%';
+        }
+      }
     }],
     credits: {
       enabled: false
