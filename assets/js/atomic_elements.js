@@ -8,7 +8,6 @@ const get_atomic_elements_data_callback = function get_atomic_elements_data_call
   let series = new Array();
   for (elem in elements) {
     let obj = new Object();
-    console.log(elements[elem]["name"]);
     obj.name = elements[elem]["name"];
     obj.data = new Array(elements[elem]["protons"], elements[elem]["atomic_weight"], elements[elem]["density"], elements[elem]["melting_point"], elements[elem]["boiling_point"], elements[elem]["specific_heat_capacity"], elements[elem]["electro_negativity"]);
     series.push(obj);
