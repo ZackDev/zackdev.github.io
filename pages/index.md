@@ -10,8 +10,6 @@ an online reference.
 
 a personal playground.
 
-<p id="tacho"></p>
-
 # links show up here:
 
 {% include listposts.html archived=false %}
@@ -21,10 +19,4 @@ a personal playground.
 
 {% if archived_posts.size > 0 %}
   [archive ({{ archived_posts.size }})](/archive.html)
-{% endif %}
-
-{% if non_archived_posts.size > 0 %}
-<script>
-  new Tacho(1, {{ non_archived_posts.size }}, 1, 1000, 0.9, 'tacho', 'total posts: ', '.').run();
-</script>
 {% endif %}
