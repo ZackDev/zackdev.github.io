@@ -31,9 +31,9 @@ def run(inputfile, outputfile):
                 calendar_weeks_raw.append(raw_week)
             index+=1
 
-        ''' the last two lines are comments only '''
-        calendar_weeks_raw = calendar_weeks_raw[:-3]
-        weekly_tests_raw = weekly_tests_raw[:-3]
+        ''' the last lines are comments only '''
+        calendar_weeks_raw = calendar_weeks_raw[:-4]
+        weekly_tests_raw = weekly_tests_raw[:-4]
 
         ''' do some calendar week conversion '''
         for raw_week in calendar_weeks_raw:
