@@ -1,5 +1,6 @@
+{% assign posts = site.posts | where: "archived", include.archived %}
+{% if posts.size > 0 %}
 <ul class="index_menu">
-  {% assign posts = site.posts | where: "archived", include.archived %}
   {% for post in posts %}
   <li>
     <a href="{{ post.permalink }}">{{ post.title | downcase }}</a>
@@ -13,3 +14,4 @@
   </li>
   {% endfor %}
 </ul>
+{% endif %}
