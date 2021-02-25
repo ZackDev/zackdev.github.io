@@ -4,6 +4,7 @@ permalink: /spiders-web-of-atomic-elements.html
 layout: default
 tags: [atomic, elements, chart]
 published: false
+archived: true
 ---
 
 {% include chart.html name="atomic_elements_chart" %}

@@ -1,0 +1,15 @@
+<ul class="index_menu">
+  {% assign posts = site.posts | where: "archived", include.archived %}
+  {% for post in posts %}
+  <li>
+    <a href="{{ post.permalink }}">{{ post.title | downcase }}</a>
+    <div class="post_info">
+      <span class="publish_date">{{ post.date | date: "%Y-%m-%d" }}</span>
+      {% assign tags = post.tags | sort_natural %}
+      {% for tag in tags %}
+      <span class="tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </li>
+  {% endfor %}
+</ul>

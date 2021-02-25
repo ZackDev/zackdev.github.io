@@ -13,25 +13,18 @@ a personal playground.
 <p id="tacho"></p>
 
 # links show up here:
-<ul class="index_menu">
-  {% for post in site.posts limit:5 %}
-  <li>
-    <a href="{{ post.permalink }}">{{ post.title | downcase }}</a>
-    <div class="post_info">
-      <span class="publish_date">{{ post.date | date: "%Y-%m-%d" }}</span>
-      {% assign tags = post.tags | sort_natural %}
-      {% for tag in tags %}
-      <span class="tag">{{ tag }}</span>
-      {% endfor %}
-    </div>
-  </li>
-  {% endfor %}
-</ul>
-{% if site.posts.size > 5 %}
-  [archive ({{ site.posts.size | minus: 5 }})](/archive.html)
+
+{% include listposts.html archived=false %}
+
+{% assign archived_posts = site.posts | where: "archived", true %}
+{% assign non_archived_posts = site.posts | where: "archived", false %}
+
+{% if archived_posts.size > 0 %}
+  [archive ({{ archived_posts.size }})](/archive.html)
 {% endif %}
 
-
+{% if non_archived_posts.size > 0 %}
 <script>
-  new Tacho(1, {{ site.posts.size }}, 1, 1000, 0.9, 'tacho', 'total posts: ', '.').run();
+  new Tacho(1, {{ non_archived_posts.size }}, 1, 1000, 0.9, 'tacho', 'total posts: ', '.').run();
 </script>
+{% endif %}

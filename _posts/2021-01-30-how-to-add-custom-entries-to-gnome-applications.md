@@ -4,6 +4,7 @@ permalink: /how-to-add-custom-entries-to-gnome-applications.html
 layout: default
 tags: [linux, gnome, applications]
 published: true
+archived: true
 ---
 {% include image.html url="/assets/img/gnome-applications-screenshot.png" description="Screenshot Gnome Applications" %}
 
