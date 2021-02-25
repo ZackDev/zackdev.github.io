@@ -28,11 +28,10 @@ const get_async_daily_cases_callback = function get_async_daily_cases_callback(c
       daily_cases.push(cases[i] - cases[i-1])
     }
   }
-  let incidences_3 = incidence(3, daily_cases);
   let incidences_7 = incidence(7, daily_cases);
-  let incidences_14 = incidence(14, daily_cases);
+  let repr_values = repr_value(daily_cases);
   draw_daily_cases_chart(cases, daily_cases, dates);
-  draw_incidence_chart(incidences_3, incidences_7, incidences_14, dates);
+  draw_additional_chart(incidences_7, repr_values, dates);
 };
 
 const get_async_weekly_tests_callback = function get_async_weekly_tests_callback(callback_object) {
@@ -88,6 +87,24 @@ const incidence = function incidence(span, cases) {
   return incidences;
 }
 
+const repr_value = function(cases) {
+  var repr = new Array();
+  for (let i=0; i < cases.length; i++) {
+    if (i == 0) {
+      repr.push(0);
+    }
+    else {
+      if (cases[i] == 0 || cases[i - 1 ] == 0) {
+        repr.push(0);
+      }
+      else {
+        repr.push(parseFloat((cases[i] / cases[i - 1]).toFixed(2)));
+      }
+    }
+  }
+  return repr;
+}
+
 function draw_daily_cases_chart(cases, daily_cases, dates) {
   var daily_cases_chart = Highcharts.chart('chart_corona_cases_germany', {
     chart: {
@@ -126,34 +143,38 @@ function draw_daily_cases_chart(cases, daily_cases, dates) {
   });
 }
 
-function draw_incidence_chart(incidences_3, incidences_7, incidences_14, dates) {
-  var incidence_chart = Highcharts.chart('chart_corona_incidence_germany', {
+function draw_additional_chart(incidences_7, repr_values, dates) {
+  var incidence_chart = Highcharts.chart('chart_corona_additional_germany', {
     chart: {
       type: 'line'
     },
     title: {
-      text: 'Incidences'
+      text: 'Incidence'
     },
     subtitle: {
-      text: 'for a population of 100.000'
+      text: 'and R-Value'
     },
     xAxis: {
       categories: dates
     },
-    yAxis: {
+    yAxis: [{
       title: {
-        text: 'incidence'
+        text: 'Incidence'
       }
-    },
-    series: [{
-      name: '3 day incidence',
-      data: incidences_3
     }, {
+      title: {
+        text: 'R-Value'
+      },
+      opposite: true
+    }],
+    series: [{
+      yAxis: 0,
       name: '7 day incidence',
       data: incidences_7
     }, {
-      name: '14 day incidence',
-      data: incidences_14
+      yAxis: 1,
+      name: 'R-Value',
+      data: repr_values
     }],
     credits: {
       enabled: false

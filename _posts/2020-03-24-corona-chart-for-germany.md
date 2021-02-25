@@ -13,7 +13,7 @@ The total daily cases in the first chart is taken from the [CSSE Github Reposito
 
 Incidence Chart's data is also derived from the data above. Incidence describes the cumulative cases for a population of 100.000 over a defined time span.
 
-{% include chart.html name="chart_corona_incidence_germany" %}
+{% include chart.html name="chart_corona_additional_germany" %}
 
 The third chart's weekly performed tests data comes from [Robert Koch Institute (1)][2].
 
