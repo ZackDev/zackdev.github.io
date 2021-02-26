@@ -20,7 +20,9 @@
         $('#main_content_wrap').css('min-height', window_height - header_height - footer_height + 'px');
 
         for (item in init_array) {
+          if (typeof init_array[item] === 'function') {
             init_array[item]();
+          }
         }
       });
     </script>
