@@ -281,4 +281,4 @@ function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinati
   });
 }
 
-init_array.push(init_corona);
+i.add_function(init_corona);

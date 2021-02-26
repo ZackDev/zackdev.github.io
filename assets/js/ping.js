@@ -32,4 +32,4 @@ const init_ping = function init_ping() {
   run_ping(interval, target_url, target_div);
 };
 
-init_array.push(init_ping);
+i.add_function(init_ping);

@@ -12,6 +12,32 @@ const async_request = function async_request(url, type, callback_function) {
   http_request.send(null);
 };
 
+const resize_content = function resize_content() {
+  var footer_height = $("#footer_wrap").height();
+  var header_height = $("#header_wrap").height();
+  var window_height = $(window).height();
+  $('#main_content_wrap').css('min-height', window_height - header_height - footer_height + 'px');
+}
+
+class Init {
+  constructor() {
+    this.function_array = new Array();
+  }
+  add_function(func) {
+    if (typeof func === 'function') {
+      this.function_array.push(func);
+    }
+  }
+  run() {
+    for (let f in this.function_array) {
+      this.function_array[f]();
+    }
+  }
+  get_instance() {
+    return this;
+  }
+}
+
 class Tacho {
   constructor(initial_value, target_value, step_value, step_speed, dynamic_speed, target_div, prefix, suffix) {
     this.initial_value = initial_value;
@@ -61,3 +87,12 @@ class Tacho {
     }
   }
 }
+
+var i = new Init();
+i.add_function(resize_content);
+
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    i.run();
+  }
+};
