@@ -12,11 +12,16 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
     <script>
+      var init_array = new Array();
       $(document).ready(function(){
         var footer_height = $("#footer_wrap").height();
         var header_height = $("#header_wrap").height();
         var window_height = $(window).height();
         $('#main_content_wrap').css('min-height', window_height - header_height - footer_height + 'px');
+
+        for (item in init_array) {
+            init_array[item]();
+        }
       });
     </script>
   </head>

@@ -1,4 +1,4 @@
-function init_ping(interval, target_url, target_div){
+function run_ping(interval, target_url, target_div){
   target_div.innerHTML = '';
   ping(target_url, target_div)
   setInterval(ping, interval, target_url, target_div);
@@ -24,12 +24,12 @@ function ping(target_url, target_div){
   http_request.send(null);
 };
 
-function init() {
+const init_ping = function init_ping() {
   let interval = 3000;
   let target_url = "/assets/json/dummy.json";
   let target_div = document.getElementById("ping_output");
 
-  init_ping(interval, target_url, target_div);
+  run_ping(interval, target_url, target_div);
 };
 
-init();
+init_array.push(init_ping);

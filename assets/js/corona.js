@@ -1,4 +1,4 @@
-function init() {
+const init_corona = function init_corona() {
   Highcharts.setOptions({
     chart: {
       style: {
@@ -281,4 +281,4 @@ function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinati
   });
 }
 
-init();
+init_array.push(init_corona);
