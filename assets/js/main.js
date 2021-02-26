@@ -33,9 +33,6 @@ class Init {
       this.function_array[f]();
     }
   }
-  get_instance() {
-    return this;
-  }
 }
 
 class Tacho {
