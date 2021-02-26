@@ -15,7 +15,6 @@ a personal playground.
 {% include listposts.html archived=false %}
 
 {% assign archived_posts = site.posts | where: "archived", true %}
-{% assign non_archived_posts = site.posts | where: "archived", false %}
 
 {% if archived_posts.size > 0 %}
   [archive ({{ archived_posts.size }})](/archive.html)
