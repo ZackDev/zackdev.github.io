@@ -39,4 +39,4 @@ function draw_atomic_elements_chart(series){
   });
 }
 
-i.add_function(init_atomic_elements);
+new Init(init_atomic_elements);

@@ -20,17 +20,15 @@ const resize_content = function resize_content() {
 }
 
 class Init {
-  constructor() {
-    this.function_array = new Array();
-  }
-  add_function(func) {
-    if (typeof func === 'function') {
-      this.function_array.push(func);
+  static function_array = new Array();
+  static run() {
+    for (let f in Init.function_array) {
+      Init.function_array[f]();
     }
   }
-  run() {
-    for (let f in this.function_array) {
-      this.function_array[f]();
+  constructor(func) {
+    if (typeof func === 'function') {
+      Init.function_array.push(func);
     }
   }
 }
@@ -85,11 +83,10 @@ class Tacho {
   }
 }
 
-var i = new Init();
-i.add_function(resize_content);
+new Init(resize_content);
 
 document.onreadystatechange = () => {
   if (document.readyState === 'complete') {
-    i.run();
+    Init.run();
   }
 };
