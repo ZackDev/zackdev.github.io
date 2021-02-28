@@ -3,8 +3,9 @@
 <ul class="index_menu">
   {% for post in posts %}
   <li>
-    <a href="{{ post.permalink }}">{{ post.title | downcase }}</a>
     <div class="post_info">
+      <a href="{{ post.permalink }}">{{ post.title | downcase }}</a>
+      <br>
       <span class="publish_date">{{ post.date | date: "%Y-%m-%d" }}</span>
       {% assign tags = post.tags | sort_natural %}
       {% for tag in tags %}
