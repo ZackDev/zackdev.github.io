@@ -7,6 +7,7 @@
 $light_grey: #F2F2F2;
 $medium_grey: #383838;
 $dark_grey: #212121;
+$black: #000;
 $white: #FFF;
 
 /* equalize attributes */
@@ -64,6 +65,7 @@ body {
   font-size: 22px;
   font-family: 'Raleway', Helvetica, monospace, sans-serif;
   font-weight: 200;
+  font-kerning: normal;
   line-height: 1.5;
   text-align: justify;
   margin-bottom: 168px;
@@ -76,6 +78,7 @@ code {
 }
 
 .tag {
+  color: $black;
   font-size: 20px;
   font-style: italic;
 }
