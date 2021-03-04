@@ -24,16 +24,12 @@ def run(inputfile, outputfile):
                 raw_week = '10/2020'
                 raw_test = line[2]
             elif index >= 2:
-                raw_week = line[1]
-                raw_test = line[2]
-            if raw_test is not None and raw_week is not None:
+                raw_week = line[0]
+                raw_test = line[1]
+            if raw_test is not None and raw_week is not None and raw_test != '' and raw_week != '' and raw_week != 'Summe':
                 weekly_tests_raw.append(raw_test)
                 calendar_weeks_raw.append(raw_week)
             index+=1
-
-        ''' the last lines are comments only '''
-        calendar_weeks_raw = calendar_weeks_raw[:-4]
-        weekly_tests_raw = weekly_tests_raw[:-4]
 
         ''' do some calendar week conversion '''
         for raw_week in calendar_weeks_raw:
