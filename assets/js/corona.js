@@ -135,7 +135,8 @@ function draw_daily_cases_chart(cases, daily_cases, dates) {
       yAxis: 1,
       index: 0,
       name: 'Total Positive PCR Tests',
-      data: cases
+      data: cases,
+      type: 'line'
     }],
     credits: {
       enabled: false
