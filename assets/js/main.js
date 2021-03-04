@@ -19,6 +19,19 @@ const resize_content = function resize_content() {
   $('#main_content_wrap').css('min-height', window_height - header_height - footer_height + 'px');
 }
 
+const init_highcharts = function init_highcharts() {
+  Highcharts.setOptions({
+    /*
+    chart: {
+      style: {
+        fontFamily: 'Raleway',
+        fontSize: '40'
+      }
+    }
+    */
+  });
+}
+
 class Init {
   static function_array = new Array();
   static run() {
@@ -29,6 +42,7 @@ class Init {
   constructor(func) {
     if (typeof func === 'function') {
       Init.function_array.push(func);
+      console.log('Init: ' + func + ' added.');
     }
   }
 }
@@ -84,6 +98,7 @@ class Tacho {
 }
 
 new Init(resize_content);
+new Init(init_highcharts);
 
 document.onreadystatechange = () => {
   if (document.readyState === 'complete') {
