@@ -1,6 +1,7 @@
 // asynchronous http request to provided url
 // passes response object to callback_function
-const async_request = function async_request(url, type, callback_function) {
+const async_request = function async_request(url, type, bypass_cache, callback_function) {
+  bypass_cache ? url += '?r=' + Date.now() : '';
   let http_request = new XMLHttpRequest();
   http_request.open("GET", url, true);
   http_request.responseType = type;

@@ -1,6 +1,6 @@
 const init_atomic_elements = function init_atomic_elements() {
   let atomic_elements_data_url = '/assets/json/atomic_elements_data.json';
-  async_request(atomic_elements_data_url, "json", get_atomic_elements_data_callback);
+  async_request(atomic_elements_data_url, "json", true, get_atomic_elements_data_callback);
 }
 
 const get_atomic_elements_data_callback = function get_atomic_elements_data_callback(callback_object){

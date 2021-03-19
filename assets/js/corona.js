@@ -3,9 +3,9 @@ const init_corona = function init_corona() {
   let daily_cases_url = "/assets/json/corona_germany_daily_cases.json";
   let weekly_tests_url = "/assets/json/corona_germany_weekly_tests.json";
   let daily_vaccinations_url = "/assets/json/corona_germany_daily_vaccinations.json"
-  async_request(daily_cases_url, "json", get_async_daily_cases_callback);
-  async_request(weekly_tests_url, "json", get_async_weekly_tests_callback);
-  async_request(daily_vaccinations_url, "json", get_async_daily_vaccinations_callback);
+  async_request(daily_cases_url, "json", true, get_async_daily_cases_callback);
+  async_request(weekly_tests_url, "json", true, get_async_weekly_tests_callback);
+  async_request(daily_vaccinations_url, "json", true, get_async_daily_vaccinations_callback);
 };
 
 const get_async_daily_cases_callback = function get_async_daily_cases_callback(callback_object) {
