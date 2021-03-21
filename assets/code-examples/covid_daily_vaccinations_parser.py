@@ -1,6 +1,7 @@
 import argparse
 import csv
 import json
+import math
 
 def run(inputfile, outputfile):
     with open(inputfile, newline='') as daily_vaccinations_csv:
@@ -22,7 +23,8 @@ def run(inputfile, outputfile):
                 primary_raw_vaccination = line[1]
                 secondary_raw_vaccination = line[2]
                 if raw_date is not None and primary_raw_vaccination is not None and secondary_raw_vaccination is not None:
-                    if raw_date != '' and raw_date != 'Gesamt':
+                    arr_raw_date = raw_date.split('/')
+                    if raw_date != '' and len(arr_raw_date) == 3:
                         dates_raw.append(raw_date)
                         primary_vaccinations_raw.append(primary_raw_vaccination)
                         secondary_vaccinations_raw.append(secondary_raw_vaccination)
@@ -47,11 +49,11 @@ def run(inputfile, outputfile):
 
             ''' do simple string to integer conversion '''
             for raw_vaccination in primary_vaccinations_raw:
-                vaccination = int(raw_vaccination)
+                vaccination = math.floor(float(raw_vaccination))
                 primary_vaccinations.append(vaccination)
 
             for raw_vaccination in secondary_vaccinations_raw:
-                vaccination = int(raw_vaccination)
+                vaccination = math.floor(float(raw_vaccination))
                 secondary_vaccinations.append(vaccination)
 
 
