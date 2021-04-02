@@ -73,7 +73,12 @@ code {
 }
 
 .tag {
-  color: $black;
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: $light_grey;
+  padding: 0px 2px 0px 2px;
+  color: $medium_grey;
+  background-color: $light_grey;
   font-size: 20px;
   font-style: italic;
 }
