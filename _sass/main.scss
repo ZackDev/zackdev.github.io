@@ -1,8 +1,3 @@
-@font-face {
-  font-family: 'Raleway';
-  src: url('/assets/fonts/Raleway-VariableFont_wght.ttf') format('truetype');
-}
-
 /* theme colors */
 $light_grey: #F2F2F2;
 $medium_grey: #383838;
@@ -63,7 +58,7 @@ body {
   color: $medium_grey;
   background: $dark_grey;
   font-size: 22px;
-  font-family: 'Raleway', Helvetica, monospace, sans-serif;
+  font-family: 'Myriad Pro', 'Calibri', Helvetica, monospace, sans-serif;
   font-weight: 200;
   font-kerning: normal;
   line-height: 1.5;
