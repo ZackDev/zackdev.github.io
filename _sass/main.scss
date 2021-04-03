@@ -35,10 +35,6 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-ol, ul {
-  list-style: none;
-}
-
 em {
   font-style: italic;
 }
@@ -59,10 +55,7 @@ body {
   background: $dark_grey;
   font-size: 22px;
   font-family: 'Myriad Pro', 'Calibri', Helvetica, monospace, sans-serif;
-  font-weight: 200;
-  font-kerning: normal;
   line-height: 1.5;
-  text-align: justify;
   margin-bottom: 168px;
 }
 
@@ -85,7 +78,6 @@ code {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  font-weight: 300;
   color: $dark_grey;
 }
 
@@ -140,9 +132,12 @@ cite {
 }
 
 blockquote {
-  margin-bottom: 20px;
-  padding: 0 0 0 20px;
-  border-left: 3px solid #bbb;
+  padding: 0px 0px 0px 20px;
+  margin: 0px 0px 20px 0px;
+  border-left: 5px solid $medium_grey;
+  color: $medium_grey;
+  font-size: 20px;
+  font-style: italic;
 }
 
 ul {
@@ -151,6 +146,7 @@ ul {
 
 li {
   margin: 5px 0 5px 0;
+  padding: 10px;
 }
 
 .outer {
