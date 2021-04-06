@@ -53,6 +53,8 @@ def run(inputfile, outputfile):
                 primary_vaccinations.append(vaccination)
 
             for raw_vaccination in secondary_vaccinations_raw:
+                if raw_vaccination == '':
+                    raw_vaccination = 0
                 vaccination = math.floor(float(raw_vaccination))
                 secondary_vaccinations.append(vaccination)
 
