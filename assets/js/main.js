@@ -1,6 +1,6 @@
 // asynchronous http request to provided url
 // passes response object to callback_function
-const async_request = function async_request(url, type, bypass_cache, callback_function) {
+const async_request = (url, type, bypass_cache, callback_function) => {
   bypass_cache ? url += '?r=' + Date.now() : '';
   let http_request = new XMLHttpRequest();
   http_request.open("GET", url, true);
@@ -13,14 +13,14 @@ const async_request = function async_request(url, type, bypass_cache, callback_f
   http_request.send(null);
 };
 
-const resize_content = function resize_content() {
+const resize_content = () => {
   var footer_height = $("#footer_wrap").height();
   var header_height = $("#header_wrap").height();
   var window_height = $(window).height();
   $('#main_content_wrap').css('min-height', window_height - header_height - footer_height + 'px');
 }
 
-const init_highcharts = function init_highcharts() {
+const init_highcharts = () => {
   Highcharts.setOptions({
     /*
     chart: {
