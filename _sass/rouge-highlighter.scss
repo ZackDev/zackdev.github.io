@@ -1,11 +1,16 @@
 .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
 .highlight, .highlight .w {
-  color: #444444;
   font-family: monospace;
   font-weight: 300;
   letter-spacing: 1px;
   line-height: 1.0;
+  border: 1px solid;
+  border-radius: 5px;
+  border-color: $light_grey;
+  padding: 0px 2px 0px 2px;
+  color: $medium_grey;
+  background-color: $light_grey;
 }
 .highlight .cp {
   color: #CC00A3;
