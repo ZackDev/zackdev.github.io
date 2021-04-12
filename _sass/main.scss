@@ -141,8 +141,12 @@ cite {
 blockquote {
   padding: 0px 0px 0px 20px;
   margin: 0px 0px 20px 0px;
-  border-left: 5px solid $medium_grey;
+  border-left: 5px solid $dark_grey;
+  border-right: 1px solid $light_grey;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   color: $medium_grey;
+  background-color: $light_grey;
   font-size: 20px;
   font-style: italic;
 }
