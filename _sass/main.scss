@@ -30,6 +30,12 @@ img {
   max-width: 100%;
 }
 
+.image_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
