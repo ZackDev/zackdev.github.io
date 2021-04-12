@@ -1,13 +1,11 @@
 ---
-title: Net Wizardry
-permalink: /net-wizardry.html
+title: Quora Wizardry
+permalink: /quora-wizardry.html
 layout: default
-tags: [internet, web]
+tags: [internet, web, quora]
 published: true
 archived: true
 ---
-This page serves as a random collection of web related stuff.
-
 # How to access related articles on Quora without a social media account
 
 Quora presents you this when trying to access a related article.
