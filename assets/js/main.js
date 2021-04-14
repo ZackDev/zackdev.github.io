@@ -1,16 +1,24 @@
 // asynchronous http request to provided url
 // passes response object to callback_function
-const async_request = (url, type, bypass_cache, callback_function) => {
-  bypass_cache ? url += '?r=' + Date.now() : '';
-  let http_request = new XMLHttpRequest();
-  http_request.open("GET", url, true);
-  http_request.responseType = type;
-  http_request.onreadystatechange = function() {
-    if (this.readyState === 4 && this.status === 200) {
-      callback_function(this);
+const async_request = (url, type, bypass_cache) => {
+  console.log('async request called.');
+  return new Promise((resolve, reject) => {
+    bypass_cache ? url += '?r=' + Date.now() : '';
+    let http_request = new XMLHttpRequest();
+    http_request.open("GET", url, true);
+    http_request.responseType = type;
+    http_request.onreadystatechange = function() {
+      if (this.readyState === 4 && this.status === 200) {
+        resolve(this);
+      }
+    };
+    try {
+      http_request.send(null);
     }
-  };
-  http_request.send(null);
+    catch (e) {
+      reject(e);
+    }
+  });
 };
 
 const resize_content = () => {

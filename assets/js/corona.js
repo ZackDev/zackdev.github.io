@@ -1,13 +1,29 @@
 const init_corona = () => {
   let daily_cases_url = "/assets/json/corona_germany_daily_cases.json";
   let weekly_tests_url = "/assets/json/corona_germany_weekly_tests.json";
-  let daily_vaccinations_url = "/assets/json/corona_germany_daily_vaccinations.json"
-  async_request(daily_cases_url, "json", true, get_async_daily_cases_callback);
-  async_request(weekly_tests_url, "json", true, get_async_weekly_tests_callback);
-  async_request(daily_vaccinations_url, "json", true, get_async_daily_vaccinations_callback);
+  let daily_vaccinations_url = "/assets/json/corona_germany_daily_vaccinations.json";
+
+  async_request(daily_cases_url, "json", true)
+    .then(
+      resolve => get_async_daily_cases_callback(resolve),
+      reject => console.log(reject)
+    );
+
+  async_request(weekly_tests_url, "json", true)
+    .then(
+      resolve => get_async_weekly_tests_callback(resolve),
+      reject => console.log(reject)
+    );
+
+  async_request(daily_vaccinations_url, "json", true)
+    .then(
+      resolve => get_async_daily_vaccinations_callback(resolve),
+      reject => console.log(reject)
+    );
 };
 
 const get_async_daily_cases_callback = (callback_object) => {
+  console.log('daily cases callback');
   let cases = callback_object.response.cases;
   let dates = callback_object.response.dates;
   let daily_cases = [];
@@ -27,6 +43,7 @@ const get_async_daily_cases_callback = (callback_object) => {
 };
 
 const get_async_weekly_tests_callback = (callback_object) => {
+  console.log('weekly tests callback');
   let weekly_tests = callback_object.response.weekly_tests;
   let calendar_weeks = callback_object.response.calendar_weeks;
   let total_tests = [];
@@ -42,6 +59,7 @@ const get_async_weekly_tests_callback = (callback_object) => {
 };
 
 const get_async_daily_vaccinations_callback = (callback_object) => {
+  console.log('daily vaccinations callback');
   let primary_vaccinations = callback_object.response.primary_vaccinations;
   let secondary_vaccinations = callback_object.response.secondary_vaccinations;
   let dates = callback_object.response.dates;
