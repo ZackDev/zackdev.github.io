@@ -63,8 +63,21 @@ const get_async_daily_vaccinations_callback = (callback_object) => {
   let primary_vaccinations = callback_object.response.primary_vaccinations;
   let secondary_vaccinations = callback_object.response.secondary_vaccinations;
   let dates = callback_object.response.dates;
-  let total_secondary_vaccinations = []
-  let percentage = []
+  let total_primary_vaccinations = [];
+  let primary_vaccinations_percentage = [];
+  let total_secondary_vaccinations = [];
+  let secondary_vaccinations_percentage = [];
+  for (let i=0; i < primary_vaccinations.length; i++) {
+    let t_vac = 0;
+    for (let j=0; j <= i; j++) {
+      t_vac+= primary_vaccinations[j];
+    }
+    total_primary_vaccinations.push(t_vac);
+  }
+  for (index in total_primary_vaccinations) {
+    p = parseFloat((total_primary_vaccinations[index] / 83100000 * 100).toFixed(2));
+    primary_vaccinations_percentage.push(p);
+  }
   for (let i=0; i < secondary_vaccinations.length; i++) {
     let t_vac = 0;
     for (let j=0; j <= i; j++) {
@@ -74,9 +87,9 @@ const get_async_daily_vaccinations_callback = (callback_object) => {
   }
   for (index in total_secondary_vaccinations) {
     p = parseFloat((total_secondary_vaccinations[index] / 83100000 * 100).toFixed(2));
-    percentage.push(p);
+    secondary_vaccinations_percentage.push(p);
   }
-  draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinations, total_secondary_vaccinations, percentage, dates);
+  draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinations, total_primary_vaccinations, primary_vaccinations_percentage, total_secondary_vaccinations, secondary_vaccinations_percentage, dates);
 }
 
 const incidence = (span, cases) => {
@@ -234,7 +247,7 @@ function draw_weekly_tests_chart(weekly_tests, total_tests, calendar_weeks) {
   });
 }
 
-function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinations, total_secondary_vaccinations, percentage, dates) {
+function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinations, total_primary_vaccinations, primary_vaccinations_percentage, total_secondary_vaccinations, secondary_vaccinations_percentage, dates) {
   var weekly_tests_chart = Highcharts.chart('chart_corona_vaccinations_germany', {
     chart: {
       type: 'column'
@@ -254,7 +267,7 @@ function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinati
       }
     }, {
       title: {
-        text: 'Total Secondary Vaccinations'
+        text: 'Total Primary And Secondary Vaccinations'
       },
       opposite: true
     }],
@@ -278,11 +291,21 @@ function draw_daily_vaccinations_chart(primary_vaccinations, secondary_vaccinati
     }, {
       type: 'line',
       yAxis: 1,
+      name: 'Total Primary Vaccinations',
+      data: total_primary_vaccinations,
+      tooltip: {
+        pointFormatter: function(){
+          return '<span style="color:' + this.series.color + ';">&bull;</span>' + ' ' + this.series.name + ': ' + '<b>' + Highcharts.numberFormat(this.y, -1, ' ', ' ') + '</b>' + ': ' + primary_vaccinations_percentage[this.x] + '%';
+        }
+      }
+    }, {
+      type: 'line',
+      yAxis: 1,
       name: 'Total Secondary Vaccinations',
       data: total_secondary_vaccinations,
       tooltip: {
         pointFormatter: function(){
-          return '<span style="color:' + this.series.color + ';">&bull;</span>' + ' ' + this.series.name + ': ' + '<b>' + Highcharts.numberFormat(this.y, -1, ' ', ' ') + '</b>' + ': ' + percentage[this.x] + '%';
+          return '<span style="color:' + this.series.color + ';">&bull;</span>' + ' ' + this.series.name + ': ' + '<b>' + Highcharts.numberFormat(this.y, -1, ' ', ' ') + '</b>' + ': ' + secondary_vaccinations_percentage[this.x] + '%';
         }
       }
     }],
