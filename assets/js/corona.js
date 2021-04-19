@@ -160,7 +160,8 @@ function draw_daily_cases_chart(data_obj) {
       text: 'Daily And Total Positive PCR Tests'
     },
     xAxis: {
-      categories: data_obj.dates
+      categories: data_obj.dates,
+      crosshair: true
     },
     yAxis: [{
       title: {
@@ -184,6 +185,9 @@ function draw_daily_cases_chart(data_obj) {
       data: data_obj.cases,
       type: 'line'
     }],
+    tooltip: {
+      shared: true
+    },
     credits: {
       enabled: false
     }
@@ -202,7 +206,8 @@ function draw_additional_chart(data_obj) {
       text: 'and R-Value'
     },
     xAxis: {
-      categories: data_obj.dates
+      categories: data_obj.dates,
+      crosshair: true
     },
     yAxis: [{
       title: {
@@ -223,6 +228,9 @@ function draw_additional_chart(data_obj) {
       name: 'R-Value',
       data: data_obj.repr_values
     }],
+    tooltip: {
+      shared: true
+    },
     credits: {
       enabled: false
     }
@@ -242,7 +250,8 @@ function draw_weekly_tests_chart(data_obj) {
       text: 'updated on Wednesdays'
     },
     xAxis: {
-      categories: data_obj.calendar_weeks
+      categories: data_obj.calendar_weeks,
+      crosshair: true
     },
     yAxis: [{
       title: {
@@ -264,6 +273,9 @@ function draw_weekly_tests_chart(data_obj) {
       name: 'Total PCR Tests',
       data: data_obj.total_tests
     }],
+    tooltip: {
+      shared: true
+    },
     credits: {
       enabled: false
     }
@@ -282,7 +294,8 @@ function draw_daily_vaccinations_chart(data_obj) {
       text: 'includes primary and secondary vaccinations'
     },
     xAxis: {
-      categories: data_obj.dates
+      categories: data_obj.dates,
+      crosshair: true
     },
     yAxis: [{
       title: {
@@ -321,7 +334,7 @@ function draw_daily_vaccinations_chart(data_obj) {
       data: data_obj.total_primary_vaccinations,
       tooltip: {
         pointFormatter: function(){
-          return '<span style="color:' + this.series.color + ';">&bull;</span>' + ' ' + this.series.name + ': ' + '<b>' + Highcharts.numberFormat(this.y, -1, ' ', ' ') + '</b>' + ': ' + data_obj.primary_vaccinations_percentage[this.x] + '%';
+          return '<span style="color:' + this.series.color + ';">&bull;</span>' + ' ' + this.series.name + ': ' + '<b>' + Highcharts.numberFormat(this.y, -1, ' ', ' ') + '</b>' + ': ' + data_obj.primary_vaccinations_percentage[this.x] + '%</br>';
         }
       }
     }, {
@@ -332,10 +345,13 @@ function draw_daily_vaccinations_chart(data_obj) {
       data: data_obj.total_secondary_vaccinations,
       tooltip: {
         pointFormatter: function(){
-          return '<span style="color:' + this.series.color + ';">&bull;</span>' + ' ' + this.series.name + ': ' + '<b>' + Highcharts.numberFormat(this.y, -1, ' ', ' ') + '</b>' + ': ' + data_obj.secondary_vaccinations_percentage[this.x] + '%';
+          return '<span style="color:' + this.series.color + ';">&bull;</span>' + ' ' + this.series.name + ': ' + '<b>' + Highcharts.numberFormat(this.y, -1, ' ', ' ') + '</b>' + ': ' + data_obj.secondary_vaccinations_percentage[this.x] + '%</br>';
         }
       }
     }],
+    tooltip: {
+      shared: true
+    },
     credits: {
       enabled: false
     }
