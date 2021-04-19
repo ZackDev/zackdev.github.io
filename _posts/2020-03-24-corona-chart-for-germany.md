@@ -20,7 +20,7 @@ The total daily cases in the first chart is taken from the [CSSE Github Reposito
 
 Incidence Chart's data is also derived from the data above. *Incidence* describes the cumulative cases for a population of 100.000 over a defined time span. In this case, the time-span is 7 days.
 
-*Reproduction Rate* describes the speed at which the virus propagates. Here it is measured on a day-to-day basis, dividing the *nth* by the *n-1th* daily cases. The chart itself has some spikes with values above 10 in it. This is due to fact that data gathering and processing is a bit slower at the weekends, resulting in higher numbers on Mondays.
+*Reproduction Rate* describes the speed at which the virus propagates. Here it is measured on a day-to-day basis, dividing the *nth* by the *n-1th* daily cases. The chart itself has some spikes with values above 10 in it. This is due to fact that data gathering and processing is a bit slower at the weekends, resulting in ~~higher numbers on Mondays~~ delayed reporting of this data, usually being accumulated on Mondays and finally made available on Tuesdays.
 
 # Weekly PCR Tests
 
