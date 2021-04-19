@@ -27,7 +27,6 @@ const get_async_daily_cases_callback = (callback_object) => {
   let cases = callback_object.response.cases;
   let dates = callback_object.response.dates;
   let daily_cases = [];
-  let previous_cases = 0;
   for (let i=0; i < cases.length; i++) {
     if (i == 0) {
       daily_cases.push(cases[i]);
@@ -304,17 +303,20 @@ function draw_daily_vaccinations_chart(data_obj) {
       yAxis: 0,
       stack: 0,
       index: 1,
+      legendIndex: 0,
       name: 'Primary Vaccinations',
       data: data_obj.primary_vaccinations
     }, {
       yAxis: 0,
       stack: 0,
       index: 0,
+      legendIndex: 1,
       name: 'Secondary Vaccinations',
       data: data_obj.secondary_vaccinations
     }, {
       type: 'line',
       yAxis: 1,
+      legendIndex: 2,
       name: 'Total Primary Vaccinations',
       data: data_obj.total_primary_vaccinations,
       tooltip: {
@@ -325,6 +327,7 @@ function draw_daily_vaccinations_chart(data_obj) {
     }, {
       type: 'line',
       yAxis: 1,
+      legendIndex: 3,
       name: 'Total Secondary Vaccinations',
       data: data_obj.total_secondary_vaccinations,
       tooltip: {
