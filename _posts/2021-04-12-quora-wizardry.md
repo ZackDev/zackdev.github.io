@@ -6,9 +6,9 @@ tags: [internet, web, quora]
 published: true
 archived: true
 ---
-# How to access related articles on Quora without a social media account
+# How to access related articles on Quora
 
-Quora presents you this `Login Wall` when trying to access an article that is related to the one you're currently viewing.
+Without having a social media account of the ones seen below, `Quora` presents you this `Login Wall` when trying to access an article that is related to the one you're currently viewing.
 
 {% include image.html url="/assets/img/quora-login-wall.png" description="Quora Login Wall" %}
 
