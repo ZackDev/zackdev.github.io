@@ -8,8 +8,13 @@ const async_request = (url, type, bypass_cache) => {
     http_request.open("GET", url, true);
     http_request.responseType = type;
     http_request.onreadystatechange = function() {
-      if (this.readyState === 4 && this.status === 200) {
-        resolve(this);
+      if (this.readyState === 4 ) {
+        if (this.status === 200) {
+          resolve(this);
+        }
+        else {
+          reject(this);
+        }
       }
     };
     try {
