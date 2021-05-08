@@ -10,13 +10,13 @@ The following charts use publicly available data surrounding the SARS-CoV-2 viru
 
 # Positive Polymerase Chain Reaction Tests
 
-{% include chart.html name="chart_corona_cases_germany" %}
+{% include div.html name="chart_corona_cases_germany" %}
 
 The total daily cases in the first chart is taken from the [CSSE Github Repository][1]. The day to day increase in cases is a calculation on that data.
 
 # Incidence And Reproduction Rate
 
-{% include chart.html name="chart_corona_additional_germany" %}
+{% include div.html name="chart_corona_additional_germany" %}
 
 Incidence Chart's data is also derived from the data above. *Incidence* describes the cumulative cases for a population of 100.000 over a defined time span. In this case, the time-span is 7 days.
 
@@ -24,13 +24,13 @@ Incidence Chart's data is also derived from the data above. *Incidence* describe
 
 # Weekly PCR Tests
 
-{% include chart.html name="chart_corona_tests_germany" %}
+{% include div.html name="chart_corona_tests_germany" %}
 
 The third chart's data plainly lists the weekly performed PCR tests. Again, the data-source is the [Robert Koch Institute (1)][2].
 
 # Vaccinations
 
-{% include chart.html name="chart_corona_vaccinations_germany" %}
+{% include div.html name="chart_corona_vaccinations_germany" %}
 
 The daily vaccinations data is also available from [Robert Koch Institute (2)][3]. It is split into two types of vaccinations, named primary and secondary vaccinations. There is no distinction by vaccine.
 

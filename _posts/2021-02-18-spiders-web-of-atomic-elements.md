@@ -7,6 +7,6 @@ published: false
 archived: true
 ---
 
-{% include chart.html name="atomic_elements_chart" %}
+{% include div.html name="atomic_elements_chart" %}
 
 {% include javascript.html src="/assets/js/atomic_elements.js" %}
