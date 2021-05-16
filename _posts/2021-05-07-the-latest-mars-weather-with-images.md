@@ -15,8 +15,6 @@ The weather data is obtained through [InSight: Mars Weather Service API][1] whic
 
 {% include div.html name="perseverance_image" %}
 
-{% include javascript.html src="/assets/js/mars.js" %}
-
 As addition, a random image from the latest images shot by the rover `Perseverance` is presented above. It is retrieved through the [Mars Rover Photos API][1].
 
 [1]: <https://api.nasa.gov/> "NASA Open APIs"
@@ -26,3 +24,5 @@ As addition, a random image from the latest images shot by the rover `Perseveran
 * both machines, lander and robot, are not on the same location
 * the data-sets retrieved do not necessarily share the same date
 * the API-key `DEMO_KEY` is rate-limited by IP address
+
+{% include javascript.html src="/assets/js/mars.js" %}
