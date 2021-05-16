@@ -35,7 +35,7 @@ const insight_callback = (callback_object) => {
   let latest_sol = weather_data.sol_keys.sort().pop();
 
   let w_val = new Map();
-  let def_val = 'undef.';
+  let no_val = 'n/a';
 
   if (latest_sol) {
     let sol_weather = weather_data[latest_sol];
@@ -97,7 +97,7 @@ const insight_callback = (callback_object) => {
       <tr>
         <th>temperature</th>
         <th>pressure</th>
-        <th>wind direction: ${w_val.has('wdir') ? w_val.get('wdir') : 'n/a'}</th>
+        <th>wind direction: ${w_val.has('wdir') ? w_val.get('wdir') : no_val}</th>
       </tr>
       <tr>
         <td>
@@ -114,8 +114,8 @@ const insight_callback = (callback_object) => {
                     <th>max</th>
                   </tr>
                   <tr>
-                    <td>${w_val.has('tmp') ? w_val.get('tmp')[0] : 'n/a'}</td>
-                    <td>${w_val.has('tmp') ? w_val.get('tmp')[1] : 'n/a'}</td>
+                    <td>${w_val.has('tmp') ? w_val.get('tmp')[0] : no_val}</td>
+                    <td>${w_val.has('tmp') ? w_val.get('tmp')[1] : no_val}</td>
                   </tr>
                 </table>
               </td>
@@ -126,8 +126,8 @@ const insight_callback = (callback_object) => {
                     <th>max</th>
                   </tr>
                   <tr>
-                    <td>${w_val.has('tmp') ? w_val.get('tmp')[2] : 'n/a'}</td>
-                    <td>${w_val.has('tmp') ? w_val.get('tmp')[3] : 'n/a'}</td>
+                    <td>${w_val.has('tmp') ? w_val.get('tmp')[2] : no_val}</td>
+                    <td>${w_val.has('tmp') ? w_val.get('tmp')[3] : no_val}</td>
                   </tr>
                 </table>
               </td>
@@ -147,8 +147,8 @@ const insight_callback = (callback_object) => {
                     <th>max</th>
                   </tr>
                   <tr>
-                    <td>${w_val.has('pre') ? w_val.get('pre')[0] : 'n/a'}</td>
-                    <td>${w_val.has('pre') ? w_val.get('pre')[1] : 'n/a'}</td>
+                    <td>${w_val.has('pre') ? w_val.get('pre')[0] : no_val}</td>
+                    <td>${w_val.has('pre') ? w_val.get('pre')[1] : no_val}</td>
                   </tr>
                 </table>
               </td>
@@ -168,8 +168,8 @@ const insight_callback = (callback_object) => {
                     <th>max</th>
                   </tr>
                   <tr>
-                    <td>${w_val.has('hws') ? w_val.get('hws')[0] : 'n/a'}</td>
-                    <td>${w_val.has('hws') ? w_val.get('hws')[1] : 'n/a'}</td>
+                    <td>${w_val.has('hws') ? w_val.get('hws')[0] : no_val}</td>
+                    <td>${w_val.has('hws') ? w_val.get('hws')[1] : no_val}</td>
                   </tr>
                 </table>
               </td>
