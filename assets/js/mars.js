@@ -65,7 +65,7 @@ const insight_callback = (callback_object) => {
       w_val.set('pre', [pre_mn, pre_mx]);
     }
 
-    if (wdir) {
+    if (wd) {
       let wdir = wd.most_common.compass_point;
       w_val.set('wdir', wdir);
     }
