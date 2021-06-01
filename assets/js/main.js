@@ -27,10 +27,13 @@ const async_request = (url, type, bypass_cache) => {
 };
 
 const resize_content = () => {
-  var footer_height = $("#footer_wrap").height();
-  var header_height = $("#header_wrap").height();
-  var window_height = $(window).height();
-  $('#main_content_wrap').css('min-height', window_height - header_height - footer_height + 'px');
+  let footer_height = $("#footer_wrap").height();
+  let header_height = $("#header_wrap").height();
+  let window_height = $(window).height();
+  let min_height = window_height - header_height - footer_height;
+  if (min_height > 0) {
+    $('#main_content_wrap').css('min-height', min_height + 'px');
+  }
 }
 
 const init_highcharts = () => {
