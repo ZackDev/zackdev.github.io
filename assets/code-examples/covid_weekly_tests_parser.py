@@ -13,6 +13,7 @@ def run(excelfile, outputfile):
 
     calendar_weeks = []
     weekly_tests = []
+    parse_error = False
 
     for x in range(1, 10):
         calendar_weeks.append(f'2020-W0{x}')
@@ -20,9 +21,15 @@ def run(excelfile, outputfile):
 
     row_index = 0
     for row in ws:
+        if parse_error is True:
+            break
         if row_index == 1:
             calendar_weeks.append(f'2020-W10')
-            weekly_tests.append(int(row[2].value))
+            if str(row[2].value).isnumeric():
+                weekly_tests.append(int(row[2].value))
+            else:
+                parse_error = True
+                print('error: parsing first row.')
         elif row_index >= 2:
             if row[0].value == 'Summe' or row[0].value is None:
                 break
@@ -30,37 +37,66 @@ def run(excelfile, outputfile):
             for col in row:
                 if col_index == 0:
                     raw_calendar_week = str(col.value)
-                    raw_week = int(raw_calendar_week.split('/')[0])
-                    year = int(raw_calendar_week.split('/')[1])
-                    if raw_week < 10:
-                        week = f'0{raw_week}'
+                    raw_week_array = raw_calendar_week.split('/')
+                    raw_week = None
+                    raw_year = None
+                    if str(raw_week_array[0]).isnumeric() and str(raw_week_array[1]).isnumeric() and len(raw_week_array) == 2:
+                        raw_week = int(raw_week_array[0])
+                        raw_year = int(raw_week_array[1])
                     else:
-                        week = raw_week
-                    calendar_week = f'{year}-W{week}'
-                    calendar_weeks.append(calendar_week)
+                        parse_error = True
+                        print('error: parsing raw_week_array.')
+                        break
+                    if raw_week is not None and raw_week > 0 and raw_week <= 53:
+                        if raw_week < 10:
+                            week = f'0{raw_week}'
+                        else:
+                            week = f'{raw_week}'
+                    else:
+                        parse_error = True
+                        print('error: parsing raw_week.')
+                        break
+                    if raw_year is not None and raw_year >= 2020 and raw_year <= 9999:
+                        calendar_week = f'{raw_year}-W{week}'
+                        calendar_weeks.append(calendar_week)
+                    else:
+                        parse_error = True
+                        print('error: parsing raw_year.')
+                        break
 
                 elif col_index == 1:
-                    tests = int(col.value)
-                    weekly_tests.append(tests)
+                    tests = None
+                    if str(col.value).isnumeric():
+                        tests = int(col.value)
+                    else:
+                        parse_error = True
+                        print('error: parsing tests.')
+                        break
+                    if tests is not None and tests >= 0:
+                        weekly_tests.append(tests)
                 col_index +=1
         row_index +=1
 
-    ''' data consistency check, length calendar_weeks equals length weekly_tests '''
-    if len(calendar_weeks) != len(weekly_tests):
-        print('length mismatch. ending programm.')
-        print(f'calendar_weeks: {len(calendar_weeks)} weekly tests: {len(weekly_tests)}')
+    if parse_error is False:
+        ''' data consistency check, length calendar_weeks equals length weekly_tests '''
+        if len(calendar_weeks) != len(weekly_tests):
+            print('length mismatch. ending programm.')
+            print(f'calendar_weeks: {len(calendar_weeks)} weekly tests: {len(weekly_tests)}')
+            exit(1)
+
+        if len(calendar_weeks) < 1 and len(weekly_tests) < 1:
+            print('no data extracted. ending programm.')
+            exit(1)
+
+        dict = {'calendar_weeks':calendar_weeks, 'weekly_tests':weekly_tests}
+        with open(outputfile ,'w') as output:
+            output.write(json.dumps(dict))
+
+        print('wrote dict to file. program finished.')
+        exit(0)
+    else:
+        print('error parsing weekly tests xslx.')
         exit(1)
-
-    if len(calendar_weeks) < 1 and len(weekly_tests) < 1:
-        print('no data extracted. ending programm.')
-        exit(1)
-
-    dict = {'calendar_weeks':calendar_weeks, 'weekly_tests':weekly_tests}
-    with open(outputfile ,'w') as output:
-        output.write(json.dumps(dict))
-
-    print('wrote dict to file. program finished.')
-
 
 if __name__ == '__main__':
     arg_parser = argparse.ArgumentParser()
