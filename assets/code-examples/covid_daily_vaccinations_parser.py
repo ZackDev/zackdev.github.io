@@ -36,7 +36,7 @@ def run(excelfile, outputfile):
                     raw_date = raw_date_str.split(' ')[0]
                     raw_date_array = raw_date.split('-')
                     if len(raw_date_array) == 3:
-                        if raw_date_array[0].isdigit() and raw_date_array[1].isdigit() and raw_date_array[2].isdigit():
+                        if raw_date_array[0].isdecimal() and raw_date_array[1].isdecimal() and raw_date_array[2].isdecimal():
                             year = int(raw_date_array[0])
                             month = int(raw_date_array[1])
                             day = int(raw_date_array[2])
@@ -55,7 +55,7 @@ def run(excelfile, outputfile):
                 # the primary vaccinations column
                 elif col_index == 1:
                     raw_p_vacc = str(col.value)
-                    if raw_p_vacc.isdigit():
+                    if raw_p_vacc.isdecimal():
                         p_vacc = int(raw_p_vacc)
                         if p_vacc >= 0:
                             primary_vaccinations.append(p_vacc)
@@ -68,7 +68,7 @@ def run(excelfile, outputfile):
                 # the secondary vaccinations column
                 elif col_index == 2:
                     raw_s_vacc = str(col.value)
-                    if raw_s_vacc.isdigit():
+                    if raw_s_vacc.isdecimal():
                         s_vacc = int(raw_s_vacc)
                         if s_vacc >= 0:
                             secondary_vaccinations.append(s_vacc)
