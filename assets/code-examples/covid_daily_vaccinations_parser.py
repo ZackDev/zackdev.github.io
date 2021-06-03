@@ -31,21 +31,55 @@ def run(excelfile, outputfile):
             for col in row:
                 # the dates column
                 if col_index == 0:
-                    raw_date = str(col.value)
-                    date = raw_date.split(' ')[0]
-                    dates.append(date)
+                    day, month, year = None, None, None
+                    raw_date_str = str(col.value)
+                    raw_date = raw_date_str.split(' ')[0]
+                    raw_date_array = raw_date.split('-')
+                    if len(raw_date_array) == 3:
+                        if raw_date_array[0].isnumeric() and raw_date_array[1].isnumeric() and raw_date_array[2].isnumeric():
+                            year = int(raw_date_array[0])
+                            month = int(raw_date_array[1])
+                            day = int(raw_date_array[2])
+                            if (2020 <= year) and (1 <= month <= 12) and (1 <= day <= 31):
+                                dates.append(raw_date)
+                            else:
+                                print('error: day, month or year not in expected range.')
+                                exit(1)
+                        else:
+                            print('error: day, month or year not numeric.')
+                            exit(1)
+                    else:
+                        print('error: wrong date format.')
+                        exit(1)
+
                 # the primary vaccinations column
                 elif col_index == 1:
                     raw_p_vacc = str(col.value)
                     if raw_p_vacc.isnumeric():
-                        primary_vaccinations.append(int(raw_p_vacc))
+                        p_vacc = int(raw_p_vacc)
+                        if p_vacc >= 0:
+                            primary_vaccinations.append(p_vacc)
+                        else:
+                            print('error: primary vaccinations negative.')
+                            exit(1)
+                    else:
+                        print('error: primary vaccinations not numeric.')
+                        exit(1)
                 # the secondary vaccinations column
                 elif col_index == 2:
                     raw_s_vacc = str(col.value)
                     if raw_s_vacc.isnumeric():
-                        secondary_vaccinations.append(int(raw_s_vacc))
+                        s_vacc = int(raw_s_vacc)
+                        if s_vacc >= 0:
+                            secondary_vaccinations.append(s_vacc)
+                        else:
+                            print('error: secondary vaccinations not numeric.')
+                            exit(1)
                     elif raw_s_vacc is None or raw_s_vacc == 'None':
                         secondary_vaccinations.append(int(0))
+                    else:
+                        print('error: secondary vaccinations not numeric nor default zero.')
+                        exit(1)
                 col_index +=1
         row_index +=1
 
@@ -76,4 +110,4 @@ if __name__ == '__main__':
         run(args.excelfile, args.outputfile)
     else:
         arg_parser.print_help()
-        exit(0)
+        exit(1)
