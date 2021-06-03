@@ -40,7 +40,7 @@ def run(inputfile, outputfile):
                 date_array = raw_date.split('/')
                 day, month, year = None, None, None
                 if len(date_array) == 3:
-                    if date_array[0].isnumeric() and date_array[1].isnumeric() and date_array[2].isnumeric():
+                    if date_array[0].isdigit() and date_array[1].isdigit() and date_array[2].isdigit():
                         day = int(date_array[1])
                         month = int(date_array[0])
                         year = int(date_array[2])
@@ -69,7 +69,7 @@ def run(inputfile, outputfile):
 
             ''' simple string to integer conversion '''
             for raw_case in raw_cases:
-                if raw_case.isnumeric():
+                if raw_case.isdigit():
                     case = int(raw_case)
                     if case >= 0:
                         cases.append(case)

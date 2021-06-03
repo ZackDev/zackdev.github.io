@@ -25,7 +25,7 @@ def run(excelfile, outputfile):
             break
         if row_index == 1:
             calendar_weeks.append(f'2020-W10')
-            if str(row[2].value).isnumeric():
+            if str(row[2].value).isdigit():
                 weekly_tests.append(int(row[2].value))
             else:
                 parse_error = True
@@ -40,7 +40,7 @@ def run(excelfile, outputfile):
                     raw_week_array = raw_calendar_week.split('/')
                     raw_week = None
                     raw_year = None
-                    if str(raw_week_array[0]).isnumeric() and str(raw_week_array[1]).isnumeric() and len(raw_week_array) == 2:
+                    if str(raw_week_array[0]).isdigit() and str(raw_week_array[1]).isdigit() and len(raw_week_array) == 2:
                         raw_week = int(raw_week_array[0])
                         raw_year = int(raw_week_array[1])
                     else:
@@ -66,7 +66,7 @@ def run(excelfile, outputfile):
 
                 elif col_index == 1:
                     tests = None
-                    if str(col.value).isnumeric():
+                    if str(col.value).isdigit():
                         tests = int(col.value)
                     else:
                         parse_error = True
