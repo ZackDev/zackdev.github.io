@@ -49,7 +49,7 @@ strong {
   font-weight: bold;
 }
 
-table {
+.data_table {
   table-layout: fixed;
   border: 1px solid;
   border-color: $medium_grey;
@@ -58,7 +58,7 @@ table {
   width: 100%;
 }
 
-th {
+.data_table th {
   border: 1px solid;
   border-color: $medium_grey;
   background-color: $light_grey;
@@ -66,7 +66,7 @@ th {
   font-weight: bold;
 }
 
-td {
+.data_table td {
   border: 1px solid;
   border-color: $medium_grey;
   padding: 5px 10px;

@@ -93,7 +93,7 @@ const insight_callback = (callback_object) => {
   */
 
   let raw_table_str =
-    `<table style="margin:auto;">
+    `<table style="margin:auto;" class="data_table";">
       <tr>
         <th>temperature</th>
         <th>pressure</th>
@@ -101,14 +101,14 @@ const insight_callback = (callback_object) => {
       </tr>
       <tr>
         <td>
-          <table>
+          <table class="data_table";>
             <tr>
               <th>°F</th>
               <th>°C</th>
             </tr>
             <tr>
               <td>
-                <table>
+                <table class="data_table";>
                   <tr>
                     <th>min</th>
                     <th>max</th>
@@ -120,7 +120,7 @@ const insight_callback = (callback_object) => {
                 </table>
               </td>
               <td>
-                <table>
+                <table class="data_table";>
                   <tr>
                     <th>min</th>
                     <th>max</th>
@@ -135,13 +135,13 @@ const insight_callback = (callback_object) => {
           </table>
         </td>
         <td>
-          <table>
+          <table class="data_table";>
             <tr>
               <th>pa</th>
             </tr>
             <tr>
               <td>
-                <table>
+                <table class="data_table";>
                   <tr>
                     <th>min</th>
                     <th>max</th>
@@ -156,13 +156,13 @@ const insight_callback = (callback_object) => {
           </table>
         </td>
         <td>
-          <table>
+          <table class="data_table";>
             <tr>
               <th>m/s</th>
             </tr>
             <tr>
               <td>
-                <table>
+                <table class="data_table";>
                   <tr>
                     <th>min</th>
                     <th>max</th>
