@@ -37,6 +37,7 @@ const get_async_daily_cases_callback = (callback_object) => {
   }
   let incidences_7 = incidence(7, daily_cases);
   let repr_values = repr_value(daily_cases);
+  let smoothed_repr_values = smooth_by_range(7, repr_values);
   let data_obj_0 = {
     cases: cases,
     daily_cases: daily_cases,
@@ -45,6 +46,7 @@ const get_async_daily_cases_callback = (callback_object) => {
   let data_obj_1 = {
     incidences_7: incidences_7,
     repr_values: repr_values,
+    smoothed_repr_values: smoothed_repr_values,
     dates: dates
   }
   draw_daily_cases_chart(data_obj_0);
@@ -133,6 +135,24 @@ const incidence = (span, cases) => {
   return incidences;
 }
 
+const smooth_by_range = (span, dataset) => {
+  var smoothed_array = new Array();
+  for (let i=0; i < dataset.length; i++) {
+    var temp_smoothed = new Array();
+    var smoothed = 0;
+    for (let j=i; j>=0 && j >= i - span +1; j--) {
+      temp_smoothed.push(dataset[j]);
+    }
+    for (let x=0; x < temp_smoothed.length; x++) {
+      smoothed += temp_smoothed[x];
+      if (x == temp_smoothed.length -1) {
+        smoothed_array.push(Number((smoothed / x ).toFixed(2)));
+      }
+    }
+  }
+  return smoothed_array;
+}
+
 const repr_value = (cases) => {
   var repr = new Array();
   for (let i=0; i < cases.length; i++) {
@@ -217,6 +237,9 @@ function draw_additional_chart(data_obj) {
       title: {
         text: 'R-Value'
       },
+      subtitle: {
+        text: 'raw and smoothed'
+      },
       opposite: true
     }],
     series: [{
@@ -225,8 +248,12 @@ function draw_additional_chart(data_obj) {
       data: data_obj.incidences_7
     }, {
       yAxis: 1,
-      name: 'R-Value',
+      name: 'R-Value (raw)',
       data: data_obj.repr_values
+    }, {
+      yAxis: 1,
+      name: 'R-Value (smoothed)',
+      data: data_obj.smoothed_repr_values
     }],
     tooltip: {
       shared: true
