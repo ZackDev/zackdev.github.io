@@ -146,7 +146,7 @@ const smooth_by_range = (span, dataset) => {
     for (let x=0; x < temp_smoothed.length; x++) {
       smoothed += temp_smoothed[x];
       if (x == temp_smoothed.length -1) {
-        smoothed_array.push(Number((smoothed / x ).toFixed(2)));
+        smoothed_array.push(Number((smoothed / temp_smoothed.length ).toFixed(2)));
       }
     }
   }
