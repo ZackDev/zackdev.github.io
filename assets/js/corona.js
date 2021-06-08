@@ -237,9 +237,6 @@ function draw_additional_chart(data_obj) {
       title: {
         text: 'R-Value'
       },
-      subtitle: {
-        text: 'raw and smoothed'
-      },
       opposite: true
     }],
     series: [{
@@ -248,12 +245,14 @@ function draw_additional_chart(data_obj) {
       data: data_obj.incidences_7
     }, {
       yAxis: 1,
-      name: 'R-Value (raw)',
-      data: data_obj.repr_values
-    }, {
-      yAxis: 1,
       name: 'R-Value (smoothed)',
       data: data_obj.smoothed_repr_values
+    }, {
+      yAxis: 1,
+      color: 'rgb(155, 155, 155)',
+      visible: false,
+      name: 'R-Value (raw)',
+      data: data_obj.repr_values
     }],
     tooltip: {
       shared: true
