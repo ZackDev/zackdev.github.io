@@ -15,12 +15,15 @@ def run(excelfile, outputfile):
     wb.active = wb['Impfungen_proTag']
     ws = wb.active
 
+    parsed_all_dates = False
     dates = []
     primary_vaccinations = []
     secondary_vaccinations = []
 
     row_index = 0
     for row in ws:
+        if parsed_all_dates is True:
+            break
         # first row is header row and doesn't contain usefull values
         if row_index > 0:
             col_index = 0
@@ -48,8 +51,12 @@ def run(excelfile, outputfile):
                         else:
                             print('error: day, month or year not numeric.')
                             exit(1)
+                    elif raw_date_array[0] == 'Gesamt':
+                        parsed_all_dates = True
+                        break
                     else:
                         print('error: wrong date format.')
+                        print(raw_date_array)
                         exit(1)
 
                 # the primary vaccinations column
