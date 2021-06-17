@@ -1,6 +1,5 @@
 ---
 title: Traps And Pitfalls Of Biased Thinking
-permalink: /traps-and-pitfalls-of-biased-thinking.html
 layout: default
 tags: [psychology, biases]
 published: true

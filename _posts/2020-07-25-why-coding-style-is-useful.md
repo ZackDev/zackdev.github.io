@@ -1,6 +1,5 @@
 ---
 title: Why Coding Style Is Useful
-permalink: /why-coding-style-is-useful.html
 layout: default
 tags: [coding, style, python]
 published: true

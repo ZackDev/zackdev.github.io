@@ -1,6 +1,5 @@
 ---
 title: How To Add Custom Entries To Gnome Applications
-permalink: /how-to-add-custom-entries-to-gnome-applications.html
 layout: default
 tags: [linux, gnome, applications]
 published: true

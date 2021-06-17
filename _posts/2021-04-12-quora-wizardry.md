@@ -1,6 +1,5 @@
 ---
 title: Quora Wizardry
-permalink: /quora-wizardry.html
 layout: default
 tags: [internet, web, quora]
 published: true

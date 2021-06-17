@@ -1,6 +1,5 @@
 ---
 title: A Simple Browser-Based Ping
-permalink: /a-simple-browser-based-ping.html
 layout: default
 tags: [coding, ping]
 published: true

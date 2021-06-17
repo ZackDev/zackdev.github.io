@@ -1,6 +1,5 @@
 ---
 title: Spiders Web Of Atomic Elements
-permalink: /spiders-web-of-atomic-elements.html
 layout: default
 tags: [atomic, elements, chart]
 published: false

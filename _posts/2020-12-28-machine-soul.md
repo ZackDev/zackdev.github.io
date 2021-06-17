@@ -1,6 +1,5 @@
 ---
 title: Machine Soul
-permalink: /machine-soul.html
 layout: default
 tags: [fiction]
 published: true

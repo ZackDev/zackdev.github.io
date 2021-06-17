@@ -1,6 +1,5 @@
 ---
 title: Generate Morse Code From Text
-permalink: /generate-morse-code-from-text.html
 layout: default
 tags: [coding, morse]
 published: true

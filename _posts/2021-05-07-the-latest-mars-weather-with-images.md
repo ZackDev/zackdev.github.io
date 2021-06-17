@@ -1,6 +1,5 @@
 ---
 title: The Latest Mars Weather With Images
-permalink: /the-latest-mars-weather-with-images.html
 layout: default
 tags: [mars, weather, NASA]
 published: true
