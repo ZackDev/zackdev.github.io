@@ -42,6 +42,7 @@ Sticking to a project that has already consumed a notable amount of investment, 
 > The arrangement of coincidences into a pattern.
 
 Though patterns provide a shortcut in dealing with the complexity of life, namely an extraction of relevant mechanisms into something one can handle, there is also the pitfall of finding patterns where there are none. I'm oversimplifying here, but to get the point across consider the following output of a program [1, 1, 1, 1] and try to guess what the next element would be. Given only the output from above, you'll easily come to the conclusion that the next element is also [1].
+
 Let's have a look at the program or generator that produces the output.
 
 {% highlight python linenos %}
@@ -59,6 +60,10 @@ if __name__ == '__main__':
 {% endhighlight %}
 
 Line 4 defines the values that are chosen at random and appended to the output at line 6. Only by chance it happened that there are only positive 1s in the previous output. The next run's output could be [1, -1, -1, 1].
+
+A play on the bias above is the `Texas Sharpshooter Fallacy`. This fallacy in thinking is self-induced and bluntly goes like this:
+
+A man practices by shooting at his barn in Texas. Most of the shots randomly hit the barn but some cluster around a specific area. The alleged *Texas Sharpshooter* then draws a circle around the cluster and claims being talented in handling guns. *While the Illusory Pattern Perception emerges from a wrong perception, the TSF emerges from willingly drawing wrong conclusions.*
 
 # Conclusion
 Though one may be convinced that his or her decision making process is purely rational, biases distort thinking. By being aware of those biases, one maintains his ability of critical thinking.
