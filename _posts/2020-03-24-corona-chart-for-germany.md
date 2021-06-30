@@ -40,13 +40,4 @@ The daily vaccinations data is also available from [Robert Koch Institute (2)][3
 # Update 2021-02-14
 Because the *7 Day Incidence* became a goalpost value for political decision makers, a chart is now available.
 
-# Update 2021-02-03
-Added another script: [daily vaccinations parser](/assets/code-examples/covid_daily_vaccinations_parser.py)
-
-# Update 2021-01-31
-After updating the daily and weekly data-sets by hand, it was time to automate that process. Not only does it save time, it also removes the risk of error when transcribing the data.
-The two separate scripts for can be downloaded below:
-- [daily cases parser](/assets/code-examples/covid_daily_cases_parser.py)
-- [weekly tests parser](/assets/code-examples/covid_weekly_tests_parser.py)
-
 {% include javascript.html src="/assets/js/corona.js" %}
