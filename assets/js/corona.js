@@ -174,7 +174,8 @@ const repr_value = (cases) => {
 function draw_daily_cases_chart(data_obj) {
   var daily_cases_chart = Highcharts.chart('chart_corona_cases_germany', {
     chart: {
-      type: 'column'
+      type: 'column',
+      zoomType: 'x'
     },
     title: {
       text: 'Daily And Total Positive PCR Tests'
@@ -217,7 +218,8 @@ function draw_daily_cases_chart(data_obj) {
 function draw_additional_chart(data_obj) {
   var incidence_chart = Highcharts.chart('chart_corona_additional_germany', {
     chart: {
-      type: 'line'
+      type: 'line',
+      zoomType: 'x'
     },
     title: {
       text: 'Incidence'
@@ -309,9 +311,10 @@ function draw_weekly_tests_chart(data_obj) {
 }
 
 function draw_daily_vaccinations_chart(data_obj) {
-  var weekly_tests_chart = Highcharts.chart('chart_corona_vaccinations_germany', {
+  var daily_vaccinations_chart = Highcharts.chart('chart_corona_vaccinations_germany', {
     chart: {
-      type: 'column'
+      type: 'column',
+      zoomType: 'x'
     },
     title: {
       text: 'Daily And Total Vaccinations'
