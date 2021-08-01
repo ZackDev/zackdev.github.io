@@ -178,7 +178,7 @@ function draw_daily_cases_chart(data_obj) {
       zoomType: 'x'
     },
     title: {
-      text: 'Daily And Total Positive PCR Tests'
+      text: 'COVID-19 Cases'
     },
     xAxis: {
       categories: data_obj.dates,
@@ -186,23 +186,23 @@ function draw_daily_cases_chart(data_obj) {
     },
     yAxis: [{
       title: {
-        text: 'Daily Positive PCR Tests'
+        text: 'Daily'
       }
     }, {
       title: {
-        text: 'Total Positive PCR Tests'
+        text: 'Total'
       },
       opposite: true
     }],
     series: [{
       yAxis: 0,
       index: 1,
-      name: 'Daily Positive PCR Tests',
+      name: 'Daily',
       data: data_obj.daily_cases
     }, {
       yAxis: 1,
       index: 0,
-      name: 'Total Positive PCR Tests',
+      name: 'Total',
       data: data_obj.cases,
       type: 'line'
     }],

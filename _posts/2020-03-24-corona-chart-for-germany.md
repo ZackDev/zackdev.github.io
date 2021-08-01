@@ -7,7 +7,7 @@ archived: false
 ---
 The following charts use publicly available data surrounding the SARS-CoV-2 virus. *Click and drag on the charts to select a specific range and zoom into the data.*
 
-# Positive Polymerase Chain Reaction Tests
+# Daily And Total Confirmed COVID-19 Cases
 
 {% include div.html name="chart_corona_cases_germany" %}
 
