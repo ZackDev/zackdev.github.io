@@ -31,7 +31,7 @@ The third chart's data plainly lists the weekly performed PCR tests. Again, the 
 
 {% include div.html name="chart_corona_vaccinations_germany" %}
 
-The daily vaccinations data is also available from [Robert Koch Institute (2)][3]. It is split into two types of vaccinations, named primary and secondary vaccinations. There is no distinction by vaccine.
+The daily vaccinations data is also available from [Robert Koch Institute (2)][3]. It is split into two stages of vaccinations, named primary and secondary vaccinations. There is no distinction by vaccine.
 
 [1]: <https://github.com/CSSEGISandData/COVID-19> "COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University"
 [2]: <https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Daten/Testzahlen-gesamt.xlsx?__blob=publicationFile> "Erfassung der SARS-CoV-2-Testzahlen in Deutschland"
