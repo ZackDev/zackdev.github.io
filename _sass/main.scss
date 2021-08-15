@@ -199,6 +199,7 @@ li {
   background: $dark_grey;
   z-index: 2;
   opacity: 0.75;
+  box-shadow: 0px 5px 5px $dark_grey;
 }
 
 #header_background {
@@ -231,6 +232,7 @@ li {
   background: $dark_grey;
   z-index: 2;
   opacity: 0.75;
+  box-shadow: 0px -5px 5px $dark_grey;
 }
 
 #footer_background {
@@ -249,7 +251,7 @@ li {
 }
 
 .post_info {
-
+  text-shadow: 1px 1px 1px $light_grey;
 }
 
 #site_details {
