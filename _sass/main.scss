@@ -28,7 +28,7 @@ img {
 }
 
 .shadow {
-  text-shadow: $light_grey 1px 1px 0px;
+  @include txt-shadow;
 }
 
 .image_wrap {
@@ -116,6 +116,10 @@ code.language-plaintext {
 h1, h2, h3, h4, h5, h6 {
   margin: 20px 0px 0px 0px;
   color: $dark_grey;
+}
+
+h1:not(#page_title) {
+  @include txt-shadow;
 }
 
 h1 {
