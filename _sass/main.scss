@@ -27,6 +27,10 @@ img {
   max-width: 100%;
 }
 
+.shadow {
+  text-shadow: $light_grey 1px 1px 0px;
+}
+
 .image_wrap {
   margin: 20px 0px;
   display: flex;
@@ -236,7 +240,7 @@ li {
 }
 
 .post_info {
-  text-shadow: 1px 1px 1px $light_grey;
+
 }
 
 #site_details {
