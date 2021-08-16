@@ -19,7 +19,6 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-
 ul {
   display: inline-block;
 }
@@ -81,11 +80,13 @@ strong {
 body {
   box-sizing: border-box;
   color: $medium_grey;
-  background: $white;
   font-size: 18px;
   font-family: 'DejaVu serif';
   line-height: 1.5;
   margin-bottom: 168px;
+  background-image: url('../img/background.png');
+  background-color: rgb(31, 31, 31);
+  background-repeat: repeat;
 }
 
 code.language-plaintext {
@@ -210,7 +211,6 @@ li {
 #main_content_wrap {
   position: relative;
   top: 84px;
-  background: $white;
   z-index: 1;
 }
 
