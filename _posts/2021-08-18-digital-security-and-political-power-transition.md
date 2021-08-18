@@ -17,7 +17,7 @@ The *Human Rights First* organization has already published a guide on how to po
 
 # Update 2021-08-18:
 
-The scanners used, can directly hold up 10,000s of data-sets, with the option to access online data-bases.[⁴][4]
+The scanners used, can each directly hold up 10,000s of data-sets, with the option to access online data-bases.[⁴][4]
 
 [1]: <https://www.reuters.com/article/afghanistan-tech-conflict/afghans-scramble-to-delete-digital-history-evade-biometrics-idUSL8N2PO1FH> "Afghans scramble to delete digital history"
 
