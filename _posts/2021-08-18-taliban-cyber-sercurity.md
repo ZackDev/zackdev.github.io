@@ -15,8 +15,14 @@ There is a strong possibility that the data is used to identify former collabora
 
 The *Human Rights First* organization has already published a guide on how to possibly bypass, at least making the use of bio-metric recognition systems harder to use.[³][3]
 
+# Update 2021-08-18:
+
+The scanners used, can directly hold up 10,000s of data-sets, with the option to access online data-bases.[⁴][4]
+
 [1]: <https://www.reuters.com/article/afghanistan-tech-conflict/afghans-scramble-to-delete-digital-history-evade-biometrics-idUSL8N2PO1FH> "Afghans scramble to delete digital history"
 
 [2]: <https://theintercept.com/2021/08/17/afghanistan-taliban-military-biometrics/> "The Taliban seized bio-metrics devices"
 
 [3]: <http://www.humanrightsfirst.org/sites/default/files/Evading%20the%20misuse%20of%20biometric%20data.pdf> "Evading the misuse of biometric data.pdf"
+
+[4]: <https://www.heise.de/news/Afghanistan-Biometrie-Geraete-und-Datenbanken-von-Taliban-erbeutet-6168158.html> "Afghanistan: Taliban erbeuten Biometrie-Geräte und -Datenbanken"
