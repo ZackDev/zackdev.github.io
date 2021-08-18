@@ -3,7 +3,7 @@ title: The Latest Mars Weather With Images
 layout: default
 tags: [mars, weather, NASA]
 published: true
-archived: false
+archived: true
 ---
 
 # Ever wanted to know how the weather is like on `Mars` ?
