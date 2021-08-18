@@ -169,6 +169,10 @@ footer a:hover, a:focus {
   text_decoration: underline $light_grey;
 }
 
+a.footnote {
+  vertical-align: sub;
+}
+
 cite {
   font-style: italic;
 }
