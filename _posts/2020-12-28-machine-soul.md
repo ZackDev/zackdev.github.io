@@ -5,7 +5,8 @@ tags: [fiction]
 published: true
 archived: true
 ---
-{% include image.html url="assets/img/pexels-philippe-donn-1169754.jpg" description="" %}
+{% include image.html url="/assets/img/pexels-philippe-donn-1169754.jpg" description="" %}
+
 The once sphere-like planet, deprived of its atmosphere, landmass ripped wide open, the excess mass shoved outwards in concentric circles, forming artificial mountains of dust and dirt. Peeking down through earths layers, bare lies the core, a solid metallic sphere. A machine, with it's tripod feet standing on the crater's edge, with a drill so razor sharp, it's artificial mind applying godless, cold mathematics, though it is destined to produce copies of itself. It's trained algorithms never made the distinction between matter and the life that evolved from it. Any source of material, which allowed it to replicate was good enough.
 
 Watching from above, through the panorama window of the orbiting spacecraft, the crew stood silently. Unable to grasp what they experienced. Their homeland, the only habitable planet in the sol system, transformed to a man made paradise after nearly 10.000 years of unrest between the major political and economic systems, capable of producing the highest fruit of civilization, was not recognizable anymore. The evergreen forests that were used to be called the lungs of the earth, the once thin, delicate silk-like blue atmosphere, the mere endless seas, once slightly caressing the shores of the land, the mighty and proud cities, cradles to our children, the plethora of life, product of billions of years, gone.
