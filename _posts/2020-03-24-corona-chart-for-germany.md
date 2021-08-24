@@ -45,6 +45,9 @@ The chart above shows the Intensive Care Unit occupancy with COVID-19 cases whic
 [4]: <https://www.intensivregister.de> "DIVI-Intensivregister"
 
 # Update 2021-02-14
-Because the *7 Day Incidence* became a goalpost value for political decision makers, a chart is now available.
+Because the `7 Day Incidence` became a goalpost value for political decision makers, a chart is now available.
+
+# Update 2021-08-24
+New chart added since focus shifted from incidence to `Intensive Care Unit` metrics.
 
 {% include javascript.html src="/assets/js/corona.js" %}
