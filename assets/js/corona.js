@@ -2,6 +2,7 @@ const init_corona = () => {
   let daily_cases_url = "/assets/json/corona_germany_daily_cases.json";
   let weekly_tests_url = "/assets/json/corona_germany_weekly_tests.json";
   let daily_vaccinations_url = "/assets/json/corona_germany_daily_vaccinations.json";
+  let daily_icuo_url = "/assets/json/corona_germany_daily_icuo.json";
 
   async_request(daily_cases_url, "json", true)
     .then(
@@ -20,6 +21,12 @@ const init_corona = () => {
       resolve => get_async_daily_vaccinations_callback(resolve),
       reject => console.log(reject)
     );
+
+  async_request(daily_icuo_url, "json", true)
+    .then(
+      resolve => get_async_daily_icuo_callback(resolve),
+      reject => console.log(reject)
+    )
 };
 
 const get_async_daily_cases_callback = (callback_object) => {
@@ -115,6 +122,20 @@ const get_async_daily_vaccinations_callback = (callback_object) => {
     dates: dates
   }
   draw_daily_vaccinations_chart(data_obj);
+}
+
+const get_async_daily_icuo_callback = (callback_object) => {
+  let dates = callback_object.response.dates;
+  let free_icu = callback_object.response.free_icu;
+  let covid_icu = callback_object.response.covid_icu;
+
+  let data_obj = {
+    dates: dates,
+    free_icu: free_icu,
+    covid_icu: covid_icu
+  }
+
+  draw_daily_icuo_chart(data_obj);
 }
 
 const incidence = (span, cases) => {
@@ -377,6 +398,61 @@ function draw_daily_vaccinations_chart(data_obj) {
           return '<span style="color:' + this.series.color + ';">&bull;</span>' + ' ' + this.series.name + ': ' + '<b>' + Highcharts.numberFormat(this.y, -1, ' ', ' ') + '</b>' + ': ' + data_obj.secondary_vaccinations_percentage[this.x] + '%</br>';
         }
       }
+    }],
+    tooltip: {
+      shared: true
+    },
+    credits: {
+      enabled: false
+    }
+  });
+}
+
+function draw_daily_icuo_chart(data_obj) {
+  var daily_vaccinations_chart = Highcharts.chart('chart_corona_icuo_germany', {
+    chart: {
+      type: 'column',
+      zoomType: 'x'
+    },
+    title: {
+      text: 'Intensive Care Unit'
+    },
+    subtitle: {
+      text: 'free and occupied with COVID-19 patients'
+    },
+    xAxis: {
+      categories: data_obj.dates,
+      crosshair: true
+    },
+    yAxis: [{
+      title: {
+        text: 'free'
+      }
+    }, {
+      title: {
+        text: 'occupied'
+      },
+      opposite: false
+    }],
+    plotOptions: {
+      column: {
+        stacking: 'normal'
+      }
+    },
+    series: [{
+      yAxis: 0,
+      stack: 0,
+      index: 1,
+      legendIndex: 0,
+      name: 'free',
+      data: data_obj.free_icu
+    }, {
+      yAxis: 0,
+      stack: 0,
+      index: 0,
+      legendIndex: 1,
+      name: 'occupied',
+      data: data_obj.covid_icu
     }],
     tooltip: {
       shared: true
