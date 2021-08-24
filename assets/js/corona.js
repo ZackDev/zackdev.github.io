@@ -424,16 +424,11 @@ function draw_daily_icuo_chart(data_obj) {
       categories: data_obj.dates,
       crosshair: true
     },
-    yAxis: [{
+    yAxis: {
       title: {
-        text: 'free'
+        text: 'free and occupied'
       }
-    }, {
-      title: {
-        text: 'occupied'
-      },
-      opposite: false
-    }],
+    },
     plotOptions: {
       column: {
         stacking: 'normal'
