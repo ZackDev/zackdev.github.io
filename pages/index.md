@@ -1,5 +1,5 @@
 ---
-title: This Blog Is
+title: this blog is
 layout: default
 permalink: /
 published: true
@@ -17,5 +17,5 @@ a personal playground.
 {% assign archived_posts = site.posts | where: "archived", true %}
 
 {% if archived_posts.size > 0 %}
-  [archive ({{ archived_posts.size }})](/archive.html)
+  [archived posts](/archive.html)
 {% endif %}

@@ -1,5 +1,5 @@
 ---
-title: Archive
+title: archived posts
 layout: default
 permalink: /archive.html
 published: true
