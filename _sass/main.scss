@@ -152,21 +152,21 @@ p {
 }
 
 a {
-  text-decoration: underline dotted $dark_grey;
-  color: $dark_grey;
+  text-decoration: underline $blue;
+  color: $blue;
 }
 
-a:hover, a:focus {
-  text-decoration: underline $dark_grey;
+a:hover {
+  text-decoration: underline dotted $blue;
 }
 
 footer a {
-  text-decoration: underline dotted $light_grey;
+  text-decoration: underline $light_grey;
   color: $light_grey;
 }
 
-footer a:hover, a:focus {
-  text_decoration: underline $light_grey;
+footer a:hover {
+  text-decoration: underline dotted $dark_grey;
 }
 
 a.footnote {
