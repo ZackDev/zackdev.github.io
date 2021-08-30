@@ -43,13 +43,14 @@ The daily vaccinations data is also available from [Robert Koch Institute (2)][3
 
 {% include div.html name="chart_corona_vaccinations_by_vaccine_germany" %}
 
-Administered doses grouped by vaccine.
+Administered doses grouped by vaccine. The data is retrieved from [Robert Koch Institute (3)][5].
 
 
 [1]: <https://github.com/CSSEGISandData/COVID-19> "COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University"
 [2]: <https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Daten/Testzahlen-gesamt.xlsx?__blob=publicationFile> "Erfassung der SARS-CoV-2-Testzahlen in Deutschland"
 [3]: <https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Daten/Impfquotenmonitoring.xlsx?__blob=publicationFile> "Tabelle mit den gemeldeten Impfungen bundesweit und nach Bundesland sowie nach STIKO-Indikation"
 [4]: <https://www.intensivregister.de> "DIVI-Intensivregister (www.intensivregister.de)"
+[5]: <https://raw.githubusercontent.com/robert-koch-institut/COVID-19-Impfungen_in_Deutschland/master/Aktuell_Deutschland_Bundeslaender_COVID-19-Impfungen.csv> "COVID-19-Impfungen_in_Deutschland/Aktuell_Deutschland_Bundeslaender_COVID-19-Impfungen.csv"
 
 # Update 2021-02-14
 Because the `7 Day Incidence` became a goalpost value for political decision makers, a chart is now available.
