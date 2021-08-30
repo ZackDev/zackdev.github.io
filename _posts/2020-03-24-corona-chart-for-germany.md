@@ -27,17 +27,24 @@ Incidence Chart's data is also derived from the data above. *Incidence* describe
 
 The third chart's data plainly lists the weekly performed PCR tests. Again, the data-source is the [Robert Koch Institute (1)][2].
 
+# Intensive Care Unit Occupancy
+
+{% include div.html name="chart_corona_icuo_germany" %}
+
+The chart above shows the Intensive Care Unit occupancy with COVID-19 cases which require invasive ventilation in comparison to the beds that are free. Data source is the [DIVI-Intensivregister (www.intensivregister.de)][4].
+
 # Vaccinations
 
 {% include div.html name="chart_corona_vaccinations_germany" %}
 
 The daily vaccinations data is also available from [Robert Koch Institute (2)][3]. It is split into two stages of vaccinations, named primary and secondary vaccinations. There is no distinction by vaccine.
 
-# Intensive Care Unit Occupancy
+# Administered Doses By Vaccine
 
-{% include div.html name="chart_corona_icuo_germany" %}
+{% include div.html name="chart_corona_vaccinations_by_vaccine_germany" %}
 
-The chart above shows the Intensive Care Unit occupancy with COVID-19 cases which require invasive ventilation in comparison to the beds that are free. Data source is the [DIVI-Intensivregister (www.intensivregister.de)][4].
+Administered doses grouped by vaccine.
+
 
 [1]: <https://github.com/CSSEGISandData/COVID-19> "COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University"
 [2]: <https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Daten/Testzahlen-gesamt.xlsx?__blob=publicationFile> "Erfassung der SARS-CoV-2-Testzahlen in Deutschland"

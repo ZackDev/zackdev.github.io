@@ -3,6 +3,7 @@ const init_corona = () => {
   let weekly_tests_url = "/assets/json/corona_germany_weekly_tests.json";
   let daily_vaccinations_url = "/assets/json/corona_germany_daily_vaccinations.json";
   let daily_icuo_url = "/assets/json/corona_germany_daily_icuo.json";
+  let vaccinations_by_vaccine_url = "/assets/json/corona_germany_vaccinations_by_vaccine.json"
 
   async_request(daily_cases_url, "json", true)
     .then(
@@ -25,6 +26,12 @@ const init_corona = () => {
   async_request(daily_icuo_url, "json", true)
     .then(
       resolve => get_async_daily_icuo_callback(resolve),
+      reject => console.log(reject)
+    )
+
+  async_request(vaccinations_by_vaccine_url, "json", true)
+    .then(
+      resolve => get_async_vaccinations_by_vaccine_callback(resolve),
       reject => console.log(reject)
     )
 };
@@ -136,6 +143,22 @@ const get_async_daily_icuo_callback = (callback_object) => {
   }
 
   draw_daily_icuo_chart(data_obj);
+}
+
+const get_async_vaccinations_by_vaccine_callback = (callback_object) => {
+  let moderna_count = callback_object.response.Moderna;
+  let astrazeneca_count = callback_object.response.AstraZeneca;
+  let janssen_count = callback_object.response.Janssen;
+  let comirnaty_count = callback_object.response.Comirnaty;
+
+  let data_obj = {
+    moderna: moderna_count,
+    astrazeneca: astrazeneca_count,
+    janssen: janssen_count,
+    comirnaty: comirnaty_count
+  }
+
+  draw_vaccinations_by_vaccine_chart(data_obj);
 }
 
 const incidence = (span, cases) => {
@@ -452,6 +475,40 @@ function draw_daily_icuo_chart(data_obj) {
     tooltip: {
       shared: true
     },
+    credits: {
+      enabled: false
+    }
+  });
+}
+
+function draw_vaccinations_by_vaccine_chart(data_obj) {
+  var vaccinations_by_vaccine_chart = Highcharts.chart('chart_corona_vaccinations_by_vaccine_germany', {
+    chart: {
+      type: 'pie'
+    },
+    title: {
+      text: 'Vaccinations By Vaccine'
+    },
+    series: [{
+      name: 'doses',
+      colorByPoint: true,
+      data: [
+        {
+          name: 'Moderna',
+          y: data_obj.moderna
+        }, {
+          name: 'Comirnaty',
+          y: data_obj.comirnaty
+        }, {
+          name: 'AstraZeneca',
+          y: data_obj.astrazeneca
+        }, {
+          name: 'Janssen',
+          y: data_obj.janssen
+        }
+      ]
+    }]
+    ,
     credits: {
       enabled: false
     }
