@@ -9,13 +9,23 @@ The following charts use publicly available data surrounding the SARS-CoV-2 viru
 
 {% include div.html name="chart_corona_cases_germany" %}
 
+---
+
 {% include div.html name="chart_corona_additional_germany" %}
+
+---
 
 {% include div.html name="chart_corona_tests_germany" %}
 
+---
+
 {% include div.html name="chart_corona_icuo_germany" %}
 
+---
+
 {% include div.html name="chart_corona_vaccinations_germany" %}
+
+---
 
 {% include div.html name="chart_corona_vaccinations_by_vaccine_germany" %}
 
