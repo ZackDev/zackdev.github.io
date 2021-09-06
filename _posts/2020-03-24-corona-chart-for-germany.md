@@ -34,18 +34,17 @@ The following charts use publicly available data surrounding the SARS-CoV-2 viru
 
 * Weekly And Total Performed PCR Tests: [Robert Koch Institute (1)][2]
 
-* Intensive Care Unit Occupancy: COVID-19 cases which require invasive ventilation in comparison to the beds that are free. Data source is the [DIVI-Intensivregister (www.intensivregister.de)][4]
+* Intensive Care Unit Occupancy: COVID-19 cases which require invasive ventilation in comparison to the beds that are free. Data source is the [DIVI-Intensivregister (www.intensivregister.de)][3]
 
-* Daily And Total Vaccinations: [Robert Koch Institute (2)][3]
+* Daily And Total Vaccinations: [Robert Koch Institute (2)][4]
 
-* Vaccinations By Vaccine: [Robert Koch Institute (3)][5]
+* Vaccinations By Vaccine: [Robert Koch Institute (2)][4]
 
 
 [1]: <https://github.com/CSSEGISandData/COVID-19> "COVID-19 Data Repository by the Center for Systems Science and Engineering (CSSE) at Johns Hopkins University"
 [2]: <https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Daten/Testzahlen-gesamt.xlsx?__blob=publicationFile> "Erfassung der SARS-CoV-2-Testzahlen in Deutschland"
-[3]: <https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Daten/Impfquotenmonitoring.xlsx?__blob=publicationFile> "Tabelle mit den gemeldeten Impfungen bundesweit und nach Bundesland sowie nach STIKO-Indikation"
-[4]: <https://www.intensivregister.de> "DIVI-Intensivregister (www.intensivregister.de)"
-[5]: <https://raw.githubusercontent.com/robert-koch-institut/COVID-19-Impfungen_in_Deutschland/master/Aktuell_Deutschland_Bundeslaender_COVID-19-Impfungen.csv> "COVID-19-Impfungen_in_Deutschland/Aktuell_Deutschland_Bundeslaender_COVID-19-Impfungen.csv"
+[3]: <https://www.intensivregister.de> "DIVI-Intensivregister (www.intensivregister.de)"
+[4]: <https://raw.githubusercontent.com/robert-koch-institut/COVID-19-Impfungen_in_Deutschland/master/Aktuell_Deutschland_Bundeslaender_COVID-19-Impfungen.csv> "COVID-19-Impfungen_in_Deutschland/Aktuell_Deutschland_Bundeslaender_COVID-19-Impfungen.csv"
 
 # Update 2021-02-14
 Because the `7 Day Incidence` became a goalpost value for political decision makers, a chart is now available.
