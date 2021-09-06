@@ -92,11 +92,13 @@ const get_async_daily_vaccinations_callback = (callback_object) => {
   console.log('daily vaccinations callback');
   let primary_vaccinations = callback_object.response.primary_vaccinations;
   let secondary_vaccinations = callback_object.response.secondary_vaccinations;
+  let booster_vaccinations = callback_object.response.booster_vaccinations;
   let dates = callback_object.response.dates;
   let total_primary_vaccinations = [];
   let primary_vaccinations_percentage = [];
   let total_secondary_vaccinations = [];
   let secondary_vaccinations_percentage = [];
+  let total_booster_vaccinations = [];
   for (let i=0; i < primary_vaccinations.length; i++) {
     let t_vac = 0;
     for (let j=0; j <= i; j++) {
@@ -119,13 +121,22 @@ const get_async_daily_vaccinations_callback = (callback_object) => {
     p = parseFloat((total_secondary_vaccinations[index] / 83100000 * 100).toFixed(2));
     secondary_vaccinations_percentage.push(p);
   }
+  for (let i=0; i < booster_vaccinations.length; i++) {
+    let t_vac = 0;
+    for (let j=0; j <= i; j++) {
+      t_vac+= booster_vaccinations[j];
+    }
+    total_booster_vaccinations.push(t_vac);
+  }
   let data_obj = {
     primary_vaccinations: primary_vaccinations,
     secondary_vaccinations: secondary_vaccinations,
+    booster_vaccinations: booster_vaccinations,
     total_primary_vaccinations: total_primary_vaccinations,
     primary_vaccinations_percentage: primary_vaccinations_percentage,
     total_secondary_vaccinations: total_secondary_vaccinations,
     secondary_vaccinations_percentage: secondary_vaccinations_percentage,
+    total_booster_vaccinations: total_booster_vaccinations,
     dates: dates
   }
   draw_daily_vaccinations_chart(data_obj);
@@ -400,6 +411,13 @@ function draw_daily_vaccinations_chart(data_obj) {
       name: 'Secondary Vaccinations',
       data: data_obj.secondary_vaccinations
     }, {
+      yAxis: 0,
+      stack: 0,
+      index: 0,
+      legendIndex: 2,
+      name: 'Booster Vaccinations',
+      data: data_obj.booster_vaccinations
+    }, {
       type: 'line',
       yAxis: 1,
       legendIndex: 2,
@@ -421,6 +439,12 @@ function draw_daily_vaccinations_chart(data_obj) {
           return '<span style="color:' + this.series.color + ';">&bull;</span>' + ' ' + this.series.name + ': ' + '<b>' + Highcharts.numberFormat(this.y, -1, ' ', ' ') + '</b>' + ': ' + data_obj.secondary_vaccinations_percentage[this.x] + '%</br>';
         }
       }
+    }, {
+      type: 'line',
+      yAxis: 1,
+      legendIndex: 4,
+      name: 'Total Booster Vaccinations',
+      data: data_obj.total_booster_vaccinations
     }],
     tooltip: {
       shared: true
