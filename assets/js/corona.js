@@ -399,14 +399,14 @@ function draw_daily_vaccinations_chart(data_obj) {
     series: [{
       yAxis: 0,
       stack: 0,
-      index: 1,
+      index: 2,
       legendIndex: 0,
       name: 'Primary Vaccinations',
       data: data_obj.primary_vaccinations
     }, {
       yAxis: 0,
       stack: 0,
-      index: 0,
+      index: 1,
       legendIndex: 1,
       name: 'Secondary Vaccinations',
       data: data_obj.secondary_vaccinations
@@ -420,7 +420,7 @@ function draw_daily_vaccinations_chart(data_obj) {
     }, {
       type: 'line',
       yAxis: 1,
-      legendIndex: 2,
+      legendIndex: 3,
       name: 'Total Primary Vaccinations',
       data: data_obj.total_primary_vaccinations,
       tooltip: {
@@ -431,7 +431,7 @@ function draw_daily_vaccinations_chart(data_obj) {
     }, {
       type: 'line',
       yAxis: 1,
-      legendIndex: 3,
+      legendIndex: 4,
       name: 'Total Secondary Vaccinations',
       data: data_obj.total_secondary_vaccinations,
       tooltip: {
@@ -442,7 +442,7 @@ function draw_daily_vaccinations_chart(data_obj) {
     }, {
       type: 'line',
       yAxis: 1,
-      legendIndex: 4,
+      legendIndex: 5,
       name: 'Total Booster Vaccinations',
       data: data_obj.total_booster_vaccinations
     }],
