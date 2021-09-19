@@ -36,6 +36,7 @@ const init_corona = () => {
     )
 };
 
+
 const get_async_daily_cases_callback = (callback_object) => {
   console.log('daily cases callback');
   let cases = callback_object.response.cases;
@@ -67,6 +68,7 @@ const get_async_daily_cases_callback = (callback_object) => {
   draw_additional_chart(data_obj_1);
 };
 
+
 const get_async_weekly_tests_callback = (callback_object) => {
   console.log('weekly tests callback');
   let weekly_tests = callback_object.response.weekly_tests;
@@ -87,6 +89,7 @@ const get_async_weekly_tests_callback = (callback_object) => {
   }
   draw_weekly_tests_chart(data_obj);
 };
+
 
 const get_async_daily_vaccinations_callback = (callback_object) => {
   console.log('daily vaccinations callback');
@@ -142,6 +145,7 @@ const get_async_daily_vaccinations_callback = (callback_object) => {
   draw_daily_vaccinations_chart(data_obj);
 }
 
+
 const get_async_daily_icuo_callback = (callback_object) => {
   let dates = callback_object.response.dates;
   let free_icu = callback_object.response.free_icu;
@@ -155,6 +159,7 @@ const get_async_daily_icuo_callback = (callback_object) => {
 
   draw_daily_icuo_chart(data_obj);
 }
+
 
 const get_async_vaccinations_by_vaccine_callback = (callback_object) => {
   let moderna_count = callback_object.response.Moderna;
@@ -171,6 +176,7 @@ const get_async_vaccinations_by_vaccine_callback = (callback_object) => {
 
   draw_vaccinations_by_vaccine_chart(data_obj);
 }
+
 
 const incidence = (span, cases) => {
   var incidences = new Array();
@@ -190,6 +196,7 @@ const incidence = (span, cases) => {
   return incidences;
 }
 
+
 const smooth_by_range = (span, dataset) => {
   var smoothed_array = new Array();
   for (let i=0; i < dataset.length; i++) {
@@ -208,23 +215,24 @@ const smooth_by_range = (span, dataset) => {
   return smoothed_array;
 }
 
+
 const repr_value = (cases) => {
-  var repr = new Array();
-  for (let i=0; i < cases.length; i++) {
-    if (i == 0) {
+  // calculates the reproduction value r = n / n-1
+  // starting at i=1, avoids division by zero
+  let repr = new Array();
+  repr.push(0);
+  for (let i=1; i < cases.length; i++) {
+    if (cases[i] == 0 || cases[i-1] == 0) {
       repr.push(0);
     }
     else {
-      if (cases[i] == 0 || cases[i - 1 ] == 0) {
-        repr.push(0);
-      }
-      else {
-        repr.push(parseFloat((cases[i] / cases[i - 1]).toFixed(2)));
-      }
+      let rate = cases[i] / cases[i-1];
+      repr.push(parseFloat(rate.toFixed(2)));
     }
   }
   return repr;
 }
+
 
 function draw_daily_cases_chart(data_obj) {
   var daily_cases_chart = Highcharts.chart('chart_corona_cases_germany', {
@@ -269,6 +277,7 @@ function draw_daily_cases_chart(data_obj) {
     }
   });
 }
+
 
 function draw_additional_chart(data_obj) {
   var incidence_chart = Highcharts.chart('chart_corona_additional_germany', {
@@ -365,6 +374,7 @@ function draw_weekly_tests_chart(data_obj) {
   });
 }
 
+
 function draw_daily_vaccinations_chart(data_obj) {
   var daily_vaccinations_chart = Highcharts.chart('chart_corona_vaccinations_germany', {
     chart: {
@@ -455,6 +465,7 @@ function draw_daily_vaccinations_chart(data_obj) {
   });
 }
 
+
 function draw_daily_icuo_chart(data_obj) {
   var daily_vaccinations_chart = Highcharts.chart('chart_corona_icuo_germany', {
     chart: {
@@ -505,6 +516,7 @@ function draw_daily_icuo_chart(data_obj) {
   });
 }
 
+
 function draw_vaccinations_by_vaccine_chart(data_obj) {
   var vaccinations_by_vaccine_chart = Highcharts.chart('chart_corona_vaccinations_by_vaccine_germany', {
     chart: {
@@ -546,5 +558,6 @@ function draw_vaccinations_by_vaccine_chart(data_obj) {
     }
   });
 }
+
 
 new Init(init_corona);
