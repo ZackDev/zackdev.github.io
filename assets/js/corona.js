@@ -513,6 +513,14 @@ function draw_vaccinations_by_vaccine_chart(data_obj) {
     title: {
       text: 'Vaccinations By Vaccine'
     },
+    plotOptions: {
+      pie: {
+        dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}</b>: {point.percentage:.2f} %'
+        }
+      }
+    },
     series: [{
       name: 'doses',
       colorByPoint: true,
