@@ -1,410 +1,398 @@
-const init_corona = () => {
-  let daily_cases_url = "/assets/json/corona_germany_daily_cases.json";
-  let weekly_tests_url = "/assets/json/corona_germany_weekly_tests.json";
-  let daily_vaccinations_url = "/assets/json/corona_germany_daily_vaccinations.json";
-  let daily_icuo_url = "/assets/json/corona_germany_daily_icuo.json";
-  let vaccinations_by_vaccine_url = "/assets/json/corona_germany_vaccinations_by_vaccine.json"
+/* eslint-disable no-console */
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-undef */
+const initCorona = () => {
+  const dailyCasesUrl = '/assets/json/corona_germany_daily_cases.json';
+  const weeklyTestsUrl = '/assets/json/corona_germany_weekly_tests.json';
+  const dailyVaccinationsUrl = '/assets/json/corona_germany_daily_vaccinations.json';
+  const dailyIcuoUrl = '/assets/json/corona_germany_daily_icuo.json';
+  const vaccinationsByVaccineUrl = '/assets/json/corona_germany_vaccinations_by_vaccine.json';
 
-  async_request(daily_cases_url, "json", true)
+  async_request(dailyCasesUrl, 'json', true)
     .then(
-      resolve => get_async_daily_cases_callback(resolve),
-      reject => console.log(reject)
+      (resolve) => getAsyncDailyCasesCallback(resolve),
+      (reject) => console.log(reject),
     );
 
-  async_request(weekly_tests_url, "json", true)
+  async_request(weeklyTestsUrl, 'json', true)
     .then(
-      resolve => get_async_weekly_tests_callback(resolve),
-      reject => console.log(reject)
+      (resolve) => getAsyncWeeklyTestsCallback(resolve),
+      (reject) => console.log(reject),
     );
 
-  async_request(daily_vaccinations_url, "json", true)
+  async_request(dailyVaccinationsUrl, 'json', true)
     .then(
-      resolve => get_async_daily_vaccinations_callback(resolve),
-      reject => console.log(reject)
+      (resolve) => getAsyncDailyVaccinationsCallback(resolve),
+      (reject) => console.log(reject),
     );
 
-  async_request(daily_icuo_url, "json", true)
+  async_request(dailyIcuoUrl, 'json', true)
     .then(
-      resolve => get_async_daily_icuo_callback(resolve),
-      reject => console.log(reject)
-    )
+      (resolve) => getAsyncDailyICUOCallback(resolve),
+      (reject) => console.log(reject),
+    );
 
-  async_request(vaccinations_by_vaccine_url, "json", true)
+  async_request(vaccinationsByVaccineUrl, 'json', true)
     .then(
-      resolve => get_async_vaccinations_by_vaccine_callback(resolve),
-      reject => console.log(reject)
-    )
+      (resolve) => getAsyncVaccinationsByVaccineCallback(resolve),
+      (reject) => console.log(reject),
+    );
 };
 
-
-const get_async_daily_cases_callback = (callback_object) => {
+const getAsyncDailyCasesCallback = (callbackObject) => {
   console.log('daily cases callback');
-  let cases = callback_object.response.cases;
-  let dates = callback_object.response.dates;
-  let daily_cases = [];
-  for (let i=0; i < cases.length; i++) {
-    if (i == 0) {
-      daily_cases.push(cases[i]);
+  const { cases } = callbackObject.response;
+  const { dates } = callbackObject.response;
+  const dailyCases = [];
+  for (let i = 0; i < cases.length; i += 1) {
+    if (i === 0) {
+      dailyCases.push(cases[i]);
+    } else {
+      dailyCases.push(cases[i] - cases[i - 1]);
     }
-    else {
-      daily_cases.push(cases[i] - cases[i-1])
-    }
   }
-  let incidences_7 = incidence(7, daily_cases);
-  let repr_values = repr_value(daily_cases);
-  let smoothed_repr_values = smooth_by_range(7, repr_values);
-  let data_obj_0 = {
-    cases: cases,
-    daily_cases: daily_cases,
-    dates: dates
-  }
-  let data_obj_1 = {
-    incidences_7: incidences_7,
-    repr_values: repr_values,
-    smoothed_repr_values: smoothed_repr_values,
-    dates: dates
-  }
-  draw_daily_cases_chart(data_obj_0);
-  draw_additional_chart(data_obj_1);
+  const incidences7 = incidence(7, dailyCases);
+  const reprValues = reprValue(dailyCases);
+  const smoothedReprValues = smoothByRange(7, reprValues);
+  const dataObj0 = {
+    cases,
+    dailyCases,
+    dates,
+  };
+  const dataObj1 = {
+    incidences7,
+    reprValues,
+    smoothedReprValues,
+    dates,
+  };
+  drawDailyCasesChart(dataObj0);
+  drawAdditionalChart(dataObj1);
 };
 
-
-const get_async_weekly_tests_callback = (callback_object) => {
+const getAsyncWeeklyTestsCallback = (callbackObject) => {
   console.log('weekly tests callback');
-  let weekly_tests = callback_object.response.weekly_tests;
-  let calendar_weeks = callback_object.response.calendar_weeks;
-  let total_tests = [];
-  for (let i=0; i < weekly_tests.length; i++) {
-    if (i == 0) {
-      total_tests.push(weekly_tests[i]);
-    }
-    else {
-      total_tests.push(total_tests[i-1] + weekly_tests[i]);
+  const weeklyTests = callbackObject.response.weekly_tests;
+  const calendarWeeks = callbackObject.response.calendar_weeks;
+  const totalTests = [];
+  for (let i = 0; i < weeklyTests.length; i += 1) {
+    if (i === 0) {
+      totalTests.push(weeklyTests[i]);
+    } else {
+      totalTests.push(totalTests[i - 1] + weeklyTests[i]);
     }
   }
-  let data_obj = {
-    weekly_tests: weekly_tests,
-    total_tests: total_tests,
-    calendar_weeks: calendar_weeks
-  }
-  draw_weekly_tests_chart(data_obj);
+  const dataObj = {
+    weeklyTests,
+    totalTests,
+    calendarWeeks,
+  };
+  drawWeeklyTestsChart(dataObj);
 };
 
-
-const get_async_daily_vaccinations_callback = (callback_object) => {
+const getAsyncDailyVaccinationsCallback = (callbackObject) => {
   console.log('daily vaccinations callback');
-  let primary_vaccinations = callback_object.response.primary_vaccinations;
-  let secondary_vaccinations = callback_object.response.secondary_vaccinations;
-  let booster_vaccinations = callback_object.response.booster_vaccinations;
-  let dates = callback_object.response.dates;
-  let total_primary_vaccinations = [];
-  let primary_vaccinations_percentage = [];
-  let total_secondary_vaccinations = [];
-  let secondary_vaccinations_percentage = [];
-  let total_booster_vaccinations = [];
-  for (let i=0; i < primary_vaccinations.length; i++) {
-    let t_vac = 0;
-    for (let j=0; j <= i; j++) {
-      t_vac+= primary_vaccinations[j];
+  const primaryVaccinations = callbackObject.response.primary_vaccinations;
+  const secondaryVaccinations = callbackObject.response.secondary_vaccinations;
+  const boosterVaccinations = callbackObject.response.booster_vaccinations;
+  const { dates } = callbackObject.response;
+  const totalPrimaryVaccinations = [];
+  const primaryVaccinationsPercentage = [];
+  const totalSecondaryVaccinations = [];
+  const secondaryVaccinationsPercentage = [];
+  const totalBoosterVaccinations = [];
+  for (let i = 0; i < primaryVaccinations.length; i += 1) {
+    let tVac = 0;
+    for (let j = 0; j <= i; j += 1) {
+      tVac += primaryVaccinations[j];
     }
-    total_primary_vaccinations.push(t_vac);
+    totalPrimaryVaccinations.push(tVac);
   }
-  for (index in total_primary_vaccinations) {
-    p = parseFloat((total_primary_vaccinations[index] / 83100000 * 100).toFixed(2));
-    primary_vaccinations_percentage.push(p);
+  for (let i = 0; i < totalPrimaryVaccinations.length; i += 1) {
+    p = parseFloat((totalPrimaryVaccinations[i] / 83100).toFixed(2));
+    primaryVaccinationsPercentage.push(p);
   }
-  for (let i=0; i < secondary_vaccinations.length; i++) {
-    let t_vac = 0;
-    for (let j=0; j <= i; j++) {
-      t_vac+= secondary_vaccinations[j];
+  for (let i = 0; i < secondaryVaccinations.length; i += 1) {
+    let tVac = 0;
+    for (let j = 0; j <= i; j += 1) {
+      tVac += secondaryVaccinations[j];
     }
-    total_secondary_vaccinations.push(t_vac);
+    totalSecondaryVaccinations.push(tVac);
   }
-  for (index in total_secondary_vaccinations) {
-    p = parseFloat((total_secondary_vaccinations[index] / 83100000 * 100).toFixed(2));
-    secondary_vaccinations_percentage.push(p);
+  for (let i = 0; i < totalSecondaryVaccinations.length; i += 1) {
+    p = parseFloat((totalSecondaryVaccinations[i] / 83100).toFixed(2));
+    secondaryVaccinationsPercentage.push(p);
   }
-  for (let i=0; i < booster_vaccinations.length; i++) {
-    let t_vac = 0;
-    for (let j=0; j <= i; j++) {
-      t_vac+= booster_vaccinations[j];
+  for (let i = 0; i < boosterVaccinations.length; i += 1) {
+    let tVac = 0;
+    for (let j = 0; j <= i; j += 1) {
+      tVac += boosterVaccinations[j];
     }
-    total_booster_vaccinations.push(t_vac);
+    totalBoosterVaccinations.push(tVac);
   }
-  let data_obj = {
-    primary_vaccinations: primary_vaccinations,
-    secondary_vaccinations: secondary_vaccinations,
-    booster_vaccinations: booster_vaccinations,
-    total_primary_vaccinations: total_primary_vaccinations,
-    primary_vaccinations_percentage: primary_vaccinations_percentage,
-    total_secondary_vaccinations: total_secondary_vaccinations,
-    secondary_vaccinations_percentage: secondary_vaccinations_percentage,
-    total_booster_vaccinations: total_booster_vaccinations,
-    dates: dates
-  }
-  draw_daily_vaccinations_chart(data_obj);
-}
+  const dataObj = {
+    primaryVaccinations,
+    secondaryVaccinations,
+    boosterVaccinations,
+    totalPrimaryVaccinations,
+    primaryVaccinationsPercentage,
+    totalSecondaryVaccinations,
+    secondaryVaccinationsPercentage,
+    totalBoosterVaccinations,
+    dates,
+  };
+  drawDailyVaccinationsChart(dataObj);
+};
 
+const getAsyncDailyICUOCallback = (callbackObject) => {
+  const { dates } = callbackObject.response;
+  const freeICU = callbackObject.response.free_icu;
+  const covidICU = callbackObject.response.covid_icu;
 
-const get_async_daily_icuo_callback = (callback_object) => {
-  let dates = callback_object.response.dates;
-  let free_icu = callback_object.response.free_icu;
-  let covid_icu = callback_object.response.covid_icu;
+  const dataObj = {
+    dates,
+    freeICU,
+    covidICU,
+  };
 
-  let data_obj = {
-    dates: dates,
-    free_icu: free_icu,
-    covid_icu: covid_icu
-  }
+  drawDailyICUOChart(dataObj);
+};
 
-  draw_daily_icuo_chart(data_obj);
-}
+const getAsyncVaccinationsByVaccineCallback = (callbackObject) => {
+  const modernaCount = callbackObject.response.Moderna;
+  const astrazenecaCount = callbackObject.response.AstraZeneca;
+  const janssenCount = callbackObject.response.Janssen;
+  const comirnatyCount = callbackObject.response.Comirnaty;
 
+  const dataObj = {
+    moderna: modernaCount,
+    astrazeneca: astrazenecaCount,
+    janssen: janssenCount,
+    comirnaty: comirnatyCount,
+  };
 
-const get_async_vaccinations_by_vaccine_callback = (callback_object) => {
-  let moderna_count = callback_object.response.Moderna;
-  let astrazeneca_count = callback_object.response.AstraZeneca;
-  let janssen_count = callback_object.response.Janssen;
-  let comirnaty_count = callback_object.response.Comirnaty;
-
-  let data_obj = {
-    moderna: moderna_count,
-    astrazeneca: astrazeneca_count,
-    janssen: janssen_count,
-    comirnaty: comirnaty_count
-  }
-
-  draw_vaccinations_by_vaccine_chart(data_obj);
-}
-
+  drawVaccinationsByVaccineChart(dataObj);
+};
 
 const incidence = (span, cases) => {
-  var incidences = new Array();
-  for (let i=0; i < cases.length; i++) {
-    var temp_incidences = new Array();
-    var inc = 0;
-    for (let j=i; j>=0 && j >= i - span + 1; j--) {
-      temp_incidences.push(cases[j]);
+  const incidences = [];
+  for (let i = 0; i < cases.length; i += 1) {
+    const tempIncidences = [];
+    let inc = 0;
+    for (let j = i; j >= 0 && j >= i - span + 1; j -= 1) {
+      tempIncidences.push(cases[j]);
     }
-    for (let x=0; x < temp_incidences.length; x++) {
-      inc += temp_incidences[x];
-      if (x == temp_incidences.length -1) {
+    for (let x = 0; x < tempIncidences.length; x += 1) {
+      inc += tempIncidences[x];
+      if (x === tempIncidences.length - 1) {
         incidences.push(Number((inc / 831).toFixed(2)));
       }
     }
   }
   return incidences;
-}
+};
 
-
-const smooth_by_range = (span, dataset) => {
-  var smoothed_array = new Array();
-  for (let i=0; i < dataset.length; i++) {
-    var temp_smoothed = new Array();
-    var smoothed = 0;
-    for (let j=i; j>=0 && j >= i - span +1; j--) {
-      temp_smoothed.push(dataset[j]);
+const smoothByRange = (span, dataset) => {
+  const smoothedArray = [];
+  for (let i = 0; i < dataset.length; i += 1) {
+    const tempSmoothed = [];
+    let smoothed = 0;
+    for (let j = i; j >= 0 && j >= i - span + 1; j -= 1) {
+      tempSmoothed.push(dataset[j]);
     }
-    for (let x=0; x < temp_smoothed.length; x++) {
-      smoothed += temp_smoothed[x];
-      if (x == temp_smoothed.length -1) {
-        smoothed_array.push(Number((smoothed / temp_smoothed.length ).toFixed(2)));
+    for (let x = 0; x < tempSmoothed.length; x += 1) {
+      smoothed += tempSmoothed[x];
+      if (x === tempSmoothed.length - 1) {
+        smoothedArray.push(Number((smoothed / tempSmoothed.length).toFixed(2)));
       }
     }
   }
-  return smoothed_array;
-}
+  return smoothedArray;
+};
 
-
-const repr_value = (cases) => {
+const reprValue = (cases) => {
   // calculates the reproduction value r = n / n-1
   // starting at i=1, avoids division by zero
-  let repr = new Array();
+  const repr = [];
   repr.push(0);
-  for (let i=1; i < cases.length; i++) {
-    if (cases[i] == 0 || cases[i-1] == 0) {
+  for (let i = 1; i < cases.length; i += 1) {
+    if (cases[i] === 0 || cases[i - 1] === 0) {
       repr.push(0);
-    }
-    else {
-      let rate = cases[i] / cases[i-1];
+    } else {
+      const rate = cases[i] / cases[i - 1];
       repr.push(parseFloat(rate.toFixed(2)));
     }
   }
   return repr;
-}
+};
 
-
-function draw_daily_cases_chart(data_obj) {
-  var daily_cases_chart = Highcharts.chart('chart_corona_cases_germany', {
+function drawDailyCasesChart(dataObj) {
+  Highcharts.chart('chart_corona_cases_germany', {
     chart: {
       type: 'column',
-      zoomType: 'x'
+      zoomType: 'x',
     },
     title: {
-      text: 'COVID-19 Cases'
+      text: 'COVID-19 Cases',
     },
     xAxis: {
-      categories: data_obj.dates,
-      crosshair: true
+      categories: dataObj.dates,
+      crosshair: true,
     },
     yAxis: [{
       title: {
-        text: 'Daily'
-      }
+        text: 'Daily',
+      },
     }, {
       title: {
-        text: 'Total'
+        text: 'Total',
       },
-      opposite: true
+      opposite: true,
     }],
     series: [{
       yAxis: 0,
       index: 1,
       name: 'Daily',
-      data: data_obj.daily_cases
+      data: dataObj.dailyCases,
     }, {
       yAxis: 1,
       index: 0,
       name: 'Total',
-      data: data_obj.cases,
-      type: 'line'
+      data: dataObj.cases,
+      type: 'line',
     }],
     tooltip: {
-      shared: true
+      shared: true,
     },
     credits: {
-      enabled: false
-    }
+      enabled: false,
+    },
   });
 }
 
-
-function draw_additional_chart(data_obj) {
-  var incidence_chart = Highcharts.chart('chart_corona_additional_germany', {
+function drawAdditionalChart(dataObj) {
+  Highcharts.chart('chart_corona_additional_germany', {
     chart: {
       type: 'line',
-      zoomType: 'x'
+      zoomType: 'x',
     },
     title: {
-      text: 'Incidence'
+      text: 'Incidence',
     },
     subtitle: {
-      text: 'and R-Value'
+      text: 'and R-Value',
     },
     xAxis: {
-      categories: data_obj.dates,
-      crosshair: true
+      categories: dataObj.dates,
+      crosshair: true,
     },
     yAxis: [{
       title: {
-        text: 'Incidence'
-      }
+        text: 'Incidence',
+      },
     }, {
       title: {
-        text: 'R-Value'
+        text: 'R-Value',
       },
-      opposite: true
+      opposite: true,
     }],
     series: [{
       yAxis: 0,
       name: '7 day incidence',
-      data: data_obj.incidences_7
+      data: dataObj.incidences7,
     }, {
       yAxis: 1,
       name: 'R-Value (smoothed)',
-      data: data_obj.smoothed_repr_values
+      data: dataObj.smoothedReprValues,
     }, {
       yAxis: 1,
       color: 'rgb(155, 155, 155)',
       visible: false,
       name: 'R-Value (raw)',
-      data: data_obj.repr_values
+      data: dataObj.reprValues,
     }],
     tooltip: {
-      shared: true
+      shared: true,
     },
     credits: {
-      enabled: false
-    }
+      enabled: false,
+    },
   });
 }
 
-
-function draw_weekly_tests_chart(data_obj) {
-  var weekly_tests_chart = Highcharts.chart('chart_corona_tests_germany', {
+function drawWeeklyTestsChart(dataObj) {
+  Highcharts.chart('chart_corona_tests_germany', {
     chart: {
-      type: 'column'
+      type: 'column',
     },
     title: {
-      text: 'Weekly And Total Performed PCR Tests'
+      text: 'Weekly And Total Performed PCR Tests',
     },
     subtitle: {
-      text: 'updated on Wednesdays'
+      text: 'updated on Wednesdays',
     },
     xAxis: {
-      categories: data_obj.calendar_weeks,
-      crosshair: true
+      categories: dataObj.calendarWeeks,
+      crosshair: true,
     },
     yAxis: [{
       title: {
-        text: 'Weekly PCR Tests'
-      }
+        text: 'Weekly PCR Tests',
+      },
     }, {
       title: {
-        text: 'Total PCR Tests'
+        text: 'Total PCR Tests',
       },
-      opposite: true
+      opposite: true,
     }],
     series: [{
       yAxis: 0,
       name: 'Weekly PCR Tests',
-      data: data_obj.weekly_tests
+      data: dataObj.weeklyTests,
     }, {
       type: 'line',
       yAxis: 1,
       name: 'Total PCR Tests',
-      data: data_obj.total_tests
+      data: dataObj.totalTests,
     }],
     tooltip: {
-      shared: true
+      shared: true,
     },
     credits: {
-      enabled: false
-    }
+      enabled: false,
+    },
   });
 }
 
-
-function draw_daily_vaccinations_chart(data_obj) {
-  var daily_vaccinations_chart = Highcharts.chart('chart_corona_vaccinations_germany', {
+function drawDailyVaccinationsChart(dataObj) {
+  Highcharts.chart('chart_corona_vaccinations_germany', {
     chart: {
       type: 'column',
-      zoomType: 'x'
+      zoomType: 'x',
     },
     title: {
-      text: 'Daily And Total Vaccinations'
+      text: 'Daily And Total Vaccinations',
     },
     subtitle: {
-      text: 'includes primary and secondary vaccinations'
+      text: 'includes primary and secondary vaccinations',
     },
     xAxis: {
-      categories: data_obj.dates,
-      crosshair: true
+      categories: dataObj.dates,
+      crosshair: true,
     },
     yAxis: [{
       title: {
-        text: 'Daily Vaccinations'
-      }
+        text: 'Daily Vaccinations',
+      },
     }, {
       title: {
-        text: 'Total Primary And Secondary Vaccinations'
+        text: 'Total Primary And Secondary Vaccinations',
       },
-      opposite: true
+      opposite: true,
     }],
     plotOptions: {
       column: {
-        stacking: 'normal'
-      }
+        stacking: 'normal',
+      },
     },
     series: [{
       yAxis: 0,
@@ -412,85 +400,84 @@ function draw_daily_vaccinations_chart(data_obj) {
       index: 2,
       legendIndex: 0,
       name: 'Primary Vaccinations',
-      data: data_obj.primary_vaccinations
+      data: dataObj.primaryVaccinations,
     }, {
       yAxis: 0,
       stack: 0,
       index: 1,
       legendIndex: 1,
       name: 'Secondary Vaccinations',
-      data: data_obj.secondary_vaccinations
+      data: dataObj.secondaryVaccinations,
     }, {
       yAxis: 0,
       stack: 0,
       index: 0,
       legendIndex: 2,
       name: 'Booster Vaccinations',
-      data: data_obj.booster_vaccinations
+      data: dataObj.boosterVaccinations,
     }, {
       type: 'line',
       yAxis: 1,
       legendIndex: 3,
       name: 'Total Primary Vaccinations',
-      data: data_obj.total_primary_vaccinations,
+      data: dataObj.totalPrimaryVaccinations,
       tooltip: {
-        pointFormatter: function(){
-          return '<span style="color:' + this.series.color + ';">&bull;</span>' + ' ' + this.series.name + ': ' + '<b>' + Highcharts.numberFormat(this.y, -1, ' ', ' ') + '</b>' + ': ' + data_obj.primary_vaccinations_percentage[this.x] + '%</br>';
-        }
-      }
+        pointFormatter() {
+          return `<span style="color:${this.series.color};">&bull;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.primaryVaccinationsPercentage[this.x]}%</br>`;
+        },
+      },
     }, {
       type: 'line',
       yAxis: 1,
       legendIndex: 4,
       name: 'Total Secondary Vaccinations',
-      data: data_obj.total_secondary_vaccinations,
+      data: dataObj.totalSecondaryVaccinations,
       tooltip: {
-        pointFormatter: function(){
-          return '<span style="color:' + this.series.color + ';">&bull;</span>' + ' ' + this.series.name + ': ' + '<b>' + Highcharts.numberFormat(this.y, -1, ' ', ' ') + '</b>' + ': ' + data_obj.secondary_vaccinations_percentage[this.x] + '%</br>';
-        }
-      }
+        pointFormatter() {
+          return `<span style="color:${this.series.color};">&bull;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.secondaryVaccinationsPercentage[this.x]}%</br>`;
+        },
+      },
     }, {
       type: 'line',
       yAxis: 1,
       legendIndex: 5,
       name: 'Total Booster Vaccinations',
-      data: data_obj.total_booster_vaccinations
+      data: dataObj.totalBoosterVaccinations,
     }],
     tooltip: {
-      shared: true
+      shared: true,
     },
     credits: {
-      enabled: false
-    }
+      enabled: false,
+    },
   });
 }
 
-
-function draw_daily_icuo_chart(data_obj) {
-  var daily_vaccinations_chart = Highcharts.chart('chart_corona_icuo_germany', {
+function drawDailyICUOChart(dataObj) {
+  Highcharts.chart('chart_corona_icuo_germany', {
     chart: {
       type: 'column',
-      zoomType: 'x'
+      zoomType: 'x',
     },
     title: {
-      text: 'Intensive Care Unit'
+      text: 'Intensive Care Unit',
     },
     subtitle: {
-      text: 'free and occupied with COVID-19 patients'
+      text: 'free and occupied with COVID-19 patients',
     },
     xAxis: {
-      categories: data_obj.dates,
-      crosshair: true
+      categories: dataObj.dates,
+      crosshair: true,
     },
     yAxis: {
       title: {
-        text: 'free and occupied'
-      }
+        text: 'free and occupied',
+      },
     },
     plotOptions: {
       column: {
-        stacking: 'normal'
-      }
+        stacking: 'normal',
+      },
     },
     series: [{
       yAxis: 0,
@@ -498,40 +485,39 @@ function draw_daily_icuo_chart(data_obj) {
       index: 1,
       legendIndex: 0,
       name: 'free',
-      data: data_obj.free_icu
+      data: dataObj.freeICU,
     }, {
       yAxis: 0,
       stack: 0,
       index: 0,
       legendIndex: 1,
       name: 'occupied',
-      data: data_obj.covid_icu
+      data: dataObj.covidICU,
     }],
     tooltip: {
-      shared: true
+      shared: true,
     },
     credits: {
-      enabled: false
-    }
+      enabled: false,
+    },
   });
 }
 
-
-function draw_vaccinations_by_vaccine_chart(data_obj) {
-  var vaccinations_by_vaccine_chart = Highcharts.chart('chart_corona_vaccinations_by_vaccine_germany', {
+function drawVaccinationsByVaccineChart(dataObj) {
+  Highcharts.chart('chart_corona_vaccinations_by_vaccine_germany', {
     chart: {
-      type: 'pie'
+      type: 'pie',
     },
     title: {
-      text: 'Vaccinations By Vaccine'
+      text: 'Vaccinations By Vaccine',
     },
     plotOptions: {
       pie: {
         dataLabels: {
-            enabled: true,
-            format: '<b>{point.name}</b>: {point.percentage:.2f} %'
-        }
-      }
+          enabled: true,
+          format: '<b>{point.name}</b>: {point.percentage:.2f} %',
+        },
+      },
     },
     series: [{
       name: 'doses',
@@ -539,25 +525,23 @@ function draw_vaccinations_by_vaccine_chart(data_obj) {
       data: [
         {
           name: 'Moderna',
-          y: data_obj.moderna
+          y: dataObj.moderna,
         }, {
           name: 'Comirnaty',
-          y: data_obj.comirnaty
+          y: dataObj.comirnaty,
         }, {
           name: 'AstraZeneca',
-          y: data_obj.astrazeneca
+          y: dataObj.astrazeneca,
         }, {
           name: 'Janssen',
-          y: data_obj.janssen
-        }
-      ]
-    }]
-    ,
+          y: dataObj.janssen,
+        },
+      ],
+    }],
     credits: {
-      enabled: false
-    }
+      enabled: false,
+    },
   });
 }
 
-
-new Init(init_corona);
+new Init(initCorona);
