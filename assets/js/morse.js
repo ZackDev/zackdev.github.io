@@ -4,6 +4,7 @@ const shortPause = 's'; /* Code for short */
 const longPause = 'l'; /* Code for pause */
 
 const morseMap = new Map();
+const reverseMap = new Map();
 
 /* literal key, morse value */
 morseMap.set('A', [dot, dash]);
@@ -50,29 +51,26 @@ morseMap.set('shortPause', shortPause);
 morseMap.set(' ', longPause);
 
 /* reverse map for morse_to_text */
-const reverseMap = new Map();
-for (let [key, value] of morseMap) {
+
+morseMap.forEach((value, key) => {
   reverseMap.set(value.toString().replace(new RegExp(/,/g), ''), key);
-}
-console.log(reverseMap);
+});
 
 function drawMorse(morse) {
-  // eslint-disable-next-line no-undef
   const output = $('#morse_output');
   output.html('');
   for (let i = 0; i < morse.length; i += 1) {
     if (morse[i] === dot || morse[i] === dash) {
       output.html(output.html() + morse[i]);
     } else if (morse[i] === shortPause) {
-      output.html(`${output.html()} &nbsp;`);
+      output.html(`${output.html()}&nbsp;`);
     } else if (morse[i] === longPause) {
-      output.html(`${output.html()} &nbsp;&nbsp;&nbsp;`);
+      output.html(`${output.html()}&nbsp;&nbsp;&nbsp;`);
     }
   }
 }
 
 function drawText(text) {
-  // eslint-disable-next-line no-undef
   const output = $('#text_output');
   output.html('');
   output.html(text);
@@ -103,6 +101,7 @@ function morseToAlphanum(morse) {
   drawText(arrayText);
 }
 
+// EXPL: called by morse.html: text_input.oninput()
 // eslint-disable-next-line no-unused-vars
 function onTextInput() {
   let strInput = $('#text_input').val();
@@ -117,17 +116,19 @@ function onTextInput() {
   alphanumToMorse(strOutput);
 }
 
+// EXPL: called by morse.html: morse_imput.oninput()
 // eslint-disable-next-line no-unused-vars
 function onMorseInput() {
   const strInput = $('#morse_input').val();
   const inputArray = strInput.split(' ');
   let strOutput = '';
-  console.log(reverseMap.keys());
   for (let i = 0; i < inputArray.length; i += 1) {
     if (i < inputArray.length - 1 && reverseMap.has(inputArray[i]) === true) {
       strOutput = `${strOutput} ${inputArray[i]} `;
     } else if (i === inputArray.length - 1) {
-      for (let [key, value] of reverseMap) {
+      // EXPL: break; doesn't work with Map.forEach(...)
+      // eslint-disable-next-line no-restricted-syntax
+      for (const [key, value] of reverseMap) {
         if (key.startsWith(inputArray[i]) === true) {
           strOutput += inputArray[i];
           break;
