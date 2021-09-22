@@ -32,7 +32,7 @@ The following charts use publicly available data surrounding the SARS-CoV-2 viru
 # Used Datasources
 * COVID-19-Cases and Incidence: [CSSE Github Repository][1]. The day to day increase in cases is a calculation on that data.
 * Weekly And Total Performed PCR Tests: [Robert Koch Institute (1)][2]
-* Intensive Care Unit Occupancy: COVID-19 cases which require invasive ventilation in comparison to the beds that are free. Data source is the [DIVI-Intensivregister (www.intensivregister.de)][3]
+* Intensive Care Unit Occupancy: COVID-19 cases plus those which require invasive ventilation in comparison to free intensive care beds. Data source is the [DIVI-Intensivregister (www.intensivregister.de)][3]
 * Daily And Total Vaccinations: [Robert Koch Institute (2)][4], Population: [Destatis][5]
 * Vaccinations By Vaccine: [Robert Koch Institute (2)][4]
 
