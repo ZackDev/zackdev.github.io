@@ -38,14 +38,9 @@ const resize_content = () => {
 
 const init_highcharts = () => {
   Highcharts.setOptions({
-    /*
     chart: {
-      style: {
-        fontFamily: 'Raleway',
-        fontSize: '40'
-      }
+      styledMode: true
     }
-    */
   });
 }
 
