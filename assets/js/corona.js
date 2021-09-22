@@ -100,6 +100,7 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
   const totalSecondaryVaccinations = [];
   const secondaryVaccinationsPercentage = [];
   const totalBoosterVaccinations = [];
+  const populationGermany = 83121363;
   for (let i = 0; i < primaryVaccinations.length; i += 1) {
     let tVac = 0;
     for (let j = 0; j <= i; j += 1) {
@@ -108,7 +109,7 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
     totalPrimaryVaccinations.push(tVac);
   }
   for (let i = 0; i < totalPrimaryVaccinations.length; i += 1) {
-    p = parseFloat((totalPrimaryVaccinations[i] / 83100).toFixed(2));
+    p = parseFloat(((totalPrimaryVaccinations[i] / populationGermany) * 100).toFixed(2));
     primaryVaccinationsPercentage.push(p);
   }
   for (let i = 0; i < secondaryVaccinations.length; i += 1) {
@@ -119,7 +120,7 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
     totalSecondaryVaccinations.push(tVac);
   }
   for (let i = 0; i < totalSecondaryVaccinations.length; i += 1) {
-    p = parseFloat((totalSecondaryVaccinations[i] / 83100).toFixed(2));
+    p = parseFloat(((totalSecondaryVaccinations[i] / populationGermany) * 100).toFixed(2));
     secondaryVaccinationsPercentage.push(p);
   }
   for (let i = 0; i < boosterVaccinations.length; i += 1) {
