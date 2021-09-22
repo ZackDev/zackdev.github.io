@@ -6,6 +6,7 @@ $black: #000;
 $white: #FFF;
 $blue: #2828F0;
 $wine_berry: #581845;
+$orange: #ff9f00;
 
 @mixin txt-shadow($color: $light_grey) {
   text-shadow: $color 1px 1px 0px;
