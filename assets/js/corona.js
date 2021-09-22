@@ -148,11 +148,13 @@ const getAsyncDailyICUOCallback = (callbackObject) => {
   const { dates } = callbackObject.response;
   const freeICU = callbackObject.response.free_icu;
   const covidICU = callbackObject.response.covid_icu;
+  const covidICUInvasive = callbackObject.response.covid_icu_invasive;
 
   const dataObj = {
     dates,
     freeICU,
     covidICU,
+    covidICUInvasive,
   };
 
   drawDailyICUOChart(dataObj);
@@ -483,16 +485,23 @@ function drawDailyICUOChart(dataObj) {
     series: [{
       yAxis: 0,
       stack: 0,
-      index: 1,
+      index: 2,
       legendIndex: 0,
       name: 'free',
       data: dataObj.freeICU,
     }, {
       yAxis: 0,
       stack: 0,
-      index: 0,
+      index: 1,
       legendIndex: 1,
-      name: 'occupied',
+      name: 'COVID',
+      data: dataObj.covidICU,
+    }, {
+      yAxis: 0,
+      stack: 0,
+      index: 0,
+      legendIndex: 2,
+      name: 'COVID invasive',
       data: dataObj.covidICU,
     }],
     tooltip: {
