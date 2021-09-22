@@ -502,7 +502,7 @@ function drawDailyICUOChart(dataObj) {
       index: 0,
       legendIndex: 2,
       name: 'COVID invasive',
-      data: dataObj.covidICU,
+      data: dataObj.covidICUInvasive,
     }],
     tooltip: {
       shared: true,
