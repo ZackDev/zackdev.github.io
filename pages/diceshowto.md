@@ -4,10 +4,10 @@ layout: default
 permalink: /dices-howto.html
 published: true
 ---
-The [Dices UI](/2021/10/28/roll-some-dices.html) consists of three elements.
+The [Dices UI](/2021/10/28/roll-some-dices.html) consists of four elements.
 
 # <img src="/assets/img/icons/newdice.svg" style="height:20px;width:20px"/> - A row containing premade dices.
-Here you can see the available types of dices. Click on an existing type (e.g. D6) to create a new dice and put it into the bucket.
+Here you can see the available types of dices. Click on an existing type (e.g. D6) to create a new dice and put it into the bucket. Clicking in the icon to the left opens a form where you can create new types of dices.
 
 # <img src="/assets/img/icons/bucket.svg" style="height:20px;width:20px"/> - Another row representing the bucket.
 Click on the bucket icon to roll the dices. Rolled dices get removed from the bucket and added to the table. Dices can also be removed from the bucket by clicking on the dice.
@@ -15,6 +15,9 @@ Click on the bucket icon to roll the dices. Rolled dices get removed from the bu
 # <img src="/assets/img/icons/table.svg" style="height:20px;width:20px"/> - The final row presenting the rolled dices.
 The table simply displays the rolled dices with the resulting roll. To clean the table, click the table icon.
 
+# the 'create new dice' element
+Is for creating new dices. Here you can specify a name for the new dice and it's eyes. Enter a value for name and multiple eyes via the `add eyes` button. Single eyes can be removed by clicking on them. Finally press `create dice` to add a dice type to the list of available dices.
+
 # Not Yet Implemented:
-* add custom dice funtionality (create a new type of dice by specifying a name and it's eyes)
-* add save/load functionality for custom dices (using `browser.storage`)
+* add save/load functionality for custom dices using `browser.storage`
+* add the option to select a specific dice type set from a list of sets, like for Yahtsee and D&D games.

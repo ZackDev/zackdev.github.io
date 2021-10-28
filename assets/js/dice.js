@@ -77,10 +77,110 @@ class Bucket {
     }
 }
 
+class NewDiceView {
+    constructor(controller) {
+        let root = document.createElement("div");
+        root.id = "new-dice";
+        document.getElementById("main_content").append(root);
+        this.root = root;
+        this.diceName = "";
+        this.diceEyes = [];
+        let label = document.createElement("div");
+        label.innerHTML = "create a new type of dice."
+        let nameInput = document.createElement("input");
+        nameInput.type = "text";
+        nameInput.placeholder = "add a name here."
+        nameInput.minLength = 1;
+        nameInput.maxLength = 4;
+        let eyeOutput = document.createElement("div");
+        eyeOutput.id = "eyes-container";
+        eyeOutput.innerHTML = "eyes:";
+        let eyeInput = document.createElement("input");
+        eyeInput.type = "text";
+        eyeInput.placeholder = "add eye here."
+        eyeInput.minLength = 1;
+        eyeInput.maxLength = 4;
+        let btnContainer = document.createElement("div");
+        btnContainer.id = "btn-container";
+        let addEyeBtn = document.createElement("button");
+        addEyeBtn.innerHTML = "add eye";
+        addEyeBtn.addEventListener("click", () => {
+            let eyeValue = this.eyeInput.value;
+            if (eyeValue.length >= 1 && eyeValue.length <= 4) {
+                let eye = document.createElement("div");
+                eye.classList.add("dice");
+                eye.classList.add("clickable");
+                eye.innerText = eyeValue;
+                eye.addEventListener("click", () => {
+                    let i = this.diceEyes.indexOf(eyeValue);
+                    if (i > -1) {
+                        this.diceEyes.splice(i);
+                        eye.remove();
+                    }
+                });
+                this.eyeOutput.append(eye);
+                this.diceEyes.push(eyeValue);
+                this.eyeInput.value = "";
+            } 
+        });
+        let createDiceBtn = document.createElement("button");
+        createDiceBtn.innerHTML = "create dice";
+        createDiceBtn.addEventListener("click", () => {
+            if (this.diceEyes.length >= 2 && this.nameInput.value.length >= 1 && this.nameInput.value.length <= 4 ) {
+                this.controller.onCreateDiceClicked(this.nameInput.value, this.diceEyes);
+                this.clear();
+                this.hide();
+            }
+        });
+        let closeBtn = document.createElement("button");
+        closeBtn.innerHTML = "close";
+        closeBtn.addEventListener("click", () => {
+            this.hide();
+        });
+        btnContainer.append(addEyeBtn);
+        btnContainer.append(createDiceBtn);
+        btnContainer.append(closeBtn);
+        this.nameInput = nameInput;
+        this.eyeOutput = eyeOutput;
+        this.eyeInput = eyeInput;
+        this.addEyeBtn = addEyeBtn;
+        this.createDiceBtn = createDiceBtn;
+        this.root.append(label);
+        this.root.append(nameInput);
+        this.root.append(eyeOutput);
+        this.root.append(eyeInput);
+        this.root.append(btnContainer);
+        this.hide();
+        this.controller = controller;
+        this.controller.onInitNewDiceViewComplete(this);
+    }
+    clear() {
+        this.nameInput.value = "";
+        this.eyeOutput.innerHTML = "eyes:";
+        this.eyeInput.value = "";
+        this.diceEyes = [];
+    }
+    toggleVisibility() {
+        if (this.root.style.visibility === "hidden") {
+            this.show();
+        }
+        else if (this.root.style.visibility === "visible") {
+            this.hide();
+        }
+    }
+    hide() {
+        this.root.style.opacity = 0;
+    }
+    show() {
+        this.root.style.opacity = 1;
+    }
+}
+
+
 class AvailableDicesView {
     constructor(controller) {
         let root = document.createElement("div");
-        root.id = "available_dices";
+        root.id = "available-dices";
         document.getElementById("main_content").append(root);
         this.root = root;
         this.addNewDiceIcon();
@@ -91,11 +191,11 @@ class AvailableDicesView {
     addNewDiceIcon() {
         let newDice = document.createElement("img");
         newDice.classList.add("icon");
-        //newDice.classList.add("clickable");
+        newDice.classList.add("clickable");
         newDice.src = "/assets/img/icons/newdice.svg";
         newDice.id = "newdice-icon";
         newDice.addEventListener("click", ()=> {
-
+            this.controller.onAddNewDiceClicked();
         });
         this.root.append(newDice);
     }
@@ -196,8 +296,12 @@ class DiceController {
         new AvailableDicesView(this);
         new BucketView(this);
         new TableView(this);
+        new NewDiceView(this);
         this.diceProvider = new DiceProvider(this);
         this.bucket = new Bucket(this);
+    }
+    onInitNewDiceViewComplete(view) {
+        this.newDiceView = view;
     }
     onInitAvailableDicesViewComplete(view) {
         this.availableDicesView = view;
@@ -207,6 +311,12 @@ class DiceController {
     }
     onInitTableViewComplete(view) {
         this.tableView = view;
+    }
+    onAddNewDiceClicked() {
+        this.newDiceView.show();
+    }
+    onCreateDiceClicked(name, eyes) {
+        this.diceProvider.addDiceModel(name, eyes);
     }
     onAvailableDiceAdded(name) {
         this.availableDicesView.onDiceAdded(name);
