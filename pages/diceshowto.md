@@ -21,4 +21,4 @@ Is for creating new dices. Here you can specify a name for the new dice and it's
 # Not Yet Implemented:
 * prevent new dice types from overwriting existing types with the same name
 * add save/load functionality for custom dices using `browser.storage`
-* add the option to select a specific dice type set from a list of sets, like for Yahtsee and D&D games.
+* add the option to select a specific dice type set from a list of sets like D&D games
