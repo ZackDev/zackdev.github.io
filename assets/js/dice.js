@@ -160,14 +160,6 @@ class NewDiceView {
         this.eyeInput.value = "";
         this.diceEyes = [];
     }
-    toggleVisibility() {
-        if (this.root.style.visibility === "hidden") {
-            this.show();
-        }
-        else if (this.root.style.visibility === "visible") {
-            this.hide();
-        }
-    }
     hide() {
         this.root.style.opacity = 0;
     }
@@ -175,7 +167,6 @@ class NewDiceView {
         this.root.style.opacity = 1;
     }
 }
-
 
 class AvailableDicesView {
     constructor(controller) {
@@ -194,7 +185,7 @@ class AvailableDicesView {
         newDice.classList.add("clickable");
         newDice.src = "/assets/img/icons/newdice.svg";
         newDice.id = "newdice-icon";
-        newDice.addEventListener("click", ()=> {
+        newDice.addEventListener("click", () => {
             this.controller.onAddNewDiceClicked();
         });
         this.root.append(newDice);
@@ -260,7 +251,7 @@ class TableView {
         this.addTableIcon();
         this.dices = new Map();
         this.controller = controller;
-        controller.onInitTableViewComplete(this);
+        this.controller.onInitTableViewComplete(this);
     }
     addTableIcon() {
         let table = document.createElement("img");
@@ -268,7 +259,7 @@ class TableView {
         table.classList.add("clickable");
         table.src = "/assets/img/icons/table.svg";
         table.id = "table-icon";
-        table.addEventListener("click", ()=> {
+        table.addEventListener("click", () => {
             this.clearTable();
         });
         this.root.append(table);
@@ -339,7 +330,6 @@ class DiceController {
     }
     onDiceRolled(dice) {
         this.tableView.onDiceRolled(dice.UID, dice.name, dice.result);
-        this.bucketView.onDiceRemoved(dice.UID);
     }
 }
 
