@@ -91,7 +91,7 @@ class AvailableDicesView {
     addNewDiceIcon() {
         let newDice = document.createElement("img");
         newDice.classList.add("icon");
-        newDice.classList.add("clickable");
+        //newDice.classList.add("clickable");
         newDice.src = "/assets/img/icons/newdice.svg";
         newDice.id = "newdice-icon";
         newDice.addEventListener("click", ()=> {
