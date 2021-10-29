@@ -20,6 +20,5 @@ The table simply displays the rolled dices with the resulting roll. To clean the
 Is for creating new dices. Here you can specify a name for the new dice and it's eyes. Enter a value for name and multiple eyes via the `add eyes` button. Single eyes can be removed by clicking on them. Finally press `create dice` to add a dice type to the list of available dices.
 
 # Not Yet Implemented:
-* prevent new dice types from overwriting existing types with the same name
 * add save/load functionality for custom dices using `browser.storage`
-* add the option to select a specific dice type set from a list of sets like D&D games
+* add the option to select a specific dice type set from a list of sets

@@ -47,11 +47,13 @@ class DiceProvider {
         this.addDiceModel("D100", D100);
     }
     addDiceModel(name, eyes) {
-        this.diceModels.set(name, eyes);
-        this.controller.onAvailableDiceAdded(name);
+        let UID = UIDRandomProvider.getUID();
+        this.diceModels.set(UID, [name, eyes]);
+        this.controller.onAvailableDiceAdded(UID, name);
     }
-    createDice(name) {
-        return new Dice(name, this.diceModels.get(name));
+    createDice(UID) {
+        let diceModel = this.diceModels.get(UID);
+        return new Dice(diceModel[0], diceModel[1]);
     }
 }
 
@@ -190,16 +192,16 @@ class AvailableDicesView {
         });
         this.root.append(newDice);
     }
-    onDiceAdded(name) {
+    onDiceAdded(UID, name) {
         let dice = document.createElement("div");
         dice.classList.add("dice");
         dice.classList.add("clickable");
         dice.innerText = name;
         dice.addEventListener("click", () => {
-            this.controller.onAvailableDiceClicked(name);
+            this.controller.onAvailableDiceClicked(UID);
         });
         this.root.append(dice);
-        this.dices.set(name, dice);
+        this.dices.set(UID, dice);
     }
 }
 
@@ -309,11 +311,11 @@ class DiceController {
     onCreateDiceClicked(name, eyes) {
         this.diceProvider.addDiceModel(name, eyes);
     }
-    onAvailableDiceAdded(name) {
-        this.availableDicesView.onDiceAdded(name);
+    onAvailableDiceAdded(UID, name) {
+        this.availableDicesView.onDiceAdded(UID, name);
     }
-    onAvailableDiceClicked(name) {
-        let dice = this.diceProvider.createDice(name);
+    onAvailableDiceClicked(UID) {
+        let dice = this.diceProvider.createDice(UID);
         this.bucket.addDice(dice);
     }
     removeDiceFromBucket(UID) {
