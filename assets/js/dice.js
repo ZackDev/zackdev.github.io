@@ -93,7 +93,7 @@ class Bucket {
 class NewDiceView {
     constructor(controller) {
         let root = document.createElement("div");
-        root.id = "new-dice";
+        root.id = "create-dice-model-container";
         document.getElementById("main_content").append(root);
         this.root = root;
         this.diceName = "";
@@ -101,6 +101,7 @@ class NewDiceView {
         let label = document.createElement("div");
         label.innerHTML = "create a new type of dice."
         let nameInput = document.createElement("input");
+        nameInput.id = "dice-name-input";
         nameInput.type = "text";
         nameInput.placeholder = "enter a name here."
         nameInput.minLength = 1;
@@ -109,6 +110,7 @@ class NewDiceView {
         sideOutput.id = "sides-container";
         sideOutput.innerHTML = "sides:";
         let sideInput = document.createElement("input");
+        sideInput.id = "dice-sides-input";
         sideInput.type = "text";
         sideInput.placeholder = "enter a side value here."
         sideInput.minLength = 1;
@@ -181,16 +183,16 @@ class NewDiceView {
     }
 }
 
-class AvailableDicesView {
+class DiceModelsView {
     constructor(controller) {
         let root = document.createElement("div");
-        root.id = "available-dices";
+        root.id = "dice-models-container";
         document.getElementById("main_content").append(root);
         this.root = root;
         this.addNewDiceIcon();
         this.dices = new Map();
         this.controller = controller;
-        this.controller.onInitAvailableDicesViewComplete(this);
+        this.controller.onInitDiceModelsViewComplete(this);
     }
     addNewDiceIcon() {
         let newDice = document.createElement("img");
@@ -219,7 +221,7 @@ class AvailableDicesView {
 class BucketView {
     constructor(controller) {
         let root = document.createElement("div");
-        root.id = "bucket";
+        root.id = "bucket-container";
         document.getElementById("main_content").append(root);
         this.root = root;
         this.addBucketIcon();
@@ -258,7 +260,7 @@ class BucketView {
 class TableView {
     constructor(controller) {
         let root = document.createElement("div");
-        root.id = "table";
+        root.id = "table-container";
         document.getElementById("main_content").append(root);
         this.root = root;
         this.addTableIcon();
@@ -299,7 +301,7 @@ class TableView {
 
 class DiceController {
     constructor() {
-        new AvailableDicesView(this);
+        new DiceModelsView(this);
         new BucketView(this);
         new TableView(this);
         new NewDiceView(this);
@@ -309,8 +311,8 @@ class DiceController {
     onInitNewDiceViewComplete(view) {
         this.newDiceView = view;
     }
-    onInitAvailableDicesViewComplete(view) {
-        this.availableDicesView = view;
+    onInitDiceModelsViewComplete(view) {
+        this.diceModelsView = view;
     }
     onInitRollDicesViewComplete(view) {
         this.bucketView = view;
@@ -325,7 +327,7 @@ class DiceController {
         this.diceProvider.addDiceModel(name, sides);
     }
     onDiceModelAdded(UID, name) {
-        this.availableDicesView.displayDice(UID, name);
+        this.diceModelsView.displayDice(UID, name);
     }
     onAvailableDiceClicked(UID) {
         let dice = this.diceProvider.createDice(UID);

@@ -1,4 +1,30 @@
-#new-dice {
+#dice-models-container {
+    min-height: 62px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+#bucket-container {
+    min-height: 62px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+#table-container {
+    min-height: 62px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+#create-dice-model-container {
+    margin: 20px auto 20px 0px;
+    max-width: 300px;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -6,13 +32,8 @@
     transition: opacity 1s;
 }
 
-#new-dice #btn-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
-#new-dice #eyes-container {
+#sides-container {
     min-height: 62px;
     display: flex;
     flex-direction: row;
@@ -20,28 +41,18 @@
     align-items: center;
 }
 
-#available-dices {
-    min-height: 62px;
+#btn-container {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5px;
+    justify-content: space-between;
 }
 
-#bucket {
-    min-height: 62px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5px;
+#dice-name-input {
+    // placeholder
 }
 
-#table {
-    min-height: 62px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 5px;
+#dice-sides-input {
+    // placeholder
 }
 
 .icon {
