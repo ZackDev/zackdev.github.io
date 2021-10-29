@@ -3,8 +3,8 @@ title: Roll Some Dices
 layout: default
 tags: [coding, dices]
 published: true
-archived: false
+archived: true
 ---
-[Dices Howto](/dices-howto.html)
+[Dices Howto]({% post_url 2021-10-28-dices-howto %})
 
 {% include javascript.html src="/assets/js/dice.js" %}
