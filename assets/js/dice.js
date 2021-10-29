@@ -49,11 +49,22 @@ class DiceProvider {
     addDiceModel(name, eyes) {
         let UID = UIDRandomProvider.getUID();
         this.diceModels.set(UID, [name, eyes]);
-        this.controller.onAvailableDiceAdded(UID, name);
+        this.controller.onDiceModelAdded(UID, name);
+    }
+    removeDiceModel(UID) {
+        this.diceModels.delete(UID);
+        this.controller.onDiceModelRemoved(UID);
     }
     createDice(UID) {
         let diceModel = this.diceModels.get(UID);
         return new Dice(diceModel[0], diceModel[1]);
+    }
+    changeDiceTypes(type) {
+        switch (type) {
+            case "":
+                break;
+        }
+        this.controller.onDiceSetChanged();
     }
 }
 
@@ -270,9 +281,7 @@ class TableView {
         let dice = document.createElement("div");
         dice.classList.add("dice");
         dice.classList.add("rolled");
-        dice.innerHTML = name;
-        dice.innerHTML += '<br>'
-        dice.innerHTML += result;
+        dice.innerHTML = `${name}<br>${result}`;
         this.dices.set(UID, dice);
         this.root.append(dice);
     }
@@ -280,6 +289,7 @@ class TableView {
         for (let UID of this.dices.keys()) {
             let dice = this.dices.get(UID);
             dice.remove();
+            this.dices.delete(UID);
         }
     }
 }
@@ -311,7 +321,7 @@ class DiceController {
     onCreateDiceClicked(name, eyes) {
         this.diceProvider.addDiceModel(name, eyes);
     }
-    onAvailableDiceAdded(UID, name) {
+    onDiceModelAdded(UID, name) {
         this.availableDicesView.onDiceAdded(UID, name);
     }
     onAvailableDiceClicked(UID) {
