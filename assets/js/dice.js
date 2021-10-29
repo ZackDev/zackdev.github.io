@@ -17,14 +17,14 @@ const UIDRandomProvider = {
 }
 
 class Dice {
-    constructor(name, eyes) {
+    constructor(name, sides) {
         this.name = name;
-        this.eyes = eyes;
+        this.sides = sides;
         this.result = undefined;
         this.UID = UIDRandomProvider.getUID();
     }
     roll() {
-        this.result = this.eyes[Math.ceil(Math.random() * this.eyes.length) -1];
+        this.result = this.sides[Math.ceil(Math.random() * this.sides.length) -1];
     }
 }
 
@@ -46,9 +46,9 @@ class DiceProvider {
         }
         this.addDiceModel("D100", D100);
     }
-    addDiceModel(name, eyes) {
+    addDiceModel(name, sides) {
         let UID = UIDRandomProvider.getUID();
-        this.diceModels.set(UID, [name, eyes]);
+        this.diceModels.set(UID, [name, sides]);
         this.controller.onDiceModelAdded(UID, name);
     }
     removeDiceModel(UID) {
@@ -97,50 +97,50 @@ class NewDiceView {
         document.getElementById("main_content").append(root);
         this.root = root;
         this.diceName = "";
-        this.diceEyes = [];
+        this.diceSides = [];
         let label = document.createElement("div");
         label.innerHTML = "create a new type of dice."
         let nameInput = document.createElement("input");
         nameInput.type = "text";
-        nameInput.placeholder = "add a name here."
+        nameInput.placeholder = "enter a name here."
         nameInput.minLength = 1;
         nameInput.maxLength = 4;
-        let eyeOutput = document.createElement("div");
-        eyeOutput.id = "eyes-container";
-        eyeOutput.innerHTML = "eyes:";
-        let eyeInput = document.createElement("input");
-        eyeInput.type = "text";
-        eyeInput.placeholder = "add eye here."
-        eyeInput.minLength = 1;
-        eyeInput.maxLength = 4;
+        let sideOutput = document.createElement("div");
+        sideOutput.id = "sides-container";
+        sideOutput.innerHTML = "sides:";
+        let sideInput = document.createElement("input");
+        sideInput.type = "text";
+        sideInput.placeholder = "enter a side value here."
+        sideInput.minLength = 1;
+        sideInput.maxLength = 4;
         let btnContainer = document.createElement("div");
         btnContainer.id = "btn-container";
-        let addEyeBtn = document.createElement("button");
-        addEyeBtn.innerHTML = "add eye";
-        addEyeBtn.addEventListener("click", () => {
-            let eyeValue = this.eyeInput.value;
-            if (eyeValue.length >= 1 && eyeValue.length <= 4) {
-                let eye = document.createElement("div");
-                eye.classList.add("dice");
-                eye.classList.add("clickable");
-                eye.innerText = eyeValue;
-                eye.addEventListener("click", () => {
-                    let i = this.diceEyes.indexOf(eyeValue);
+        let addSideBtn = document.createElement("button");
+        addSideBtn.innerHTML = "add side";
+        addSideBtn.addEventListener("click", () => {
+            let sideValue = this.sideInput.value;
+            if (sideValue.length >= 1 && sideValue.length <= 4) {
+                let side = document.createElement("div");
+                side.classList.add("dice");
+                side.classList.add("clickable");
+                side.innerText = sideValue;
+                side.addEventListener("click", () => {
+                    let i = this.diceSides.indexOf(sideValue);
                     if (i > -1) {
-                        this.diceEyes.splice(i);
-                        eye.remove();
+                        this.diceSides.splice(i);
+                        side.remove();
                     }
                 });
-                this.eyeOutput.append(eye);
-                this.diceEyes.push(eyeValue);
-                this.eyeInput.value = "";
+                this.sideOutput.append(side);
+                this.diceSides.push(sideValue);
+                this.sideInput.value = "";
             } 
         });
         let createDiceBtn = document.createElement("button");
         createDiceBtn.innerHTML = "create dice";
         createDiceBtn.addEventListener("click", () => {
-            if (this.diceEyes.length >= 2 && this.nameInput.value.length >= 1 && this.nameInput.value.length <= 4 ) {
-                this.controller.onCreateDiceClicked(this.nameInput.value, this.diceEyes);
+            if (this.diceSides.length >= 2 && this.nameInput.value.length >= 1 && this.nameInput.value.length <= 4 ) {
+                this.controller.onCreateDiceClicked(this.nameInput.value, this.diceSides);
                 this.clear();
                 this.hide();
             }
@@ -150,18 +150,18 @@ class NewDiceView {
         closeBtn.addEventListener("click", () => {
             this.hide();
         });
-        btnContainer.append(addEyeBtn);
+        btnContainer.append(addSideBtn);
         btnContainer.append(createDiceBtn);
         btnContainer.append(closeBtn);
         this.nameInput = nameInput;
-        this.eyeOutput = eyeOutput;
-        this.eyeInput = eyeInput;
-        this.addEyeBtn = addEyeBtn;
+        this.sideOutput = sideOutput;
+        this.sideInput = sideInput;
+        this.addSideBtn = addSideBtn;
         this.createDiceBtn = createDiceBtn;
         this.root.append(label);
         this.root.append(nameInput);
-        this.root.append(eyeOutput);
-        this.root.append(eyeInput);
+        this.root.append(sideOutput);
+        this.root.append(sideInput);
         this.root.append(btnContainer);
         this.hide();
         this.controller = controller;
@@ -169,9 +169,9 @@ class NewDiceView {
     }
     clear() {
         this.nameInput.value = "";
-        this.eyeOutput.innerHTML = "eyes:";
-        this.eyeInput.value = "";
-        this.diceEyes = [];
+        this.sideOutput.innerHTML = "sides:";
+        this.sideInput.value = "";
+        this.diceSides = [];
     }
     hide() {
         this.root.style.opacity = 0;
@@ -203,7 +203,7 @@ class AvailableDicesView {
         });
         this.root.append(newDice);
     }
-    onDiceAdded(UID, name) {
+    displayDice(UID, name) {
         let dice = document.createElement("div");
         dice.classList.add("dice");
         dice.classList.add("clickable");
@@ -238,7 +238,7 @@ class BucketView {
         });
         this.root.append(bucket);
     }
-    onDiceAdded(UID, name) {
+    displayDice(UID, name) {
         let dice = document.createElement("div");
         dice.classList.add("dice");
         dice.classList.add("clickable");
@@ -249,7 +249,7 @@ class BucketView {
         this.root.append(dice);
         this.dices.set(UID, dice);
     }
-    onDiceRemoved(UID) {
+    removeDice(UID) {
         let dice = this.dices.get(UID);
         dice.remove();
     }
@@ -277,7 +277,7 @@ class TableView {
         });
         this.root.append(table);
     }
-    onDiceRolled(UID, name, result) {
+    displayDice(UID, name, result) {
         let dice = document.createElement("div");
         dice.classList.add("dice");
         dice.classList.add("rolled");
@@ -285,11 +285,14 @@ class TableView {
         this.dices.set(UID, dice);
         this.root.append(dice);
     }
+    removeDice(UID) {
+        let dice = this.dices.get(UID);
+        dice.remove();
+        this.dices.delete(UID);
+    }
     clearTable() {
         for (let UID of this.dices.keys()) {
-            let dice = this.dices.get(UID);
-            dice.remove();
-            this.dices.delete(UID);
+            this.removeDice(UID);
         }
     }
 }
@@ -318,11 +321,11 @@ class DiceController {
     onAddNewDiceClicked() {
         this.newDiceView.show();
     }
-    onCreateDiceClicked(name, eyes) {
-        this.diceProvider.addDiceModel(name, eyes);
+    onCreateDiceClicked(name, sides) {
+        this.diceProvider.addDiceModel(name, sides);
     }
     onDiceModelAdded(UID, name) {
-        this.availableDicesView.onDiceAdded(UID, name);
+        this.availableDicesView.displayDice(UID, name);
     }
     onAvailableDiceClicked(UID) {
         let dice = this.diceProvider.createDice(UID);
@@ -332,16 +335,16 @@ class DiceController {
         this.bucket.removeDice(UID);
     }
     onDiceAddedToBucket(dice) {
-        this.bucketView.onDiceAdded(dice.UID, dice.name);
+        this.bucketView.displayDice(dice.UID, dice.name);
     }
     onDiceRemovedFromBucket(UID) {
-        this.bucketView.onDiceRemoved(UID);
+        this.bucketView.removeDice(UID);
     }
     onRollClicked() {
         this.bucket.roll();
     }
     onDiceRolled(dice) {
-        this.tableView.onDiceRolled(dice.UID, dice.name, dice.result);
+        this.tableView.displayDice(dice.UID, dice.name, dice.result);
     }
 }
 

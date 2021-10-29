@@ -17,7 +17,7 @@ Click on the bucket icon to roll the dices. Rolled dices get removed from the bu
 The table simply displays the rolled dices with the resulting roll. To clean the table, click the table icon.
 
 # the 'create new dice' element
-Is for creating new dices. Here you can specify a name for the new dice and it's eyes. Enter a value for name and multiple eyes via the `add eyes` button. Single eyes can be removed by clicking on them. Finally press `create dice` to add a dice type to the list of available dices.
+Is for creating new dices. Here you can specify a name for the new dice and it's sides. Enter a value for name and multiple sides via the `add sides` button. Single sides can be removed by clicking on them. Finally press `create dice` to add a dice type to the list of available dices.
 
 # Not Yet Implemented:
 * add save/load functionality for custom dices using `browser.storage`
