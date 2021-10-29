@@ -5,7 +5,7 @@ tags: [howto]
 published: true
 archived: true
 ---
-The [Dices UI]({% post_url 2021-10-28-roll-some-dices}) consists of four elements.
+The [Dices UI]({% post_url 2021-10-28-roll-some-dices %}) consists of four elements.
 
 # <img src="/assets/img/icons/newdice.svg" style="height:20px;width:20px"/> - A row containing premade dices.
 Here you can see the available types of dices. Click on an existing type (e.g. D6) to create a new dice and put it into the bucket. Clicking in the icon to the left opens a form where you can create new types of dices.
