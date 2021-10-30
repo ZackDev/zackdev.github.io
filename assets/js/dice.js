@@ -96,7 +96,6 @@ class NewDiceView {
         root.id = "create-dice-model-container";
         document.getElementById("main_content").append(root);
         this.root = root;
-        this.diceName = "";
         this.diceSides = [];
         let label = document.createElement("div");
         label.innerHTML = "create a new type of dice."
@@ -189,21 +188,21 @@ class DiceModelsView {
         root.id = "dice-models-container";
         document.getElementById("main_content").append(root);
         this.root = root;
-        this.addNewDiceIcon();
+        this.addNewDiceModelBtn();
         this.dices = new Map();
         this.controller = controller;
         this.controller.onInitDiceModelsViewComplete(this);
     }
-    addNewDiceIcon() {
-        let newDice = document.createElement("img");
-        newDice.classList.add("icon");
-        newDice.classList.add("clickable");
-        newDice.src = "/assets/img/icons/newdice.svg";
-        newDice.id = "newdice-icon";
-        newDice.addEventListener("click", () => {
-            this.controller.onAddNewDiceClicked();
+    addNewDiceModelBtn() {
+        let newDiceModelBtn = document.createElement("img");
+        newDiceModelBtn.classList.add("icon");
+        newDiceModelBtn.classList.add("clickable");
+        newDiceModelBtn.src = "/assets/img/icons/newdice.svg";
+        newDiceModelBtn.id = "newdice-icon";
+        newDiceModelBtn.addEventListener("click", () => {
+            this.controller.onAddNewDiceModelClicked();
         });
-        this.root.append(newDice);
+        this.root.append(newDiceModelBtn);
     }
     displayDice(UID, name) {
         let dice = document.createElement("div");
@@ -211,7 +210,7 @@ class DiceModelsView {
         dice.classList.add("clickable");
         dice.innerText = name;
         dice.addEventListener("click", () => {
-            this.controller.onAvailableDiceClicked(UID);
+            this.controller.onDiceModelClicked(UID);
         });
         this.root.append(dice);
         this.dices.set(UID, dice);
@@ -224,21 +223,21 @@ class BucketView {
         root.id = "bucket-container";
         document.getElementById("main_content").append(root);
         this.root = root;
-        this.addBucketIcon();
+        this.addBucketBtn();
         this.dices = new Map();
         this.controller = controller;
         this.controller.onInitRollDicesViewComplete(this);
     }
-    addBucketIcon() {
-        let bucket = document.createElement("img");
-        bucket.classList.add("icon");
-        bucket.classList.add("clickable");
-        bucket.src = "/assets/img/icons/bucket.svg";
-        bucket.id = "bucket-icon";
-        bucket.addEventListener("click", () => {
+    addBucketBtn() {
+        let bucketBtn = document.createElement("img");
+        bucketBtn.classList.add("icon");
+        bucketBtn.classList.add("clickable");
+        bucketBtn.src = "/assets/img/icons/bucket.svg";
+        bucketBtn.id = "bucket-icon";
+        bucketBtn.addEventListener("click", () => {
             this.controller.onRollClicked();
         });
-        this.root.append(bucket);
+        this.root.append(bucketBtn);
     }
     displayDice(UID, name) {
         let dice = document.createElement("div");
@@ -263,21 +262,21 @@ class TableView {
         root.id = "table-container";
         document.getElementById("main_content").append(root);
         this.root = root;
-        this.addTableIcon();
+        this.addTableBtn();
         this.dices = new Map();
         this.controller = controller;
         this.controller.onInitTableViewComplete(this);
     }
-    addTableIcon() {
-        let table = document.createElement("img");
-        table.classList.add("icon");
-        table.classList.add("clickable");
-        table.src = "/assets/img/icons/table.svg";
-        table.id = "table-icon";
-        table.addEventListener("click", () => {
+    addTableBtn() {
+        let tableBtn = document.createElement("img");
+        tableBtn.classList.add("icon");
+        tableBtn.classList.add("clickable");
+        tableBtn.src = "/assets/img/icons/table.svg";
+        tableBtn.id = "table-icon";
+        tableBtn.addEventListener("click", () => {
             this.clearTable();
         });
-        this.root.append(table);
+        this.root.append(tableBtn);
     }
     displayDice(UID, name, result) {
         let dice = document.createElement("div");
@@ -320,18 +319,18 @@ class DiceController {
     onInitTableViewComplete(view) {
         this.tableView = view;
     }
-    onAddNewDiceClicked() {
+    onAddNewDiceModelClicked() {
         this.newDiceView.show();
+    }
+    onDiceModelClicked(UID) {
+        let dice = this.diceProvider.createDice(UID);
+        this.bucket.addDice(dice);
     }
     onCreateDiceClicked(name, sides) {
         this.diceProvider.addDiceModel(name, sides);
     }
     onDiceModelAdded(UID, name) {
         this.diceModelsView.displayDice(UID, name);
-    }
-    onAvailableDiceClicked(UID) {
-        let dice = this.diceProvider.createDice(UID);
-        this.bucket.addDice(dice);
     }
     removeDiceFromBucket(UID) {
         this.bucket.removeDice(UID);
