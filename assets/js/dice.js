@@ -223,21 +223,46 @@ class BucketView {
         root.id = "bucket-container";
         document.getElementById("main_content").append(root);
         this.root = root;
-        this.addBucketBtn();
+        this.bucketButtonActive = false;
         this.dices = new Map();
         this.controller = controller;
+        this.addBucketBtn();
         this.controller.onInitRollDicesViewComplete(this);
     }
     addBucketBtn() {
         let bucketBtn = document.createElement("img");
         bucketBtn.classList.add("icon");
-        bucketBtn.classList.add("clickable");
         bucketBtn.src = "/assets/img/icons/bucket.svg";
         bucketBtn.id = "bucket-icon";
-        bucketBtn.addEventListener("click", () => {
-            this.controller.onRollClicked();
-        });
+        this.bucketBtn = bucketBtn;
+        this.bucketBtnActive = false;
+        this.adaptBucketBtnState();
         this.root.append(bucketBtn);
+    }
+    adaptBucketBtnState() {
+        if (this.dices.size > 0 && this.bucketBtnActive === false) {
+            this.setBucketButtonState("active");
+        }
+        else if (this.dices.size === 0 && this.bucketBtnActive === true) {
+            this.setBucketButtonState("inactive");
+        }
+    }
+    setBucketButtonState(state) {
+        switch (state) {
+            case "active":
+                this.bucketBtn.addEventListener("click", this.onRollClickedEventHandler);
+                this.bucketBtn.classList.add("clickable");
+                this.bucketBtnActive = true;
+                break;
+            case "inactive":
+                this.bucketBtn.removeEventListener("click", this.onRollClickedEventHandler);
+                this.bucketBtn.classList.remove("clickable");
+                this.bucketBtnActive = false;
+                break;
+        }
+    }
+    onRollClickedEventHandler = () => {
+        this.controller.onRollClicked();
     }
     displayDice(UID, name) {
         let dice = document.createElement("div");
@@ -249,10 +274,13 @@ class BucketView {
         });
         this.root.append(dice);
         this.dices.set(UID, dice);
+        this.adaptBucketBtnState();
     }
     removeDice(UID) {
         let dice = this.dices.get(UID);
         dice.remove();
+        this.dices.delete(UID);
+        this.adaptBucketBtnState();
     }
 }
 
@@ -262,21 +290,42 @@ class TableView {
         root.id = "table-container";
         document.getElementById("main_content").append(root);
         this.root = root;
-        this.addTableBtn();
         this.dices = new Map();
         this.controller = controller;
+        this.addTableBtn();
         this.controller.onInitTableViewComplete(this);
     }
     addTableBtn() {
         let tableBtn = document.createElement("img");
         tableBtn.classList.add("icon");
-        tableBtn.classList.add("clickable");
         tableBtn.src = "/assets/img/icons/table.svg";
         tableBtn.id = "table-icon";
-        tableBtn.addEventListener("click", () => {
-            this.clearTable();
-        });
+        this.tableBtn = tableBtn;
+        this.tableBtnActive = false;
+        this.adaptTableBtnState();
         this.root.append(tableBtn);
+    }
+    adaptTableBtnState() {
+        if (this.dices.size > 0 && this.tableBtnActive === false) {
+            this.setTableButtonState("active");
+        }
+        else if (this.dices.size === 0 && this.tableBtnActive === true) {
+            this.setTableButtonState("inactive");
+        }
+    }
+    setTableButtonState(state) {
+        switch (state) {
+            case "active":
+                this.tableBtn.addEventListener("click", this.clearTable);
+                this.tableBtn.classList.add("clickable");
+                this.tableBtnActive = true;
+                break;
+            case "inactive":
+                this.tableBtn.removeEventListener("click", this.clearTable);
+                this.tableBtn.classList.remove("clickable");
+                this.tableBtnActive = false;
+                break;
+        }
     }
     displayDice(UID, name, result) {
         let dice = document.createElement("div");
@@ -285,13 +334,15 @@ class TableView {
         dice.innerHTML = `${name}<br>${result}`;
         this.dices.set(UID, dice);
         this.root.append(dice);
+        this.adaptTableBtnState();
     }
     removeDice(UID) {
         let dice = this.dices.get(UID);
         dice.remove();
         this.dices.delete(UID);
+        this.adaptTableBtnState();
     }
-    clearTable() {
+    clearTable = () => {
         for (let UID of this.dices.keys()) {
             this.removeDice(UID);
         }
