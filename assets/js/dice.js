@@ -158,8 +158,8 @@ class Bucket {
     roll() {
         for (let [UID, dice] of this.dices) {
             dice.roll();
-            this.controller.onDiceRolled(dice);
             this.removeDice(UID);
+            this.controller.onDiceRolled(dice);
         }
     }
 }
@@ -221,7 +221,7 @@ class NewDiceView {
                 side.addEventListener("click", () => {
                     let i = this.diceSides.indexOf(sideValue);
                     if (i > -1) {
-                        this.diceSides.splice(i);
+                        this.diceSides.splice(i, 1);
                         side.remove();
                     }
                 });
@@ -304,8 +304,8 @@ class DiceModelsView {
         document.getElementById("main_content").append(root);
         this.root = root;
         this.addNewDiceModelBtn();
-        // a Map <UID, HTML-Element> for accessing the HTML elements
-        this.dices = new Map();
+        // an array containing the html property id of the dice models
+        this.diceModels = [];
         this.controller = controller;
     }
     /**
@@ -327,16 +327,17 @@ class DiceModelsView {
      * @param {Number} UID - the UID of the dice model
      * @param {string} name - the name of the dice model
      */
-    displayDice(UID, name) {
-        let dice = document.createElement("div");
-        dice.classList.add("dice");
-        dice.classList.add("clickable");
-        dice.innerText = name;
-        dice.addEventListener("click", () => {
+    displayDiceModel(UID, name) {
+        let diceModel = document.createElement("div");
+        diceModel.classList.add("dice-model");
+        diceModel.classList.add("clickable");
+        diceModel.id = UID;
+        diceModel.innerText = name;
+        diceModel.addEventListener("click", () => {
             this.controller.onDiceModelClicked(UID);
         });
-        this.root.append(dice);
-        this.dices.set(UID, dice);
+        this.root.append(diceModel);
+        this.diceModels.push(UID);
     }
 }
 
@@ -356,8 +357,9 @@ class BucketView {
         this.root = root;
         // tracks the state of the bucket/roll button
         this.bucketButtonActive = false;
-        // holds the HTML dice elements Map<UID, dice>
-        this.dices = new Map();
+        // holds the UIDs of the bucket's dices
+        // - used to adjust the bucket button's state
+        this.dices = [];
         this.controller = controller;
         this.addBucketBtn();
     }
@@ -381,13 +383,13 @@ class BucketView {
         // activate the button if
         // - the number of dices is greater than zero
         // - and the button is inactive
-        if (this.dices.size > 0 && this.bucketBtnActive === false) {
+        if (this.dices.length > 0 && this.bucketBtnActive === false) {
             this.setBucketButtonState("active");
         }
         // inactivate the button if
         // - the number of dices is zero
         // - and the button is active
-        else if (this.dices.size === 0 && this.bucketBtnActive === true) {
+        else if (this.dices.length === 0 && this.bucketBtnActive === true) {
             this.setBucketButtonState("inactive");
         }
     }
@@ -424,13 +426,14 @@ class BucketView {
         let dice = document.createElement("div");
         dice.classList.add("dice");
         dice.classList.add("clickable");
+        dice.id = UID;
         dice.innerText = name;
         dice.addEventListener("click", () => {
             // clickhandler for removing the dice from the bucket
             this.controller.removeDiceFromBucket(UID);
         });
         this.root.append(dice);
-        this.dices.set(UID, dice);
+        this.dices.push(UID);
         this.adaptBucketBtnState();
     }
     /**
@@ -438,10 +441,13 @@ class BucketView {
      * @param {number} UID the UID of the dice to remove 
      */
     removeDice(UID) {
-        let dice = this.dices.get(UID);
-        dice.remove();
-        this.dices.delete(UID);
-        this.adaptBucketBtnState();
+        let dice = document.getElementById(UID);
+        let i = this.dices.indexOf(UID);
+        if (i > -1) {
+            this.dices.splice(i, 1);
+            dice.remove();
+            this.adaptBucketBtnState();
+        }
     }
 }
 
@@ -458,7 +464,7 @@ class TableView {
         root.id = "table-container";
         document.getElementById("main_content").append(root);
         this.root = root;
-        this.dices = new Map();
+        this.dices = [];
         this.controller = controller;
         this.addTableBtn();
     }
@@ -479,10 +485,10 @@ class TableView {
     * checks the table button's state in relation to the dices on the table
     */
     adaptTableBtnState() {
-        if (this.dices.size > 0 && this.tableBtnActive === false) {
+        if (this.dices.length > 0 && this.tableBtnActive === false) {
             this.setTableButtonState("active");
         }
-        else if (this.dices.size === 0 && this.tableBtnActive === true) {
+        else if (this.dices.length === 0 && this.tableBtnActive === true) {
             this.setTableButtonState("inactive");
         }
     }
@@ -520,8 +526,9 @@ class TableView {
         let dice = document.createElement("div");
         dice.classList.add("dice");
         dice.classList.add("rolled");
+        dice.id = UID;
         dice.innerHTML = `${name}<br>${result}`;
-        this.dices.set(UID, dice);
+        this.dices.push(UID);
         this.root.append(dice);
         this.adaptTableBtnState();
     }
@@ -530,17 +537,21 @@ class TableView {
      * @param {number} UID the dice's UID
      */
     removeDice(UID) {
-        let dice = this.dices.get(UID);
-        dice.remove();
-        this.dices.delete(UID);
-        this.adaptTableBtnState();
+        let dice = document.getElementById(UID);
+        let i = this.dices.indexOf(UID);
+        if (i > -1) {
+            this.dices.splice(i, 1);
+            dice.remove();
+            this.adaptTableBtnState();
+        }
     }
     /**
      * removes all dices from the view
      */
     clearTable = () => {
-        for (let UID of this.dices.keys()) {
-            this.removeDice(UID);
+        // backward loop, prevent array items from becoming unreachable
+        for (let i = this.dices.length -1; i > -1; i--) {
+            this.removeDice(this.dices[i]);
         }
     }
 }
@@ -568,7 +579,7 @@ class DiceController {
         this.diceProvider.addDiceModel(name, sides);
     }
     onDiceModelAdded(UID, name) {
-        this.diceModelsView.displayDice(UID, name);
+        this.diceModelsView.displayDiceModel(UID, name);
     }
     removeDiceFromBucket(UID) {
         this.bucket.removeDice(UID);
