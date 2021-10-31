@@ -229,7 +229,7 @@ const reprValue = (cases) => {
 };
 
 function drawDailyCasesChart(dataObj) {
-  Highcharts.chart('chart_corona_cases_germany', {
+  Highcharts.chart('chart-corona-cases-germany', {
     chart: {
       type: 'column',
       zoomType: 'x',
@@ -273,7 +273,7 @@ function drawDailyCasesChart(dataObj) {
 }
 
 function drawAdditionalChart(dataObj) {
-  Highcharts.chart('chart_corona_additional_germany', {
+  Highcharts.chart('chart-corona-additional-germany', {
     chart: {
       type: 'line',
       zoomType: 'x',
@@ -323,7 +323,7 @@ function drawAdditionalChart(dataObj) {
 }
 
 function drawWeeklyTestsChart(dataObj) {
-  Highcharts.chart('chart_corona_tests_germany', {
+  Highcharts.chart('chart-corona-tests-germany', {
     chart: {
       type: 'column',
     },
@@ -367,7 +367,7 @@ function drawWeeklyTestsChart(dataObj) {
 }
 
 function drawDailyVaccinationsChart(dataObj) {
-  Highcharts.chart('chart_corona_vaccinations_germany', {
+  Highcharts.chart('chart-corona-vaccinations-germany', {
     chart: {
       type: 'column',
       zoomType: 'x',
@@ -457,7 +457,7 @@ function drawDailyVaccinationsChart(dataObj) {
 }
 
 function drawDailyICUOChart(dataObj) {
-  Highcharts.chart('chart_corona_icuo_germany', {
+  Highcharts.chart('chart-corona-icuo-germany', {
     chart: {
       type: 'column',
       zoomType: 'x',
@@ -514,7 +514,7 @@ function drawDailyICUOChart(dataObj) {
 }
 
 function drawVaccinationsByVaccineChart(dataObj) {
-  Highcharts.chart('chart_corona_vaccinations_by_vaccine_germany', {
+  Highcharts.chart('chart-corona-vaccinations-by-vaccine-germany', {
     chart: {
       type: 'pie',
     },

@@ -29,11 +29,7 @@ img {
   max-width: 100%;
 }
 
-.shadow {
-  @include txt-shadow;
-}
-
-.image_wrap {
+.image-wrap {
   margin: 20px 0px;
   display: flex;
   align-items: center;
@@ -59,33 +55,33 @@ strong {
   font-weight: bold;
 }
 
-.data_table {
+.data-table {
   table-layout: fixed;
   border: 1px solid;
-  border-color: $medium_grey;
+  border-color: $medium-grey;
   background-color: $white;
   border-collapse: collapse;
   width: 100%;
 }
 
-.data_table th {
+.data-table th {
   border: 1px solid;
-  border-color: $medium_grey;
-  background-color: $light_grey;
+  border-color: $medium-grey;
+  background-color: $light-grey;
   padding: 5px 10px;
   font-weight: bold;
 }
 
-.data_table td {
+.data-table td {
   border: 1px solid;
-  border-color: $medium_grey;
+  border-color: $medium-grey;
   padding: 5px 10px;
   text-align: center;
 }
 
 body {
   box-sizing: border-box;
-  color: $medium_grey;
+  color: $medium-grey;
   text-align: justify;
   font-size: 18px;
   font-family: 'DejaVu serif';
@@ -99,30 +95,26 @@ body {
 code.language-plaintext {
   border: 1px solid;
   border-radius: 5px;
-  border-color: $light_grey;
+  border-color: $light-grey;
   padding: 0px 2px 0px 2px;
-  color: $medium_grey;
-  background-color: $light_grey;
+  color: $medium-grey;
+  background-color: $light-grey;
   font-style: italic;
 }
 
 .tag {
   border: 1px solid;
   border-radius: 5px;
-  border-color: $light_grey;
+  border-color: $light-grey;
   padding: 0px 2px 0px 2px;
-  color: $medium_grey;
-  background-color: $light_grey;
+  color: $medium-grey;
+  background-color: $light-grey;
   font-style: italic;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 20px 0px 0px 0px;
-  color: $dark_grey;
-}
-
-h1:not(#page_title) {
-  @include txt-shadow;
+  color: $dark-grey;
 }
 
 h1 {
@@ -163,12 +155,12 @@ a:hover {
 }
 
 footer a {
-  text-decoration: underline $light_grey;
-  color: $light_grey;
+  text-decoration: underline $light-grey;
+  color: $light-grey;
 }
 
 footer a:hover {
-  text-decoration: underline dotted $light_grey;
+  text-decoration: underline dotted $light-grey;
 }
 
 a.footnote {
@@ -182,21 +174,21 @@ cite {
 blockquote {
   padding: 0px 0px 0px 20px;
   margin: 0px 0px 20px 0px;
-  border-left: 5px solid $dark_grey;
-  border-right: 1px solid $light_grey;
+  border-left: 5px solid $dark-grey;
+  border-right: 1px solid $light-grey;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  color: $medium_grey;
-  background-color: $light_grey;
+  color: $medium-grey;
+  background-color: $light-grey;
   font-size: 20px;
   font-style: italic;
 }
 
-ul.index_menu {
+ul.index-menu {
   list-style: disc;
 }
 
-ul.index_menu li {
+ul.index-menu li {
   margin: 5px 0 5px 0;
 }
 
@@ -211,54 +203,54 @@ ul.index_menu li {
   margin: 0 auto;
 }
 
-#header_wrap {
+#header-wrap {
   position: fixed;
   left: 0;
   top: 0;
   height: 84px;
-  background: $dark_grey;
+  background: $dark-grey;
   z-index: 2;
   opacity: 0.75;
-  box-shadow: 0px 5px 5px $dark_grey;
+  box-shadow: 0px 5px 5px $dark-grey;
 }
 
-#main_content_wrap {
+#main-content-wrap {
   position: relative;
   top: 84px;
   z-index: 1;
 }
 
-#main_content {
+#main-content {
 
 }
 
-#footer_wrap {
+#footer-wrap {
   line-height: 42px;
   position: fixed;
   left: 0;
   bottom: 0;
   height: 84px;
-  background: $dark_grey;
+  background: $dark-grey;
   z-index: 2;
   opacity: 0.75;
-  box-shadow: 0px -5px 5px $dark_grey;
+  box-shadow: 0px -5px 5px $dark-grey;
 }
 
-#page_title {
-  color: $light_grey;
+#page-title {
+  color: $light-grey;
   margin: 0;
 }
 
-.post_info {
+.post-info {
 
 }
 
-#site_details {
-  color: $light_grey;
+#site-details {
+  color: $light-grey;
   float: right;
 }
 
-#home_link {
+#home-link {
   float: left;
 }
 
@@ -279,7 +271,7 @@ ul.index_menu li {
     max-width: 480px;
   }
 
-  #project_title {
+  #project-title {
     font-size: 32px;
   }
 
@@ -323,7 +315,7 @@ ul.index_menu li {
     max-width: 320px;
   }
 
-  #project_title {
+  #project-title {
     font-size: 24px;
   }
 

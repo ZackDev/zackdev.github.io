@@ -1,13 +1,11 @@
 /* theme colors */
-$light_grey: #F2F2F2;
-$medium_grey: #383838;
-$dark_grey: #212121;
+$light-grey: #F2F2F2;
+$medium-grey: #575757;
+$dark-grey: #212121;
 $black: #000;
 $white: #FFF;
 $blue: #2828F0;
-$wine_berry: #581845;
-$orange: #ff9f00;
 
-@mixin txt-shadow($color: $light_grey) {
-  text-shadow: $color 1px 1px 0px;
-}
+/* unused */
+$wine-berry: #581845;
+$orange: #ff9f00;

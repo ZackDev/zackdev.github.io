@@ -12,7 +12,7 @@ export { DiceModelsView }
         // create the view's container and add it to the DOM
         let root = document.createElement("div");
         root.id = "dice-models-container";
-        document.getElementById("main_content").append(root);
+        document.getElementById("main-content").append(root);
         this.root = root;
         this.addNewDiceModelBtn();
         // an array containing the html property id of the dice models

@@ -24,7 +24,7 @@ const ping = (target_url, dataset) => {
 };
 
 const init_chart = (interval) => {
-  return Highcharts.chart('ping_chart', {
+  return Highcharts.chart('ping-chart', {
       chart: {
         type: 'line'
       },

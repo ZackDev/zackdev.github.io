@@ -12,7 +12,7 @@ export { NewDiceModelView };
         // create the root div containing the view and add it to the DOM
         let root = document.createElement("div");
         root.id = "create-dice-model-container";
-        document.getElementById("main_content").append(root);
+        document.getElementById("main-content").append(root);
         this.root = root;
         // an array for adding and removing the dice's sides
         this.diceSides = [];

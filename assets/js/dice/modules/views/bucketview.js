@@ -12,7 +12,7 @@ export { BucketView }
         // create the container of the view
         let root = document.createElement("div");
         root.id = "bucket-container";
-        document.getElementById("main_content").append(root);
+        document.getElementById("main-content").append(root);
         this.root = root;
         // tracks the state of the bucket/roll button
         this.bucketButtonActive = false;

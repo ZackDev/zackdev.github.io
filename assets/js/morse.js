@@ -50,14 +50,14 @@ morseMap.set('9', [dash, dash, dash, dash, dot]);
 morseMap.set('shortPause', shortPause);
 morseMap.set(' ', longPause);
 
-/* reverse map for morse_to_text */
+/* reverse map for morse-to-text */
 
 morseMap.forEach((value, key) => {
   reverseMap.set(value.toString().replace(new RegExp(/,/g), ''), key);
 });
 
 function drawMorse(morse) {
-  const output = $('#morse_output');
+  const output = $('#morse-output');
   output.html('');
   for (let i = 0; i < morse.length; i += 1) {
     if (morse[i] === dot || morse[i] === dash) {
@@ -71,7 +71,7 @@ function drawMorse(morse) {
 }
 
 function drawText(text) {
-  const output = $('#text_output');
+  const output = $('#text-output');
   output.html('');
   output.html(text);
 }
@@ -101,10 +101,10 @@ function morseToAlphanum(morse) {
   drawText(arrayText);
 }
 
-// EXPL: called by morse.html: text_input.oninput()
+// EXPL: called by morse.html: text-input.oninput()
 // eslint-disable-next-line no-unused-vars
 function onTextInput() {
-  let strInput = $('#text_input').val();
+  let strInput = $('#text-input').val();
   const strRegex = new RegExp('[A-Z0-9 ]+', 'g');
   strInput = strInput.toUpperCase();
   let strOutput = '';
@@ -112,14 +112,14 @@ function onTextInput() {
   for (let i = 0; i < array.length; i += 1) {
     strOutput += array[i];
   }
-  $('#text_input').val(strOutput);
+  $('#text-input').val(strOutput);
   alphanumToMorse(strOutput);
 }
 
-// EXPL: called by morse.html: morse_imput.oninput()
+// EXPL: called by morse.html: morse-imput.oninput()
 // eslint-disable-next-line no-unused-vars
 function onMorseInput() {
-  const strInput = $('#morse_input').val();
+  const strInput = $('#morse-input').val();
   const inputArray = strInput.split(' ');
   let strOutput = '';
   for (let i = 0; i < inputArray.length; i += 1) {
@@ -136,6 +136,6 @@ function onMorseInput() {
       }
     }
   }
-  $('#morse_input').val(strOutput);
+  $('#morse-input').val(strOutput);
   morseToAlphanum(strOutput);
 }

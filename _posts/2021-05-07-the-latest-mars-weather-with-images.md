@@ -10,9 +10,9 @@ archived: true
 
 The weather data is obtained through [InSight: Mars Weather Service API][1] which provides data collected by the `InSight Lander` on the surface or Mars.
 
-{% include div.html name="weather_table_wrap" %}
+{% include div.html name="weather-table-wrap" %}
 
-{% include div.html name="perseverance_image" %}
+{% include div.html name="perseverance-image" %}
 
 As addition, a random image from the latest images shot by the rover `Perseverance` is presented above. It is retrieved through the [Mars Rover Photos API][1].
 

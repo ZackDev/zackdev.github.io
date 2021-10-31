@@ -11,7 +11,7 @@ export { TableView };
     constructor(controller) {
         let root = document.createElement("div");
         root.id = "table-container";
-        document.getElementById("main_content").append(root);
+        document.getElementById("main-content").append(root);
         this.root = root;
         this.dices = [];
         this.controller = controller;

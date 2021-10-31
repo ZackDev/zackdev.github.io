@@ -1,8 +1,8 @@
 const init_mars = () => {
 
-  $('#weather_table_wrap').attr('style', 'display:flex;');
+  $('#weather-table-wrap').attr('style', 'display:flex;');
 
-  $('#perseverance_image').addClass('image_wrap');
+  $('#perseverance-image').addClass('image-wrap');
 
   let insight_api_url = 'https://api.nasa.gov/insight_weather/?feedtype=json&ver=1.0&api_key=DEMO_KEY';
   let mars_photos_api_url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/latest_photos?api_key=DEMO_KEY';
@@ -93,7 +93,7 @@ const insight_callback = (callback_object) => {
   */
 
   let raw_table_str =
-    `<table style="margin:auto;" class="data_table";">
+    `<table style="margin:auto;" class="data-table";">
       <tr>
         <th>temperature</th>
         <th>pressure</th>
@@ -101,14 +101,14 @@ const insight_callback = (callback_object) => {
       </tr>
       <tr>
         <td>
-          <table class="data_table";>
+          <table class="data-table";>
             <tr>
               <th>°F</th>
               <th>°C</th>
             </tr>
             <tr>
               <td>
-                <table class="data_table";>
+                <table class="data-table";>
                   <tr>
                     <th>min</th>
                     <th>max</th>
@@ -120,7 +120,7 @@ const insight_callback = (callback_object) => {
                 </table>
               </td>
               <td>
-                <table class="data_table";>
+                <table class="data-table";>
                   <tr>
                     <th>min</th>
                     <th>max</th>
@@ -135,13 +135,13 @@ const insight_callback = (callback_object) => {
           </table>
         </td>
         <td>
-          <table class="data_table";>
+          <table class="data-table";>
             <tr>
               <th>pa</th>
             </tr>
             <tr>
               <td>
-                <table class="data_table";>
+                <table class="data-table";>
                   <tr>
                     <th>min</th>
                     <th>max</th>
@@ -156,13 +156,13 @@ const insight_callback = (callback_object) => {
           </table>
         </td>
         <td>
-          <table class="data_table";>
+          <table class="data-table";>
             <tr>
               <th>m/s</th>
             </tr>
             <tr>
               <td>
-                <table class="data_table";>
+                <table class="data-table";>
                   <tr>
                     <th>min</th>
                     <th>max</th>
@@ -178,7 +178,7 @@ const insight_callback = (callback_object) => {
         </td>
       </tr>
     </table>`;
-  $('#weather_table_wrap').html(raw_table_str);
+  $('#weather-table-wrap').html(raw_table_str);
 }
 
 const photos_callback = (callback_object) => {
@@ -205,7 +205,7 @@ const photos_callback = (callback_object) => {
     figure.append(img);
     figure.append(caption);
 
-    $('#perseverance_image').append(figure);
+    $('#perseverance-image').append(figure);
   }
 }
 
