@@ -106,7 +106,7 @@ export { NewDiceModelView };
      */
     clear() {
         this.nameInput.value = "";
-        this.side.innerHTML = "";
+        this.sideOutput.innerHTML = "";
         this.sideInput.value = "";
         this.diceSides = [];
     }
