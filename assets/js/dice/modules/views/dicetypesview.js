@@ -4,6 +4,7 @@ export { DiceTypesView }
  * 
  */
  class DiceTypesView {
+    
     /**
      * creates a DiceTypesView object
      * @param {DiceController} controller for notifying the controller of relevant user interactions
@@ -19,6 +20,7 @@ export { DiceTypesView }
         this.diceTypes = [];
         this.controller = controller;
     }
+    
     /**
      * adds the 'new dice type' button to the view 
      */
@@ -33,6 +35,7 @@ export { DiceTypesView }
         });
         this.root.append(newDiceTypeBtn);
     }
+    
     /**
      * adds a clickable dice type to the view
      * @param {Number} UID - the UID of the dice type

@@ -29,6 +29,7 @@ export { DiceProvider }
         }
         this.addDiceType("D100", D100);
     }
+    
     /**
      * adds a dice type to the DiceProvider
      * @param {string} name the name of the dice type
@@ -40,6 +41,7 @@ export { DiceProvider }
         this.diceTypes.set(UID, [name, sides]);
         this.controller.onDiceTypeAdded(UID, name);
     }
+    
     /**
      * removes a dice type from the DiceProvider
      * @param {} UID the UID of the dice type
@@ -48,6 +50,7 @@ export { DiceProvider }
         this.diceTypes.delete(UID);
         this.controller.onDiceTypeRemoved(UID);
     }
+    
     /**
      * 
      * @param {} UID the UID of the dice type
@@ -61,6 +64,11 @@ export { DiceProvider }
         let diceSides = diceType[1];
         return new Dice(diceName, diceSides);
     }
+    
+    /**
+     * TODO
+     * @param {*} type 
+     */
     changeDiceTypes(type) {
         // placeholder
         switch (type) {

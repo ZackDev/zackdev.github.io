@@ -6,6 +6,7 @@ export { Dice }
  * a class representing a dice
  */
  class Dice {
+    
     /**
      * creates a dice object
      * @param {string} name the name of the dice, e.g. D5
@@ -19,6 +20,7 @@ export { Dice }
         // a UID for distinguishing a dice
         this.UID = UIDRandomProvider.getUID();
     }
+    
     /**
      * picks one of the given sides as result and sets it to this.result
      */

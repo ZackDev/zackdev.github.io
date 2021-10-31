@@ -4,6 +4,7 @@ export { NewDiceTypeView };
  * a class representing the NewDiceTypeView for creating new dice types. contains the view's logic.
  */
  class NewDiceTypeView {
+    
     /**
      * creates a NewDiceView object
      * @param {DiceController} controller for notifying the controller about user actions
@@ -94,6 +95,7 @@ export { NewDiceTypeView };
         this.hide();
         this.controller = controller;
     }
+    
     /**
      * clears | resets the view
      */
@@ -103,6 +105,10 @@ export { NewDiceTypeView };
         this.sideInput.value = "";
         this.diceSides = [];
     }
+    
+    /**
+     * toggle's the view's visibility
+     */
     toggleVisibility() {
         if (this.visible === false) {
             this.show();
@@ -111,6 +117,7 @@ export { NewDiceTypeView };
             this.hide();
         }
     }
+    
     /**
      * hides the view by setting the containers opacity to zero
      */
@@ -118,6 +125,7 @@ export { NewDiceTypeView };
         this.root.style.opacity = 0;
         this.visible = false;
     }
+    
     /**
      * shows the view by setting the containers opacity to one
      */

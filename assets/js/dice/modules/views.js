@@ -1,3 +1,6 @@
+/**
+ * bundles the separate views into one module
+ */
 import { BucketView } from "./views/bucketview.js";
 import { DiceTypesView } from "./views/dicetypesview.js";
 import { NewDiceTypeView } from "./views/newdicetypeview.js";
