@@ -26,7 +26,7 @@ export { DiceModelsView }
         let newDiceModelBtn = document.createElement("img");
         newDiceModelBtn.classList.add("icon");
         newDiceModelBtn.classList.add("clickable");
-        newDiceModelBtn.src = "/assets/img/icons/newdice.svg";
+        newDiceModelBtn.src = "/assets/icons/newdice.svg";
         newDiceModelBtn.id = "newdice-icon";
         newDiceModelBtn.addEventListener("click", () => {
             this.controller.onAddNewDiceModelClicked();

@@ -28,7 +28,7 @@ export { BucketView }
     addBucketBtn() {
         let bucketBtn = document.createElement("img");
         bucketBtn.classList.add("icon");
-        bucketBtn.src = "/assets/img/icons/bucket.svg";
+        bucketBtn.src = "/assets/icons/bucket.svg";
         bucketBtn.id = "bucket-icon";
         this.bucketBtn = bucketBtn;
         this.bucketBtnActive = false;

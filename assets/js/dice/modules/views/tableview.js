@@ -23,7 +23,7 @@ export { TableView };
     addTableBtn() {
         let tableBtn = document.createElement("img");
         tableBtn.classList.add("icon");
-        tableBtn.src = "/assets/img/icons/table.svg";
+        tableBtn.src = "/assets/icons/table.svg";
         tableBtn.id = "table-icon";
         this.tableBtn = tableBtn;
         this.tableBtnActive = false;
