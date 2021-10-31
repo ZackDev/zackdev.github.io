@@ -1,6 +1,6 @@
 import { Bucket } from './bucket.js';
 import { DiceProvider } from './diceprovider.js';
-import { BucketView, DiceModelsView, NewDiceModelView, TableView } from './views.js';
+import { BucketView, DiceTypesView, NewDiceTypeView, TableView } from './views.js';
 
 export {DiceController};
 
@@ -9,25 +9,25 @@ export {DiceController};
  */
  class DiceController {
     constructor() {
-        this.diceModelsView = new DiceModelsView(this);
+        this.diceTypesView = new DiceTypesView(this);
         this.bucketView = new BucketView(this);
         this.tableView = new TableView(this);
-        this.newDiceModelView = new NewDiceModelView(this);
+        this.newDiceTypeView = new NewDiceTypeView(this);
         this.diceProvider = new DiceProvider(this);
         this.bucket = new Bucket(this);
     }
-    onAddNewDiceModelClicked() {
-        this.newDiceModelView.show();
+    onAddNewDiceTypeClicked() {
+        this.newDiceTypeView.show();
     }
-    onDiceModelClicked(UID) {
+    onDiceTypeClicked(UID) {
         let dice = this.diceProvider.createDice(UID);
         this.bucket.addDice(dice);
     }
     onCreateDiceClicked(name, sides) {
-        this.diceProvider.addDiceModel(name, sides);
+        this.diceProvider.addDiceType(name, sides);
     }
-    onDiceModelAdded(UID, name) {
-        this.diceModelsView.displayDiceModel(UID, name);
+    onDiceTypeAdded(UID, name) {
+        this.diceTypesView.displayDiceType(UID, name);
     }
     removeDiceFromBucket(UID) {
         this.bucket.removeDice(UID);

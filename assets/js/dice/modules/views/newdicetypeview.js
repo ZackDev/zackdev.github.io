@@ -1,9 +1,9 @@
-export { NewDiceModelView };
+export { NewDiceTypeView };
 
 /**
- * a class representing the NewDiceView for creating new dice models. contains the view's logic.
+ * a class representing the NewDiceTypeView for creating new dice types. contains the view's logic.
  */
- class NewDiceModelView {
+ class NewDiceTypeView {
     /**
      * creates a NewDiceView object
      * @param {DiceController} controller for notifying the controller about user actions
@@ -11,7 +11,7 @@ export { NewDiceModelView };
     constructor(controller) {
         // create the root div containing the view and add it to the DOM
         let root = document.createElement("div");
-        root.id = "create-dice-model-container";
+        root.id = "create-dice-type-container";
         document.getElementById("main-content").append(root);
         this.root = root;
         // an array for adding and removing the dice's sides

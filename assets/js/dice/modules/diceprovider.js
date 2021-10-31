@@ -4,7 +4,7 @@ import { Dice } from './dice.js';
 export { DiceProvider }
 
 /**
- * a class for providing different type of dices, creates concrete Dice objects from a DiceModel
+ * a class for providing different type of dices, creates concrete Dice objects from a DiceType
  */
  class DiceProvider {
     /**
@@ -14,39 +14,39 @@ export { DiceProvider }
     constructor(controller) {
         this.controller = controller;
         // map for retrieving dice models identified by UID
-        this.diceModels = new Map();
-        this.addDiceModel("D2", [1, 2]);
-        this.addDiceModel("D3", [1, 2, 3]);
-        this.addDiceModel("D6", [1, 2, 3, 4, 5, 6]);
+        this.diceTypes = new Map();
+        this.addDiceType("D2", [1, 2]);
+        this.addDiceType("D3", [1, 2, 3]);
+        this.addDiceType("D6", [1, 2, 3, 4, 5, 6]);
         let D10 = [];
         for (let i=1; i<= 10; i++) {
             D10.push(i);
         }
-        this.addDiceModel("D10", D10);
+        this.addDiceType("D10", D10);
         let D100 = [];
         for (let i=1; i<=100; i++) {
             D100.push(i);
         }
-        this.addDiceModel("D100", D100);
+        this.addDiceType("D100", D100);
     }
     /**
-     * adds a dice model to the DiceProvider
-     * @param {string} name the name of the dice model
-     * @param {array<string>} sides the sides of the dice model
+     * adds a dice type to the DiceProvider
+     * @param {string} name the name of the dice type
+     * @param {array<string>} sides the sides of the dice type
      */
-    addDiceModel(name, sides) {
+    addDiceType(name, sides) {
         // UID for identifying the dice model
         let UID = UIDRandomProvider.getUID();
-        this.diceModels.set(UID, [name, sides]);
-        this.controller.onDiceModelAdded(UID, name);
+        this.diceTypes.set(UID, [name, sides]);
+        this.controller.onDiceTypeAdded(UID, name);
     }
     /**
      * removes a dice model from the DiceProvider
      * @param {} UID the UID of the dice model
      */
-    removeDiceModel(UID) {
-        this.diceModels.delete(UID);
-        this.controller.onDiceModelRemoved(UID);
+    removeDiceType(UID) {
+        this.diceTypes.delete(UID);
+        this.controller.onDiceTypeRemoved(UID);
     }
     /**
      * 
@@ -56,8 +56,10 @@ export { DiceProvider }
     createDice(UID) {
         // - get the dice model from the Map of models
         // - create and return a new dice specified by name and sides
-        let diceModel = this.diceModels.get(UID);
-        return new Dice(diceModel[0], diceModel[1]);
+        let diceType = this.diceTypes.get(UID);
+        let diceName = diceType[0];
+        let diceSides = diceType[1];
+        return new Dice(diceName, diceSides);
     }
     changeDiceTypes(type) {
         // placeholder
