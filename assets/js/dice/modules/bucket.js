@@ -36,8 +36,7 @@ export { Bucket }
     }
     
     /**
-     * calls the roll() method of the dices in the bucket
-     * - and removes them from the bucket by calling this.removeDice()
+     * rolls all dices in the bucket
      */
     roll() {
         for (let [UID, dice] of this.dices) {
