@@ -28,7 +28,6 @@ export { NewDiceModelView };
         // the output for displaying the dice's sides
         let sideOutput = document.createElement("div");
         sideOutput.id = "sides-container";
-        sideOutput.innerHTML = "sides:";
         // the input for adding sides
         let sideInput = document.createElement("input");
         sideInput.id = "dice-sides-input";
@@ -107,7 +106,7 @@ export { NewDiceModelView };
      */
     clear() {
         this.nameInput.value = "";
-        this.sideOutput.innerHTML = "sides:";
+        this.side.innerHTML = "";
         this.sideInput.value = "";
         this.diceSides = [];
     }
