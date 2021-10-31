@@ -7,4 +7,4 @@ archived: true
 ---
 [Dices Howto]({% post_url 2021-10-28-dices-howto %})
 
-{% include javascript.html src="/assets/js/dice.js" %}
+<script type="module" src="/assets/js/dice/main.js"/>
