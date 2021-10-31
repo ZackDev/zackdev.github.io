@@ -1,9 +1,6 @@
 import { Bucket } from './bucket.js';
-import { BucketView } from './bucketview.js';
-import { DiceModelsView } from './dicemodelsview.js';
-import { TableView } from './tableview.js';
-import { NewDiceModelView } from './newdicemodelview.js';
 import { DiceProvider } from './diceprovider.js';
+import { BucketView, DiceModelsView, NewDiceModelView, TableView } from './views.js';
 
 export {DiceController};
 
