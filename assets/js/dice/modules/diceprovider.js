@@ -13,7 +13,7 @@ export { DiceProvider }
      */
     constructor(controller) {
         this.controller = controller;
-        // map for retrieving dice models identified by UID
+        // map for retrieving dice types identified by UID
         this.diceTypes = new Map();
         this.addDiceType("D2", [1, 2]);
         this.addDiceType("D3", [1, 2, 3]);
@@ -35,14 +35,14 @@ export { DiceProvider }
      * @param {array<string>} sides the sides of the dice type
      */
     addDiceType(name, sides) {
-        // UID for identifying the dice model
+        // UID for identifying the dice type
         let UID = UIDRandomProvider.getUID();
         this.diceTypes.set(UID, [name, sides]);
         this.controller.onDiceTypeAdded(UID, name);
     }
     /**
-     * removes a dice model from the DiceProvider
-     * @param {} UID the UID of the dice model
+     * removes a dice type from the DiceProvider
+     * @param {} UID the UID of the dice type
      */
     removeDiceType(UID) {
         this.diceTypes.delete(UID);
@@ -50,11 +50,11 @@ export { DiceProvider }
     }
     /**
      * 
-     * @param {} UID the UID of the dice model
-     * @returns {Dice} a specific dice created from the dice model
+     * @param {} UID the UID of the dice type
+     * @returns {Dice} a specific dice created from the dice type
      */
     createDice(UID) {
-        // - get the dice model from the Map of models
+        // - get the dice type from the Map of types
         // - create and return a new dice specified by name and sides
         let diceType = this.diceTypes.get(UID);
         let diceName = diceType[0];
