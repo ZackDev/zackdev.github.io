@@ -73,19 +73,11 @@ export { NewDiceTypeView };
             if (this.diceSides.length >= 2 && this.nameInput.value.length >= 1 && this.nameInput.value.length <= 4 ) {
                 this.controller.onCreateDiceClicked(this.nameInput.value, this.diceSides);
                 this.clear();
-                this.hide();
             }
-        });
-        // - the 'closeBtn', for hiding this view
-        let closeBtn = document.createElement("button");
-        closeBtn.innerHTML = "close";
-        closeBtn.addEventListener("click", () => {
-            this.hide();
         });
         // - add the buttons to the button container
         btnContainer.append(addSideBtn);
         btnContainer.append(createDiceBtn);
-        btnContainer.append(closeBtn);
         // add the relevant UI elements to this for future referece
         this.nameInput = nameInput;
         this.sideOutput = sideOutput;
@@ -110,16 +102,26 @@ export { NewDiceTypeView };
         this.sideInput.value = "";
         this.diceSides = [];
     }
+    toggleVisibility() {
+        if (this.visible === false) {
+            this.show();
+        }
+        else if (this.visible === true) {
+            this.hide();
+        }
+    }
     /**
      * hides the view by setting the containers opacity to zero
      */
     hide() {
         this.root.style.opacity = 0;
+        this.visible = false;
     }
     /**
      * shows the view by setting the containers opacity to one
      */
     show() {
         this.root.style.opacity = 1;
+        this.visible = true;
     }
 }

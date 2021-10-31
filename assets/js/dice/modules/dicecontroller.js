@@ -17,7 +17,7 @@ export {DiceController};
         this.bucket = new Bucket(this);
     }
     onAddNewDiceTypeClicked() {
-        this.newDiceTypeView.show();
+        this.newDiceTypeView.toggleVisibility();
     }
     onDiceTypeClicked(UID) {
         let dice = this.diceProvider.createDice(UID);
