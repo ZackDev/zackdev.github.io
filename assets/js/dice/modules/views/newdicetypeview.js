@@ -63,6 +63,7 @@ export { NewDiceTypeView };
                 this.sideOutput.append(side);
                 this.diceSides.push(sideValue);
                 this.sideInput.value = "";
+                this.sideInput.focus();
             } 
         });
         // - the 'createDiceBtn', calls the controllers onCreateDiceClicked() method
