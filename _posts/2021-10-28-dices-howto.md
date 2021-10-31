@@ -22,3 +22,4 @@ Is for creating new dices. Here you can specify a name for the new dice and it's
 # Not Yet Implemented:
 * add save/load functionality for custom dices using `browser.storage`
 * add the option to select a specific dice type set from a list of sets
+* icons for `ǸewDiceModelView`'s buttons
