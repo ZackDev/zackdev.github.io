@@ -17,7 +17,7 @@ export { NewDiceTypeView };
         this.root = root;
         // an array for adding and removing the dice's sides
         this.diceSides = [];
-        let label = document.createElement("div");
+        let label = document.createElement("label");
         label.innerHTML = "create a new type of dice."
         // the input for setting the dice's name
         let nameInput = document.createElement("input");
@@ -72,6 +72,9 @@ export { NewDiceTypeView };
         let createDiceBtn = document.createElement("button");
         createDiceBtn.innerHTML = "create dice";
         createDiceBtn.addEventListener("click", () => {
+            // only create 'valid' dices
+            // - with minimum two sides
+            // - and the length of the name bewtween one and four
             if (this.diceSides.length >= 2 && this.nameInput.value.length >= 1 && this.nameInput.value.length <= 4 ) {
                 this.controller.onCreateDiceClicked(this.nameInput.value, this.diceSides);
                 this.clear();

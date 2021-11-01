@@ -9,20 +9,18 @@ export { UIDRandomProvider };
     
     /**
      * 
-     * @returns a random Integer
+     * @returns a pseudo-random Integer
      */
     getUID() {
-        // - creates a random Integer by multiplying Date.now() with Math.random()
-        // and rounding the result
         let uid = Math.round(Date.now() * Math.random());
-        // - adds the result to the UIDs already taken and returns it
         if (this.used.indexOf(uid) < 0) {
-            
+            // - adds the result to the UIDs already taken and returns it
             this.used.push(uid);
             return uid;
         }
-        // - calls itself again if the result is already in the array of used UIDs
         else {
+            // - calls itself again if the result is already in the array of used UIDs
+            // NOTE: might run endlessly
             return this.getUID();
         }
     }
