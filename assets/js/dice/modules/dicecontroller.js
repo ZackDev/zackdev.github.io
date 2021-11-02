@@ -98,4 +98,13 @@ export {DiceController};
         // called by the BucketView
         this.tableView.displayDice(dice.UID, dice.name, dice.result);
     }
+
+    /**
+     * changes the DiceSet
+     * @param {UID} DiceSet the UID of the dice set to change to
+     */
+    onDiceSetChangeClicked(UID) {
+        // called by the DiceSetView
+        // TODO
+    }
 }
