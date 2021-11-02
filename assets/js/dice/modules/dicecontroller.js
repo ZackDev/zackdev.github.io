@@ -106,5 +106,15 @@ export {DiceController};
     onDiceSetChangeClicked(UID) {
         // called by the DiceSetView
         // TODO
+        // - remove the current set of dice types from the DiceTypesView
+    }
+    
+    /**
+     * adds dice types assiciated with the given UID of he dice set to the DiceTypesView
+     */
+    onDiceSetChanged(diceArray) {
+        // called by the DiceSet
+        // TODO
+        // - add the set of dices provided by the diceArray parameter to the DiceTypesView
     }
 }
