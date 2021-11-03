@@ -1,7 +1,7 @@
 import { UIDRandomProvider } from './uidrandomprovider.js';
 import { Dice } from './modelbundle.js';
 
-export { DiceProvider }
+export { DiceProvider };
 
 /**
  * a class for providing different type of dices, creates concrete Dice objects from a DiceType

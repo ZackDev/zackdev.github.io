@@ -1,6 +1,7 @@
-import { DiceSet } from './modelbundle.js';
 import { UIDRandomProvider } from './uidrandomprovider.js';
-export { DiceSetProvider }
+import { DiceSet } from './modelbundle.js';
+
+export { DiceSetProvider };
 
 /**
  * 
