@@ -1,8 +1,8 @@
-import { Bucket } from './bucket.js';
+import { Bucket , DiceSet } from './modelbundle.js';
+import { BucketView, DiceTypesView, NewDiceTypeView, TableView, DiceSetView } from './viewbundle.js';
 import { DiceProvider } from './diceprovider.js';
-import { DiceSet } from './diceset.js';
 import { DiceSetProvider } from './dicesetprovider.js';
-import { BucketView, DiceTypesView, NewDiceTypeView, TableView, DiceSetView } from './views.js';
+
 
 export {DiceController};
 

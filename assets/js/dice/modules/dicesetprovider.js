@@ -1,9 +1,9 @@
-import { DiceSet } from "./diceset.js";
+import { DiceSet } from "./modelbundle.js";
 import { UIDRandomProvider } from "./uidrandomprovider.js";
 export { DiceSetProvider }
 
 /**
- * STUB
+ * 
  */
 class DiceSetProvider {
     constructor(controller) {
@@ -12,8 +12,8 @@ class DiceSetProvider {
     }
     
     /**
-     * 
-     * @param {*} diceSet 
+     * adds a DiceSet to the DiceSetProvider
+     * @param {DiceSet} diceSet - the set of dices to add
      */
     addDiceSet(diceSet) {
         let UID = UIDRandomProvider.getUID();
@@ -23,8 +23,8 @@ class DiceSetProvider {
     }
     
     /**
-     * 
-     * @param {*} UID 
+     * removes a DiceSet from the DiceSetProvider
+     * @param {number} UID - the UID of the dice set to remove
      */
     removeDiceSet(UID) {
         this.dicesSetMap.delete(UID);
@@ -32,9 +32,9 @@ class DiceSetProvider {
     }
     
     /**
-     * 
-     * @param {*} UID 
-     * @returns 
+     * returns a DiceSet identified by the UID
+     * @param {numer} UID - the UID of the dice set
+     * @returns { DiceSet }
      */
     getDiceSet(UID) {
         return this.diceSetMap.get(UID);
