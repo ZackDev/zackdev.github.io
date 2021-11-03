@@ -92,7 +92,7 @@ export { BucketView };
         dice.classList.add("dice");
         dice.classList.add("clickable");
         dice.id = UID;
-        dice.innerText = name;
+        dice.innerHTML = name;
         dice.addEventListener("click", () => {
             // clickhandler for removing the dice from the bucket
             this.controller.removeDiceFromBucket(UID);

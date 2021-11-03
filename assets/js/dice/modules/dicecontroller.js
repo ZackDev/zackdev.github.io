@@ -28,17 +28,17 @@ export {DiceController};
     addDiceSets() {
         // D3 dice set
         let aDsName = "D2-3";
-        let aD2Type = ["D2", [1, 2]];
-        let aD3Type = ["D3", [1, 2, 3]];
+        let aD2Type = ["D2", ['&#9856;', '&#9857;']];
+        let aD3Type = ["D3", ['&#9856;', '&#9857;', '&#9858;']];
         let aDiceSet = new DiceSet(aDsName, [aD2Type, aD3Type]);
         this.diceSetProvider.addDiceSet(aDiceSet);
 
         let bDsName = "D2-6";
-        let bD2Type = ["D2", [1, 2]];
-        let bD3Type = ["D3", [1, 2, 3]];
-        let bD4Type = ["D4", [1, 2, 3, 4]];
-        let bD5Type = ["D5", [1, 2, 3, 4, 5]];
-        let bD6Type = ["D6", [1, 2, 3, 4, 5, 6]];
+        let bD2Type = ["D2", ['&#9856;', '&#9857;']];
+        let bD3Type = ["D3", ['&#9856;', '&#9857;', '&#9858;']];
+        let bD4Type = ["D4", ['&#9856;', '&#9857;', '&#9858;', '&#9859;']];
+        let bD5Type = ["D5", ['&#9856;', '&#9857;', '&#9858;', '&#9859;', '&#9860;']];
+        let bD6Type = ["D6", ['&#9856;', '&#9857;', '&#9858;', '&#9859;', '&#9860;', '&#9861;']];
         let bDiceSet = new DiceSet(bDsName, [bD2Type, bD3Type, bD4Type, bD5Type, bD6Type]);
         this.diceSetProvider.addDiceSet(bDiceSet);
 
