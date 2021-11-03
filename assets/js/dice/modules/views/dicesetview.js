@@ -1,4 +1,4 @@
-export { DiceSetView }
+export { DiceSetView };
 
 /**
  * STUB

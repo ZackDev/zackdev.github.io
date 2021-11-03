@@ -1,4 +1,4 @@
-export { Bucket }
+export { Bucket };
 
 /**
  * a class representing a bucket where dices can be added, removed and rolled

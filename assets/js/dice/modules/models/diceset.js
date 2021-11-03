@@ -1,4 +1,4 @@
-export { DiceSet }
+export { DiceSet };
 
 /**
  * STUB

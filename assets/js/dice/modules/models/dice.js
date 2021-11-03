@@ -1,6 +1,6 @@
 import { UIDRandomProvider } from './uidrandomprovider.js';
 
-export { Dice }
+export { Dice };
 
 /**
  * a class representing a dice

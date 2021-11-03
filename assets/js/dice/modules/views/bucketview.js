@@ -1,4 +1,4 @@
-export { BucketView }
+export { BucketView };
 
 /**
  * a class presenting the dices' bucket to the user
