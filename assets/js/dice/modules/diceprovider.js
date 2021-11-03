@@ -15,19 +15,6 @@ export { DiceProvider }
         this.controller = controller;
         // map for retrieving dice types identified by UID
         this.diceTypes = new Map();
-        this.addDiceType("D2", [1, 2]);
-        this.addDiceType("D3", [1, 2, 3]);
-        this.addDiceType("D6", [1, 2, 3, 4, 5, 6]);
-        let D10 = [];
-        for (let i=1; i<= 10; i++) {
-            D10.push(i);
-        }
-        this.addDiceType("D10", D10);
-        let D100 = [];
-        for (let i=1; i<=100; i++) {
-            D100.push(i);
-        }
-        this.addDiceType("D100", D100);
     }
     
     /**
@@ -44,7 +31,7 @@ export { DiceProvider }
     
     /**
      * removes a dice type from the DiceProvider
-     * @param {} UID the UID of the dice type
+     * @param {number} UID the UID of the dice type
      */
     removeDiceType(UID) {
         this.diceTypes.delete(UID);
@@ -52,8 +39,17 @@ export { DiceProvider }
     }
     
     /**
+     * removes all dice types from the DiceProvider
+     */
+    removeAllDiceTypes() {
+        for (let UID of this.diceTypes.keys()) {
+            this.removeDiceType(UID);
+        }
+    }
+
+    /**
      * 
-     * @param {} UID the UID of the dice type
+     * @param {number} UID the UID of the dice type
      * @returns {Dice} a specific dice created from the dice type
      */
     createDice(UID) {
@@ -63,18 +59,5 @@ export { DiceProvider }
         let diceName = diceType[0];
         let diceSides = diceType[1];
         return new Dice(diceName, diceSides);
-    }
-    
-    /**
-     * TODO
-     * @param {*} type 
-     */
-    changeDiceTypes(type) {
-        // placeholder
-        switch (type) {
-            case "":
-                break;
-        }
-        this.controller.onDiceSetChanged();
-    }
+    }  
 }

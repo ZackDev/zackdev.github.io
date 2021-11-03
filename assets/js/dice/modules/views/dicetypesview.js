@@ -35,7 +35,7 @@ export { DiceTypesView }
         });
         this.root.append(newDiceTypeBtn);
     }
-    
+
     /**
      * adds a clickable dice type to the view
      * @param {Number} UID - the UID of the dice type
@@ -52,5 +52,18 @@ export { DiceTypesView }
         });
         this.root.append(diceType);
         this.diceTypes.push(UID);
+    }
+
+    /**
+     * removes the dice type identified by UID from the DOM
+     * @param {number} UID - the UID of the dice type to remove
+     */
+    removeDiceType(UID) {
+        let i = this.diceTypes.indexOf(UID);
+        if (i > -1) {
+            this.diceTypes.splice(i, 1);
+            let diceTypeElement = document.getElementById(UID);
+            diceTypeElement.remove();
+        }
     }
 }

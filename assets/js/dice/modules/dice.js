@@ -1,4 +1,4 @@
-import { UIDRandomProvider } from "./uidrandomprovider.js";
+import { UIDRandomProvider } from './uidrandomprovider.js';
 
 export { Dice }
 

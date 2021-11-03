@@ -1,3 +1,16 @@
+#dice-sets-container {
+    margin: 5px 5px 5px 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #f5f5f5;
+    border: 1px solid none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #afafaf;
+    gap: 5px;
+}
+
 #dice-types-container {
     min-height: 62px;
     display: flex;
@@ -37,7 +50,6 @@
     box-shadow: 2px 2px 2px #afafaf;
     transition: opacity 1s;
 }
-
 
 #sides-container {
     min-height: 62px;
@@ -80,6 +92,23 @@
 
 .clickable {
     cursor: pointer;
+}
+
+.dice-set {
+    text-align: center;
+    margin: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
+    color: #afafaf;
+    text-decoration: underline dotted;
+}
+
+.dice-set.clickable:hover {
+    text-decoration: underline solid;
+}
+
+.selected-dice-set {
+    color: #2d2d2d;
+    text-decoration: underline solid;
 }
 
 .dice {

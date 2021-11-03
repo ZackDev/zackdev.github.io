@@ -1,6 +1,8 @@
 import { Bucket } from './bucket.js';
 import { DiceProvider } from './diceprovider.js';
-import { BucketView, DiceTypesView, NewDiceTypeView, TableView } from './views.js';
+import { DiceSet } from './diceset.js';
+import { DiceSetProvider } from './dicesetprovider.js';
+import { BucketView, DiceTypesView, NewDiceTypeView, TableView, DiceSetView } from './views.js';
 
 export {DiceController};
 
@@ -9,14 +11,38 @@ export {DiceController};
  */
  class DiceController {
     constructor() {
+        this.diceSetView = new DiceSetView(this);
         this.diceTypesView = new DiceTypesView(this);
         this.bucketView = new BucketView(this);
         this.tableView = new TableView(this);
         this.newDiceTypeView = new NewDiceTypeView(this);
+        this.diceSetProvider = new DiceSetProvider(this);
         this.diceProvider = new DiceProvider(this);
         this.bucket = new Bucket(this);
+        this.addDiceSets();
     }
-    
+
+    /**
+     * 
+     */
+    addDiceSets() {
+        // D3 dice set
+        let aDsName = "D2-3";
+        let aD2Type = ["D2", [1, 2]];
+        let aD3Type = ["D3", [1, 2, 3]];
+        let aDiceSet = new DiceSet(aDsName, [aD2Type, aD3Type]);
+        this.diceSetProvider.addDiceSet(aDiceSet);
+
+        let bDsName = "D2-6";
+        let bD2Type = ["D2", [1, 2]];
+        let bD3Type = ["D3", [1, 2, 3]];
+        let bD4Type = ["D4", [1, 2, 3, 4]];
+        let bD5Type = ["D5", [1, 2, 3, 4, 5]];
+        let bD6Type = ["D6", [1, 2, 3, 4, 5, 6]];
+        let bDiceSet = new DiceSet(bDsName, [bD2Type, bD3Type, bD4Type, bD5Type, bD6Type]);
+        this.diceSetProvider.addDiceSet(bDiceSet);
+    }
+
     /**
      * toggles the NewDiceTypeView's visibility
      */
@@ -55,6 +81,11 @@ export {DiceController};
         this.diceTypesView.displayDiceType(UID, name);
     }
     
+    onDiceTypeRemoved(UID) {
+        // called by the DiceProvider
+        this.diceTypesView.removeDiceType(UID);
+    }
+
     /**
      * removes a Dice from the Bucket
      * @param {number} UID the UID of the dice to remove
@@ -103,18 +134,22 @@ export {DiceController};
      * changes the DiceSet
      * @param {UID} DiceSet the UID of the dice set to change to
      */
-    onDiceSetChangeClicked(UID) {
+    onChangeDiceSetClicked(UID) {
         // called by the DiceSetView
-        // TODO
-        // - remove the current set of dice types from the DiceTypesView
+        // - remove the current set of dice types from the DiceProvider
+        this.diceProvider.removeAllDiceTypes();
+        // - get dice set from dice set provider
+        let diceSet = this.diceSetProvider.getDiceSet(UID);
+        for (let diceType of diceSet.diceTypes) {
+            this.diceProvider.addDiceType(diceType[0], diceType[1]);
+        }
     }
     
     /**
-     * adds dice types assiciated with the given UID of he dice set to the DiceTypesView
+     * adds the dice set associated with the given UID of he dice set to the DiceSetView
      */
-    onDiceSetChanged(diceArray) {
-        // called by the DiceSet
-        // TODO
-        // - add the set of dices provided by the diceArray parameter to the DiceTypesView
+    onDiceSetAdded(UID, diceSet) {
+        // called by the DiceSetProvider
+        this.diceSetView.displayDiceSet(UID, diceSet.name);
     }
 }
