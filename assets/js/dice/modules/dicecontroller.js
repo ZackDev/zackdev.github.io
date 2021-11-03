@@ -41,6 +41,23 @@ export {DiceController};
         let bD6Type = ["D6", [1, 2, 3, 4, 5, 6]];
         let bDiceSet = new DiceSet(bDsName, [bD2Type, bD3Type, bD4Type, bD5Type, bD6Type]);
         this.diceSetProvider.addDiceSet(bDiceSet);
+
+        /**
+         * tested hieroglyphs are not available to the font 
+         */
+        /*
+        let hieroglyphsDsName = "hieroglyphs";
+        let hType = ["all", ['&#x13001;']];
+        let hDiceSet = new DiceSet(hieroglyphsDsName, [hType]);
+        this.diceSetProvider.addDiceSet(hDiceSet);
+        */
+
+        let katakanaSymbols = [];
+        for (let i = 13008; i <= 13054; i++) {
+            katakanaSymbols.push(`&#${i};`);
+        }
+        let kType = ["cKk", katakanaSymbols];
+        this.diceSetProvider.addDiceSet(new DiceSet("katakana", [kType]));
     }
 
     /**
