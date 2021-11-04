@@ -12,6 +12,7 @@ export { TableView };
     constructor(controller) {
         let root = document.createElement("div");
         root.id = "table-container";
+        root.classList.add("flex-row");
         document.getElementById("main-content").append(root);
         this.root = root;
         this.dices = [];
