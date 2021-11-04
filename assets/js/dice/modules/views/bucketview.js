@@ -93,12 +93,30 @@ export { BucketView };
         dice.classList.add("dice");
         dice.classList.add("clickable");
         dice.id = UID;
+        dice.style.opacity = 0;
+        dice.style.transitionProperty = "opacity, transform";
+        dice.style.transitionTimingFunction = "ease";
+        dice.style.transitionDuration = "500ms";
+        // get an angle between 0 and 15
+        let degree = Math.round(Math.random() * 15);
+        // extend angle, so it is between -15 and 15
+        if (Math.round(Math.random()) > 0) {
+            degree *= -1
+        }
+        dice.style.transform = `rotate(${degree}deg)`;
         dice.innerHTML = name;
         dice.addEventListener("click", () => {
             // clickhandler for removing the dice from the bucket
             this.controller.removeDiceFromBucket(UID);
         });
-        this.root.append(dice);
+        requestAnimationFrame(() => {
+            this.root.append(dice);
+            requestAnimationFrame(() => {
+                dice.style.opacity = 1;
+                dice.style.transform = "rotate(0deg)";
+            });
+        });
+
         this.dices.push(UID);
         this.adaptBucketBtnState();
     }
