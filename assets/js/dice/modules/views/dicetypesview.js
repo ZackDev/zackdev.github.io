@@ -13,6 +13,7 @@ export { DiceTypesView };
         // create the view's container and add it to the DOM
         let root = document.createElement("div");
         root.id = "dice-types-container";
+        root.classList.add("flex-row");
         document.getElementById("main-content").append(root);
         this.root = root;
         this.addNewDiceTypeBtn();
