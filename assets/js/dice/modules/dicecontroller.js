@@ -1,5 +1,6 @@
 import { Bucket , DiceSet } from './modelbundle.js';
 import { BucketView, DiceTypesView, NewDiceTypeView, TableView, DiceSetView } from './viewbundle.js';
+import { DiceAudio } from './diceaudio.js';
 import { DiceProvider } from './diceprovider.js';
 import { DiceSetProvider } from './dicesetprovider.js';
 
@@ -11,6 +12,8 @@ export {DiceController};
  */
  class DiceController {
     constructor() {
+        this.diceAudio = new DiceAudio();
+        this.loadSounds();
         this.diceSetView = new DiceSetView(this);
         this.diceTypesView = new DiceTypesView(this);
         this.bucketView = new BucketView(this);
@@ -21,6 +24,17 @@ export {DiceController};
         this.bucket = new Bucket(this);
         this.addDiceSets();
     }
+
+    /**
+     * 
+     */
+    loadSounds() {
+        this.diceAudio.registerAudio("bucket-00", "/assets/audio/bucket-00.flac");
+        this.diceAudio.registerAudio("bucket-01", "/assets/audio/bucket-01.flac");
+        this.diceAudio.registerAudio("table-00", "/assets/audio/table-00.flac");
+        this.diceAudio.registerAudio("table-01", "/assets/audio/table-01.flac");
+    }
+
 
     /**
      * 
@@ -117,8 +131,10 @@ export {DiceController};
      * @param {Dice} dice the dice added to the bucket
      */
     onDiceAddedToBucket(dice) {
-        // called by the DiceTypesView
+        // called by the Bucket
         this.bucketView.displayDice(dice.UID, dice.name);
+        let bucketAudioId = Math.round(Math.random() * 2);
+        this.diceAudio.playAudio(`bucket-0${bucketAudioId}`);
     }
     
     /**
@@ -136,6 +152,8 @@ export {DiceController};
     onRollClicked() {
         // called by the BucketView
         this.bucket.roll();
+        let tableAudioId = Math.round(Math.random() * 1);
+        this.diceAudio.playAudio(`table-0${tableAudioId}`);
     }
     
     /**

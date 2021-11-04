@@ -13,6 +13,7 @@ export { BucketView };
         // create the container of the view
         let root = document.createElement("div");
         root.id = "bucket-container";
+        root.classList.add("flex-row");
         document.getElementById("main-content").append(root);
         this.root = root;
         // tracks the state of the bucket/roll button

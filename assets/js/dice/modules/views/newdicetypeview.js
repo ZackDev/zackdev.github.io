@@ -13,6 +13,8 @@ export { NewDiceTypeView };
         // create the root div containing the view and add it to the DOM
         let root = document.createElement("div");
         root.id = "create-dice-type-container";
+        root.classList.add("flex-column");
+        root.classList.add("shadow");
         document.getElementById("main-content").append(root);
         this.root = root;
         // an array for adding and removing the dice's sides
@@ -29,6 +31,7 @@ export { NewDiceTypeView };
         // the output for displaying the dice's sides
         let sideOutput = document.createElement("div");
         sideOutput.id = "sides-container";
+        sideOutput.classList.add("flex-row");
         // the input for adding sides
         let sideInput = document.createElement("input");
         sideInput.id = "dice-sides-input";

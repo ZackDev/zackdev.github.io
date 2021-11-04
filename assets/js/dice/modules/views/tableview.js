@@ -12,6 +12,7 @@ export { TableView };
     constructor(controller) {
         let root = document.createElement("div");
         root.id = "table-container";
+        root.classList.add("flex-row");
         document.getElementById("main-content").append(root);
         this.root = root;
         this.dices = [];
@@ -81,7 +82,8 @@ export { TableView };
         dice.classList.add("dice");
         dice.classList.add("rolled");
         dice.id = UID;
-        dice.innerHTML = `<div style="font-size:12px;">${name}</div><div style="font-size:26px;">${result}</div>`;
+        dice.title = `dice: ${name}`;
+        dice.innerHTML = `<div style="font-size:50px;">${result}</div>`;
         this.dices.push(UID);
         this.root.append(dice);
         this.adaptTableBtnState();
