@@ -17,7 +17,7 @@ export { DiceTypesView };
         document.getElementById("main-content").append(root);
         this.root = root;
         this.addNewDiceTypeBtn();
-        this.setAddNewDiceTypeBtnState("inactive");
+        this.setNewDiceTypeBtnState("inactive");
         // an array containing the html property id of the dice types
         this.diceTypes = [];
         this.controller = controller;
@@ -48,7 +48,7 @@ export { DiceTypesView };
      * sets the AddNewDoceTypeBtn's state
      * @param {string} state - the state to change to ("active"|"inactive")
      */
-    setAddNewDiceTypeBtnState(state) {
+    setNewDiceTypeBtnState(state) {
         switch (state) {
             case "active":
                 this.newDiceTypeBtn.classList.add("clickable");

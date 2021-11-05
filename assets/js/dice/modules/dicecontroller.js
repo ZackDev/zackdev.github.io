@@ -110,19 +110,21 @@ export {DiceController};
      */
     onCreateDiceTypeClicked(name, sides) {
         // called by the NewDiceTypeView
-        // TODO get selected DiceSet
+        // - get selected DiceSet
         let diceSetUID = this.diceSetView.getSelectedDiceSetUID();
         let diceSet = this.diceSetProvider.getDiceSet(diceSetUID);
         if (diceSet) {
-            // add the dice to the selected dice
+            // add the DiceType to
+            // - the selected DiceSet
+            // - the DiceProvider
             let diceType = new DiceType(name, sides);
             diceSet.addDiceType(diceType);
             this.diceProvider.addDiceType(diceType);
         }
         else {
-            // 
+            // code should not reach this
+            console.log("no DiceSet selected, can't add DiceType");
         }
-        // this.diceProvider.addDiceType(name, sides);
     }
     
     /**
@@ -201,8 +203,8 @@ export {DiceController};
         for (let diceType of diceSet.diceTypes) {
             this.diceProvider.addDiceType(diceType);
         }
-        // - activate the AddNewDiceTypeBtn of the DiceTypesView
-        this.diceTypesView.setAddNewDiceTypeBtnState("active");
+        // - activate the NewDiceTypeBtn of the DiceTypesView
+        this.diceTypesView.setNewDiceTypeBtnState("active");
     }
     
     /**
