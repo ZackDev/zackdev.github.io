@@ -7,27 +7,27 @@ archived: false
 ---
 The following charts use publicly available data surrounding the SARS-CoV-2 virus. *Click and drag on the charts to select a specific range and zoom into the data.*
 
-{% include div.html name="chart-corona-cases-germany" %}
+<div id="chart-corona-cases-germany"></div>
 
 ---
 
-{% include div.html name="chart-corona-additional-germany" %}
+<div id=="chart-corona-additional-germany"></div>
 
 ---
 
-{% include div.html name="chart-corona-tests-germany" %}
+<div id=="chart-corona-tests-germany"></div>
 
 ---
 
-{% include div.html name="chart-corona-icuo-germany" %}
+<div id="chart-corona-icuo-germany"></div>
 
 ---
 
-{% include div.html name="chart-corona-vaccinations-germany" %}
+<div id=="chart-corona-vaccinations-germany"></div>
 
 ---
 
-{% include div.html name="chart-corona-vaccinations-by-vaccine-germany" %}
+<div id=="chart-corona-vaccinations-by-vaccine-germany"></div>
 
 # Used Datasources
 * COVID-19-Cases and Incidence: [CSSE Github Repository][1]. The day to day increase in cases is a calculation on that data.
