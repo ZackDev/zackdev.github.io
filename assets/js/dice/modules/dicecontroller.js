@@ -44,7 +44,18 @@ export {DiceController};
         let sDsName = "special";
         let sD4fType = new DiceType("4Df", ['+', '+', '-', '-', '&nbsp;' , '&nbsp;']);
         let sD3Type = new DiceType("D3", ['&#9856;', '&#9857;', '&#9858;']);
-        let sDiceSet = new DiceSet(sDsName, [sD4fType, sD3Type]);
+        let sD12Type = new DiceType("D12", ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]);
+        let d20Sides = [];
+        for (let i=0; i<=20; i++) {
+            d20Sides.push(i.toString());
+        }
+        let sD20Type = new DiceType("D20", d20Sides);
+        let d100Sides = [];
+        for (let i=0; i<=100; i++) {
+            d100Sides.push(i.toString());
+        }
+        let sD100Type = new DiceType("D100", d100Sides);
+        let sDiceSet = new DiceSet(sDsName, [sD4fType, sD3Type, sD12Type, sD20Type, sD100Type]);
         this.diceSetProvider.addDiceSet(sDiceSet);
 
         let bDsName = "D2-6";
