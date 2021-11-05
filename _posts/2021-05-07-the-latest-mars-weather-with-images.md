@@ -24,4 +24,4 @@ As addition, a random image from the latest images shot by the rover `Perseveran
 * the data-sets retrieved do not necessarily share the same date
 * the API-key `DEMO_KEY` is rate-limited by IP address
 
-{% include javascript.html src="/assets/js/mars.js" %}
+<script type="text/javascript" src="/assets/js/mars.js" />
