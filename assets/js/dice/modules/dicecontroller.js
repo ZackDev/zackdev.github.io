@@ -185,11 +185,13 @@ export {DiceController};
         // called by the DiceSetView
         // - remove the current set of dice types from the DiceProvider
         this.diceProvider.removeAllDiceTypes();
-        // - get dice set from dice set provider
+        // - get dice set from dice set provider and add it's types to the DiceProvider
         let diceSet = this.diceSetProvider.getDiceSet(UID);
         for (let diceType of diceSet.diceTypes) {
             this.diceProvider.addDiceType(diceType);
         }
+        // - activate the AddNewDiceTypeBtn of the DiceTypesView
+        this.diceTypesView.setAddNewDiceTypeBtnState("active");
     }
     
     /**

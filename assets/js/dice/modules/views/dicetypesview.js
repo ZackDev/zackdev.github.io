@@ -17,6 +17,7 @@ export { DiceTypesView };
         document.getElementById("main-content").append(root);
         this.root = root;
         this.addNewDiceTypeBtn();
+        this.setAddNewDiceTypeBtnState("inactive");
         // an array containing the html property id of the dice types
         this.diceTypes = [];
         this.controller = controller;
@@ -31,10 +32,33 @@ export { DiceTypesView };
         newDiceTypeBtn.classList.add("clickable");
         newDiceTypeBtn.src = "/assets/icons/newdice.svg";
         newDiceTypeBtn.id = "new-dice-type-icon";
-        newDiceTypeBtn.addEventListener("click", () => {
-            this.controller.onAddNewDiceTypeClicked();
-        });
+        this.newDiceTypeBtn = newDiceTypeBtn;
         this.root.append(newDiceTypeBtn);
+    }
+
+    /**
+     * handler for the AddNewDiceTypeClicked Btn
+     * - notifies the controller that it has been clicked
+     */
+    onAddNewDiceTypeClickedHandler = () => {
+        this.controller.onAddNewDiceTypeClicked();
+    }
+
+    /**
+     * sets the AddNewDoceTypeBtn's state
+     * @param {string} state - the state to change to ("active"|"inactive")
+     */
+    setAddNewDiceTypeBtnState(state) {
+        switch (state) {
+            case "active":
+                this.newDiceTypeBtn.classList.add("clickable");
+                this.newDiceTypeBtn.addEventListener("click", this.onAddNewDiceTypeClickedHandler);
+                break;
+            case "inactive":
+                this.newDiceTypeBtn.classList.remove("clickable");
+                this.newDiceTypeBtn.removeEventListener("click", this.onAddNewDiceTypeClickedHandler);
+                break;
+        }
     }
 
     /**
