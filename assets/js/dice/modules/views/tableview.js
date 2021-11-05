@@ -83,7 +83,7 @@ export { TableView };
         dice.classList.add("rolled");
         dice.id = UID;
         dice.title = `dice: ${name}`;
-        dice.innerHTML = `<div style="font-size:50px;">${result}</div>`;
+        dice.innerHTML = `<div>${result}</div>`;
         this.dices.push(UID);
         this.root.append(dice);
         this.adaptTableBtnState();
