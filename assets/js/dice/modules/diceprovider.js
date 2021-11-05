@@ -19,14 +19,13 @@ export { DiceProvider };
     
     /**
      * adds a dice type to the DiceProvider
-     * @param {string} name the name of the dice type
-     * @param {array<string>} sides the sides of the dice type
+     * @param {DiceType} diceType the dice type to add
      */
-    addDiceType(name, sides) {
+    addDiceType(diceType) {
         // UID for identifying the dice type
         let UID = UIDRandomProvider.getUID();
-        this.diceTypes.set(UID, [name, sides]);
-        this.controller.onDiceTypeAdded(UID, name);
+        this.diceTypes.set(UID, diceType);
+        this.controller.onDiceTypeAdded(UID, diceType);
     }
     
     /**
@@ -56,8 +55,6 @@ export { DiceProvider };
         // - get the dice type from the Map of types
         // - create and return a new dice specified by name and sides
         let diceType = this.diceTypes.get(UID);
-        let diceName = diceType[0];
-        let diceSides = diceType[1];
-        return new Dice(diceName, diceSides);
+        return new Dice(diceType.name, diceType.sides);
     }  
 }

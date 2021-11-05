@@ -13,7 +13,10 @@ class DiceSet {
      */
     constructor(name, diceTypes) {
         this.name = name;
-        this.diceTypes = diceTypes;
+        this.diceTypes = [];
+        for (let dt of diceTypes) {
+            this.addDiceType(dt);
+        }
     }
 
     /**

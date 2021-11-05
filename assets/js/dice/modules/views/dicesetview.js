@@ -17,11 +17,7 @@ class DiceSetView {
         document.getElementById("main-content").append(root);
         this.root = root;
         this.sets = [];
-        // TODO build UI controls
-        // possible layouts
-        // - arrow-left | setInfo | arrow right
-        // - dropdown
-        // - similar to the 'DiceTypesView'
+        this.selectedDiceSet = undefined;
         this.controller = controller;
     }
 
@@ -44,8 +40,18 @@ class DiceSetView {
                 let diceSetElement = document.getElementById(id);
                 diceSetElement.classList.remove("selected-dice-set");
             }
+            this.selectedDiceSet = UID;
             this.controller.onChangeDiceSetClicked(UID);
         });
         this.root.append(set);
+    }
+
+    getSelectedDiceSetUID() {
+        if (this.selectedDiceSet) {
+            return this.selectedDiceSet;
+        }
+        else {
+            return undefined;
+        }
     }
 }

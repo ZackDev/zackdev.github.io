@@ -1,4 +1,4 @@
-import { Bucket , DiceSet } from './modelbundle.js';
+import { Bucket , DiceSet, DiceType } from './modelbundle.js';
 import { BucketView, DiceTypesView, NewDiceTypeView, TableView, DiceSetView } from './viewbundle.js';
 import { DiceAudio } from './diceaudio.js';
 import { DiceProvider } from './diceprovider.js';
@@ -41,18 +41,18 @@ export {DiceController};
      */
     addDiceSets() {
         // D3 dice set
-        let aDsName = "D2-3";
-        let aD2Type = ["D2", ['&#9856;', '&#9857;']];
-        let aD3Type = ["D3", ['&#9856;', '&#9857;', '&#9858;']];
-        let aDiceSet = new DiceSet(aDsName, [aD2Type, aD3Type]);
-        this.diceSetProvider.addDiceSet(aDiceSet);
+        let sDsName = "special";
+        let sD4fType = new DiceType("4Df", ['+', '+', '-', '-', '&nbsp;' , '&nbsp;']);
+        let sD3Type = new DiceType("D3", ['&#9856;', '&#9857;', '&#9858;']);
+        let sDiceSet = new DiceSet(sDsName, [sD4fType, sD3Type]);
+        this.diceSetProvider.addDiceSet(sDiceSet);
 
         let bDsName = "D2-6";
-        let bD2Type = ["D2", ['&#9856;', '&#9857;']];
-        let bD3Type = ["D3", ['&#9856;', '&#9857;', '&#9858;']];
-        let bD4Type = ["D4", ['&#9856;', '&#9857;', '&#9858;', '&#9859;']];
-        let bD5Type = ["D5", ['&#9856;', '&#9857;', '&#9858;', '&#9859;', '&#9860;']];
-        let bD6Type = ["D6", ['&#9856;', '&#9857;', '&#9858;', '&#9859;', '&#9860;', '&#9861;']];
+        let bD2Type = new DiceType("D2", ['&#9856;', '&#9857;']);
+        let bD3Type = new DiceType("D3", ['&#9856;', '&#9857;', '&#9858;']);
+        let bD4Type = new DiceType("D4", ['&#9856;', '&#9857;', '&#9858;', '&#9859;']);
+        let bD5Type = new DiceType("D5", ['&#9856;', '&#9857;', '&#9858;', '&#9859;', '&#9860;']);
+        let bD6Type = new DiceType("D6", ['&#9856;', '&#9857;', '&#9858;', '&#9859;', '&#9860;', '&#9861;']);
         let bDiceSet = new DiceSet(bDsName, [bD2Type, bD3Type, bD4Type, bD5Type, bD6Type]);
         this.diceSetProvider.addDiceSet(bDiceSet);
 
@@ -70,7 +70,7 @@ export {DiceController};
         for (let i = 13008; i <= 13054; i++) {
             katakanaSymbols.push(`&#${i};`);
         }
-        let kType = ["cKk", katakanaSymbols];
+        let kType = new DiceType("cKk", katakanaSymbols);
         this.diceSetProvider.addDiceSet(new DiceSet("katakana", [kType]));
     }
 
@@ -94,12 +94,24 @@ export {DiceController};
     
     /**
      * adds a new dice type to the DiceProvider
-     * @param {string} name 
-     * @param {Array<string>} sides 
+     * @param {string} name the name of the dice type
+     * @param {Array<string>} sides the sides of the dice type
      */
-    onCreateDiceClicked(name, sides) {
+    onCreateDiceTypeClicked(name, sides) {
         // called by the NewDiceTypeView
-        this.diceProvider.addDiceType(name, sides);
+        // TODO get selected DiceSet
+        let diceSetUID = this.diceSetView.getSelectedDiceSetUID();
+        let diceSet = this.diceSetProvider.getDiceSet(diceSetUID);
+        if (diceSet) {
+            // add the dice to the selected dice
+            let diceType = new DiceType(name, sides);
+            diceSet.addDiceType(diceType);
+            this.diceProvider.addDiceType(diceType);
+        }
+        else {
+            // 
+        }
+        // this.diceProvider.addDiceType(name, sides);
     }
     
     /**
@@ -107,9 +119,9 @@ export {DiceController};
      * @param {number} UID the UID of the dice type
      * @param {string} name the name of the dice type
      */
-    onDiceTypeAdded(UID, name) {
-        // called by the NewDiceTypesView
-        this.diceTypesView.displayDiceType(UID, name);
+    onDiceTypeAdded(UID, diceType) {
+        // called by the DiceProvider
+        this.diceTypesView.displayDiceType(UID, diceType.name);
     }
     
     onDiceTypeRemoved(UID) {
@@ -152,7 +164,7 @@ export {DiceController};
     onRollClicked() {
         // called by the BucketView
         this.bucket.roll();
-        let tableAudioId = Math.round(Math.random() * 1);
+        let tableAudioId = Math.round(Math.random());
         this.diceAudio.playAudio(`table-0${tableAudioId}`);
     }
     
@@ -176,7 +188,7 @@ export {DiceController};
         // - get dice set from dice set provider
         let diceSet = this.diceSetProvider.getDiceSet(UID);
         for (let diceType of diceSet.diceTypes) {
-            this.diceProvider.addDiceType(diceType[0], diceType[1]);
+            this.diceProvider.addDiceType(diceType);
         }
     }
     

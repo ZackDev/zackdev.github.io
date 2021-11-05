@@ -38,7 +38,7 @@ export { NewDiceTypeView };
         sideInput.type = "text";
         sideInput.placeholder = "enter a side value here."
         sideInput.minLength = 1;
-        sideInput.maxLength = 4;
+        sideInput.maxLength = 1;
         // the container holding buttons:
         let btnContainer = document.createElement("div");
         btnContainer.id = "btn-container";
@@ -49,7 +49,7 @@ export { NewDiceTypeView };
         addSideBtn.addEventListener("click", () => {
             let sideValue = this.sideInput.value;
             // check the input for appropriate length (one to four)
-            if (sideValue.length >= 1 && sideValue.length <= 4) {
+            if (sideValue.length == 1) {
                 let side = document.createElement("div");
                 side.classList.add("dice");
                 side.classList.add("clickable");
@@ -79,7 +79,7 @@ export { NewDiceTypeView };
             // - with minimum two sides
             // - and the length of the name bewtween one and four
             if (this.diceSides.length >= 2 && this.nameInput.value.length >= 1 && this.nameInput.value.length <= 4 ) {
-                this.controller.onCreateDiceClicked(this.nameInput.value, this.diceSides);
+                this.controller.onCreateDiceTypeClicked(this.nameInput.value, this.diceSides);
                 this.clear();
             }
         });
