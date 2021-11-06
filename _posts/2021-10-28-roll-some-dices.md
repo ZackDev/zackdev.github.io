@@ -5,6 +5,6 @@ tags: [coding, dices]
 published: true
 archived: true
 ---
-<a href="{% post_url 2021-10-28-dices-howto %}" title="Dices Howto"><img src="/assets/img/icosahedron-small.png"/></a>
+<a href="{% post_url 2021-10-28-dices-howto %}" title="Dices Howto"><img class="rotate-infinite" src="/assets/img/icosahedron-small.png"/></a>
 
 <script type="module" src="/assets/js/dice/main.js"/>
