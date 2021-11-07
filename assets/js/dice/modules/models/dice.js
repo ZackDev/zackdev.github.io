@@ -1,9 +1,11 @@
+import { DiceType } from './dicetype.js';
+
 export { Dice };
 
 /**
  * a class representing a dice
  */
- class Dice {
+ class Dice extends DiceType {
     
     /**
      * creates a dice object
@@ -11,8 +13,7 @@ export { Dice };
      * @param {Array<string>} sides the sides of the dice
      */
     constructor(name, sides) {
-        this.name = name;
-        this.sides = sides;
+        super(name, sides);
         // a placeholder for the result of roll()
         this.result = undefined;
     }
