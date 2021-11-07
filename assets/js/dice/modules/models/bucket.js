@@ -1,3 +1,5 @@
+import { UIDRandomProvider } from '../uidrandomprovider.js';
+
 export { Bucket };
 
 /**
@@ -21,8 +23,9 @@ export { Bucket };
      * @param {Dice} dice the Dice to add
      */
     addDice(dice) {
-        this.dices.set(dice.UID, dice);
-        this.controller.onDiceAddedToBucket(dice);
+        let UID = UIDRandomProvider.getUID();
+        this.dices.set(UID, dice);
+        this.controller.onDiceAddedToBucket(UID, dice);
     }
     
     /**

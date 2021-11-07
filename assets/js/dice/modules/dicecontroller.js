@@ -155,9 +155,9 @@ export {DiceController};
      * adds a dice to the BucketView
      * @param {Dice} dice the dice added to the bucket
      */
-    onDiceAddedToBucket(dice) {
+    onDiceAddedToBucket(UID, dice) {
         // called by the Bucket
-        this.bucketView.displayDice(dice.UID, dice.name);
+        this.bucketView.displayDice(UID, dice.name);
         let bucketAudioId = Math.round(Math.random() * 2);
         this.diceAudio.playAudio(`bucket-0${bucketAudioId}`);
     }

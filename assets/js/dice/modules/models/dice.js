@@ -1,5 +1,3 @@
-import { UIDRandomProvider } from '../uidrandomprovider.js';
-
 export { Dice };
 
 /**
@@ -17,8 +15,6 @@ export { Dice };
         this.sides = sides;
         // a placeholder for the result of roll()
         this.result = undefined;
-        // a UID for distinguishing a dice
-        this.UID = UIDRandomProvider.getUID();
     }
     
     /**
