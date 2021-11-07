@@ -1,8 +1,8 @@
-import { Bucket , DiceSet, DiceType } from './modelbundle.js';
-import { BucketView, DiceTypesView, NewDiceTypeView, TableView, DiceSetView } from './viewbundle.js';
+import { Bucket , DiceTypeSet, DiceType } from './modelbundle.js';
+import { BucketView, DiceTypesView, NewDiceTypeView, TableView, DiceTypeSetView } from './viewbundle.js';
 import { DiceAudio } from './diceaudio.js';
 import { DiceProvider } from './diceprovider.js';
-import { DiceSetProvider } from './dicesetprovider.js';
+import { DiceTypeSetProvider } from './dicetypesetprovider.js';
 
 
 export {DiceController};
@@ -14,12 +14,12 @@ export {DiceController};
     constructor() {
         this.diceAudio = new DiceAudio();
         this.loadSounds();
-        this.diceSetView = new DiceSetView(this);
+        this.diceTypeSetView = new DiceTypeSetView(this);
         this.diceTypesView = new DiceTypesView(this);
         this.bucketView = new BucketView(this);
         this.tableView = new TableView(this);
         this.newDiceTypeView = new NewDiceTypeView(this);
-        this.diceSetProvider = new DiceSetProvider(this);
+        this.diceTypeSetProvider = new DiceTypeSetProvider(this);
         this.diceProvider = new DiceProvider(this);
         this.bucket = new Bucket(this);
         this.addDiceSets();
@@ -55,8 +55,8 @@ export {DiceController};
             d100Sides.push(i.toString());
         }
         let sD100Type = new DiceType("D100", d100Sides);
-        let sDiceSet = new DiceSet(sDsName, [sD4fType, sD3Type, sD12Type, sD20Type, sD100Type]);
-        this.diceSetProvider.addDiceSet(sDiceSet);
+        let sDiceSet = new DiceTypeSet(sDsName, [sD4fType, sD3Type, sD12Type, sD20Type, sD100Type]);
+        this.diceTypeSetProvider.addDiceSet(sDiceSet);
 
         let bDsName = "D2-6";
         let bD2Type = new DiceType("D2", ['&#9856;', '&#9857;']);
@@ -64,8 +64,8 @@ export {DiceController};
         let bD4Type = new DiceType("D4", ['&#9856;', '&#9857;', '&#9858;', '&#9859;']);
         let bD5Type = new DiceType("D5", ['&#9856;', '&#9857;', '&#9858;', '&#9859;', '&#9860;']);
         let bD6Type = new DiceType("D6", ['&#9856;', '&#9857;', '&#9858;', '&#9859;', '&#9860;', '&#9861;']);
-        let bDiceSet = new DiceSet(bDsName, [bD2Type, bD3Type, bD4Type, bD5Type, bD6Type]);
-        this.diceSetProvider.addDiceSet(bDiceSet);
+        let bDiceSet = new DiceTypeSet(bDsName, [bD2Type, bD3Type, bD4Type, bD5Type, bD6Type]);
+        this.diceTypeSetProvider.addDiceSet(bDiceSet);
 
         /**
          * tested hieroglyphs are not available to the font 
@@ -74,7 +74,7 @@ export {DiceController};
         let hieroglyphsDsName = "hieroglyphs";
         let hType = ["all", ['&#x13001;']];
         let hDiceSet = new DiceSet(hieroglyphsDsName, [hType]);
-        this.diceSetProvider.addDiceSet(hDiceSet);
+        this.diceTypeSetProvider.addDiceSet(hDiceSet);
         */
 
         let katakanaSymbols = [];
@@ -82,7 +82,7 @@ export {DiceController};
             katakanaSymbols.push(`&#${i};`);
         }
         let kType = new DiceType("cKk", katakanaSymbols);
-        this.diceSetProvider.addDiceSet(new DiceSet("katakana", [kType]));
+        this.diceTypeSetProvider.addDiceSet(new DiceTypeSet("katakana", [kType]));
     }
 
     /**
@@ -111,8 +111,8 @@ export {DiceController};
     onCreateDiceTypeClicked(name, sides) {
         // called by the NewDiceTypeView
         // - get selected DiceSet
-        let diceSetUID = this.diceSetView.getSelectedDiceSetUID();
-        let diceSet = this.diceSetProvider.getDiceSet(diceSetUID);
+        let diceSetUID = this.diceTypeSetView.getSelectedDiceSetUID();
+        let diceSet = this.diceTypeSetProvider.getDiceSet(diceSetUID);
         if (diceSet) {
             // add the DiceType to
             // - the selected DiceSet
@@ -195,11 +195,11 @@ export {DiceController};
      * @param {UID} DiceSet the UID of the dice set to change to
      */
     onChangeDiceSetClicked(UID) {
-        // called by the DiceSetView
+        // called by the DiceTypeSetView
         // - remove the current set of dice types from the DiceProvider
         this.diceProvider.removeAllDiceTypes();
         // - get dice set from dice set provider and add it's types to the DiceProvider
-        let diceSet = this.diceSetProvider.getDiceSet(UID);
+        let diceSet = this.diceTypeSetProvider.getDiceSet(UID);
         for (let diceType of diceSet.diceTypes) {
             this.diceProvider.addDiceType(diceType);
         }
@@ -208,10 +208,10 @@ export {DiceController};
     }
     
     /**
-     * adds the dice set associated with the given UID of he dice set to the DiceSetView
+     * adds the dice set associated with the given UID of he dice set to the DiceTypeSetView
      */
     onDiceSetAdded(UID, diceSet) {
         // called by the DiceSetProvider
-        this.diceSetView.displayDiceSet(UID, diceSet.name);
+        this.diceTypeSetView.displayDiceSet(UID, diceSet.name);
     }
 }

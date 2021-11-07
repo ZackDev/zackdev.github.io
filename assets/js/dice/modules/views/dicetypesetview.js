@@ -1,9 +1,9 @@
-export { DiceSetView };
+export { DiceTypeSetView };
 
 /**
  * STUB
  */
-class DiceSetView {
+class DiceTypeSetView {
 
     /**
      * 

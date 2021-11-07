@@ -1,14 +1,14 @@
 import { UIDRandomProvider } from './uidrandomprovider.js';
-import { DiceSet } from './modelbundle.js';
+import { DiceTypeSet } from './modelbundle.js';
 
-export { DiceSetProvider };
+export { DiceTypeSetProvider };
 
 /**
  * 
  */
-class DiceSetProvider {
+class DiceTypeSetProvider {
     constructor(controller) {
-        this.diceSetMap = new Map();
+        this.diceTypeSetMap = new Map();
         this.controller = controller;
     }
     
@@ -18,7 +18,7 @@ class DiceSetProvider {
      */
     addDiceSet(diceSet) {
         let UID = UIDRandomProvider.getUID();
-        this.diceSetMap.set(UID, diceSet);
+        this.diceTypeSetMap.set(UID, diceSet);
         // notify controller about the added set
         this.controller.onDiceSetAdded(UID, diceSet);
     }
@@ -38,6 +38,6 @@ class DiceSetProvider {
      * @returns { DiceSet }
      */
     getDiceSet(UID) {
-        return this.diceSetMap.get(UID);
+        return this.diceTypeSetMap.get(UID);
     }
 }
