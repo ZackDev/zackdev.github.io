@@ -40,24 +40,44 @@ export {DiceController};
      * 
      */
     addDiceSets() {
-        // D3 dice set
+        // 'special' dice set
         let sDsName = "special";
+        
+        // - 4Df dice type
         let sD4fType = new DiceType("4Df", ['+', '+', '-', '-', '&nbsp;' , '&nbsp;']);
+        
+        // - D3 dice type
         let sD3Type = new DiceType("D3", ['&#9856;', '&#9857;', '&#9858;']);
+        
+        // - D12 dice type
         let sD12Type = new DiceType("D12", ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]);
+        
+        // - D20 dice type
         let d20Sides = [];
         for (let i=0; i<=20; i++) {
             d20Sides.push(i.toString());
         }
         let sD20Type = new DiceType("D20", d20Sides);
+        
+        // - D100 dice type
         let d100Sides = [];
         for (let i=0; i<=100; i++) {
             d100Sides.push(i.toString());
         }
         let sD100Type = new DiceType("D100", d100Sides);
-        let sDiceSet = new DiceTypeSet(sDsName, [sD4fType, sD3Type, sD12Type, sD20Type, sD100Type]);
+
+        // - Arrow dice type
+        let sASides = [];
+        for (let i = 8592; i <= 8601; i++) {
+            if (i != 8596 || i != 8597) {
+                sASides.push(`&#${i}`);
+            }
+        }
+        let sAType = new DiceType("Arr.", sASides);
+        let sDiceSet = new DiceTypeSet(sDsName, [sD4fType, sD3Type, sD12Type, sD20Type, sD100Type, sAType]);
         this.diceTypeSetProvider.addDiceSet(sDiceSet);
 
+        // D2 to D6 dice set
         let bDsName = "D2-6";
         let bD2Type = new DiceType("D2", ['&#9856;', '&#9857;']);
         let bD3Type = new DiceType("D3", ['&#9856;', '&#9857;', '&#9858;']);
@@ -77,6 +97,7 @@ export {DiceController};
         this.diceTypeSetProvider.addDiceSet(hDiceSet);
         */
 
+        // Katakana circled symbols dice set
         let katakanaSymbols = [];
         for (let i = 13008; i <= 13054; i++) {
             katakanaSymbols.push(`&#${i};`);
