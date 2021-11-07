@@ -11,11 +11,11 @@ The following charts use publicly available data surrounding the SARS-CoV-2 viru
 
 ---
 
-<div id=="chart-corona-additional-germany"></div>
+<div id="chart-corona-additional-germany"></div>
 
 ---
 
-<div id=="chart-corona-tests-germany"></div>
+<div id="chart-corona-tests-germany"></div>
 
 ---
 
@@ -23,11 +23,11 @@ The following charts use publicly available data surrounding the SARS-CoV-2 viru
 
 ---
 
-<div id=="chart-corona-vaccinations-germany"></div>
+<div id="chart-corona-vaccinations-germany"></div>
 
 ---
 
-<div id=="chart-corona-vaccinations-by-vaccine-germany"></div>
+<div id="chart-corona-vaccinations-by-vaccine-germany"></div>
 
 # Used Datasources
 * COVID-19-Cases and Incidence: [CSSE Github Repository][1]. The day to day increase in cases is a calculation on that data.
