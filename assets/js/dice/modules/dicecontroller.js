@@ -186,8 +186,8 @@ export {DiceController};
      * @param {Dice} dice the dice to add
      */
     onDiceRolled(dice) {
-        // called by the BucketView
-        this.tableView.displayDice(dice.UID, dice.name, dice.result);
+        // called by the Bucket
+        this.tableView.displayDice(dice.name, dice.result);
     }
 
     /**

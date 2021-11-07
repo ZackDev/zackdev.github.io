@@ -1,3 +1,5 @@
+import { UIDRandomProvider } from '../uidrandomprovider.js';
+
 export { TableView };
 
 /**
@@ -77,7 +79,8 @@ export { TableView };
      * @param {string} name the name of the dice
      * @param {*} result the result of the dice
      */
-    displayDice(UID, name, result) {
+    displayDice(name, result) {
+        let UID = UIDRandomProvider.getUID();
         let dice = document.createElement("div");
         dice.classList.add("dice");
         dice.classList.add("rolled");
