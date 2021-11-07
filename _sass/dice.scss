@@ -153,11 +153,11 @@
     cursor: help;
 }
 
-.rotate-infinite {
-    animation: icosahedron-rotate 300s linear infinite;
+.icosahedron-rotate {
+    animation: rotate-left 15s linear infinite;
 }
 
-@keyframes icosahedron-rotate {
+@keyframes rotate-left {
     from {
         transform: rotate(0deg)
     }
