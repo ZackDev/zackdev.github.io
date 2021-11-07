@@ -14,6 +14,7 @@ export { NewDiceTypeView };
         let root = document.createElement("div");
         root.id = "create-dice-type-container";
         root.classList.add("flex-column");
+        root.classList.add("not-selectable");
         root.classList.add("shadow");
         document.getElementById("main-content").append(root);
         this.root = root;

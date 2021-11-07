@@ -14,6 +14,7 @@ export { DiceTypesView };
         let root = document.createElement("div");
         root.id = "dice-types-container";
         root.classList.add("flex-row");
+        root.classList.add("not-selectable");
         document.getElementById("main-content").append(root);
         this.root = root;
         this.addNewDiceTypeBtn();

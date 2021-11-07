@@ -15,6 +15,7 @@ export { TableView };
         let root = document.createElement("div");
         root.id = "table-container";
         root.classList.add("flex-row");
+        root.classList.add("not-selectable");
         document.getElementById("main-content").append(root);
         this.root = root;
         this.dices = [];

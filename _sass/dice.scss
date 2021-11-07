@@ -165,3 +165,7 @@
         transform: rotate(-360deg)
     }
 }
+
+.not-selectable {
+    user-select: none;
+}
