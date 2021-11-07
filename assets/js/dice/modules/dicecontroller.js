@@ -69,7 +69,7 @@ export {DiceController};
         // - Arrow dice type
         let sASides = [];
         for (let i = 8592; i <= 8601; i++) {
-            if (i != 8596 || i != 8597) {
+            if (i != 8596 && i != 8597) {
                 sASides.push(`&#${i}`);
             }
         }
