@@ -104,18 +104,16 @@ $chicago: #605c59;
 .dice-set {
     text-align: center;
     margin: 5px 5px 5px 5px;
-    color: $silver-chalice;
-    text-decoration: underline dotted 2px;
+    color: $sorrell-brown;
+    text-decoration: underline solid 1px;
 }
 
 .dice-set.clickable:hover {
-    color: $sorrell-brown;
-    text-decoration: underline solid 2px;
+    color: $cape-palliser;
 }
 
 .selected-dice-set {
     color: $cape-palliser;
-    text-decoration: underline solid 2px;
 }
 
 .dice {
