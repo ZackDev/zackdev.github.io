@@ -87,6 +87,27 @@ export {DiceController};
         let bDiceSet = new DiceTypeSet(bDsName, [bD2Type, bD3Type, bD4Type, bD5Type, bD6Type]);
         this.diceTypeSetProvider.addDiceSet(bDiceSet);
 
+        // katakana symbols dice type set
+        let katakanaSymbols = [];
+        for (let i = 12449; i <= 12538; i++) {
+            // use uppercase katakanas only
+            if (i != 12449 &&
+                i != 12451 &&
+                i != 12453 &&
+                i != 12455 &&
+                i != 12457 &&
+                i != 12483 &&
+                i != 12515 &&
+                i != 12517 &&
+                i != 12519 &&
+                i != 12526 &&
+                i != 12537 &&
+                i != 12534 ) {
+                    katakanaSymbols.push(`&#${i};`);
+                }
+        }
+        let kDiceType = new DiceType("kata", katakanaSymbols);
+        this.diceTypeSetProvider.addDiceSet(new DiceTypeSet("katakana", [kDiceType]));
         /**
          * tested hieroglyphs are not available to the font 
          */
@@ -98,12 +119,17 @@ export {DiceController};
         */
 
         // Katakana circled symbols dice set
+        /**
+         * replaced by uncircled uppercase katakana symbols
+         */
+        /*
         let katakanaSymbols = [];
         for (let i = 13008; i <= 13054; i++) {
             katakanaSymbols.push(`&#${i};`);
         }
         let kType = new DiceType("cKk", katakanaSymbols);
         this.diceTypeSetProvider.addDiceSet(new DiceTypeSet("katakana", [kType]));
+        */
     }
 
     /**
