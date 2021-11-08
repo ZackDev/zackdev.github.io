@@ -66,15 +66,7 @@ export {DiceController};
         }
         let sD100Type = new DiceType("D100", d100Sides);
 
-        // - Arrow dice type
-        let sASides = [];
-        for (let i = 8592; i <= 8601; i++) {
-            if (i != 8596 && i != 8597) {
-                sASides.push(`&#${i};`);
-            }
-        }
-        let sAType = new DiceType("Arr.", sASides);
-        let sDiceSet = new DiceTypeSet(sDsName, [sD4fType, sD3Type, sD12Type, sD20Type, sD100Type, sAType]);
+        let sDiceSet = new DiceTypeSet(sDsName, [sD4fType, sD3Type, sD12Type, sD20Type, sD100Type]);
         this.diceTypeSetProvider.addDiceSet(sDiceSet);
 
         // D2 to D6 dice set
@@ -87,7 +79,17 @@ export {DiceController};
         let bDiceSet = new DiceTypeSet(bDsName, [bD2Type, bD3Type, bD4Type, bD5Type, bD6Type]);
         this.diceTypeSetProvider.addDiceSet(bDiceSet);
 
-        // katakana symbols dice type set
+        // symbols dice type set
+        // - Arrow dice type
+        let sASides = [];
+        for (let i = 8592; i <= 8601; i++) {
+            if (i != 8596 && i != 8597) {
+                sASides.push(`&#${i};`);
+            }
+        }
+        let sAType = new DiceType("Arr.", sASides);
+
+        // - Katakana dice type
         let katakanaSymbols = [];
         for (let i = 12449; i <= 12538; i++) {
             // use uppercase katakanas only
@@ -107,7 +109,7 @@ export {DiceController};
                 }
         }
         let kDiceType = new DiceType("kata", katakanaSymbols);
-        this.diceTypeSetProvider.addDiceSet(new DiceTypeSet("katakana", [kDiceType]));
+        this.diceTypeSetProvider.addDiceSet(new DiceTypeSet("symbols", [kDiceType, sAType]));
         /**
          * tested hieroglyphs are not available to the font 
          */
