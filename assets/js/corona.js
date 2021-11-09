@@ -8,31 +8,31 @@ const initCorona = () => {
   const dailyIcuoUrl = '/assets/json/corona_germany_daily_icuo.json';
   const vaccinationsByVaccineUrl = '/assets/json/corona_germany_vaccinations_by_vaccine.json';
 
-  async_request(dailyCasesUrl, 'json', true)
+  asyncRequest(dailyCasesUrl, 'json', true)
     .then(
       (resolve) => getAsyncDailyCasesCallback(resolve),
       (reject) => console.log(reject),
     );
 
-  async_request(weeklyTestsUrl, 'json', true)
+  asyncRequest(weeklyTestsUrl, 'json', true)
     .then(
       (resolve) => getAsyncWeeklyTestsCallback(resolve),
       (reject) => console.log(reject),
     );
 
-  async_request(dailyVaccinationsUrl, 'json', true)
+  asyncRequest(dailyVaccinationsUrl, 'json', true)
     .then(
       (resolve) => getAsyncDailyVaccinationsCallback(resolve),
       (reject) => console.log(reject),
     );
 
-  async_request(dailyIcuoUrl, 'json', true)
+  asyncRequest(dailyIcuoUrl, 'json', true)
     .then(
       (resolve) => getAsyncDailyICUOCallback(resolve),
       (reject) => console.log(reject),
     );
 
-  async_request(vaccinationsByVaccineUrl, 'json', true)
+  asyncRequest(vaccinationsByVaccineUrl, 'json', true)
     .then(
       (resolve) => getAsyncVaccinationsByVaccineCallback(resolve),
       (reject) => console.log(reject),

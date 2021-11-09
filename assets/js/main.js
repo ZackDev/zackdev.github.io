@@ -1,13 +1,13 @@
 // asynchronous http request to provided url
 // passes response object to callback_function
-const async_request = (url, type, bypass_cache) => {
+const asyncRequest = (url, type, bypassCache) => {
   console.log('async request called.');
   return new Promise((resolve, reject) => {
-    bypass_cache ? url += '?r=' + Date.now() : '';
-    let http_request = new XMLHttpRequest();
-    http_request.open("GET", url, true);
-    http_request.responseType = type;
-    http_request.onreadystatechange = function() {
+    bypassCache ? url += '?r=' + Date.now() : '';
+    let httpRequest = new XMLHttpRequest();
+    httpRequest.open("GET", url, true);
+    httpRequest.responseType = type;
+    httpRequest.onreadystatechange = function() {
       if (this.readyState === 4 ) {
         if (this.status === 200) {
           resolve(this);
@@ -18,7 +18,7 @@ const async_request = (url, type, bypass_cache) => {
       }
     };
     try {
-      http_request.send(null);
+      httpRequest.send(null);
     }
     catch (e) {
       reject(e);
@@ -26,17 +26,17 @@ const async_request = (url, type, bypass_cache) => {
   });
 };
 
-const resize_content = () => {
-  let footer_height = $("#footer-wrap").height();
-  let header_height = $("#header-wrap").height();
-  let window_height = $(window).height();
-  let min_height = window_height - header_height - footer_height;
-  if (min_height > 0) {
-    $('#main-content-wrap').css('min-height', min_height + 'px');
+const resizeContent = () => {
+  let footerHeight = $("#footer-wrap").height();
+  let headerHeight = $("#header-wrap").height();
+  let windowHeight = $(window).height();
+  let minHeight = windowHeight - headerHeight - footerHeight;
+  if (minHeight > 0) {
+    $('#main-content-wrap').css('min-height', minHeight + 'px');
   }
 }
 
-const init_highcharts = () => {
+const initHighcharts = () => {
   Highcharts.setOptions({
     chart: {
       styledMode: true
@@ -45,42 +45,42 @@ const init_highcharts = () => {
 }
 
 class Init {
-  static function_array = new Array();
+  static functionArray = new Array();
   static run() {
-    for (let f in Init.function_array) {
-      Init.function_array[f]();
+    for (let f in Init.functionArray) {
+      Init.functionArray[f]();
     }
   }
   constructor(func) {
     if (typeof func === 'function') {
-      Init.function_array.push(func);
+      Init.functionArray.push(func);
       console.log('Init: ' + func + ' added.');
     }
   }
 }
 
 class Tacho {
-  constructor(initial_value, target_value, step_value, step_speed, dynamic_speed, target_div, prefix, suffix) {
-    this.initial_value = initial_value;
-    this.target_value = target_value;
-    this.step_value = step_value;
-    this.step_speed = step_speed;
-    this.dynamic_speed = dynamic_speed;
-    this.target_div = target_div;
+  constructor(initialValue, targetValue, stepValue, stepSpeed, dynamicSpeed, targetDiv, prefix, suffix) {
+    this.initialValue = initialValue;
+    this.targetValue = targetValue;
+    this.stepValue = stepValue;
+    this.stepSpeed = stepSpeed;
+    this.dynamicSpeed = dynamicSpeed;
+    this.targetDiv = targetDiv;
     this.prefix = prefix;
     this.suffix = suffix;
     this.direction = "";
     this.numsteps = 0;
-    if (this.initial_value < this.target_value) {
-      this.numsteps = (this.target_value - this.initial_value) / this.step_value;
+    if (this.initialValue < this.targetValue) {
+      this.numsteps = (this.targetValue - this.initialValue) / this.stepValue;
       this.direction = "increase";
     }
-    else if (this.initial_value > this.target_value) {
-      this.numsteps = (this.initial_value - this.target_value) / this.step_value;
+    else if (this.initialValue > this.targetValue) {
+      this.numsteps = (this.initialValue - this.targetValue) / this.stepValue;
       this.direction = "decrease";
     }
     try {
-      this.target_div = document.getElementById(target_div);
+      this.targetDiv = document.getElementById(targetDiv);
     }
     catch(error){
       console.log(error.message);
@@ -88,29 +88,29 @@ class Tacho {
   }
   run(){
     for (let i=0; i<=this.numsteps; i++) {
-      this.step_speed = this.step_speed * this.dynamic_speed;
-      let timeout = i * this.step_speed;
+      this.stepSpeed = this.stepSpeed * this.dynamicSpeed;
+      let timeout = i * this.stepSpeed;
       setTimeout(function(){
         let value = 0;
         if (i == this.numsteps) {
-          value = this.target_value;
+          value = this.targetValue;
         }
         else if (i < this.numsteps) {
           if (this.direction === "increase") {
-            value = this.initial_value + this.step_value * i;
+            value = this.initialValue + this.stepValue * i;
           }
           else if (this.direction === "decrease") {
-            value = this.initial_value - this.step_value * i;
+            value = this.initialValue - this.stepValue * i;
           }
         }
-        this.target_div.innerHTML = this.prefix + value + this.suffix;
+        this.targetDiv.innerHTML = this.prefix + value + this.suffix;
       }.bind(this), timeout);
     }
   }
 }
 
-new Init(resize_content);
-new Init(init_highcharts);
+new Init(resizeContent);
+new Init(initHighcharts);
 
 document.onreadystatechange = () => {
   if (document.readyState === 'complete') {
