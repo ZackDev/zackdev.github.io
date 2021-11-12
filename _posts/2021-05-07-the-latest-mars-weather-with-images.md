@@ -8,7 +8,7 @@ archived: true
 
 # Ever wanted to know how the weather is like on `Mars` ?
 
-The weather data is obtained through [InSight: Mars Weather Service API][1] which provides data collected by the `InSight Lander` on the surface or Mars.
+<s>The weather data is obtained through [InSight: Mars Weather Service API][1] which provides data collected by the `InSight Lander` on the surface or Mars.</s>
 
 <div id="weather-table-wrap"></div>
 
@@ -17,6 +17,9 @@ The weather data is obtained through [InSight: Mars Weather Service API][1] whic
 As addition, a random image from the latest images shot by the rover `Perseverance` is presented above. It is retrieved through the [Mars Rover Photos API][1].
 
 [1]: <https://api.nasa.gov/> "NASA Open APIs"
+
+# Update 2021-11-12
+Retrieval and display of weather data has been disabled. The `Insight's` weather data remains incomplete and unusable.
 
 # Notes:
 * the weather data is not always available or complete

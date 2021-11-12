@@ -1,17 +1,20 @@
 const initMars = () => {
-
-  $('#weather-table-wrap').attr('style', 'display:flex;');
+  // disabled insight weather
+  //$('#weather-table-wrap').attr('style', 'display:flex;');
 
   $('#perseverance-image').addClass('image-wrap');
 
   let insightApiUrl = 'https://api.nasa.gov/insight_weather/?feedtype=json&ver=1.0&api_key=DEMO_KEY';
   let marsPhotosApiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/latest_photos?api_key=DEMO_KEY';
-
+  
+  // disabled insight weather
+  /*
   asyncRequest(insightApiUrl, 'json', false)
     .then(
       resolve => insightCallback(resolve),
       reject => console.log(reject)
     );
+  */
 
   asyncRequest(marsPhotosApiUrl, 'json', false)
     .then(
