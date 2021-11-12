@@ -1,20 +1,20 @@
 ---
-title: The Latest Mars Weather With Images
+title: The Latest Mars Images
 layout: default
 tags: [mars, weather, NASA]
 published: true
 archived: true
 ---
 
-# Ever wanted to know how the weather is like on `Mars` ?
+# Ever wanted to know how it looks like on `Mars` ?
+
+<div id="perseverance-image"></div>
+
+A random image from the latest images shot by the rover `Perseverance` is presented above. It is retrieved through the [Mars Rover Photos API][1].
 
 <s>The weather data is obtained through [InSight: Mars Weather Service API][1] which provides data collected by the `InSight Lander` on the surface or Mars.</s>
 
 <div id="weather-table-wrap"></div>
-
-<div id="perseverance-image"></div>
-
-As addition, a random image from the latest images shot by the rover `Perseverance` is presented above. It is retrieved through the [Mars Rover Photos API][1].
 
 [1]: <https://api.nasa.gov/> "NASA Open APIs"
 
