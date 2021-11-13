@@ -1,0 +1,32 @@
+#album-container {
+    // placeholder
+}
+
+#album-preview-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.album-preview-selected-image {
+    height: 50px;
+    border: 1px solid $orange;
+}
+
+.album-preview-image {
+    height: 50px;
+    padding: 1px;
+}
+
+.album-preview-image:hover {
+    cursor: pointer;
+}
+
+.album-preview-selected-image:hover, .album-preview-image:hover {
+    transition: transform 1s;
+    transform: scale(1.01, 1.01);
+}
+

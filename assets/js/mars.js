@@ -1,3 +1,5 @@
+import { Album } from './image-selector.js';
+
 const initMars = () => {
   // disabled insight weather
   //$('#weather-table-wrap').attr('style', 'display:flex;');
@@ -186,8 +188,11 @@ const insightCallback = (callbackObject) => {
 
 const photosCallback = (callbackObject) => {
   let photos = callbackObject.response.latest_photos;
-  photos = photos.filter(photo => photo.camera.name !== 'SHERLOC_WATSON');
-
+  let a = new Album("album-container");
+  for (let photo of photos) {
+    a.addImage(photo.img_src);
+  }
+  /*
   if (photos.length > 0) {
     let rndPhoto = photos[Math.floor(Math.random() * photos.length)];
     let imgUrl = rndPhoto.img_src;
@@ -210,6 +215,7 @@ const photosCallback = (callbackObject) => {
 
     $('#perseverance-image').append(figure);
   }
+  */
 }
 
 
