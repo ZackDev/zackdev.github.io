@@ -62,16 +62,16 @@ class Album {
     }
 
     changeSelectedImageByIndex(i) {
-        // de-highlight the selected preview image
+        // de-highlight the previously selected preview image
         if (this.selectedImageIndex !== undefined) {
+            let pI = document.getElementById(`album-preview-image-${this.selectedImageIndex}`);
             if (pI !== null) {
-                let pI = document.getElementById(`album-preview-image-${this.selectedImageIndex}`);
                 pI.classList.add("album-preview-image");
                 pI.classList.remove("album-preview-selected-image");
             }
         }
 
-        // highlight the previously preview image
+        // highlight the selected preview image
         let s = document.getElementById(`album-preview-image-${i}`);
         if (s !== null) {
             s.classList.add("album-preview-selected-image");
