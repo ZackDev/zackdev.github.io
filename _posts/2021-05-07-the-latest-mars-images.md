@@ -10,11 +10,8 @@ archived: true
 
 <div id="album-container"></div>
 
-The images above are retrieved through the [Mars Rover Photos API][1].
+> The images above are retrieved through the [Mars Rover Photos API][1].
 
 [1]: <https://api.nasa.gov/> "NASA Open APIs"
-
-# Update 2021-11-12
-Retrieval and display of weather data has been disabled. The `Insight's` weather data remains incomplete and unusable.
 
 <script type="module" src="/assets/js/mars.js" />

@@ -2,6 +2,16 @@
     // placeholder
 }
 
+#album-main-image-container {
+    transition: height 1000ms ease-out;
+    padding: 0 0 10px 0;
+    width: auto;
+}
+
+#album-main-image {
+    // placeholder
+}
+
 #album-preview-container {
     display: flex;
     flex-direction: row;
@@ -26,7 +36,7 @@
 }
 
 .album-preview-selected-image:hover, .album-preview-image:hover {
-    transition: transform 1s;
+    transition: transform 1s linear;
     transform: scale(1.01, 1.01);
 }
 

@@ -15,13 +15,24 @@ class Album {
             document.body.append(this.root);
         }
         // create HTML-Elements containing:
+        // - container for the selected image
         // - the selected image
         // - preview container, holding smaller preview versions of the images in the album
+        let mainImageContainer = document.createElement("div");
+        mainImageContainer.id = "album-main-image-container";
         let mainImage = document.createElement("img");
+        mainImage.id = "album-main-image";
+        mainImage.addEventListener("load", () => {
+            // set height style to trigger transformation
+            let height = this.mainImage.height;
+            this.mainImageContainer.style.height = `${height}px`;
+        });
+        mainImageContainer.append(mainImage);
         let imagesPreviewContainer = document.createElement("div");
         imagesPreviewContainer.id = "album-preview-container";
-        this.root.append(mainImage);
+        this.root.append(mainImageContainer);
         this.root.append(imagesPreviewContainer);
+        this.mainImageContainer = mainImageContainer;
         this.mainImage = mainImage;
         this.imagesPreviewContainer = imagesPreviewContainer;
     }
