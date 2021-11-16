@@ -40,6 +40,15 @@ class Album {
         this.mainImageContainer = mainImageContainer;
         this.mainImage = mainImage;
         this.imagesPreviewContainer = imagesPreviewContainer;
+
+        this.mainImageContainer.addEventListener("transitionend", (event) => {
+            if (event.propertyName === "opacity") {
+                let opacity = Number(this.mainImageContainer.style.opacity);
+                if (opacity === 0) {
+                    this.mainImageContainer.style.opacity = "1";
+                }
+            }
+        });
     }
 
     addImage(url) {
@@ -55,10 +64,6 @@ class Album {
             this.changeSelectedImageByIndex(index);
         });
         this.imagesPreviewContainer.append(previewImage);
-        if (this.images.length === 1) {
-            // preselect the first image added to the album
-            this.changeSelectedImageByIndex(0);
-        }
     }
 
     changeSelectedImageByIndex(i) {
@@ -76,10 +81,10 @@ class Album {
         if (s !== null) {
             s.classList.add("album-preview-selected-image");
             s.classList.remove("album-preview-image");
-            s.removeEventListener("click", this.changeSelectedImageByIndex, i);
         }
 
         // change the main image
+        this.mainImageContainer.style.opacity = "0";
         this.mainImage.src = this.images[i];
         this.selectedImageIndex = i;
     }

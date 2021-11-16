@@ -3,8 +3,8 @@
 }
 
 #album-main-image-container {
-    transition: height 1000ms ease-out;
-    padding: 0 0 10px 0;
+    transition: height 500ms ease-in, opacity 500ms ease-out;
+    opacity: 1;
     width: auto;
 }
 
@@ -17,6 +17,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 5px;
+    margin: 5px 0 0 5px;
     align-items: center;
     justify-content: space-between;
 }
@@ -24,6 +25,7 @@
 .album-preview-selected-image {
     height: 50px;
     border: 1px solid $orange;
+    pointer-events: none;
 }
 
 .album-preview-image {
