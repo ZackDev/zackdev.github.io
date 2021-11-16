@@ -1,4 +1,4 @@
-import { Album } from './image-selector.js';
+import { Album } from './album.js';
 
 const initMars = () => {
   // disabled insight weather
