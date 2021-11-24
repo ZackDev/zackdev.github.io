@@ -24,13 +24,14 @@
 
 .album-preview-selected-image {
     height: 50px;
-    border: 1px solid $orange;
+    border: 2px solid $wine-berry;
+    border-radius: 5px;
     pointer-events: none;
 }
 
 .album-preview-image {
     height: 50px;
-    padding: 1px;
+    padding: 2px;
     transition: opacity 500ms ease-out;
 }
 
