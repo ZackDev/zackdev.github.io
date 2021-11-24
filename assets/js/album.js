@@ -2,24 +2,32 @@ export { Album }
 
 class Album {
     constructor(attachTo) {
-        this.selectedImageIndex = undefined;
-        this.images = [];
         if (attachTo !== undefined) {
             // append to the div identified by "attachTo"
             this.root = document.getElementById(attachTo);
+            if (this.root === null) {
+                console.log(`HTMLElement: "${attachTo}" not found.`);
+            }
         } else {
-            // append "album-container" div to document.body
+            // create and append "album-container" div to document.body
             let albumContainer = document.createElement("div");
             albumContainer.id = "album-container";
             this.root = albumContainer;
             document.body.append(this.root);
         }
+
+        // array holding the album's images' urls
+        this.images = [];
+
+        // for storing the index of the selected image
+        this.selectedImageIndex = undefined;
+
         // create HTML-Elements:
-        // the container for the selected image
+        // - the container for the selected image
         let mainImageContainer = document.createElement("div");
         mainImageContainer.id = "album-main-image-container";
 
-        // the selected image
+        // - the selected image
         let mainImage = document.createElement("img");
         mainImage.id = "album-main-image";
         mainImage.addEventListener("load", () => {
@@ -27,7 +35,7 @@ class Album {
             let height = this.mainImage.height;
             this.mainImageContainer.style.height = `${height}px`;
         });
-        // the preview container, holding smaller preview versions of the images in the album
+        // - the preview container, holding smaller preview versions of the images in the album
         let imagesPreviewContainer = document.createElement("div");
         imagesPreviewContainer.id = "album-preview-container";
         mainImageContainer.append(mainImage);
@@ -41,6 +49,7 @@ class Album {
         this.mainImage = mainImage;
         this.imagesPreviewContainer = imagesPreviewContainer;
 
+        // triggers the 'fade-in' animation of the main image
         this.mainImageContainer.addEventListener("transitionend", (event) => {
             if (event.propertyName === "opacity") {
                 let opacity = Number(this.mainImageContainer.style.opacity);
@@ -52,10 +61,10 @@ class Album {
     }
 
     addImage(url) {
-        // add the image url to the album
+        // add the image url to the images array
         let index = this.images.push(url) -1;
         
-        // create a preview element for it
+        // create a preview element
         let previewImage = document.createElement("img");
         previewImage.classList.add("album-preview-image");
         previewImage.id = `album-preview-image-${index}`;
@@ -65,8 +74,11 @@ class Album {
             this.changeSelectedImageByIndex(index);
         });
         previewImage.addEventListener("load", () => {
+            // triggers the 'fade-in' animation for the preview image
             previewImage.style.opacity = "1";
         });
+
+        // add it to the preview container
         this.imagesPreviewContainer.append(previewImage);
     }
 
@@ -88,6 +100,9 @@ class Album {
         }
 
         // change the main image
+        // - trigger 'fade-out' animation
+        // - change the main image url
+        // - update the selected image index
         this.mainImageContainer.style.opacity = "0";
         this.mainImage.src = this.images[i];
         this.selectedImageIndex = i;
