@@ -62,7 +62,11 @@ Line 4 defines the values that are chosen at random and appended to the output a
 
 A play on the bias above is the `Texas Sharpshooter Fallacy`. This fallacy in thinking is self-induced and bluntly goes like this:
 
-A man practices by shooting at his barn in Texas. Most of the shots randomly hit the barn but some cluster around a specific area. The alleged *Texas Sharpshooter* then draws a circle around the cluster and claims being talented in handling guns. *While the Illusory Pattern Perception emerges from a wrong perception, the TSF emerges from willingly drawing wrong conclusions.*
+A man practices by shooting at his barn in Texas. Most of the shots randomly hit the barn but some cluster around a specific area. The alleged *Texas Sharpshooter* then draws a circle around the cluster and claims being talented at handling guns. *While the Illusory Pattern Perception emerges from a wrong perception, the TSF emerges from willingly drawing wrong conclusions.*
+
+# Positivity Bias
+The tendency to positivize circumstances, with `Negativity Bias` as it's counterpart. Best described with the following meme:
+{% include image.html url="/assets/img/this-is-fine.jpeg" description="<a href='https://i.imgur.com/2sOw7GL.jpeg'>https://i.imgur.com/2sOw7GL.jpeg</a>" %}
 
 # Conclusion
 Though one may be convinced that his or her decision making process is purely rational, biases distort thinking. By being aware of those biases, one maintains his ability of critical thinking.
