@@ -31,6 +31,7 @@
 .album-preview-image {
     height: 50px;
     padding: 1px;
+    transition: opacity 500ms ease-out;
 }
 
 .album-preview-image:hover {

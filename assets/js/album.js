@@ -60,8 +60,12 @@ class Album {
         previewImage.classList.add("album-preview-image");
         previewImage.id = `album-preview-image-${index}`;
         previewImage.src = url;
+        previewImage.style.opacity = "0";
         previewImage.addEventListener("click", () => {
             this.changeSelectedImageByIndex(index);
+        });
+        previewImage.addEventListener("load", () => {
+            previewImage.style.opacity = "1";
         });
         this.imagesPreviewContainer.append(previewImage);
     }
