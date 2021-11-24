@@ -26,6 +26,16 @@ class Album {
         // - the container for the selected image
         let mainImageContainer = document.createElement("div");
         mainImageContainer.id = "album-main-image-container";
+        
+        // triggers the 'fade-in' animation of the main image
+        mainImageContainer.addEventListener("transitionend", (event) => {
+            if (event.propertyName === "opacity") {
+                let opacity = Number(this.mainImageContainer.style.opacity);
+                if (opacity === 0) {
+                    this.mainImageContainer.style.opacity = "1";
+                }
+            }
+        });
 
         // - the selected image
         let mainImage = document.createElement("img");
@@ -35,10 +45,11 @@ class Album {
             let height = this.mainImage.height;
             this.mainImageContainer.style.height = `${height}px`;
         });
+        mainImageContainer.append(mainImage);
+
         // - the preview container, holding smaller preview versions of the images in the album
         let imagesPreviewContainer = document.createElement("div");
         imagesPreviewContainer.id = "album-preview-container";
-        mainImageContainer.append(mainImage);
 
         // add them to the DOM
         this.root.append(mainImageContainer);
@@ -49,15 +60,7 @@ class Album {
         this.mainImage = mainImage;
         this.imagesPreviewContainer = imagesPreviewContainer;
 
-        // triggers the 'fade-in' animation of the main image
-        this.mainImageContainer.addEventListener("transitionend", (event) => {
-            if (event.propertyName === "opacity") {
-                let opacity = Number(this.mainImageContainer.style.opacity);
-                if (opacity === 0) {
-                    this.mainImageContainer.style.opacity = "1";
-                }
-            }
-        });
+
     }
 
     addImage(url) {
@@ -101,7 +104,7 @@ class Album {
 
         // change the main image
         // - trigger 'fade-out' animation
-        // - change the main image url
+        // - change the main image src attribute
         // - update the selected image index
         this.mainImageContainer.style.opacity = "0";
         this.mainImage.src = this.images[i];
