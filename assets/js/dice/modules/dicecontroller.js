@@ -1,5 +1,4 @@
 import { Bucket , DiceTypeSet, DiceType } from './modelbundle.js';
-import { BucketView, DiceTypesView, NewDiceTypeView, TableView, DiceTypeSetView } from './viewbundle.js';
 import { DiceAudio } from './diceaudio.js';
 import { DiceProvider } from './diceprovider.js';
 import { DiceTypeSetProvider } from './dicetypesetprovider.js';
@@ -14,11 +13,9 @@ export {DiceController};
     constructor() {
         this.diceAudio = new DiceAudio();
         this.loadSounds();
-        this.diceTypeSetView = new DiceTypeSetView(this);
-        this.diceTypesView = new DiceTypesView(this);
-        this.bucketView = new BucketView(this);
-        this.tableView = new TableView(this);
-        this.newDiceTypeView = new NewDiceTypeView(this);
+    }
+
+    onViewInit() {
         this.diceTypeSetProvider = new DiceTypeSetProvider(this);
         this.diceProvider = new DiceProvider(this);
         this.bucket = new Bucket(this);
