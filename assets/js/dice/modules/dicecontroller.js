@@ -42,28 +42,25 @@ export {DiceController};
         
         // - 4Df dice type
         let sD4fType = new DiceType("4Df", ['+', '+', '-', '-', '&nbsp;' , '&nbsp;']);
-        
-        // - D3 dice type
-        let sD3Type = new DiceType("D3", ['&#9856;', '&#9857;', '&#9858;']);
-        
+             
         // - D12 dice type
         let sD12Type = new DiceType("D12", ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]);
         
         // - D20 dice type
         let d20Sides = [];
-        for (let i=0; i<=20; i++) {
+        for (let i=1; i<=20; i++) {
             d20Sides.push(i.toString());
         }
         let sD20Type = new DiceType("D20", d20Sides);
         
         // - D100 dice type
         let d100Sides = [];
-        for (let i=0; i<=100; i++) {
+        for (let i=1; i<=100; i++) {
             d100Sides.push(i.toString());
         }
         let sD100Type = new DiceType("D100", d100Sides);
 
-        let sDiceSet = new DiceTypeSet(sDsName, [sD4fType, sD3Type, sD12Type, sD20Type, sD100Type]);
+        let sDiceSet = new DiceTypeSet(sDsName, [sD4fType, sD12Type, sD20Type, sD100Type]);
         this.diceTypeSetProvider.addDiceSet(sDiceSet);
 
         // D2 to D6 dice set
@@ -80,7 +77,7 @@ export {DiceController};
         // - Arrow dice type
         let sASides = [];
         for (let i = 8592; i <= 8601; i++) {
-            if (i != 8596 && i != 8597) {
+            if (i != 8596 || i != 8597) {
                 sASides.push(`&#${i};`);
             }
         }
@@ -90,17 +87,17 @@ export {DiceController};
         let katakanaSymbols = [];
         for (let i = 12449; i <= 12538; i++) {
             // use uppercase katakanas only
-            if (i != 12449 &&
-                i != 12451 &&
-                i != 12453 &&
-                i != 12455 &&
-                i != 12457 &&
-                i != 12483 &&
-                i != 12515 &&
-                i != 12517 &&
-                i != 12519 &&
-                i != 12526 &&
-                i != 12537 &&
+            if (i != 12449 ||
+                i != 12451 ||
+                i != 12453 ||
+                i != 12455 ||
+                i != 12457 ||
+                i != 12483 ||
+                i != 12515 ||
+                i != 12517 ||
+                i != 12519 ||
+                i != 12526 ||
+                i != 12537 ||
                 i != 12534 ) {
                     katakanaSymbols.push(`&#${i};`);
                 }
