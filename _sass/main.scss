@@ -87,9 +87,10 @@ body {
   font-family: 'DejaVu serif';
   line-height: 1.5;
   margin-bottom: 168px;
-  background-image: url('../img/background.png');
-  background-color: rgb(31, 31, 31);
-  background-repeat: repeat;
+  // background-image: url('../img/background.png');
+  // background-repeat: repeat;
+  // background-color: rgb(31, 31, 31);
+  background-color: $white;
 }
 
 code.language-plaintext {
