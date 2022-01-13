@@ -1,6 +1,5 @@
 ---
 title: Why Coding Style Is Useful
-layout: default
 tags: [coding, style, python]
 published: true
 archived: true

@@ -1,6 +1,5 @@
 ---
 title: Machine Soul
-layout: default
 tags: [fiction]
 published: true
 archived: true

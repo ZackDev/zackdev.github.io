@@ -1,6 +1,5 @@
 ---
 title: Digital Security And Political Power Transition
-layout: default
 tags: [afghanistan, data security]
 published: true
 archived: true

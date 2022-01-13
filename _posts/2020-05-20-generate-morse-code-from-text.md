@@ -1,6 +1,5 @@
 ---
 title: Generate Morse Code From Text
-layout: default
 tags: [coding, morse]
 published: true
 archived: true

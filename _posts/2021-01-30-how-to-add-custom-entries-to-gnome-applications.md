@@ -1,6 +1,5 @@
 ---
 title: How To Add Custom Entries To Gnome Applications
-layout: default
 tags: [linux, gnome, applications]
 published: true
 archived: true

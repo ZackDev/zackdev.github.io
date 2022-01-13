@@ -1,6 +1,5 @@
 ---
 title: dices howto
-layout: default
 tags: [howto]
 published: true
 archived: true

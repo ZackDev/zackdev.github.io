@@ -1,6 +1,5 @@
 ---
 title: A Simple Browser-Based Ping
-layout: default
 tags: [coding, ping]
 published: true
 archived: false

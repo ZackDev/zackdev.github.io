@@ -1,6 +1,5 @@
 ---
 title: Corona Chart For Germany
-layout: default
 tags: [corona, virus, germany, chart]
 published: true
 archived: false

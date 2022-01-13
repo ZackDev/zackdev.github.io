@@ -1,6 +1,5 @@
 ---
 title: The Latest Mars Images
-layout: default
 tags: [mars, images, NASA]
 published: true
 archived: false
