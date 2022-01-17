@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
+    {% assign title = "zackdev" %}
+    {% if page.url != "/" %}
+      {% assign title = page.title %}
+    {% endif %}
+    <title>{{ title }}</title>
     <meta charset="utf-8">
     <meta name="robots" content="noindex, nofollow">
     <script type="text/javascript" src="/assets/js/main.js"></script>
