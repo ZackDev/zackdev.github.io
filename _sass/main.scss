@@ -162,12 +162,12 @@ p {
 }
 
 a {
-  text-decoration: underline $blue;
-  color: $blue;
+  text-decoration: underline dotted $dark-grey;
+  color: $black;
 }
 
 a:hover {
-  text-decoration: underline dotted $blue;
+  text-decoration: underline $dark-grey;
 }
 
 footer a {
@@ -201,11 +201,11 @@ blockquote {
 }
 
 ul.index-menu {
-  list-style: disc;
+  list-style: square;
 }
 
 ul.index-menu li {
-  margin: 5px 0 5px 0;
+  margin: 10px 0 10px 0;
 }
 
 .outer {
@@ -226,7 +226,7 @@ ul.index-menu li {
   background: $dark-grey;
   z-index: 2;
   opacity: 0.95;
-  box-shadow: 0 5px 5px $dark-grey;
+  box-shadow: 0 2px 2px $dark-grey;
 }
 
 #main-content-wrap {
@@ -248,7 +248,7 @@ ul.index-menu li {
   background: $dark-grey;
   z-index: 2;
   opacity: 0.95;
-  box-shadow: 0 -5px 5px $dark-grey;
+  box-shadow: 0 -2px 2px $dark-grey;
 }
 
 #page-title {
