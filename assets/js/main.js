@@ -3,7 +3,7 @@ const checkResponse = (response) => {
     return Promise.resolve(response);
   }
   else {
-    return Promise.reject(`error resolving url ${response.url}`);
+    return Promise.reject(`error: url ${response.url}, ok: ${response.ok}, status: ${response.status}`);
   }
 }
 
