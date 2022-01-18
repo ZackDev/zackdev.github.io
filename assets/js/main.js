@@ -1,3 +1,12 @@
+const checkResponse = (response) => {
+  if (response.ok && response.status === 200) {
+    return Promise.resolve(response);
+  }
+  else {
+    return Promise.reject(`error resolving url ${response.url}`);
+  }
+}
+
 const resizeContent = () => {
   let footerHeight = $("#footer-wrap").height();
   let headerHeight = $("#header-wrap").height();
@@ -26,7 +35,6 @@ class Init {
   constructor(func) {
     if (typeof func === 'function') {
       Init.functionArray.push(func);
-      console.log('Init: ' + func + ' added.');
     }
   }
 }

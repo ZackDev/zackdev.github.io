@@ -8,30 +8,80 @@ const initCorona = () => {
   const dailyIcuoUrl = '/assets/json/corona_germany_daily_icuo.json';
   const vaccinationsByVaccineUrl = '/assets/json/corona_germany_vaccinations_by_vaccine.json';
 
-  let fInit = {
+  const fInit = {
     method: 'GET',
     cache: 'no-cache'
   }
 
+  /** */
   fetch(dailyCasesUrl, fInit)
-    .then(r => r.json())
-    .then(d => getAsyncDailyCasesCallback(d));
+  .then(
+    res => checkResponse(res),
+    rej => console.log(rej))
+  .then(
+    res => res.json(),
+    rej => console.log(rej)
+  )
+  .then(
+    res => getAsyncDailyCasesCallback(res),
+    rej => console.log(rej)
+  );
 
+  /** */
   fetch(weeklyTestsUrl, fInit)
-    .then(r => r.json())
-    .then(d => getAsyncWeeklyTestsCallback(d));
+  .then(
+    res => checkResponse(res),
+    rej => console.log(rej))
+  .then(
+    res => res.json(),
+    rej => console.log(rej)
+  )
+  .then(
+    res => getAsyncWeeklyTestsCallback(res),
+    rej => console.log(rej)
+  );
 
+  /** */
   fetch(dailyVaccinationsUrl, fInit)
-    .then(r => r.json())
-    .then(d => getAsyncDailyVaccinationsCallback(d));
+  .then(
+    res => checkResponse(res),
+    rej => console.log(rej))
+  .then(
+    res => res.json(),
+    rej => console.log(rej)
+  )
+  .then(
+    res => getAsyncDailyVaccinationsCallback(res),
+    rej => console.log(rej)
+  );
 
+  /** */
   fetch(dailyIcuoUrl, fInit)
-    .then(r => r.json())
-    .then(d => getAsyncDailyICUOCallback(d));
+  .then(
+    res => checkResponse(res),
+    rej => console.log(rej))
+  .then(
+    res => res.json(),
+    rej => console.log(rej)
+  )
+  .then(
+    res => getAsyncDailyICUOCallback(res),
+    rej => console.log(rej)
+  );
 
+  /** */
   fetch(vaccinationsByVaccineUrl, fInit)
-    .then(r => r.json())
-    .then(d => getAsyncVaccinationsByVaccineCallback(d));
+  .then(
+    res => checkResponse(res),
+    rej => console.log(rej))
+  .then(
+    res => res.json(),
+    rej => console.log(rej)
+  )
+  .then(
+    res => getAsyncVaccinationsByVaccineCallback(res),
+    rej => console.log(rej)
+  );
 
 };
 
