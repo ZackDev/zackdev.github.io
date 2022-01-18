@@ -10,6 +10,7 @@ const initMars = () => {
   let marsPhotosApiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/latest_photos?api_key=DEMO_KEY';
   
   // disabled insight weather
+  // NOTE: asyncRequest is outdated, use fetch() instead
   /*
   asyncRequest(insightApiUrl, 'json', false)
     .then(
@@ -17,12 +18,16 @@ const initMars = () => {
       reject => console.log(reject)
     );
   */
+  
+  let fInit = {
+    method: 'GET',
+    cache: 'no-cache'
+  }
 
-  asyncRequest(marsPhotosApiUrl, 'json', false)
-    .then(
-      resolve => photosCallback(resolve),
-      reject => console.log(reject)
-    );
+  fetch(marsPhotosApiUrl, fInit)
+    .then(r => r.json())
+    .then(d => photosCallback(d))
+  
   /* for debugging w/o using the API */
   /*
   insightCallback(
@@ -187,7 +192,7 @@ const insightCallback = (callbackObject) => {
 }
 
 const photosCallback = (callbackObject) => {
-  let photos = callbackObject.response.latest_photos;
+  let photos = callbackObject.latest_photos;
   let a = new Album("album-container");
   for (let photo of photos) {
     a.addImage(photo.img_src);

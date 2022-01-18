@@ -1,31 +1,3 @@
-// asynchronous http request to provided url
-// passes response object to callback_function
-const asyncRequest = (url, type, bypassCache) => {
-  console.log('async request called.');
-  return new Promise((resolve, reject) => {
-    bypassCache ? url += '?r=' + Date.now() : '';
-    let httpRequest = new XMLHttpRequest();
-    httpRequest.open("GET", url, true);
-    httpRequest.responseType = type;
-    httpRequest.onreadystatechange = function() {
-      if (this.readyState === 4 ) {
-        if (this.status === 200) {
-          resolve(this);
-        }
-        else {
-          reject(this);
-        }
-      }
-    };
-    try {
-      httpRequest.send(null);
-    }
-    catch (e) {
-      reject(e);
-    }
-  });
-};
-
 const resizeContent = () => {
   let footerHeight = $("#footer-wrap").height();
   let headerHeight = $("#header-wrap").height();

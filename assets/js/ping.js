@@ -4,23 +4,18 @@ const runPing = (interval, targetUrl, dataset) => {
 };
 
 const ping = (targetUrl, dataset) => {
-  let httpRequest = new XMLHttpRequest();
-  targetUrl += '?r=' + Date.now(); /* prevent json file from getting cached */
-  httpRequest.responseType = "json";
-  httpRequest.onreadystatechange = function () {
-    if (this.readyState == 4) {
-      if (this.status == 200) {
-        let timeElapsed = Date.now() - nowMs;
-        dataset.addPoint(timeElapsed, true, false);
-      }
-      else {
-        console.log('ping.js: request completed with status code: ' + this.status);
-      }
-    }
-  };
-  httpRequest.open("GET", targetUrl, true);
+  let fInit = {
+    method: 'GET',
+    cache: 'no-cache'
+  }
+
   let nowMs = Date.now();
-  httpRequest.send(null);
+  fetch(targetUrl, fInit)
+    .then(r => r.json())
+    .then(d => {
+      let timeElapsed = Date.now() - nowMs;
+      dataset.addPoint(timeElapsed, true, false);
+    })
 };
 
 const initChart = (interval) => {

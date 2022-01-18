@@ -8,41 +8,38 @@ const initCorona = () => {
   const dailyIcuoUrl = '/assets/json/corona_germany_daily_icuo.json';
   const vaccinationsByVaccineUrl = '/assets/json/corona_germany_vaccinations_by_vaccine.json';
 
-  asyncRequest(dailyCasesUrl, 'json', true)
-    .then(
-      (resolve) => getAsyncDailyCasesCallback(resolve),
-      (reject) => console.log(reject),
-    );
+  let fInit = {
+    method: 'GET',
+    cache: 'no-cache'
+  }
 
-  asyncRequest(weeklyTestsUrl, 'json', true)
-    .then(
-      (resolve) => getAsyncWeeklyTestsCallback(resolve),
-      (reject) => console.log(reject),
-    );
+  fetch(dailyCasesUrl, fInit)
+    .then(r => r.json())
+    .then(d => getAsyncDailyCasesCallback(d));
 
-  asyncRequest(dailyVaccinationsUrl, 'json', true)
-    .then(
-      (resolve) => getAsyncDailyVaccinationsCallback(resolve),
-      (reject) => console.log(reject),
-    );
+  fetch(weeklyTestsUrl, fInit)
+    .then(r => r.json())
+    .then(d => getAsyncWeeklyTestsCallback(d));
 
-  asyncRequest(dailyIcuoUrl, 'json', true)
-    .then(
-      (resolve) => getAsyncDailyICUOCallback(resolve),
-      (reject) => console.log(reject),
-    );
+  fetch(dailyVaccinationsUrl, fInit)
+    .then(r => r.json())
+    .then(d => getAsyncDailyVaccinationsCallback(d));
 
-  asyncRequest(vaccinationsByVaccineUrl, 'json', true)
-    .then(
-      (resolve) => getAsyncVaccinationsByVaccineCallback(resolve),
-      (reject) => console.log(reject),
-    );
+  fetch(dailyIcuoUrl, fInit)
+    .then(r => r.json())
+    .then(d => getAsyncDailyICUOCallback(d));
+
+  fetch(vaccinationsByVaccineUrl, fInit)
+    .then(r => r.json())
+    .then(d => getAsyncVaccinationsByVaccineCallback(d));
+
 };
 
 const getAsyncDailyCasesCallback = (callbackObject) => {
   console.log('daily cases callback');
-  const { cases } = callbackObject.response;
-  const { dates } = callbackObject.response;
+  console.log(callbackObject);
+  const cases = callbackObject.cases;
+  const dates = callbackObject.dates;
   const dailyCases = [];
   for (let i = 0; i < cases.length; i += 1) {
     if (i === 0) {
@@ -71,8 +68,8 @@ const getAsyncDailyCasesCallback = (callbackObject) => {
 
 const getAsyncWeeklyTestsCallback = (callbackObject) => {
   console.log('weekly tests callback');
-  const weeklyTests = callbackObject.response.weekly_tests;
-  const calendarWeeks = callbackObject.response.calendar_weeks;
+  const weeklyTests = callbackObject.weekly_tests;
+  const calendarWeeks = callbackObject.calendar_weeks;
   const totalTests = [];
   for (let i = 0; i < weeklyTests.length; i += 1) {
     if (i === 0) {
@@ -91,10 +88,10 @@ const getAsyncWeeklyTestsCallback = (callbackObject) => {
 
 const getAsyncDailyVaccinationsCallback = (callbackObject) => {
   console.log('daily vaccinations callback');
-  const primaryVaccinations = callbackObject.response.primary_vaccinations;
-  const secondaryVaccinations = callbackObject.response.secondary_vaccinations;
-  const boosterVaccinations = callbackObject.response.booster_vaccinations;
-  const { dates } = callbackObject.response;
+  const primaryVaccinations = callbackObject.primary_vaccinations;
+  const secondaryVaccinations = callbackObject.secondary_vaccinations;
+  const boosterVaccinations = callbackObject.booster_vaccinations;
+  const dates = callbackObject.dates;
   const totalPrimaryVaccinations = [];
   const primaryVaccinationsPercentage = [];
   const totalSecondaryVaccinations = [];
@@ -145,10 +142,10 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
 };
 
 const getAsyncDailyICUOCallback = (callbackObject) => {
-  const { dates } = callbackObject.response;
-  const freeICU = callbackObject.response.free_icu;
-  const covidICU = callbackObject.response.covid_icu;
-  const covidICUInvasive = callbackObject.response.covid_icu_invasive;
+  const dates = callbackObject.dates;
+  const freeICU = callbackObject.free_icu;
+  const covidICU = callbackObject.covid_icu;
+  const covidICUInvasive = callbackObject.covid_icu_invasive;
 
   const dataObj = {
     dates,
@@ -161,10 +158,10 @@ const getAsyncDailyICUOCallback = (callbackObject) => {
 };
 
 const getAsyncVaccinationsByVaccineCallback = (callbackObject) => {
-  const modernaCount = callbackObject.response.Moderna;
-  const astrazenecaCount = callbackObject.response.AstraZeneca;
-  const janssenCount = callbackObject.response.Janssen;
-  const comirnatyCount = callbackObject.response.Comirnaty;
+  const modernaCount = callbackObject.Moderna;
+  const astrazenecaCount = callbackObject.AstraZeneca;
+  const janssenCount = callbackObject.Janssen;
+  const comirnatyCount = callbackObject.Comirnaty;
 
   const dataObj = {
     moderna: modernaCount,
