@@ -222,6 +222,7 @@ ul.index-menu li {
   position: fixed;
   left: 0;
   top: 0;
+  height: 32px;
   background: $dark-grey;
   z-index: 2;
   opacity: 0.95;
@@ -243,6 +244,7 @@ ul.index-menu li {
   position: fixed;
   left: 0;
   bottom: 0;
+  height: 32px;
   background: $dark-grey;
   z-index: 2;
   opacity: 0.95;
