@@ -30,7 +30,7 @@ img {
 }
 
 .image-wrap {
-  margin: 20px 0px;
+  margin: 20px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,7 +97,7 @@ code.language-plaintext {
   border: 1px solid;
   border-radius: 5px;
   border-color: $light-grey;
-  padding: 0px 2px 0px 2px;
+  padding: 0 2px 0 2px;
   color: $medium-grey;
   background-color: $light-grey;
   font-style: italic;
@@ -107,14 +107,14 @@ code.language-plaintext {
   border: 1px solid;
   border-radius: 5px;
   border-color: $light-grey;
-  padding: 0px 2px 0px 2px;
+  padding: 0 2px 0 2px;
   color: $medium-grey;
   background-color: $light-grey;
   font-style: italic;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0px 0px 0px;
+  margin: 20px 0 0 0;
   color: $dark-grey;
 }
 
@@ -173,8 +173,8 @@ cite {
 }
 
 blockquote {
-  padding: 0px 0px 0px 20px;
-  margin: 0px 0px 20px 0px;
+  padding: 0 0 0 20px;
+  margin: 0 0 20px 0;
   border-left: 5px solid $dark-grey;
   border-right: 1px solid $light-grey;
   border-top-right-radius: 5px;
@@ -211,7 +211,7 @@ ul.index-menu li {
   background: $dark-grey;
   z-index: 2;
   opacity: 0.95;
-  box-shadow: 0px 5px 5px $dark-grey;
+  box-shadow: 0 5px 5px $dark-grey;
 }
 
 #main-content-wrap {
@@ -233,7 +233,7 @@ ul.index-menu li {
   background: $dark-grey;
   z-index: 2;
   opacity: 0.95;
-  box-shadow: 0px -5px 5px $dark-grey;
+  box-shadow: 0 -5px 5px $dark-grey;
 }
 
 #page-title {
