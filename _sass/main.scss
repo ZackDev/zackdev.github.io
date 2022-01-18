@@ -86,7 +86,7 @@ body {
   font-size: 18px;
   font-family: 'DejaVu serif';
   line-height: 1.5;
-  margin-bottom: 168px;
+  margin-bottom: 100px;
   // background-image: url('../img/background.png');
   // background-repeat: repeat;
   // background-color: rgb(31, 31, 31);
@@ -200,7 +200,6 @@ ul.index-menu li {
 .inner {
   position: relative;
   max-width: 800px;
-  padding: 20px 10px;
   margin: 0 auto;
 }
 
@@ -208,7 +207,7 @@ ul.index-menu li {
   position: fixed;
   left: 0;
   top: 0;
-  height: 84px;
+  height: 40px;
   background: $dark-grey;
   z-index: 2;
   opacity: 0.95;
@@ -217,7 +216,8 @@ ul.index-menu li {
 
 #main-content-wrap {
   position: relative;
-  top: 84px;
+  top: 40px;
+  padding: 20px 0 20px 0;
   z-index: 1;
 }
 
@@ -226,11 +226,10 @@ ul.index-menu li {
 }
 
 #footer-wrap {
-  line-height: 42px;
   position: fixed;
   left: 0;
   bottom: 0;
-  height: 84px;
+  height: 40px;
   background: $dark-grey;
   z-index: 2;
   opacity: 0.95;
