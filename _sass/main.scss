@@ -24,6 +24,21 @@ ul {
   display: inline-block;
 }
 */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.word-wrap {
+  word-wrap: break-word;      /* IE 5.5-7 */
+  white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+  white-space: pre-wrap;      /* current browsers */
+}
 
 img {
   max-width: 100%;
@@ -207,7 +222,6 @@ ul.index-menu li {
   position: fixed;
   left: 0;
   top: 0;
-  height: 40px;
   background: $dark-grey;
   z-index: 2;
   opacity: 0.95;
@@ -229,7 +243,6 @@ ul.index-menu li {
   position: fixed;
   left: 0;
   bottom: 0;
-  height: 40px;
   background: $dark-grey;
   z-index: 2;
   opacity: 0.95;
@@ -247,11 +260,6 @@ ul.index-menu li {
 
 #site-details {
   color: $light-grey;
-  float: right;
-}
-
-#home-link {
-  float: left;
 }
 
 /* small display adjustments */

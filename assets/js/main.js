@@ -89,7 +89,7 @@ class Tacho {
   }
 }
 
-new Init(resizeContent);
+//new Init(resizeContent);
 new Init(initHighcharts);
 
 document.onreadystatechange = () => {

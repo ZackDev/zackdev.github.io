@@ -34,9 +34,11 @@
 
     <!-- footer start -->
     <div id="footer-wrap" class="outer">
-      <footer class="inner">
+      <footer class="inner flex-row" style="justify-content: space-between;">
         {% if page.url != "/" %}
-        <a id="home-link" href="{{ site.url }}">back home</a>
+        <a href="{{ site.url }}">back home</a>
+        {% else %}
+        <div></div>
         {% endif %}
         <div id="site-details"><s>tracking & cookies</s>&nbsp;<img src="/assets/icons/z.png" style="vertical-align: middle;"/></div>
       </footer>
