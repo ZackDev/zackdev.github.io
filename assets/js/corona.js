@@ -37,7 +37,6 @@ const initCorona = () => {
 
 const getAsyncDailyCasesCallback = (callbackObject) => {
   console.log('daily cases callback');
-  console.log(callbackObject);
   const cases = callbackObject.cases;
   const dates = callbackObject.dates;
   const dailyCases = [];
