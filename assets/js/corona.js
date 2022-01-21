@@ -214,58 +214,6 @@ const getAsyncVaccinationsByVaccineCallback = (callbackObject) => {
   drawVaccinationsByVaccineChart(dataObj);
 };
 
-const incidence = (span, cases) => {
-  const incidences = [];
-  for (let i = 0; i < cases.length; i += 1) {
-    const tempIncidences = [];
-    let inc = 0;
-    for (let j = i; j >= 0 && j >= i - span + 1; j -= 1) {
-      tempIncidences.push(cases[j]);
-    }
-    for (let x = 0; x < tempIncidences.length; x += 1) {
-      inc += tempIncidences[x];
-      if (x === tempIncidences.length - 1) {
-        incidences.push(Number((inc / 831).toFixed(2)));
-      }
-    }
-  }
-  return incidences;
-};
-
-const smoothByRange = (span, dataset) => {
-  const smoothedArray = [];
-  for (let i = 0; i < dataset.length; i += 1) {
-    const tempSmoothed = [];
-    let smoothed = 0;
-    for (let j = i; j >= 0 && j >= i - span + 1; j -= 1) {
-      tempSmoothed.push(dataset[j]);
-    }
-    for (let x = 0; x < tempSmoothed.length; x += 1) {
-      smoothed += tempSmoothed[x];
-      if (x === tempSmoothed.length - 1) {
-        smoothedArray.push(Number((smoothed / tempSmoothed.length).toFixed(2)));
-      }
-    }
-  }
-  return smoothedArray;
-};
-
-const reprValue = (cases) => {
-  // calculates the reproduction value r = n / n-1
-  // starting at i=1, avoids division by zero
-  const repr = [];
-  repr.push(0);
-  for (let i = 1; i < cases.length; i += 1) {
-    if (cases[i] === 0 || cases[i - 1] === 0) {
-      repr.push(0);
-    } else {
-      const rate = cases[i] / cases[i - 1];
-      repr.push(parseFloat(rate.toFixed(2)));
-    }
-  }
-  return repr;
-};
-
 function drawDailyCasesChart(dataObj) {
   Highcharts.chart('chart-corona-cases-germany', {
     chart: {
