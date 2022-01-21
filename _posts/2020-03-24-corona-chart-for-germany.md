@@ -7,25 +7,20 @@ archived: false
 The following charts use publicly available data surrounding the SARS-CoV-2 virus. *Click and drag on the charts to select a specific range and zoom into the data.*
 
 <div id="chart-corona-cases-germany"></div>
-
 ---
-
+<div class="spacer"></div>
 <div id="chart-corona-additional-germany"></div>
-
 ---
-
+<div class="spacer"></div>
 <div id="chart-corona-tests-germany"></div>
-
 ---
-
+<div class="spacer"></div>
 <div id="chart-corona-icuo-germany"></div>
-
 ---
-
+<div class="spacer"></div>
 <div id="chart-corona-vaccinations-germany"></div>
-
 ---
-
+<div class="spacer"></div>
 <div id="chart-corona-vaccinations-by-vaccine-germany"></div>
 
 # Used Datasources
