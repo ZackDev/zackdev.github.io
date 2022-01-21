@@ -166,9 +166,10 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
     secondaryVaccinations,
     boosterVaccinations,
     totalPrimaryVaccinations,
-    primaryVaccinationsPercentage,
     totalSecondaryVaccinations,
+    primaryVaccinationsPercentage,
     secondaryVaccinationsPercentage,
+    boosterVaccinationsPercentage,
     totalBoosterVaccinations,
     dates,
   };
@@ -432,6 +433,11 @@ function drawDailyVaccinationsChart(dataObj) {
       legendIndex: 5,
       name: 'Total Booster Vaccinations',
       data: dataObj.totalBoosterVaccinations,
+      tooltip: {
+        pointFormatter() {
+          return `<span style="color:${this.series.color};">&bull;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.boosterVaccinationsPercentage[this.x]}%</br>`;
+        },
+      },
     }],
     tooltip: {
       shared: true,
