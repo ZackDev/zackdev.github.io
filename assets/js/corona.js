@@ -87,19 +87,21 @@ const initCorona = () => {
 
 const getAsyncDailyCasesCallback = (callbackObject) => {
   console.log('daily cases callback');
-  const cases = callbackObject.cases;
-  const dates = callbackObject.dates;
+  const dates = [];
+  const cases = [];
   const dailyCases = [];
-  for (let i = 0; i < cases.length; i += 1) {
-    if (i === 0) {
-      dailyCases.push(cases[i]);
-    } else {
-      dailyCases.push(cases[i] - cases[i - 1]);
-    }
-  }
-  const incidences7 = incidence(7, dailyCases);
-  const reprValues = reprValue(dailyCases);
-  const smoothedReprValues = smoothByRange(7, reprValues);
+  const incidences7 = [];
+  const reprValues = [];
+  const smoothedReprValues = [];
+  const data = callbackObject.data;
+  data.forEach(e => {
+    dates.push(e.date)
+    cases.push(e.totalcases);
+    dailyCases.push(e.dailycases);
+    incidences7.push(e.incidence);
+    reprValues.push(e.rrate);
+    smoothedReprValues.push(e.rratesmoothed);
+  });
   const dataObj0 = {
     cases,
     dailyCases,
@@ -117,16 +119,15 @@ const getAsyncDailyCasesCallback = (callbackObject) => {
 
 const getAsyncWeeklyTestsCallback = (callbackObject) => {
   console.log('weekly tests callback');
-  const weeklyTests = callbackObject.weekly_tests;
-  const calendarWeeks = callbackObject.calendar_weeks;
+  const calendarWeeks = [];
+  const weeklyTests = [];
   const totalTests = [];
-  for (let i = 0; i < weeklyTests.length; i += 1) {
-    if (i === 0) {
-      totalTests.push(weeklyTests[i]);
-    } else {
-      totalTests.push(totalTests[i - 1] + weeklyTests[i]);
-    }
-  }
+  const data = callbackObject.data;
+  data.forEach(e => {
+    calendarWeeks.push(e.calendar_week);
+    weeklyTests.push(e.weekly_tests);
+    totalTests.push(e.total_tests);
+  })
   const dataObj = {
     weeklyTests,
     totalTests,
@@ -137,45 +138,29 @@ const getAsyncWeeklyTestsCallback = (callbackObject) => {
 
 const getAsyncDailyVaccinationsCallback = (callbackObject) => {
   console.log('daily vaccinations callback');
-  const primaryVaccinations = callbackObject.primary_vaccinations;
-  const secondaryVaccinations = callbackObject.secondary_vaccinations;
-  const boosterVaccinations = callbackObject.booster_vaccinations;
-  const dates = callbackObject.dates;
+  const primaryVaccinations = [];
+  const secondaryVaccinations = [];
+  const boosterVaccinations = [];
+  const dates = [];
   const totalPrimaryVaccinations = [];
   const primaryVaccinationsPercentage = [];
   const totalSecondaryVaccinations = [];
   const secondaryVaccinationsPercentage = [];
   const totalBoosterVaccinations = [];
-  const populationGermany = 83121363;
-  for (let i = 0; i < primaryVaccinations.length; i += 1) {
-    let tVac = 0;
-    for (let j = 0; j <= i; j += 1) {
-      tVac += primaryVaccinations[j];
-    }
-    totalPrimaryVaccinations.push(tVac);
-  }
-  for (let i = 0; i < totalPrimaryVaccinations.length; i += 1) {
-    p = parseFloat(((totalPrimaryVaccinations[i] / populationGermany) * 100).toFixed(2));
-    primaryVaccinationsPercentage.push(p);
-  }
-  for (let i = 0; i < secondaryVaccinations.length; i += 1) {
-    let tVac = 0;
-    for (let j = 0; j <= i; j += 1) {
-      tVac += secondaryVaccinations[j];
-    }
-    totalSecondaryVaccinations.push(tVac);
-  }
-  for (let i = 0; i < totalSecondaryVaccinations.length; i += 1) {
-    p = parseFloat(((totalSecondaryVaccinations[i] / populationGermany) * 100).toFixed(2));
-    secondaryVaccinationsPercentage.push(p);
-  }
-  for (let i = 0; i < boosterVaccinations.length; i += 1) {
-    let tVac = 0;
-    for (let j = 0; j <= i; j += 1) {
-      tVac += boosterVaccinations[j];
-    }
-    totalBoosterVaccinations.push(tVac);
-  }
+  const boosterVaccinationsPercentage = [];
+  const data = callbackObject.data;
+  data.forEach(e => {
+    dates.push(e.dates);
+    primaryVaccinations.push(e.primary_vaccinations);
+    secondaryVaccinations.push(e.secondary_vaccinations);
+    boosterVaccinations.push(e.booster_vaccinations);
+    totalPrimaryVaccinations.push(e.total_primary_vaccinations);
+    totalSecondaryVaccinations.push(e.total_secondary_vaccinations);
+    totalBoosterVaccinations.push(e.total_booster_vaccinations);
+    primaryVaccinationsPercentage.push(e.primary_vaccinations_percentage);
+    secondaryVaccinationsPercentage.push(e.secondary_vaccinations_percentage);
+    boosterVaccinationsPercentage.push(e.booster_vaccinations_percentage);
+  });
   const dataObj = {
     primaryVaccinations,
     secondaryVaccinations,
@@ -191,10 +176,17 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
 };
 
 const getAsyncDailyICUOCallback = (callbackObject) => {
-  const dates = callbackObject.dates;
-  const freeICU = callbackObject.free_icu;
-  const covidICU = callbackObject.covid_icu;
-  const covidICUInvasive = callbackObject.covid_icu_invasive;
+  const dates = [];
+  const freeICU = [];
+  const covidICU = [];
+  const covidICUInvasive = [];
+  const data = callbackObject.data;
+  data.forEach(e => {
+    dates.push(e.date);
+    freeICU.push(e.free_icu);
+    covidICU.push(e.covid_icu);
+    covidICUInvasive.push(e.covid_icu_invasive);
+  });
 
   const dataObj = {
     dates,
