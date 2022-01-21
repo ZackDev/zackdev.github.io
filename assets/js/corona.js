@@ -158,7 +158,7 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
 
   const data = callbackObject.data;
   data.forEach(e => {
-    dates.push(e.dates);
+    dates.push(e.date);
     primaryVaccinations.push(e.primary_vaccinations);
     secondaryVaccinations.push(e.secondary_vaccinations);
     boosterVaccinations.push(e.booster_vaccinations);
@@ -191,7 +191,7 @@ const getAsyncDailyICUOCallback = (callbackObject) => {
   const freeICU = [];
   const covidICU = [];
   const covidICUInvasive = [];
-  
+
   const data = callbackObject.data;
   data.forEach(e => {
     dates.push(e.date);
