@@ -93,6 +93,7 @@ const getAsyncDailyCasesCallback = (callbackObject) => {
   const incidences7 = [];
   const reprValues = [];
   const smoothedReprValues = [];
+
   const data = callbackObject.data;
   data.forEach(e => {
     dates.push(e.date)
@@ -102,17 +103,20 @@ const getAsyncDailyCasesCallback = (callbackObject) => {
     reprValues.push(e.rrate);
     smoothedReprValues.push(e.rratesmoothed);
   });
+
   const dataObj0 = {
     cases,
     dailyCases,
     dates,
   };
+
   const dataObj1 = {
     incidences7,
     reprValues,
     smoothedReprValues,
     dates,
   };
+
   drawDailyCasesChart(dataObj0);
   drawAdditionalChart(dataObj1);
 };
@@ -122,32 +126,36 @@ const getAsyncWeeklyTestsCallback = (callbackObject) => {
   const calendarWeeks = [];
   const weeklyTests = [];
   const totalTests = [];
+
   const data = callbackObject.data;
   data.forEach(e => {
     calendarWeeks.push(e.calendar_week);
     weeklyTests.push(e.weekly_tests);
     totalTests.push(e.total_tests);
   })
+
   const dataObj = {
+    calendarWeeks,
     weeklyTests,
     totalTests,
-    calendarWeeks,
   };
+
   drawWeeklyTestsChart(dataObj);
 };
 
 const getAsyncDailyVaccinationsCallback = (callbackObject) => {
   console.log('daily vaccinations callback');
+  const dates = [];
   const primaryVaccinations = [];
   const secondaryVaccinations = [];
   const boosterVaccinations = [];
-  const dates = [];
   const totalPrimaryVaccinations = [];
   const primaryVaccinationsPercentage = [];
   const totalSecondaryVaccinations = [];
   const secondaryVaccinationsPercentage = [];
   const totalBoosterVaccinations = [];
   const boosterVaccinationsPercentage = [];
+
   const data = callbackObject.data;
   data.forEach(e => {
     dates.push(e.dates);
@@ -161,18 +169,20 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
     secondaryVaccinationsPercentage.push(e.secondary_vaccinations_percentage);
     boosterVaccinationsPercentage.push(e.booster_vaccinations_percentage);
   });
+
   const dataObj = {
+    dates,
     primaryVaccinations,
     secondaryVaccinations,
     boosterVaccinations,
     totalPrimaryVaccinations,
     totalSecondaryVaccinations,
+    totalBoosterVaccinations,
     primaryVaccinationsPercentage,
     secondaryVaccinationsPercentage,
     boosterVaccinationsPercentage,
-    totalBoosterVaccinations,
-    dates,
   };
+
   drawDailyVaccinationsChart(dataObj);
 };
 
@@ -181,6 +191,7 @@ const getAsyncDailyICUOCallback = (callbackObject) => {
   const freeICU = [];
   const covidICU = [];
   const covidICUInvasive = [];
+  
   const data = callbackObject.data;
   data.forEach(e => {
     dates.push(e.date);
