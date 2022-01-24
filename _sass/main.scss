@@ -265,6 +265,7 @@ ul.index-menu li {
 #page-title {
   color: $light-grey;
   margin: 0;
+  font-size: 32px;
 }
 
 .post-info {
@@ -292,8 +293,8 @@ ul.index-menu li {
     max-width: 480px;
   }
 
-  #project-title {
-    font-size: 32px;
+  #page-title {
+    font-size: 26px;
   }
 
   h1 {
@@ -336,7 +337,7 @@ ul.index-menu li {
     max-width: 320px;
   }
 
-  #project-title {
+  #page-title {
     font-size: 24px;
   }
 
