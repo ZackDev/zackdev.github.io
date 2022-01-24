@@ -18,8 +18,8 @@
   <body>
     <!-- header start -->
     <div id="header-wrap" class="outer">
-      <header class="inner flex-row" style="align-items: center;">
-        <div id="page-title">{{ page.title }}<div>
+      <header id="header" class="inner flex-row">
+        <div id="page-title">{{ page.title }}</div>
       </header>
     </div>
     <!-- header end -->
@@ -34,7 +34,7 @@
 
     <!-- footer start -->
     <div id="footer-wrap" class="outer">
-      <footer class="inner flex-row" style="justify-content: space-between;">
+      <footer id="footer" class="inner flex-row">
         {% if page.url != "/" %}
         <a href="{{ site.url }}">back home</a>
         {% else %}

@@ -218,14 +218,19 @@ ul.index-menu li {
   margin: 0 auto;
 }
 
+#header {
+  align-items: center;
+  height: 100%;
+}
+
 #header-wrap {
   position: fixed;
   left: 0;
   top: 0;
-  height: 32px;
+  height: 64px;
   background: $dark-grey;
   z-index: 2;
-  opacity: 0.95;
+  opacity: 0.75;
   box-shadow: 0 2px 2px $dark-grey;
 }
 
@@ -240,14 +245,20 @@ ul.index-menu li {
 
 }
 
+#footer {
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
 #footer-wrap {
   position: fixed;
   left: 0;
   bottom: 0;
-  height: 32px;
+  height: 64px;
   background: $dark-grey;
   z-index: 2;
-  opacity: 0.95;
+  opacity: 0.75;
   box-shadow: 0 -2px 2px $dark-grey;
 }
 
