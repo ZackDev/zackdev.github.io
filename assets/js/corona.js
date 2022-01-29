@@ -87,143 +87,147 @@ const initCorona = () => {
 
 const getAsyncDailyCasesCallback = (callbackObject) => {
   console.log('daily cases callback');
-  const dates = [];
-  const cases = [];
-  const dailyCases = [];
-  const incidences7 = [];
-  const reprValues = [];
-  const smoothedReprValues = [];
+  if (Array.isArray(callbackObject.data)) {
+    const dates = [];
+    const cases = [];
+    const dailyCases = [];
+    const incidences7 = [];
+    const reprValues = [];
+    const smoothedReprValues = [];
+  
+    const data = callbackObject.data;
+    data.forEach(e => {
+      dates.push(e.date)
+      cases.push(e.totalcases);
+      dailyCases.push(e.dailycases);
+      incidences7.push(e.incidence);
+      reprValues.push(e.rrate);
+      smoothedReprValues.push(e.rratesmoothed);
+    });
+  
+    const dataObj0 = {
+      cases,
+      dailyCases,
+      dates,
+    };
+  
+    const dataObj1 = {
+      incidences7,
+      reprValues,
+      smoothedReprValues,
+      dates,
+    };
 
-  const data = callbackObject.data;
-  data.forEach(e => {
-    dates.push(e.date)
-    cases.push(e.totalcases);
-    dailyCases.push(e.dailycases);
-    incidences7.push(e.incidence);
-    reprValues.push(e.rrate);
-    smoothedReprValues.push(e.rratesmoothed);
-  });
-
-  const dataObj0 = {
-    cases,
-    dailyCases,
-    dates,
-  };
-
-  const dataObj1 = {
-    incidences7,
-    reprValues,
-    smoothedReprValues,
-    dates,
-  };
-
-  drawDailyCasesChart(dataObj0);
-  drawAdditionalChart(dataObj1);
+    drawDailyCasesChart(dataObj0);
+    drawAdditionalChart(dataObj1);
+  }
+  else {
+    console.log('callbackObject.data is not an array.')
+  }
 };
 
 const getAsyncWeeklyTestsCallback = (callbackObject) => {
   console.log('weekly tests callback');
-  const calendarWeeks = [];
-  const weeklyTests = [];
-  const totalTests = [];
-
-  const data = callbackObject.data;
-  data.forEach(e => {
-    calendarWeeks.push(e.calendar_week);
-    weeklyTests.push(e.weekly_tests);
-    totalTests.push(e.total_tests);
-  })
-
-  const dataObj = {
-    calendarWeeks,
-    weeklyTests,
-    totalTests,
-  };
-
-  drawWeeklyTestsChart(dataObj);
+  
+  if (Array.isArray(callbackObject.data)) {
+    let initialValue = {
+      calendarWeeks: [],
+      weeklyTests: [],
+      totalTests: []
+    }
+  
+    const dataObj = callbackObject.data.reduce(function(p, c){
+      p.calendarWeeks.push(c.calendar_week)
+      p.weeklyTests.push(c.weekly_tests)
+      p.totalTests.push(c.total_tests)
+      return p
+    }, initialValue);
+  
+    drawWeeklyTestsChart(dataObj);
+  }
+  else {
+    console.log('callbackObject.data is not an array.')
+  }
 };
 
 const getAsyncDailyVaccinationsCallback = (callbackObject) => {
   console.log('daily vaccinations callback');
-  const dates = [];
-  const primaryVaccinations = [];
-  const secondaryVaccinations = [];
-  const boosterVaccinations = [];
-  const totalPrimaryVaccinations = [];
-  const primaryVaccinationsPercentage = [];
-  const totalSecondaryVaccinations = [];
-  const secondaryVaccinationsPercentage = [];
-  const totalBoosterVaccinations = [];
-  const boosterVaccinationsPercentage = [];
+  if (Array.isArray(callbackObject.data)) {
+    let initialValue = {
+      dates: [],
+      primaryVaccinations: [],
+      secondaryVaccinations: [],
+      boosterVaccinations: [],
+      totalPrimaryVaccinations: [],
+      primaryVaccinationsPercentage: [],
+      totalSecondaryVaccinations: [],
+      secondaryVaccinationsPercentage: [],
+      totalBoosterVaccinations: [],
+      boosterVaccinationsPercentage: []
+    }
+    const dataObj = callbackObject.data.reduce(function(p, c) {
+      p.dates.push(c.date)
+      p.primaryVaccinations.push(c.primary_vaccinations)
+      p.secondaryVaccinations.push(c.secondary_vaccinations)
+      p.boosterVaccinations.push(c.booster_vaccinations)
+      p.totalPrimaryVaccinations.push(c.total_primary_vaccinations)
+      p.totalSecondaryVaccinations.push(c.total_secondary_vaccinations)
+      p.totalBoosterVaccinations.push(c.total_booster_vaccinations)
+      p.primaryVaccinationsPercentage.push(c.primary_vaccinations_percentage)
+      p.secondaryVaccinationsPercentage.push(c.secondary_vaccinations_percentage)
+      p.boosterVaccinationsPercentage.push(c.booster_vaccinations_percentage)
+      return p
+  
+    }, initialValue)
 
-  const data = callbackObject.data;
-  data.forEach(e => {
-    dates.push(e.date);
-    primaryVaccinations.push(e.primary_vaccinations);
-    secondaryVaccinations.push(e.secondary_vaccinations);
-    boosterVaccinations.push(e.booster_vaccinations);
-    totalPrimaryVaccinations.push(e.total_primary_vaccinations);
-    totalSecondaryVaccinations.push(e.total_secondary_vaccinations);
-    totalBoosterVaccinations.push(e.total_booster_vaccinations);
-    primaryVaccinationsPercentage.push(e.primary_vaccinations_percentage);
-    secondaryVaccinationsPercentage.push(e.secondary_vaccinations_percentage);
-    boosterVaccinationsPercentage.push(e.booster_vaccinations_percentage);
-  });
-
-  const dataObj = {
-    dates,
-    primaryVaccinations,
-    secondaryVaccinations,
-    boosterVaccinations,
-    totalPrimaryVaccinations,
-    totalSecondaryVaccinations,
-    totalBoosterVaccinations,
-    primaryVaccinationsPercentage,
-    secondaryVaccinationsPercentage,
-    boosterVaccinationsPercentage,
-  };
-
-  drawDailyVaccinationsChart(dataObj);
+    drawDailyVaccinationsChart(dataObj)
+  }
+  else {
+    console.log('callbackObject.data is not an array.')
+  }
 };
 
 const getAsyncDailyICUOCallback = (callbackObject) => {
-  const dates = [];
-  const freeICU = [];
-  const covidICU = [];
-  const covidICUInvasive = [];
-
-  const data = callbackObject.data;
-  data.forEach(e => {
-    dates.push(e.date);
-    freeICU.push(e.free_icu);
-    covidICU.push(e.covid_icu);
-    covidICUInvasive.push(e.covid_icu_invasive);
-  });
-
-  const dataObj = {
-    dates,
-    freeICU,
-    covidICU,
-    covidICUInvasive,
-  };
-
-  drawDailyICUOChart(dataObj);
+  if (Array.isArray(callbackObject.data)) {
+    const dataObj = callbackObject.data.reduce(function(p, c) {
+      p.dates.push(c.date)
+      p.freeICU.push(c.free_icu)
+      p.covidICU.push(c.covid_icu)
+      p.covidICUInvasive.push(c.covid_icu_invasive)
+      return p
+    }, initialValue = {
+      dates: [],
+      freeICU: [],
+      covidICU: [],
+      covidICUInvasive: []
+    });
+  
+    drawDailyICUOChart(dataObj);
+  }
+  else {
+    console.log('callbackObject.data is not an array.')
+  }
 };
 
 const getAsyncVaccinationsByVaccineCallback = (callbackObject) => {
-  const modernaCount = callbackObject.Moderna;
-  const astrazenecaCount = callbackObject.AstraZeneca;
-  const janssenCount = callbackObject.Janssen;
-  const comirnatyCount = callbackObject.Comirnaty;
-
-  const dataObj = {
-    moderna: modernaCount,
-    astrazeneca: astrazenecaCount,
-    janssen: janssenCount,
-    comirnaty: comirnatyCount,
-  };
-
-  drawVaccinationsByVaccineChart(dataObj);
+  if (Array.isArray(callbackObject.data)) {
+    const modernaCount = callbackObject.Moderna;
+    const astrazenecaCount = callbackObject.AstraZeneca;
+    const janssenCount = callbackObject.Janssen;
+    const comirnatyCount = callbackObject.Comirnaty;
+  
+    const dataObj = {
+      moderna: modernaCount,
+      astrazeneca: astrazenecaCount,
+      janssen: janssenCount,
+      comirnaty: comirnatyCount,
+    };
+  
+    drawVaccinationsByVaccineChart(dataObj);
+  }
+  else {
+    console.log('callbackObject.data is not an array.')
+  }
 };
 
 function drawDailyCasesChart(dataObj) {
