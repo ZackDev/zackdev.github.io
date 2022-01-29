@@ -210,24 +210,19 @@ const getAsyncDailyICUOCallback = (callbackObject) => {
 };
 
 const getAsyncVaccinationsByVaccineCallback = (callbackObject) => {
-  if (Array.isArray(callbackObject.data)) {
-    const modernaCount = callbackObject.Moderna;
-    const astrazenecaCount = callbackObject.AstraZeneca;
-    const janssenCount = callbackObject.Janssen;
-    const comirnatyCount = callbackObject.Comirnaty;
-  
-    const dataObj = {
-      moderna: modernaCount,
-      astrazeneca: astrazenecaCount,
-      janssen: janssenCount,
-      comirnaty: comirnatyCount,
-    };
-  
-    drawVaccinationsByVaccineChart(dataObj);
-  }
-  else {
-    console.log('callbackObject.data is not an array.')
-  }
+  const modernaCount = callbackObject.Moderna;
+  const astrazenecaCount = callbackObject.AstraZeneca;
+  const janssenCount = callbackObject.Janssen;
+  const comirnatyCount = callbackObject.Comirnaty;
+
+  const dataObj = {
+    moderna: modernaCount,
+    astrazeneca: astrazenecaCount,
+    janssen: janssenCount,
+    comirnaty: comirnatyCount,
+  };
+
+  drawVaccinationsByVaccineChart(dataObj);
 };
 
 function drawDailyCasesChart(dataObj) {
