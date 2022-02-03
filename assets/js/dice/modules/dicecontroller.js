@@ -26,10 +26,10 @@ export {DiceController};
      * 
      */
     loadSounds() {
-        this.diceAudio.registerAudio("bucket-00", "/assets/audio/bucket-00.flac");
-        this.diceAudio.registerAudio("bucket-01", "/assets/audio/bucket-01.flac");
-        this.diceAudio.registerAudio("table-00", "/assets/audio/table-00.flac");
-        this.diceAudio.registerAudio("table-01", "/assets/audio/table-01.flac");
+        this.diceAudio.registerAudio("bucket", "/assets/audio/bucket-00.flac");
+        this.diceAudio.registerAudio("bucket", "/assets/audio/bucket-01.flac");
+        this.diceAudio.registerAudio("table", "/assets/audio/table-00.flac");
+        this.diceAudio.registerAudio("table", "/assets/audio/table-01.flac");
     }
 
 
@@ -201,8 +201,7 @@ export {DiceController};
     onDiceAddedToBucket(UID, dice) {
         // called by the Bucket
         this.bucketView.displayDice(UID, dice.name);
-        let bucketAudioId = Math.round(Math.random());
-        this.diceAudio.playAudio(`bucket-0${bucketAudioId}`);
+        this.diceAudio.playAudio("bucket");
     }
     
     /**
@@ -220,8 +219,7 @@ export {DiceController};
     onRollClicked() {
         // called by the BucketView
         this.bucket.roll();
-        let tableAudioId = Math.round(Math.random());
-        this.diceAudio.playAudio(`table-0${tableAudioId}`);
+        this.diceAudio.playAudio("table");
     }
     
     /**
