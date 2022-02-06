@@ -9,11 +9,11 @@ const ping = (targetUrl, dataset) => {
     cache: 'no-cache'
   }
 
-  let nowMs = Date.now();
+  let sentAt = Date.now();
   fetch(targetUrl, fInit)
     .then(r => r.json())
     .then(d => {
-      let timeElapsed = Date.now() - nowMs;
+      let timeElapsed = Date.now() - sentAt;
       dataset.addPoint(timeElapsed, true, false);
     })
 };
