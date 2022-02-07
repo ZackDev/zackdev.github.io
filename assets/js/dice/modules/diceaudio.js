@@ -32,13 +32,16 @@ class DiceAudio {
     }
     playAudio(type) {
         if (this.audioObjects.has(type)) {
-            let sounds = this.audioObjects.get(type)
-            let l = sounds.length - 1
-            let audio = sounds[Math.round(Math.random() * l)].cloneNode()
+            let typeAudios = this.audioObjects.get(type)
+            let l = typeAudios.length - 1
+            let audio = typeAudios[Math.round(Math.random() * l)].cloneNode()
             audio.addEventListener("ended", () => {
                 audio.remove()
             })
             audio.play()            
+        }
+        else {
+            console.log("no audio registered for type:", type)
         }
     }
 }
