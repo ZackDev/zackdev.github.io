@@ -42,10 +42,7 @@ const initChart = (interval) => {
       }],
       series: [{
         name: 'Ping In Milliseconds'
-      }],
-      credits: {
-        enabled: false
-      }
+      }]
   });
 }
 

@@ -21,6 +21,9 @@ const initHighcharts = () => {
   Highcharts.setOptions({
     chart: {
       styledMode: true
+    },
+    credits: {
+      enabled: false,
     }
   });
 }

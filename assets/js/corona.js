@@ -262,10 +262,7 @@ function drawDailyCasesChart(dataObj) {
     }],
     tooltip: {
       shared: true,
-    },
-    credits: {
-      enabled: false,
-    },
+    }
   });
 }
 
@@ -312,10 +309,7 @@ function drawAdditionalChart(dataObj) {
     }],
     tooltip: {
       shared: true,
-    },
-    credits: {
-      enabled: false,
-    },
+    }
   });
 }
 
@@ -356,10 +350,7 @@ function drawWeeklyTestsChart(dataObj) {
     }],
     tooltip: {
       shared: true,
-    },
-    credits: {
-      enabled: false,
-    },
+    }
   });
 }
 
@@ -451,10 +442,7 @@ function drawDailyVaccinationsChart(dataObj) {
     }],
     tooltip: {
       shared: true,
-    },
-    credits: {
-      enabled: false,
-    },
+    }
   });
 }
 
@@ -508,10 +496,7 @@ function drawDailyICUOChart(dataObj) {
     }],
     tooltip: {
       shared: true,
-    },
-    credits: {
-      enabled: false,
-    },
+    }
   });
 }
 
@@ -549,10 +534,7 @@ function drawVaccinationsByVaccineChart(dataObj) {
           y: dataObj.janssen,
         },
       ],
-    }],
-    credits: {
-      enabled: false,
-    },
+    }]
   });
 }
 
