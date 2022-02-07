@@ -25,8 +25,17 @@ const initMars = () => {
   }
 
   fetch(marsPhotosApiUrl, fInit)
-    .then(r => r.json())
-    .then(d => photosCallback(d))
+    .then(
+      res => checkHTTPResponse(res),
+      rej => console.log(rej))
+    .then(
+      res => res.json(),
+      rej => console.log(rej)
+    )
+    .then(
+      res => photosCallback(res),
+      rej => console.log(rej)
+    );
   
   /* for debugging w/o using the API */
   /*

@@ -15,73 +15,73 @@ const initCorona = () => {
 
   /** */
   fetch(dailyCasesUrl, fInit)
-  .then(
-    res => checkResponse(res),
-    rej => console.log(rej))
-  .then(
-    res => res.json(),
-    rej => console.log(rej)
-  )
-  .then(
-    res => getAsyncDailyCasesCallback(res),
-    rej => console.log(rej)
-  );
+    .then(
+      res => checkHTTPResponse(res),
+      rej => console.log(rej))
+    .then(
+      res => res.json(),
+      rej => console.log(rej)
+    )
+    .then(
+      res => getAsyncDailyCasesCallback(res),
+      rej => console.log(rej)
+    );
 
   /** */
   fetch(weeklyTestsUrl, fInit)
-  .then(
-    res => checkResponse(res),
-    rej => console.log(rej))
-  .then(
-    res => res.json(),
-    rej => console.log(rej)
-  )
-  .then(
-    res => getAsyncWeeklyTestsCallback(res),
-    rej => console.log(rej)
-  );
+    .then(
+      res => checkHTTPResponse(res),
+      rej => console.log(rej))
+    .then(
+      res => res.json(),
+      rej => console.log(rej)
+    )
+    .then(
+      res => getAsyncWeeklyTestsCallback(res),
+      rej => console.log(rej)
+    );
 
   /** */
   fetch(dailyVaccinationsUrl, fInit)
-  .then(
-    res => checkResponse(res),
-    rej => console.log(rej))
-  .then(
-    res => res.json(),
-    rej => console.log(rej)
-  )
-  .then(
-    res => getAsyncDailyVaccinationsCallback(res),
-    rej => console.log(rej)
-  );
+    .then(
+      res => checkHTTPResponse(res),
+      rej => console.log(rej))
+    .then(
+      res => res.json(),
+      rej => console.log(rej)
+    )
+    .then(
+      res => getAsyncDailyVaccinationsCallback(res),
+      rej => console.log(rej)
+    );
 
   /** */
   fetch(dailyIcuoUrl, fInit)
-  .then(
-    res => checkResponse(res),
-    rej => console.log(rej))
-  .then(
-    res => res.json(),
-    rej => console.log(rej)
-  )
-  .then(
-    res => getAsyncDailyICUOCallback(res),
-    rej => console.log(rej)
-  );
+    .then(
+      res => checkHTTPResponse(res),
+      rej => console.log(rej))
+    .then(
+      res => res.json(),
+      rej => console.log(rej)
+    )
+    .then(
+      res => getAsyncDailyICUOCallback(res),
+      rej => console.log(rej)
+    );
 
   /** */
   fetch(vaccinationsByVaccineUrl, fInit)
-  .then(
-    res => checkResponse(res),
-    rej => console.log(rej))
-  .then(
-    res => res.json(),
-    rej => console.log(rej)
-  )
-  .then(
-    res => getAsyncVaccinationsByVaccineCallback(res),
-    rej => console.log(rej)
-  );
+    .then(
+      res => checkHTTPResponse(res),
+      rej => console.log(rej))
+    .then(
+      res => res.json(),
+      rej => console.log(rej)
+    )
+    .then(
+      res => getAsyncVaccinationsByVaccineCallback(res),
+      rej => console.log(rej)
+    );
 
 };
 

@@ -1,4 +1,4 @@
-const checkResponse = (response) => {
+const checkHTTPResponse = (response) => {
   if (response.ok && response.status === 200) {
     return Promise.resolve(response);
   }
