@@ -28,13 +28,16 @@ const initHighcharts = () => {
 class Init {
   static functionArray = new Array();
   static run() {
-    for (let f in Init.functionArray) {
-      Init.functionArray[f]();
+    for (let f of Init.functionArray) {
+      f();
     }
   }
   constructor(func) {
     if (typeof func === 'function') {
       Init.functionArray.push(func);
+    }
+    else {
+      console.log("Init - constructor: parameter is not a function.")
     }
   }
 }
