@@ -13,8 +13,9 @@ const ping = (targetUrl, dataset) => {
   fetch(targetUrl, fInit)
     .then(r => r.json())
     .then(d => {
-      let timeElapsed = Date.now() - sentAt;
-      dataset.addPoint(timeElapsed, true, false);
+      let receivedAt = Date.now()
+      let timeElapsed = receivedAt - sentAt;
+      dataset.addPoint([new Date(receivedAt).toLocaleString(), timeElapsed], true, false);
     })
 };
 
@@ -31,7 +32,7 @@ const initChart = (interval) => {
       },
       xAxis: [{
         crosshair: true,
-        allowDecimals: false
+        allowDecimals: false,
       }],
       yAxis: [{
         title: {
