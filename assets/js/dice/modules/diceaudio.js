@@ -7,14 +7,27 @@ class DiceAudio {
     registerAudio(type, url) {
         let audio = new Audio(url)
         audio.addEventListener("canplaythrough", () => {
-            let audioTypeArray = new Array(audio)
             if (this.audioObjects.has(type)) {
-                let registeredAudioTypes = this.audioObjects.get(type)
-                if (!registeredAudioTypes.includes(audio)){
-                    audioTypeArray.push(...registeredAudioTypes)
+                let typeAudios = this.audioObjects.get(type)
+                let registered = false
+                for (let a of typeAudios) {
+                    if (a.src === audio.src) {
+                        registered = true
+                        break
+                    }
+                }
+                if (!registered){
+                    typeAudios.push(audio)
+                    this.audioObjects.set(type, typeAudios)
+                }
+                else {
+                    console.log("audio and type combination already registered.", audio.src, type)
                 }
             }
-            this.audioObjects.set(type, audioTypeArray)
+            else {
+                this.audioObjects.set(type, new Array(audio))
+            }
+            console.log(this.audioObjects)
         });
     }
     playAudio(type) {
