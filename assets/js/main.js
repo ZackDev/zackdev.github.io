@@ -8,12 +8,12 @@ const checkHTTPResponse = (response) => {
 }
 
 const resizeContent = () => {
-  let footerHeight = $("#footer-wrap").height();
-  let headerHeight = $("#header-wrap").height();
-  let windowHeight = $(window).height();
-  let minHeight = windowHeight - headerHeight - footerHeight;
+  let footerHeight = document.getElementById("footer-wrap").getBoundingClientRect().height
+  let headerHeight = document.getElementById("header-wrap").getBoundingClientRect().height
+  let windowHeight = window.innerHeight
+  let minHeight = windowHeight - headerHeight - footerHeight
   if (minHeight > 0) {
-    $('#main-content-wrap').css('min-height', minHeight + 'px');
+    document.getElementById("main-content-wrap").style.minHeight = minHeight + 'px'
   }
 }
 
@@ -95,7 +95,7 @@ class Tacho {
   }
 }
 
-//new Init(resizeContent);
+new Init(resizeContent);
 new Init(initHighcharts);
 
 document.onreadystatechange = () => {

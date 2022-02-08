@@ -2,9 +2,8 @@ import { Album } from './album.js';
 
 const initMars = () => {
   // disabled insight weather
-  //$('#weather-table-wrap').attr('style', 'display:flex;');
-
-  $('#perseverance-image').addClass('image-wrap');
+  // document.getElementById("weather-table-wrap").style.display = "flex";
+  // document.getElementById("perseverance-image").classList.add("image-wrap")
 
   let insightApiUrl = 'https://api.nasa.gov/insight_weather/?feedtype=json&ver=1.0&api_key=DEMO_KEY';
   let marsPhotosApiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/latest_photos?api_key=DEMO_KEY';
@@ -197,7 +196,7 @@ const insightCallback = (callbackObject) => {
         </td>
       </tr>
     </table>`;
-  $('#weather-table-wrap').html(rawTableStr);
+  document.getElementById("weather-table-wrap").innerHTML = rawTableStr;
 }
 
 const photosCallback = (callbackObject) => {
@@ -206,30 +205,6 @@ const photosCallback = (callbackObject) => {
   for (let photo of photos) {
     a.addImage(photo.img_src);
   }
-  /*
-  if (photos.length > 0) {
-    let rndPhoto = photos[Math.floor(Math.random() * photos.length)];
-    let imgUrl = rndPhoto.img_src;
-    let credits = 'NASA/JPL-Caltech';
-    let rName = rndPhoto.rover.name;
-    let cName = rndPhoto.camera.full_name;
-    let eDate = rndPhoto.earth_date;
-
-    let figure = $('<figure></figure>');
-    figure.addClass('img');
-
-    let img = $('<img></img>');
-    img.attr('src' , imgUrl);
-
-    let caption = $('<figcaption></figcaption>');
-    caption.html(`--${credits} ${rName} ${cName} ${eDate}`);
-
-    figure.append(img);
-    figure.append(caption);
-
-    $('#perseverance-image').append(figure);
-  }
-  */
 }
 
 

@@ -57,23 +57,22 @@ morseMap.forEach((value, key) => {
 });
 
 function drawMorse(morse) {
-  const output = $('#morse-output');
-  output.html('');
+  const output = document.getElementById("morse-output");
+  output.innerHTML = "";
   for (let i = 0; i < morse.length; i += 1) {
     if (morse[i] === dot || morse[i] === dash) {
-      output.html(output.html() + morse[i]);
+      output.innerHTML = (output.innerHTML + morse[i]);
     } else if (morse[i] === shortPause) {
-      output.html(`${output.html()}&nbsp;`);
+      output.innerHTML = `${output.innerHTML}&nbsp;`;
     } else if (morse[i] === longPause) {
-      output.html(`${output.html()}&nbsp;&nbsp;&nbsp;`);
+      output.innerHTML = `${output.innerHTML}&nbsp;&nbsp;&nbsp;`;
     }
   }
 }
 
 function drawText(text) {
-  const output = $('#text-output');
-  output.html('');
-  output.html(text);
+  const output = document.getElementById("morse-output");
+  output.innerHTML = text;
 }
 
 function alphanumToMorse(alphanum) {
@@ -98,13 +97,13 @@ function morseToAlphanum(morse) {
   for (let i = 0; i < arrayMorse.length; i += 1) {
     arrayText.push(reverseMap.get(arrayMorse[i]));
   }
-  drawText(arrayText);
+  drawText(arrayText.join(""));
 }
 
 // EXPL: called by morse.html: text-input.oninput()
 // eslint-disable-next-line no-unused-vars
 function onTextInput() {
-  let strInput = $('#text-input').val();
+  let strInput = document.getElementById("text-input").value;
   const strRegex = new RegExp('[A-Z0-9 ]+', 'g');
   strInput = strInput.toUpperCase();
   let strOutput = '';
@@ -112,14 +111,14 @@ function onTextInput() {
   for (let i = 0; i < array.length; i += 1) {
     strOutput += array[i];
   }
-  $('#text-input').val(strOutput);
+  document.getElementById("text-input").value = strOutput;
   alphanumToMorse(strOutput);
 }
 
 // EXPL: called by morse.html: morse-imput.oninput()
 // eslint-disable-next-line no-unused-vars
 function onMorseInput() {
-  const strInput = $('#morse-input').val();
+  const strInput = document.getElementById("morse-input").value;
   const inputArray = strInput.split(' ');
   let strOutput = '';
   for (let i = 0; i < inputArray.length; i += 1) {
@@ -136,6 +135,6 @@ function onMorseInput() {
       }
     }
   }
-  $('#morse-input').val(strOutput);
+  document.getElementById("morse-input").value = strOutput;
   morseToAlphanum(strOutput);
 }
