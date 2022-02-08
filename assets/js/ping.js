@@ -1,8 +1,3 @@
-const runPing = (interval, targetUrl, dataset) => {
-  ping(targetUrl, dataset)
-  setInterval(ping, interval, targetUrl, dataset);
-};
-
 const ping = (targetUrl, dataset) => {
   let fInit = {
     method: 'GET',
@@ -46,12 +41,13 @@ const initChart = (interval) => {
   });
 }
 
-
 const initPing = () => {
   let interval = 3000;
   let targetUrl = "/assets/json/dummy.json";
   let chart = initChart(interval);
-  runPing( interval, targetUrl, chart.series[0]);
+  /* ping instantly for first datapoint, then with periodic interval */
+  ping(targetUrl, chart.series[0])
+  setInterval(ping, interval, targetUrl, chart.series[0]);
 };
 
 new Init(initPing);
