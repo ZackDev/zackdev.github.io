@@ -58,21 +58,21 @@ morseMap.forEach((value, key) => {
 
 function drawMorse(morse) {
   const output = document.getElementById("morse-output");
-  output.innerHTML = "";
+  output.innerText = "";
   for (let i = 0; i < morse.length; i += 1) {
     if (morse[i] === dot || morse[i] === dash) {
-      output.innerHTML = (output.innerHTML + morse[i]);
+      output.innerText += morse[i];
     } else if (morse[i] === shortPause) {
-      output.innerHTML = `${output.innerHTML}&nbsp;`;
+      output.innerText += " ";
     } else if (morse[i] === longPause) {
-      output.innerHTML = `${output.innerHTML}&nbsp;&nbsp;&nbsp;`;
+      output.innerText += "   ";
     }
   }
 }
 
 function drawText(text) {
-  const output = document.getElementById("morse-output");
-  output.innerHTML = text;
+  const output = document.getElementById("text-output");
+  output.innerText = text;
 }
 
 function alphanumToMorse(alphanum) {
@@ -103,14 +103,9 @@ function morseToAlphanum(morse) {
 // EXPL: called by morse.html: text-input.oninput()
 // eslint-disable-next-line no-unused-vars
 function onTextInput() {
-  let strInput = document.getElementById("text-input").value;
   const strRegex = new RegExp('[A-Z0-9 ]+', 'g');
-  strInput = strInput.toUpperCase();
-  let strOutput = '';
-  const array = [...strInput.matchAll(strRegex)];
-  for (let i = 0; i < array.length; i += 1) {
-    strOutput += array[i];
-  }
+  let strInput = document.getElementById("text-input").value.toUpperCase();
+  let strOutput = [...strInput.matchAll(strRegex)].join('');
   document.getElementById("text-input").value = strOutput;
   alphanumToMorse(strOutput);
 }
@@ -120,21 +115,27 @@ function onTextInput() {
 function onMorseInput() {
   const strInput = document.getElementById("morse-input").value;
   const inputArray = strInput.split(' ');
-  let strOutput = '';
+  let outputArray = [];
   for (let i = 0; i < inputArray.length; i += 1) {
-    if (i < inputArray.length - 1 && reverseMap.has(inputArray[i]) === true) {
-      strOutput = `${strOutput} ${inputArray[i]} `;
+    if (i < inputArray.length - 1 && reverseMap.has(inputArray[i])) {
+      outputArray.push(inputArray[i]);
     } else if (i === inputArray.length - 1) {
       // EXPL: break; doesn't work with Map.forEach(...)
       // eslint-disable-next-line no-restricted-syntax
+      let partialSubstitute = false;
       for (const [key, value] of reverseMap) {
-        if (key.startsWith(inputArray[i]) === true) {
-          strOutput += inputArray[i];
+        if (key.startsWith(inputArray[i])) {
+          outputArray.push(inputArray[i]);
+          partialSubstitute = true;
           break;
         }
       }
+      if (partialSubstitute === false) {
+        outputArray.push(' ')
+      }
     }
   }
+  let strOutput = outputArray.join(' ')
   document.getElementById("morse-input").value = strOutput;
   morseToAlphanum(strOutput);
 }
