@@ -6247,6 +6247,14 @@
             "incidence": 1464.3,
             "rrate": 0.62,
             "rratesmoothed": 1.71
+        },
+        {
+            "date": "2022-02-20",
+            "totalcases": 13667353,
+            "dailycases": 61908,
+            "incidence": 1460.49,
+            "rrate": 0.54,
+            "rratesmoothed": 1.72
         }
     ]
 }
