@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<!-- top left corner -->
+	<polyline points="6,2 2,2 2,6" stroke="#2d2d2d" stroke-width="1" fill="none" />
+	
+	<!-- top right corner -->
+	<polyline points="10,2 14,2 14,6" stroke="#2d2d2d" stroke-width="1" fill="none" />
+	
+	<!-- bottom left corner -->
+	<polyline points="2,10 2,14 6,14" stroke="#2d2d2d" stroke-width="1" fill="none" />
+	
+	<!-- bottom right corner -->
+	<polyline points="10,14 14,14 14,10" stroke="#2d2d2d" stroke-width="1" fill="none" />
+</svg>

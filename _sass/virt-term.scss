@@ -1,0 +1,173 @@
+button {
+    padding-inline: none;
+    margin: 0;
+    padding: 0;
+}
+
+#terminal-wrap {
+    margin: 30px 0 0 0;
+    min-height: 2000px;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
+    background-color: #2d2d2d;
+    box-shadow: 2px 2px 2px;
+    border-radius: 5px;
+}
+
+#screen-wrap {
+    height: 100%;
+    width: 100%;
+}
+
+#screen {
+    padding: 0 20px 0 20px;
+    margin: 20px 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 10px;
+}
+
+.screen-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 5px;
+    background-color: green;
+    border: 1px solid greenyellow;
+    border-radius: 5px;
+    transition: opacity 2s, transform 2s, border-color 2s;
+}
+
+.screen-element>.command {
+    color: greenyellow;
+}
+
+.screen-element>.cmd-output {
+    color: #2d2d2d;
+}
+
+.screen-element.fade-in-start {
+    border-color: greenyellow;
+    opacity: 0;
+}
+
+.screen-element.fade-in-end {
+    border-color: green;
+    opacity: 1;
+}
+
+.screen-element.fade-out-start {
+    border-color: green;
+    opacity: 1;
+}
+
+.screen-element.fade-out-end {
+    border-color: greenyellow;
+    opacity: 0;
+}
+
+.screen-element:hover {
+    border-color: green;
+    transform: scale(1.01, 1.01);
+}
+
+#console-wrap {
+    height: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    vertical-align: middle;
+    column-gap: 5px;
+    padding: 5px 5px 5px 5px;
+}
+
+#fs-button {
+    border: 1px solid greenyellow;
+    border-radius: 5px;
+    background-color: green;
+    cursor: pointer;
+    height: 35px;
+}
+
+#fs-button:hover {
+    border: 1px solid green;
+    background-color: greenyellow;
+    outline: none;
+    outline-offset: none;
+}
+
+#fs-button > .fs-image {
+    height: 35px;
+    width: auto;
+}
+
+#input {
+    min-width: 200px;
+    max-width: 200px;
+    width: 200px;
+    font-size: 20px;
+    pointer-events: all;
+    border-width: 3px;
+    border-radius: 5px;
+    color: #2d2d2d;
+    border-color: green;
+    caret-color: #2d2d2d;
+    background-color: greenyellow;
+    transition: border-color 3s ease-in, background-color 3s ease-out;
+}
+
+:focus-visible {
+    /* overwrite chromium's default style for focused elements */
+    outline: none;
+    outline-offset: none;
+}
+
+#input.glowing-transition {
+    border-color: greenyellow;
+    background-color: green;
+}
+
+#input.disabled {
+    pointer-events: none;
+}
+
+#possible-input-label {
+    color: green;
+    margin: 0 0 0 20px;
+}
+
+#command-wrap {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+    flex-wrap: nowrap;
+}
+
+#command-wrap > .command {
+    display: flex;
+    border: 1px solid greenyellow;
+    border-radius: 5px;
+    background-color: green;
+    color: #2d2d2d;
+    padding: 1px;
+    transition: opacity 500ms, color 500ms;
+}
+
+#command-wrap > .command.fade-in-start {
+    opacity: 0;
+}
+
+#command-wrap > .command.fade-in-end {
+    opacity: 1;
+}
+
+#command-wrap > .command.fade-out-start {
+    opacity: 1;
+}
+
+#command-wrap > .command.fade-out-end {
+    opacity: 0;
+}
