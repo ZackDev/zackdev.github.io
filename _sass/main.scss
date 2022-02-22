@@ -166,12 +166,12 @@ p {
 }
 
 a {
-  text-decoration: underline dotted $dark-grey;
-  color: $black;
+  text-decoration: underline $blue;
+  color: $blue;
 }
 
 a:hover {
-  text-decoration: underline $dark-grey;
+  text-decoration: underline dotted $blue;
 }
 
 footer a {
