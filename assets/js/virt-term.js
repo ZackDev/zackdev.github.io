@@ -469,21 +469,6 @@ class TerminalController {
                 this.unregisterCommand(logoutCmd);
                 break;
             }
-            case this.commandProvider.getLogoutCmd().command: {
-                // logout command
-                // - unregister logout command
-                // - unregister rm command
-                // - register login command
-                let logoutCmd = this.commandProvider.getLogoutCmd();
-                let rmCmd = this.commandProvider.getRmCmd();
-                let loginCmd = this.commandProvider.getLoginCmd();
-                this.unregisterCommand(rmCmd);
-                this.registerCommand(loginCmd);
-                this.view.clearScreen();
-                this.view.displayOutput(cmdKey);
-                this.unregisterCommand(logoutCmd);
-                break;
-            }
             case this.commandProvider.getRmCmd().command: {
                 // rm command
                 // - unregister registered commands except the restore command
