@@ -435,60 +435,83 @@ class TerminalController {
         // notifies the view by passing the <cmdKey> to it's displayOutput() method
         let cmd = this.commandsMap.get(cmdKey);
         cmd.run();
-        if (cmd.command === this.commandProvider.getClearCmd().command) {
-            // clear command
-            this.view.clearScreen();
-        }
-        else if (cmd.command === this.commandProvider.getLoginCmd().command) {
-            // login command
-            // - register logout command
-            // - register rm command
-            // - unregister login command
-            let logoutCmd = this.commandProvider.getLogoutCmd();
-            let rmCmd = this.commandProvider.getRmCmd();
-            this.registerCommand(logoutCmd);
-            this.registerCommand(rmCmd);
-            this.view.displayOutput(cmdKey);
-            this.unregisterCommand(cmd);
-        }
-        else if (cmd.command === this.commandProvider.getLogoutCmd().command) {
-            // logout command
-            // - unregister logout command
-            // - unregister rm command
-            // - register login command
-            let logoutCmd = this.commandProvider.getLogoutCmd();
-            let rmCmd = this.commandProvider.getRmCmd();
-            let loginCmd = this.commandProvider.getLoginCmd();
-            this.unregisterCommand(rmCmd);
-            this.registerCommand(loginCmd);
-            this.view.clearScreen();
-            this.view.displayOutput(cmdKey);
-            this.unregisterCommand(logoutCmd);
-        }
-        else if (cmd.command === this.commandProvider.getRmCmd().command) {
-            // rm command
-            // - unregister registered commands except the restore command
-            this.view.displayOutput(cmdKey);
-            for (const [, c] of this.commandsMap) {
-                if (c.command != this.commandProvider.getRestoreCmd().command) {
-                    this.unregisterCommand(c);
-                }
+        switch (cmd.command) {
+            case this.commandProvider.getClearCmd().command: {
+                // clear command
+                this.view.clearScreen();
+                break;
             }
-        }
-        else if (cmd.command === this.commandProvider.getRestoreCmd().command) {
-            // restore command
-            // remove registered commands
-            this.commandsMap.forEach((c) => {
-                this.unregisterCommand(c);
-            });
-            // register default commands
-            this.commandProvider.getDefaultCommands().forEach((c,) => {
-                this.registerCommand(c);
-            });
-            this.view.displayOutput(cmdKey);
-        }
-        else {
-            this.view.displayOutput(cmdKey);
+            case this.commandProvider.getLoginCmd().command: {
+                // login command
+                // - register logout command
+                // - register rm command
+                // - unregister login command
+                let logoutCmd = this.commandProvider.getLogoutCmd();
+                let rmCmd = this.commandProvider.getRmCmd();
+                this.registerCommand(logoutCmd);
+                this.registerCommand(rmCmd);
+                this.view.displayOutput(cmdKey);
+                this.unregisterCommand(cmd);
+                break;
+            }
+            case this.commandProvider.getLogoutCmd().command: {
+                // logout command
+                // - unregister logout command
+                // - unregister rm command
+                // - register login command
+                let logoutCmd = this.commandProvider.getLogoutCmd();
+                let rmCmd = this.commandProvider.getRmCmd();
+                let loginCmd = this.commandProvider.getLoginCmd();
+                this.unregisterCommand(rmCmd);
+                this.registerCommand(loginCmd);
+                this.view.clearScreen();
+                this.view.displayOutput(cmdKey);
+                this.unregisterCommand(logoutCmd);
+                break;
+            }
+            case this.commandProvider.getLogoutCmd().command: {
+                // logout command
+                // - unregister logout command
+                // - unregister rm command
+                // - register login command
+                let logoutCmd = this.commandProvider.getLogoutCmd();
+                let rmCmd = this.commandProvider.getRmCmd();
+                let loginCmd = this.commandProvider.getLoginCmd();
+                this.unregisterCommand(rmCmd);
+                this.registerCommand(loginCmd);
+                this.view.clearScreen();
+                this.view.displayOutput(cmdKey);
+                this.unregisterCommand(logoutCmd);
+                break;
+            }
+            case this.commandProvider.getRmCmd().command: {
+                // rm command
+                // - unregister registered commands except the restore command
+                this.view.displayOutput(cmdKey);
+                for (const [, c] of this.commandsMap) {
+                    if (c.command != this.commandProvider.getRestoreCmd().command) {
+                        this.unregisterCommand(c);
+                    }
+                }
+                break;
+            }
+            case this.commandProvider.getRestoreCmd().command: {
+                // restore command
+                // remove registered commands
+                this.commandsMap.forEach((c) => {
+                    this.unregisterCommand(c);
+                });
+                // register default commands
+                this.commandProvider.getDefaultCommands().forEach((c,) => {
+                    this.registerCommand(c);
+                });
+                this.view.displayOutput(cmdKey);
+                break;
+            }
+            default: {
+                this.view.displayOutput(cmdKey);
+                break;
+            }
         }
     }
     isCommandHiddenByKey(cmdKey) {
