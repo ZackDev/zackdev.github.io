@@ -317,6 +317,7 @@ function drawWeeklyTestsChart(dataObj) {
   Highcharts.chart('chart-corona-tests-germany', {
     chart: {
       type: 'column',
+      zoomType: 'x'
     },
     title: {
       text: 'Weekly And Total Performed PCR Tests',
