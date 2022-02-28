@@ -9,7 +9,7 @@ The following charts use publicly available data surrounding the SARS-CoV-2 viru
 <div id="chart-corona-cases-germany"></div>
 ---
 <div class="spacer"></div>
-<div id="chart-corona-additional-germany"></div>
+<div id="chart-corona-incidence-and-rvalue-germany"></div>
 ---
 <div class="spacer"></div>
 <div id="chart-corona-tests-germany"></div>

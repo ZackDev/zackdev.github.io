@@ -119,7 +119,7 @@ const getAsyncDailyCasesCallback = (callbackObject) => {
     };
 
     drawDailyCasesChart(dataObj0);
-    drawAdditionalChart(dataObj1);
+    drawIncidenceAndRValueChart(dataObj1);
   }
   else {
     console.log('callbackObject.data is not an array.')
@@ -266,8 +266,8 @@ function drawDailyCasesChart(dataObj) {
   });
 }
 
-function drawAdditionalChart(dataObj) {
-  Highcharts.chart('chart-corona-additional-germany', {
+function drawIncidenceAndRValueChart(dataObj) {
+  Highcharts.chart('chart-corona-incidence-and-rvalue-germany', {
     chart: {
       type: 'line',
       zoomType: 'x',
