@@ -4064,9 +4064,15 @@
         },
         {
             "date": "2022-03-02",
-            "free_icu": 4068,
+            "free_icu": 4071,
             "covid_icu": 1247,
             "covid_icu_invasive": 955
+        },
+        {
+            "date": "2022-03-03",
+            "free_icu": 4076,
+            "covid_icu": 1205,
+            "covid_icu_invasive": 946
         }
     ]
 }
