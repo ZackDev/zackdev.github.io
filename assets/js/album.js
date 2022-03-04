@@ -102,12 +102,20 @@ class Album {
             s.classList.remove("album-preview-image");
         }
 
+        this.mainImageContainer.addEventListener("transitionend", (event) => {
+            if (event.propertyName === "opacity" && event.target.id === "album-main-image-container") {
+                let opacity = this.mainImageContainer.style.opacity;
+                if (opacity === "1") {
+                    this.mainImage.src = this.images[i];
+                }
+            }
+        });
+
         // change the main image
         // - trigger 'fade-out' animation
         // - change the main image src attribute
         // - update the selected image index
         this.mainImageContainer.style.opacity = "0";
-        this.mainImage.src = this.images[i];
         this.selectedImageIndex = i;
     }
 }
