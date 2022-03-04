@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
   <head>
-    {% assign title = "zackdev" %}
     {% if page.url != "/" %}
       {% assign title = page.title %}
+    {% else %}
+      {% assign title = "ZackDev" %}
     {% endif %}
     <title>{{ title }}</title>
     <meta charset="utf-8">
