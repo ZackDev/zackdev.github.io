@@ -102,6 +102,9 @@ class Album {
             s.classList.remove("album-preview-image");
         }
 
+        // changes the main-image src property between the opacity transition:
+        // 0 -> 1 (change src) -> 0
+        // the old image fades out, the new fades in
         this.mainImageContainer.addEventListener("transitionend", (event) => {
             if (event.propertyName === "opacity" && event.target.id === "album-main-image-container") {
                 let opacity = this.mainImageContainer.style.opacity;
@@ -111,9 +114,7 @@ class Album {
             }
         });
 
-        // change the main image
         // - trigger 'fade-out' animation
-        // - change the main image src attribute
         // - update the selected image index
         this.mainImageContainer.style.opacity = "0";
         this.selectedImageIndex = i;
