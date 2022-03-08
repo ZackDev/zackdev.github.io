@@ -365,7 +365,7 @@ function drawDailyVaccinationsChart(dataObj) {
       text: 'Daily And Total Vaccinations',
     },
     subtitle: {
-      text: 'includes primary and secondary vaccinations',
+      text: 'includes primary, secondary and booster vaccinations',
     },
     xAxis: {
       categories: dataObj.dates,
@@ -377,7 +377,7 @@ function drawDailyVaccinationsChart(dataObj) {
       },
     }, {
       title: {
-        text: 'Total Primary And Secondary Vaccinations',
+        text: 'Total Vaccinations',
       },
       opposite: true,
     }],
