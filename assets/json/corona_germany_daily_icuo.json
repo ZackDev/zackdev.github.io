@@ -4077,26 +4077,32 @@
         {
             "date": "2022-03-04",
             "free_icu": 3962,
-            "covid_icu": 1179,
+            "covid_icu": 1180,
             "covid_icu_invasive": 930
         },
         {
             "date": "2022-03-05",
             "free_icu": 4174,
-            "covid_icu": 1184,
+            "covid_icu": 1185,
             "covid_icu_invasive": 918
         },
         {
             "date": "2022-03-06",
             "free_icu": 4481,
-            "covid_icu": 1178,
+            "covid_icu": 1179,
             "covid_icu_invasive": 916
         },
         {
             "date": "2022-03-07",
             "free_icu": 4455,
-            "covid_icu": 1231,
+            "covid_icu": 1233,
             "covid_icu_invasive": 925
+        },
+        {
+            "date": "2022-03-08",
+            "free_icu": 4131,
+            "covid_icu": 1208,
+            "covid_icu_invasive": 941
         }
     ]
 }
