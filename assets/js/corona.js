@@ -415,7 +415,7 @@ function drawDailyVaccinationsChart(dataObj) {
       data: dataObj.totalPrimaryVaccinations,
       tooltip: {
         pointFormatter() {
-          return `<span style="color:${this.series.color};">&bull;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.primaryVaccinationsPercentage[this.x]}%</br>`;
+          return `<span class="highcharts-color-${this.colorIndex}">&#9679;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.primaryVaccinationsPercentage[this.x]}%</br>`;
         },
       },
     }, {
@@ -426,7 +426,7 @@ function drawDailyVaccinationsChart(dataObj) {
       data: dataObj.totalSecondaryVaccinations,
       tooltip: {
         pointFormatter() {
-          return `<span style="color:${this.series.color};">&bull;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.secondaryVaccinationsPercentage[this.x]}%</br>`;
+          return `<span class="highcharts-color-${this.colorIndex}">&#9679;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.secondaryVaccinationsPercentage[this.x]}%</br>`;
         },
       },
     }, {
@@ -437,7 +437,7 @@ function drawDailyVaccinationsChart(dataObj) {
       data: dataObj.totalBoosterVaccinations,
       tooltip: {
         pointFormatter() {
-          return `<span style="color:${this.series.color};">&bull;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.boosterVaccinationsPercentage[this.x]}%</br>`;
+          return `<span class="highcharts-color-${this.colorIndex}">&#9679;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.boosterVaccinationsPercentage[this.x]}%</br>`;
         },
       },
     }],
