@@ -389,7 +389,7 @@ function drawDailyVaccinationsChart(dataObj) {
     series: [{
       yAxis: 0,
       stack: 0,
-      index: 2,
+      index: 0,
       legendIndex: 0,
       name: 'Primary Vaccinations',
       data: dataObj.primaryVaccinations,
@@ -403,7 +403,7 @@ function drawDailyVaccinationsChart(dataObj) {
     }, {
       yAxis: 0,
       stack: 0,
-      index: 0,
+      index: 2,
       legendIndex: 2,
       name: 'Booster Vaccinations',
       data: dataObj.boosterVaccinations,
