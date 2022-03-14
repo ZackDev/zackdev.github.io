@@ -509,6 +509,9 @@ function drawVaccinationsByVaccineChart(dataObj) {
     title: {
       text: 'Vaccinations By Vaccine',
     },
+    subtitle: {
+      text: `Doses administered: ${Highcharts.numberFormat(dataObj.moderna + dataObj.comirnaty + dataObj.astrazeneca + dataObj.janssen, 0)}`
+    },
     plotOptions: {
       pie: {
         dataLabels: {
