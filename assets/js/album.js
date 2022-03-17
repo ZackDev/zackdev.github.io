@@ -137,6 +137,6 @@ class Album {
     }
 
     updateAlbumStats() {
-        this.albumStats.innerHTML = `${this.imagesLoaded} images out of ${this.images.length} loaded.`;
+        this.albumStats.innerText = `${this.imagesLoaded} images out of ${this.images.length} loaded.`;
     }
 }
