@@ -72,17 +72,16 @@ class Album {
         previewImage.classList.add("album-preview-image");
         previewImage.id = `album-preview-image-${index}`;
         previewImage.src = url;
-        previewImage.style.opacity = "0";
-        previewImage.addEventListener("load", () => {
-            // triggers the 'fade-in' animation for the preview image
-            previewImage.style.opacity = "1";
-            previewImage.addEventListener("click", () => {
-                this.changeSelectedImageByIndex(index);
+        previewImage.decode()
+            .then(() => {
+                previewImage.style.opacity = "0";
+                this.imagesPreviewContainer.append(previewImage);
+                // triggers the 'fade-in' animation for the preview image
+                previewImage.style.opacity = "1";
+                previewImage.addEventListener("click", () => {
+                    this.changeSelectedImageByIndex(index);
+                });
             });
-        });
-
-        // add it to the preview container
-        this.imagesPreviewContainer.append(previewImage);
     }
 
     changeSelectedImageByIndex(i) {
