@@ -65,20 +65,20 @@ class Album {
 
     addImage(url) {
         // add the image url to the images array
-        let index = this.images.push(url) -1;
+        const index = this.images.push(url) -1;
         
         // create a preview element
-        let previewImage = document.createElement("img");
+        const previewImage = document.createElement("img");
         previewImage.classList.add("album-preview-image");
         previewImage.id = `album-preview-image-${index}`;
         previewImage.src = url;
         previewImage.style.opacity = "0";
-        previewImage.addEventListener("click", () => {
-            this.changeSelectedImageByIndex(index);
-        });
         previewImage.addEventListener("load", () => {
             // triggers the 'fade-in' animation for the preview image
             previewImage.style.opacity = "1";
+            previewImage.addEventListener("click", () => {
+                this.changeSelectedImageByIndex(index);
+            });
         });
 
         // add it to the preview container
