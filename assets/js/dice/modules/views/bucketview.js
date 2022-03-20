@@ -24,6 +24,8 @@ export { BucketView };
         this.dices = [];
         this.controller = controller;
         this.addBucketBtn();
+
+        this.controller.bucketView = this;
     }
     
     /**

@@ -22,6 +22,8 @@ export { DiceTypesView };
         // an array containing the html property id of the dice types
         this.diceTypes = [];
         this.controller = controller;
+
+        this.controller.diceTypesView = this;
     }
     
     /**

@@ -11,14 +11,14 @@ export {DiceController};
  */
  class DiceController {
     constructor() {
+        this.diceTypeSetProvider = new DiceTypeSetProvider(this);
+        this.diceProvider = new DiceProvider(this);
+        this.bucket = new Bucket(this);
         this.diceAudio = new DiceAudio();
         this.loadSounds();
     }
 
     onViewInit() {
-        this.diceTypeSetProvider = new DiceTypeSetProvider(this);
-        this.diceProvider = new DiceProvider(this);
-        this.bucket = new Bucket(this);
         this.addDiceSets();
     }
 

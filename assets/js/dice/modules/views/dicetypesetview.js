@@ -20,6 +20,8 @@ class DiceTypeSetView {
         this.sets = [];
         this.selectedDiceSet = undefined;
         this.controller = controller;
+
+        this.controller.diceTypeSetView = this;
     }
 
     /**

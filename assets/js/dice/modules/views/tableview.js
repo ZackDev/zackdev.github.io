@@ -21,6 +21,8 @@ export { TableView };
         this.dices = [];
         this.controller = controller;
         this.addTableBtn();
+
+        this.controller.tableView = this;
     }
     
     /**

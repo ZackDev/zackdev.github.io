@@ -101,6 +101,8 @@ export { NewDiceTypeView };
         this.root.append(btnContainer);
         this.hide();
         this.controller = controller;
+
+        this.controller.newDiceTypeView = this;
     }
     
     /**
