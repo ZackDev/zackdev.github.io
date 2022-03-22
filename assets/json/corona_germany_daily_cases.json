@@ -6463,6 +6463,30 @@
             "incidence": 1818.17,
             "rrate": 0.87,
             "rratesmoothed": 1.19
+        },
+        {
+            "date": "2022-03-19",
+            "totalcases": 18717682,
+            "dailycases": 131725,
+            "incidence": 1846.02,
+            "rrate": 0.51,
+            "rratesmoothed": 1.16
+        },
+        {
+            "date": "2022-03-20",
+            "totalcases": 18809998,
+            "dailycases": 92316,
+            "incidence": 1827.83,
+            "rrate": 0.7,
+            "rratesmoothed": 1.15
+        },
+        {
+            "date": "2022-03-21",
+            "totalcases": 18810035,
+            "dailycases": 37,
+            "incidence": 1850.66,
+            "rrate": 0.0,
+            "rratesmoothed": 1.18
         }
     ]
 }
