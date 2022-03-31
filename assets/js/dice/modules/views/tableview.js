@@ -12,17 +12,23 @@ export { TableView };
      * @param {DiceController} controller for notifying the controller about user interactions with the table
      */
     constructor(controller) {
-        let root = document.createElement("div");
-        root.id = "table-container";
-        root.classList.add("flex-row");
-        root.classList.add("not-selectable");
-        document.getElementById("main-content").append(root);
-        this.root = root;
-        this.dices = [];
-        this.controller = controller;
-        this.addTableBtn();
+        let mainContentElement = document.getElementById("main-content");
+        if (mainContentElement !== null) {
+            let root = document.createElement("div");
+            root.id = "table-container";
+            root.classList.add("flex-row");
+            root.classList.add("not-selectable");
+            mainContentElement.append(root);
+            this.root = root;
+            this.dices = [];
+            this.controller = controller;
+            this.addTableBtn();
 
-        this.controller.tableView = this;
+            this.controller.tableView = this;
+        }
+        else {
+            throw 'ViewError';
+        }
     }
     
     /**

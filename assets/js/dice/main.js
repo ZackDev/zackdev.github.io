@@ -1,5 +1,11 @@
 import { ViewBundle } from './modules/viewbundle.js';
 import { DiceController } from './modules/dicecontroller.js';
 
-let dc = new DiceController();
-let v = new ViewBundle(dc);
+
+try {
+    let dc = new DiceController();
+    let vb = new ViewBundle(dc);
+}
+catch(e) {
+    console.log(e);
+}

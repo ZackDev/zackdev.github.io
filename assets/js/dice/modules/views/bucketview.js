@@ -10,22 +10,27 @@ export { BucketView };
      * @param {DiceController} controller for notifying the controller about the user's interaction with the view
      */
     constructor(controller) {
-        // create the container of the view
-        let root = document.createElement("div");
-        root.id = "bucket-container";
-        root.classList.add("flex-row");
-        root.classList.add("not-selectable");
-        document.getElementById("main-content").append(root);
-        this.root = root;
-        // tracks the state of the bucket/roll button
-        this.bucketButtonActive = false;
-        // holds the UIDs of the bucket's dices
-        // - used to adjust the bucket button's state
-        this.dices = [];
-        this.controller = controller;
-        this.addBucketBtn();
-
-        this.controller.bucketView = this;
+        let mainContentElement = document.getElementById("main-content");
+        if (mainContentElement !== null) {
+            // create the container of the view
+            let root = document.createElement("div");
+            root.id = "bucket-container";
+            root.classList.add("flex-row");
+            root.classList.add("not-selectable");
+            mainContentElement.append(root);
+            this.root = root;
+            // tracks the state of the bucket/roll button
+            this.bucketButtonActive = false;
+            // holds the UIDs of the bucket's dices
+            // - used to adjust the bucket button's state
+            this.dices = [];
+            this.controller = controller;
+            this.addBucketBtn();
+            this.controller.bucketView = this;
+        }
+        else {
+            throw 'ViewError';
+        }
     }
     
     /**

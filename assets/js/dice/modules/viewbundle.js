@@ -6,12 +6,17 @@ import { TableView } from './views/tableview.js';
 
 class ViewBundle {
     constructor(controller) {
-        new DiceTypeSetView(controller);
-        new DiceTypesView(controller);
-        new BucketView(controller);
-        controller.tableView = new TableView(controller);
-        controller.newDiceTypeView = new NewDiceTypeView(controller);
-        controller.onViewInit();
+        try {
+            new DiceTypeSetView(controller);
+            new DiceTypesView(controller);
+            new BucketView(controller);
+            new TableView(controller);
+            new NewDiceTypeView(controller);
+            controller.onViewInit();
+        }
+        catch (e) {
+            throw e;
+        }
     }
 }
 

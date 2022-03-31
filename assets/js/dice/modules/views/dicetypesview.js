@@ -10,20 +10,25 @@ export { DiceTypesView };
      * @param {DiceController} controller for notifying the controller of relevant user interactions
      */
     constructor(controller) {
-        // create the view's container and add it to the DOM
-        let root = document.createElement("div");
-        root.id = "dice-types-container";
-        root.classList.add("flex-row");
-        root.classList.add("not-selectable");
-        document.getElementById("main-content").append(root);
-        this.root = root;
-        this.addNewDiceTypeBtn();
-        this.setNewDiceTypeBtnState("inactive");
-        // an array containing the html property id of the dice types
-        this.diceTypes = [];
-        this.controller = controller;
-
-        this.controller.diceTypesView = this;
+        let mainContentElement = document.getElementById("main-content");
+        if (mainContentElement !== null) {
+            // create the view's container and add it to the DOM
+            let root = document.createElement("div");
+            root.id = "dice-types-container";
+            root.classList.add("flex-row");
+            root.classList.add("not-selectable");
+            document.getElementById("main-content").append(root);
+            this.root = root;
+            this.addNewDiceTypeBtn();
+            this.setNewDiceTypeBtnState("inactive");
+            // an array containing the html property id of the dice types
+            this.diceTypes = [];
+            this.controller = controller;
+            this.controller.diceTypesView = this;
+        }
+        else {
+            throw 'ViewError';
+        }
     }
     
     /**
