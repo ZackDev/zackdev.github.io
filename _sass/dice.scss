@@ -89,6 +89,12 @@ $chicago: #605c59;
 
 .clickable {
     cursor: pointer;
+    pointer-events: all;
+}
+
+.unclickable {
+    cursor: none;
+    pointer-events: none;
 }
 
 .dice-set {
