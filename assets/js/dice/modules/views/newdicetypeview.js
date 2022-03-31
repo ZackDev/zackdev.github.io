@@ -147,8 +147,11 @@ export { NewDiceTypeView };
             this.createDiceBtn = createDiceBtn;
              // add the created HTML-Elements to the view's container
             this.root.append(label);
+            this.root.append(document.createElement("hr"));
             this.root.append(nameWrap);
+            this.root.append(document.createElement("hr"));
             this.root.append(sideWrap);
+            this.root.append(document.createElement("hr"));
             this.root.append(createDiceBtn);
             this.hide();
             this.controller = controller;
