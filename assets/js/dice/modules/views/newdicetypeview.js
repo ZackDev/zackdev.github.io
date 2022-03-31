@@ -23,7 +23,7 @@ export { NewDiceTypeView };
             // an array for adding and removing the dice's sides
             this.diceSides = [];
             let label = document.createElement("label");
-            label.innerHTML = "create a new type of dice.";
+            label.innerText = "Create a new type of dice.";
 
             // the name wrap
             let nameWrap = document.createElement("div");
@@ -72,7 +72,7 @@ export { NewDiceTypeView };
             let sideInput = document.createElement("input");
             sideInput.id = "dice-sides-input";
             sideInput.type = "text";
-            sideInput.placeholder = "enter a side value here.";
+            sideInput.placeholder = "Enter a side value here.";
             sideInput.minLength = 1;
             sideInput.maxLength = 1;
             sideInput.addEventListener("input", () => {
@@ -82,7 +82,7 @@ export { NewDiceTypeView };
             // adds the value of this.sideInput to this.sides
             let addSideBtn = document.createElement("button");
             addSideBtn.classList.add("unclickable");
-            addSideBtn.innerHTML = "add side";
+            addSideBtn.innerText = "Add side.";
             addSideBtn.addEventListener("click", () => {
                 let sideValue = this.sideInput.value;
                 // check the input for appropriate length
@@ -126,7 +126,7 @@ export { NewDiceTypeView };
             // - with this.nameInput and this.dicesSides as parameters
             let createDiceBtn = document.createElement("button");
             createDiceBtn.classList.add("unclickable");
-            createDiceBtn.innerHTML = "create dice";
+            createDiceBtn.innerText = "Create dice.";
             createDiceBtn.addEventListener("click", () => {
                 // only create 'valid' dices
                 // - with minimum two sides
