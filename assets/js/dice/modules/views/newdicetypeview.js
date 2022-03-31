@@ -85,7 +85,7 @@ export { NewDiceTypeView };
             addSideBtn.innerHTML = "add side";
             addSideBtn.addEventListener("click", () => {
                 let sideValue = this.sideInput.value;
-                // check the input for appropriate length (one to four)
+                // check the input for appropriate length
                 if (sideValue.length == 1) {
                     let side = document.createElement("div");
                     side.classList.add("dice");
@@ -173,6 +173,9 @@ export { NewDiceTypeView };
         this.diceSides = [];
     }
 
+    /**
+     * adds either a checkmark or cross depending on the dice's name's length to the nameInfo HTML-Element
+     */
     adaptNameInfo() {
         let lenName = this.nameInput.value.length;
         if (lenName >= 1 && lenName <= 4) {
@@ -184,6 +187,9 @@ export { NewDiceTypeView };
         this.adaptCreateButton();
     }
 
+    /**
+     * gets the number of sides and either sets a cross or checkmark to the sidesInfo HTML-Element
+     */
     adaptSidesInfo() {
         let numSides = this.diceSides.length;
         if (numSides >= 2) {
@@ -195,6 +201,9 @@ export { NewDiceTypeView };
         this.adaptCreateButton();
     }
 
+    /**
+     * enables or disables the createDiceButton wheather the dice to create is valid or not
+     */
     adaptCreateButton() {
         let lenName = this.nameInput.value.length;
         let numSides = this.diceSides.length;
@@ -208,6 +217,9 @@ export { NewDiceTypeView };
         }
     }
 
+    /**
+     * examines the sides input and either activates or deactivates the addSideButton
+     */
     adaptAddSideButton() {
         let lenSideInput = this.sideInput.value.length;
         if (lenSideInput >= 1 && lenSideInput <= 4) {
