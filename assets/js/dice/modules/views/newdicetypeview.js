@@ -22,8 +22,30 @@ export { NewDiceTypeView };
             this.root = root;
             // an array for adding and removing the dice's sides
             this.diceSides = [];
+            let labelWrap = document.createElement("div");
+            labelWrap.classList.add("flex-row");
+            labelWrap.style.justifyContent = "center";
+            labelWrap.style.alignItems = "baseline";
+            let diceDecorationL0 = document.createElement("div");
+            diceDecorationL0.classList.add("dice-type", "small");
+            diceDecorationL0.innerHTML = "&AElig;";
+            diceDecorationL0.style.rotate = "23deg";
+            let diceDecorationL1 = document.createElement("div");
+            diceDecorationL1.classList.add("dice-type", "small");
+            diceDecorationL1.innerHTML = "&#556;";
+            diceDecorationL1.style.rotate = "-172deg";
             let label = document.createElement("label");
-            label.innerText = "Create a new type of dice.";
+            label.style.textAlign = "center";
+            label.innerText = "Create A Dice";
+            let diceDecorationR0 = document.createElement("div");
+            diceDecorationR0.classList.add("dice-type", "small");
+            diceDecorationR0.innerHTML = "&#1002;";
+            diceDecorationR0.style.rotate = "-5deg";
+            let diceDecorationR1 = document.createElement("div");
+            diceDecorationR1.classList.add("dice-type", "small");
+            diceDecorationR1.innerHTML = "&#1758;";
+
+            labelWrap.append(diceDecorationL0, diceDecorationL1, label, diceDecorationR0, diceDecorationR1);
 
             // the name wrap
             let nameWrap = document.createElement("div");
@@ -33,16 +55,19 @@ export { NewDiceTypeView };
             nameInfoWrap.classList.add("flex-row");
             nameInfoWrap.style.justifyContent = "space-between";
             let nameInfoText = document.createElement("div");
-            nameInfoText.innerText = "name: 1 to 4 characters";
+            nameInfoText.innerText = "Name: 1 to 4 characters";
+            nameInfoText.style.fontSize = "16px";
+            nameInfoText.style.color = "#605c59";
             let nameInfoCheckOrX = document.createElement("div");
             nameInfoCheckOrX.id = "create-dice-type-name-check-or-x";
             nameInfoCheckOrX.innerHTML = "&cross;";
             nameInfoWrap.append(nameInfoText, nameInfoCheckOrX);
             // - the input for setting the dice's name
             let nameInput = document.createElement("input");
+            nameInput.classList.add("dice-type");
             nameInput.id = "dice-name-input";
             nameInput.type = "text";
-            nameInput.placeholder = "enter a name here.";
+            nameInput.placeholder = "...";
             nameInput.minLength = 1;
             nameInput.maxLength = 4;
             nameInput.addEventListener("input", () => {
@@ -60,7 +85,9 @@ export { NewDiceTypeView };
             sidesInfoWrap.classList.add("flex-row");
             sidesInfoWrap.style.justifyContent = "space-between";
             let sidesInfoText = document.createElement("div");
-            sidesInfoText.innerText = "sides: more than one side.";
+            sidesInfoText.innerText = "Sides: more than one side";
+            sidesInfoText.style.fontSize = "16px";
+            sidesInfoText.style.color = "#605c59";
             let sidesInfoCheckOrX = document.createElement("div");
             sidesInfoCheckOrX.id = "create-dice-type-sides-check-or-x";
             sidesInfoCheckOrX.innerHTML = "&cross;";
@@ -70,9 +97,10 @@ export { NewDiceTypeView };
             sideInputWrap.style.justifyContent = "space-between";
             // - the side input for entering a side
             let sideInput = document.createElement("input");
+            sideInput.classList.add("dice");
             sideInput.id = "dice-sides-input";
             sideInput.type = "text";
-            sideInput.placeholder = "Enter a side value here.";
+            sideInput.placeholder = "...";
             sideInput.minLength = 1;
             sideInput.maxLength = 1;
             sideInput.addEventListener("input", () => {
@@ -82,7 +110,7 @@ export { NewDiceTypeView };
             // adds the value of this.sideInput to this.sides
             let addSideBtn = document.createElement("button");
             addSideBtn.classList.add("unclickable");
-            addSideBtn.innerText = "Add side.";
+            addSideBtn.innerText = "Add Side";
             addSideBtn.addEventListener("click", () => {
                 let sideValue = this.sideInput.value;
                 // check the input for appropriate length
@@ -117,6 +145,7 @@ export { NewDiceTypeView };
             let sideOutput = document.createElement("div");
             sideOutput.id = "sides-container";
             sideOutput.classList.add("flex-row");
+            sideOutput.style.flexWrap = "wrap";
             
             sideWrap.append(sidesInfoWrap);
             sideWrap.append(sideInputWrap);
@@ -126,7 +155,7 @@ export { NewDiceTypeView };
             // - with this.nameInput and this.dicesSides as parameters
             let createDiceBtn = document.createElement("button");
             createDiceBtn.classList.add("unclickable");
-            createDiceBtn.innerText = "Create dice.";
+            createDiceBtn.innerText = "Create Dice";
             createDiceBtn.addEventListener("click", () => {
                 // only create 'valid' dices
                 // - with minimum two sides
@@ -146,7 +175,7 @@ export { NewDiceTypeView };
             this.addSideBtn = addSideBtn;
             this.createDiceBtn = createDiceBtn;
              // add the created HTML-Elements to the view's container
-            this.root.append(label);
+            this.root.append(labelWrap);
             this.root.append(document.createElement("hr"));
             this.root.append(nameWrap);
             this.root.append(document.createElement("hr"));

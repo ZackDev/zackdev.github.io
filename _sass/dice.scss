@@ -44,7 +44,7 @@ $chicago: #605c59;
 #create-dice-type-container {
     margin: 20px auto 20px auto;
     padding: 5px;
-    max-width: 310px;
+    width: max-content;
     gap: 5px;
     border: 1px solid $wild-sand;
     border-radius: 10px;
@@ -55,12 +55,6 @@ $chicago: #605c59;
     min-height: 62px;
     justify-content: flex-start;
     align-items: center;
-}
-
-#btn-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
 
 #dice-name-input {
@@ -128,6 +122,12 @@ $chicago: #605c59;
     box-shadow: 5px 5px 0 $sorrell-brown;
 }
 
+.dice.small {
+    height: 20px;
+    width: 20px;
+    box-shadow: 2px 2px 0 $sorrell-brown;
+}
+
 .dice.clickable:hover {
     background-color: $cape-palliser;
 }
@@ -145,6 +145,12 @@ $chicago: #605c59;
     border: 1px dotted $chicago;
     border-radius: 10%;
     box-shadow: 5px 5px 0 $silver-chalice;
+}
+
+.dice-type.small {
+    height: 20px;
+    width: 20px;
+    box-shadow: 2px 2px 0 $silver-chalice;
 }
 
 .dice-type.clickable:hover {
