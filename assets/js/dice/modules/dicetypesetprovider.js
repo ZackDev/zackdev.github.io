@@ -34,8 +34,8 @@ class DiceTypeSetProvider {
     
     /**
      * returns a DiceSet identified by the UID
-     * @param {numer} UID - the UID of the dice set
-     * @returns { DiceSet }
+     * @param {number} UID - the UID of the dice set
+     * @returns {DiceTypeSet}
      */
     getDiceSet(UID) {
         return this.diceTypeSetMap.get(UID);

@@ -18,6 +18,16 @@ export { DiceProvider };
     }
     
     /**
+     * 
+     * @param {String} UID the UID of the dice type
+     * returns undefined if no diceType is found
+     */
+    getDiceType(UID) {
+        let diceType = this.diceTypes.get(UID);
+        return diceType;
+    }
+
+    /**
      * adds a dice type to the DiceProvider
      * @param {DiceType} diceType the dice type to add
      */
@@ -54,7 +64,7 @@ export { DiceProvider };
     createDice(UID) {
         // - get the dice type from the Map of types
         // - create and return a new dice specified by name and sides
-        let diceType = this.diceTypes.get(UID);
+        let diceType = this.getDiceType(UID);
         return new Dice(diceType.name, diceType.sides);
     }  
 }

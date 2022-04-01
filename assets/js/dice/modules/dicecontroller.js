@@ -18,8 +18,19 @@ export {DiceController};
         this.loadSounds();
     }
 
+    /**
+     *
+     */
     onViewInit() {
         this.addDiceSets();
+    }
+
+    /**
+     * something went wrong when creating the Views
+     */
+    onViewError(exception) {
+        console.log(exception);
+        return;
     }
 
     /**

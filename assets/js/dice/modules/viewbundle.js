@@ -14,8 +14,8 @@ class ViewBundle {
             new NewDiceTypeView(controller);
             controller.onViewInit();
         }
-        catch (e) {
-            throw e;
+        catch (exception) {
+            controller.onViewError(exception);
         }
     }
 }
