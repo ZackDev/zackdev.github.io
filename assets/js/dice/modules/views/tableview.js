@@ -16,8 +16,7 @@ export { TableView };
         if (mainContentElement !== null) {
             let root = document.createElement("div");
             root.id = "table-container";
-            root.classList.add("flex-row");
-            root.classList.add("not-selectable");
+            root.classList.add("flex-row", "not-selectable");
             mainContentElement.append(root);
             this.root = root;
             this.dices = [];
@@ -91,8 +90,7 @@ export { TableView };
     displayDice(name, result) {
         let UID = UIDRandomProvider.getUID();
         let dice = document.createElement("div");
-        dice.classList.add("dice");
-        dice.classList.add("rolled");
+        dice.classList.add("dice", "rolled");
         dice.id = UID;
         dice.title = `dice: ${name}`;
         dice.innerHTML = `<div>${result}</div>`;
@@ -108,7 +106,7 @@ export { TableView };
     removeDice(UID) {
         let dice = document.getElementById(UID);
         let i = this.dices.indexOf(UID);
-        if (i > -1) {
+        if (i > -1 && dice !== undefined) {
             this.dices.splice(i, 1);
             dice.remove();
             this.adaptTableBtnState();

@@ -14,9 +14,7 @@ class DiceTypeSetView {
         if (mainContentElement !== null) {
             let root = document.createElement("div");
             root.id = "dice-sets-container";
-            root.classList.add("flex-row");
-            root.classList.add("not-selectable");
-            root.classList.add("shadow");
+            root.classList.add("flex-row", "not-selectable", "shadow");
             mainContentElement.append(root);
             this.root = root;
             this.sets = [];
@@ -46,7 +44,9 @@ class DiceTypeSetView {
             let otherDiceSets = this.sets.filter(id => id !== UID);
             for (let id of otherDiceSets) {
                 let diceSetElement = document.getElementById(id);
-                diceSetElement.classList.remove("selected-dice-set");
+                if (diceSetElement !== null) {
+                    diceSetElement.classList.remove("selected-dice-set");
+                }
             }
             this.selectedDiceSet = UID;
             this.controller.onChangeDiceSetClicked(UID);
@@ -55,7 +55,7 @@ class DiceTypeSetView {
     }
 
     getSelectedDiceSetUID() {
-        if (this.selectedDiceSet) {
+        if (this.selectedDiceSet !== undefined) {
             return this.selectedDiceSet;
         }
         else {

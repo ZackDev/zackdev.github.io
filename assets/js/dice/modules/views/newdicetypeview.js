@@ -15,9 +15,7 @@ export { NewDiceTypeView };
         if (mainContentElement !== null) {
             let root = document.createElement("div");
             root.id = "create-dice-type-container";
-            root.classList.add("flex-column");
-            root.classList.add("not-selectable");
-            root.classList.add("shadow");
+            root.classList.add("flex-column", "not-selectable", "shadow");
             mainContentElement.append(root);
             this.root = root;
             // an array for adding and removing the dice's sides
@@ -74,9 +72,8 @@ export { NewDiceTypeView };
                 this.adaptNameInfo();
             });
             // - add the input's elements to the wrapper
-            nameWrap.append(nameInfoWrap);
-            nameWrap.append(nameInput);
-
+            nameWrap.append(nameInfoWrap, nameInput);
+   
             // the side wrap
             let sideWrap = document.createElement("div");
             sideWrap.classList.add("flex-column");
@@ -116,8 +113,7 @@ export { NewDiceTypeView };
                 // check the input for appropriate length
                 if (sideValue.length == 1) {
                     let side = document.createElement("div");
-                    side.classList.add("dice");
-                    side.classList.add("clickable");
+                    side.classList.add("dice", "clickable");
                     side.innerText = sideValue;
                     // event handler for a specific dice's side
                     // - removes the side from the DOM
@@ -139,17 +135,14 @@ export { NewDiceTypeView };
                 }
             });
             sidesInfoWrap.append(sidesInfoText, sidesInfoCheckOrX);
-            sideInputWrap.append(sideInput);
-            sideInputWrap.append(addSideBtn);
+            sideInputWrap.append(sideInput, addSideBtn);
             // - the output for displaying the dice's sides
             let sideOutput = document.createElement("div");
             sideOutput.id = "sides-container";
             sideOutput.classList.add("flex-row");
             sideOutput.style.flexWrap = "wrap";
             
-            sideWrap.append(sidesInfoWrap);
-            sideWrap.append(sideInputWrap);
-            sideWrap.append(sideOutput);
+            sideWrap.append(sidesInfoWrap, sideInputWrap, sideOutput);
 
             // - the 'createDiceBtn', calls the controllers onCreateDiceClicked() method
             // - with this.nameInput and this.dicesSides as parameters

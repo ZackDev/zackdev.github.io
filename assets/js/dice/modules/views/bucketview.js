@@ -15,8 +15,7 @@ export { BucketView };
             // create the container of the view
             let root = document.createElement("div");
             root.id = "bucket-container";
-            root.classList.add("flex-row");
-            root.classList.add("not-selectable");
+            root.classList.add("flex-row", "not-selectable");
             mainContentElement.append(root);
             this.root = root;
             // tracks the state of the bucket/roll button
@@ -98,8 +97,7 @@ export { BucketView };
      */
     displayDice(UID, name) {
         let dice = document.createElement("div");
-        dice.classList.add("dice");
-        dice.classList.add("clickable");
+        dice.classList.add("dice", "clickable");
         dice.id = UID;
         dice.innerHTML = name;
         dice.addEventListener("click", () => {
@@ -118,7 +116,7 @@ export { BucketView };
     removeDice(UID) {
         let dice = document.getElementById(UID);
         let i = this.dices.indexOf(UID);
-        if (i > -1) {
+        if (i > -1 && dice !== null) {
             this.dices.splice(i, 1);
             dice.remove();
             this.adaptBucketBtnState();

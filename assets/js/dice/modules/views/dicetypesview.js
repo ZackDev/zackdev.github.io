@@ -15,8 +15,7 @@ export { DiceTypesView };
             // create the view's container and add it to the DOM
             let root = document.createElement("div");
             root.id = "dice-types-container";
-            root.classList.add("flex-row");
-            root.classList.add("not-selectable");
+            root.classList.add("flex-row", "not-selectable");
             document.getElementById("main-content").append(root);
             this.root = root;
             this.addNewDiceTypeBtn();
@@ -36,8 +35,7 @@ export { DiceTypesView };
      */
     addNewDiceTypeBtn() {
         let newDiceTypeBtn = document.createElement("img");
-        newDiceTypeBtn.classList.add("icon");
-        newDiceTypeBtn.classList.add("clickable");
+        newDiceTypeBtn.classList.add("icon", "clickable");
         newDiceTypeBtn.src = "/assets/icons/newdice.svg";
         newDiceTypeBtn.id = "new-dice-type-icon";
         this.newDiceTypeBtn = newDiceTypeBtn;
@@ -76,8 +74,7 @@ export { DiceTypesView };
      */
     displayDiceType(UID, name) {
         let diceType = document.createElement("div");
-        diceType.classList.add("dice-type");
-        diceType.classList.add("clickable");
+        diceType.classList.add("dice-type", "clickable");
         diceType.id = UID;
         diceType.innerText = name;
         diceType.addEventListener("click", () => {
@@ -96,7 +93,9 @@ export { DiceTypesView };
         if (i > -1) {
             this.diceTypes.splice(i, 1);
             let diceTypeElement = document.getElementById(UID);
-            diceTypeElement.remove();
+            if (diceTypeElement !== null) {
+                diceTypeElement.remove();
+            }
         }
     }
 }
