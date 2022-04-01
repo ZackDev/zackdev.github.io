@@ -64,7 +64,7 @@ export { NewDiceTypeView };
         nameInput.classList.add("dice-type");
         nameInput.id = "dice-name-input";
         nameInput.type = "text";
-        nameInput.placeholder = "...";
+        nameInput.placeholder = "....";
         nameInput.minLength = 1;
         nameInput.maxLength = 4;
         nameInput.addEventListener("input", () => {
@@ -96,7 +96,7 @@ export { NewDiceTypeView };
         sideInput.classList.add("dice");
         sideInput.id = "dice-sides-input";
         sideInput.type = "text";
-        sideInput.placeholder = "...";
+        sideInput.placeholder = ".";
         sideInput.minLength = 1;
         sideInput.maxLength = 1;
         sideInput.addEventListener("input", () => {
