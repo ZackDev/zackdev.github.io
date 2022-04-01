@@ -8,26 +8,21 @@ export { DiceTypesView };
     /**
      * creates a DiceTypesView object
      * @param {DiceController} controller for notifying the controller of relevant user interactions
+     * @param {HTMLElement} appentTo the element where the view appends itself to
      */
-    constructor(controller) {
-        let mainContentElement = document.getElementById("main-content");
-        if (mainContentElement !== null) {
-            // create the view's container and add it to the DOM
-            let root = document.createElement("div");
-            root.id = "dice-types-container";
-            root.classList.add("flex-row", "not-selectable");
-            document.getElementById("main-content").append(root);
-            this.root = root;
-            this.addNewDiceTypeBtn();
-            this.setNewDiceTypeBtnState("inactive");
-            // an array containing the html property id of the dice types
-            this.diceTypes = [];
-            this.controller = controller;
-            this.controller.diceTypesView = this;
-        }
-        else {
-            throw 'ViewError';
-        }
+    constructor(controller, appendTo) {
+        // create the view's container and add it to the DOM
+        let root = document.createElement("div");
+        root.id = "dice-types-container";
+        root.classList.add("flex-row", "not-selectable");
+        appendTo.append(root);
+        this.root = root;
+        this.addNewDiceTypeBtn();
+        this.setNewDiceTypeBtnState("inactive");
+        // an array containing the html property id of the dice types
+        this.diceTypes = [];
+        this.controller = controller;
+        this.controller.diceTypesView = this;
     }
     
     /**

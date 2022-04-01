@@ -5,13 +5,13 @@ import { NewDiceTypeView } from './views/newdicetypeview.js';
 import { TableView } from './views/tableview.js';
 
 class ViewBundle {
-    constructor(controller) {
+    constructor(controller, attachTo) {
         try {
-            new DiceTypeSetView(controller);
-            new DiceTypesView(controller);
-            new BucketView(controller);
-            new TableView(controller);
-            new NewDiceTypeView(controller);
+            new DiceTypeSetView(controller, attachTo);
+            new DiceTypesView(controller, attachTo);
+            new BucketView(controller, attachTo);
+            new TableView(controller, attachTo);
+            new NewDiceTypeView(controller, attachTo);
             controller.onViewInit();
         }
         catch (exception) {

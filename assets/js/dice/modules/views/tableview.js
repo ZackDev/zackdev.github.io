@@ -10,24 +10,19 @@ export { TableView };
     /**
      * creates a TableView object
      * @param {DiceController} controller for notifying the controller about user interactions with the table
+     * @param {HTMLElement} appentTo the element where the view appends itself to
      */
-    constructor(controller) {
-        let mainContentElement = document.getElementById("main-content");
-        if (mainContentElement !== null) {
-            let root = document.createElement("div");
-            root.id = "table-container";
-            root.classList.add("flex-row", "not-selectable");
-            mainContentElement.append(root);
-            this.root = root;
-            this.dices = [];
-            this.controller = controller;
-            this.addTableBtn();
+    constructor(controller, appendTo) {
+        let root = document.createElement("div");
+        root.id = "table-container";
+        root.classList.add("flex-row", "not-selectable");
+        appendTo.append(root);
+        this.root = root;
+        this.dices = [];
+        this.controller = controller;
+        this.addTableBtn();
 
-            this.controller.tableView = this;
-        }
-        else {
-            throw 'ViewError';
-        }
+        this.controller.tableView = this;
     }
     
     /**

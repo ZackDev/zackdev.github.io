@@ -7,24 +7,19 @@ class DiceTypeSetView {
 
     /**
      * 
-     * @param {*} controller 
+     * @param {DiceController} controller to delegate specific user interaction with the UI to
+     * @param {HTMLElement} appentTo the element where the view appends itself to
      */
-    constructor(controller) {
-        let mainContentElement = document.getElementById("main-content");
-        if (mainContentElement !== null) {
-            let root = document.createElement("div");
-            root.id = "dice-sets-container";
-            root.classList.add("flex-row", "not-selectable", "shadow");
-            mainContentElement.append(root);
-            this.root = root;
-            this.sets = [];
-            this.selectedDiceSet = undefined;
-            this.controller = controller;
-            this.controller.diceTypeSetView = this;
-        }
-        else {
-            throw 'ViewError';
-        }
+    constructor(controller, appendTo) {
+        let root = document.createElement("div");
+        root.id = "dice-sets-container";
+        root.classList.add("flex-row", "not-selectable", "shadow");
+        appendTo.append(root);
+        this.root = root;
+        this.sets = [];
+        this.selectedDiceSet = undefined;
+        this.controller = controller;
+        this.controller.diceTypeSetView = this;
     }
 
     /**
