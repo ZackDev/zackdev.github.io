@@ -1,5 +1,5 @@
 ---
-title: this blog is
+title: This Blog Is
 layout: default
 permalink: /
 published: true
@@ -10,7 +10,7 @@ an online reference.
 
 a personal playground.
 
-# links show up here:
+# Links Show Up Here:
 
 {% include listposts.html archived=false %}
 

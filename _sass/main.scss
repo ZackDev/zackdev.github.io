@@ -137,6 +137,7 @@ code.language-plaintext {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-variant: small-caps;
   margin: 20px 0 0 0;
   color: $dark-grey;
 }
@@ -269,6 +270,7 @@ ul.index-menu li {
 }
 
 #page-title {
+  font-variant: small-caps;
   color: $light-grey;
   margin: 0;
   font-size: 32px;
