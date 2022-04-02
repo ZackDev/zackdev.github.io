@@ -11,24 +11,25 @@ export {DiceController};
  */
  class DiceController {
     constructor() {
-        this.diceTypeSetProvider = new DiceTypeSetProvider(this);
-        this.diceProvider = new DiceProvider(this);
-        this.bucket = new Bucket(this);
-        this.diceAudio = new DiceAudio();
-        this.loadSounds();
+
     }
 
     /**
      *
      */
-    onViewInit() {
+    onViewInitSuccess() {
+        this.diceAudio = new DiceAudio();
+        this.loadSounds();
+        this.diceTypeSetProvider = new DiceTypeSetProvider(this);
+        this.diceProvider = new DiceProvider(this);
+        this.bucket = new Bucket(this);
         this.addDiceSets();
     }
 
     /**
      * something went wrong when creating the Views
      */
-    onViewError(exception) {
+    onViewInitError(exception) {
         console.log(exception);
         return;
     }
@@ -42,7 +43,6 @@ export {DiceController};
         this.diceAudio.registerAudio("table", "/assets/audio/table-00.flac");
         this.diceAudio.registerAudio("table", "/assets/audio/table-01.flac");
     }
-
 
     /**
      * 

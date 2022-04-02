@@ -166,7 +166,8 @@ export { NewDiceTypeView };
         this.sideOutput = sideOutput;
         this.addSideBtn = addSideBtn;
         this.createDiceBtn = createDiceBtn;
-            // add the created HTML-Elements to the view's container
+
+        // add the created HTML-Elements to the view's container
         this.root.append(labelWrap);
         this.root.append(document.createElement("hr"));
         this.root.append(nameWrap);

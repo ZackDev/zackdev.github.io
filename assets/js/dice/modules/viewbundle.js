@@ -12,10 +12,10 @@ class ViewBundle {
             new BucketView(controller, attachTo);
             new TableView(controller, attachTo);
             new NewDiceTypeView(controller, attachTo);
-            controller.onViewInit();
+            controller.onViewInitSuccess();
         }
         catch (exception) {
-            controller.onViewError(exception);
+            controller.onViewInitError(exception);
         }
     }
 }
