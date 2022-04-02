@@ -8,7 +8,7 @@ export { DiceTypesView };
     /**
      * creates a DiceTypesView object
      * @param {DiceController} controller for notifying the controller of relevant user interactions
-     * @param {HTMLElement} appentTo the element where the view appends itself to
+     * @param {HTMLElement} appendTo the element where the view appends itself to
      */
     constructor(controller, appendTo) {
         // create the view's container and add it to the DOM

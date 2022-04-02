@@ -8,7 +8,7 @@ class DiceTypeSetView {
     /**
      * 
      * @param {DiceController} controller to delegate specific user interaction with the UI to
-     * @param {HTMLElement} appentTo the element where the view appends itself to
+     * @param {HTMLElement} appendTo the element where the view appends itself to
      */
     constructor(controller, appendTo) {
         let root = document.createElement("div");

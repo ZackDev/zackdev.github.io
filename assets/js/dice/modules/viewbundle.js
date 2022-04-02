@@ -5,6 +5,11 @@ import { NewDiceTypeView } from './views/newdicetypeview.js';
 import { TableView } from './views/tableview.js';
 
 class ViewBundle {
+    /**
+     * 
+     * @param {DiceController} controller 
+     * @param {HTMLElement} attachTo 
+     */
     constructor(controller, attachTo) {
         try {
             new DiceTypeSetView(controller, attachTo);

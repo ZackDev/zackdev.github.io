@@ -8,7 +8,7 @@ export { NewDiceTypeView };
     /**
      * creates a NewDiceView object
      * @param {DiceController} controller for notifying the controller about user actions
-     * @param {HTMLElement} appentTo the element where the view appends itself to
+     * @param {HTMLElement} appendTo the element where the view appends itself to
      */
     constructor(controller, appendTo) {
         // create the root div containing the view and add it to the DOM

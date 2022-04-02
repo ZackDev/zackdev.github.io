@@ -10,7 +10,7 @@ export { TableView };
     /**
      * creates a TableView object
      * @param {DiceController} controller for notifying the controller about user interactions with the table
-     * @param {HTMLElement} appentTo the element where the view appends itself to
+     * @param {HTMLElement} appendTo the element where the view appends itself to
      */
     constructor(controller, appendTo) {
         let root = document.createElement("div");
