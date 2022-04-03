@@ -44,6 +44,19 @@ button:hover:disabled {
   cursor: default;
 }
 
+input {
+  margin: 1px;
+  border: 1px solid $medium-grey;
+  border-radius: 5px;
+  color: $medium-grey;
+  background-color: $light-grey;
+}
+
+input:hover, input:focus {
+  margin: 0px;
+  border: 2px solid $dark-grey;
+}
+
 hr {
   width: 100%;
   border-bottom: 1px dotted $dark-grey;
@@ -90,7 +103,7 @@ footer, header, hgroup, menu, nav, section {
 }
 
 figcaption {
-  font-size: 14px;
+  font-size: 0.8rem;
   font-style: italic;
 }
 
@@ -131,7 +144,7 @@ body {
   box-sizing: border-box;
   color: $medium-grey;
   text-align: justify;
-  font-size: 16px;
+  font-size: 1em;
   font-family: 'monospace';
   line-height: 1.61803;
   margin-bottom: 100px;
@@ -139,6 +152,10 @@ body {
   // background-repeat: repeat;
   // background-color: rgb(31, 31, 31);
   background-color: $white;
+}
+
+code {
+  font-size: 0.9rem;
 }
 
 code.language-plaintext {
@@ -168,27 +185,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 1.8rem;
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 1.7rem;
 }
 
 h3 {
-  font-size: 26px;
+  font-size: 1.6rem;
 }
 
 h4 {
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 
 h5 {
-  font-size: 22px;
+  font-size: 1.4rem;
 }
 
 h6 {
-  font-size: 20px;
+  font-size: 1.3rem;
 }
 
 p {
@@ -230,7 +247,7 @@ blockquote {
   border-bottom-right-radius: 5px;
   color: $medium-grey;
   background-color: $light-grey;
-  font-size: 20px;
+  font-size: 1.2rem;
   font-style: italic;
 }
 
@@ -298,7 +315,7 @@ ul.index-menu li {
   font-variant: small-caps;
   color: $light-grey;
   margin: 0;
-  font-size: 32px;
+  font-size: 2rem;
 }
 
 .post-info {
@@ -309,97 +326,38 @@ ul.index-menu li {
   color: $light-grey;
 }
 
-/* small display adjustments */
+/* adjustments for small displays */
 @media screen and (max-width: 992px) {
   img {
     max-width: 100%;
   }
 }
 
+/* adjustments for very small displays */
 @media screen and (max-width: 480px) {
   body {
-    font-size:14px;
+    font-size: 1.5em;
   }
 
   .inner {
     min-width: 320px;
     max-width: 480px;
   }
-
-  #page-title {
-    font-size: 26px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  h2 {
-    font-size: 22px;
-  }
-
-  h3 {
-    font-size: 20px;
-  }
-
-  h4 {
-    font-size: 18px;
-  }
-
-  h5 {
-    font-size: 14px;
-  }
-
-  h6 {
-    font-size: 12px;
-  }
-
-  code, pre {
-    font-size: 10px;
-  }
-
 }
 
+/* adjustments for tiny displays */
 @media screen and (max-width: 320px) {
   body {
-    font-size:14px;
+    font-size: 2.0em;
   }
 
   .inner {
     min-width: 240px;
     max-width: 320px;
   }
-
-  #page-title {
-    font-size: 24px;
-  }
-
-  h1 {
-    font-size: 22px;
-  }
-
-  h2 {
-    font-size: 20px;
-  }
-
-  h3 {
-    font-size: 18px;
-  }
-
-  h4 {
-    font-size: 16px;
-  }
-
-  h5 {
-    font-size: 14px;
-  }
-
-  h6 {
-    font-size: 12px;
-  }
-
 }
 
+/* highcharts styled mode font */
 .highcharts-root {
   font-family: "monospace";
 }
