@@ -327,16 +327,19 @@ ul.index-menu li {
 }
 
 /* adjustments for small displays */
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1024px) {
+  body {
+    font-size: 1.2em;
+  }
   img {
     max-width: 100%;
   }
 }
 
 /* adjustments for very small displays */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 640px) {
   body {
-    font-size: 1.5em;
+    font-size: 1.4em;
   }
 
   .inner {
@@ -348,7 +351,7 @@ ul.index-menu li {
 /* adjustments for tiny displays */
 @media screen and (max-width: 320px) {
   body {
-    font-size: 2.0em;
+    font-size: 1.6em;
   }
 
   .inner {
