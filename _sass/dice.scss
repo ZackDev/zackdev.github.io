@@ -67,6 +67,13 @@ $chicago: #605c59;
     font-size: 1rem;
 }
 
+#dice-name-input:hover, #dice-sides-input:hover, #dice-name-input:focus, #dice-sides-input:focus {
+    /* override default behaviour */
+    margin: 5px 5px 5px 5px;
+    border: 1px dotted $chicago;
+    border-radius: 10%;
+}
+
 .icon {
     margin: 5px 5px 5px 5px;
     height: 50px;
