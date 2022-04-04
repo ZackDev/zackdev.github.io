@@ -5,7 +5,7 @@ published: true
 archived: false
 ---
 
-# Ever wanted to know how it looks like on `Mars` ?
+# Ever wanted to know how it looks like on Mars ?
 
 <div id="album-container"></div>
 
