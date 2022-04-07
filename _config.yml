@@ -10,5 +10,5 @@ defaults:
       layout: "default"
 
 sass:
-  style: "compressed"
+  style: "expanded"
   sass_dir: "_sass"
