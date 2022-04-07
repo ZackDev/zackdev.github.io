@@ -20,6 +20,13 @@ button, input {
   vertical-align: baseline;
 }
 
+@mixin border($color, $style, $thickness, $radius) {
+  border-color: $color;
+  border-style: $style;
+  border-width: $thickness;
+  border-radius: $radius;
+}
+
 button {
   padding: 0 5px !important;
   border-radius: 5px;
@@ -46,26 +53,21 @@ button:hover:disabled {
 
 input {
   margin: 1px;
-  border: 1px solid $medium-grey;
-  border-radius: 5px;
+  @include border($medium-grey, solid, 1px, 5px);
   color: $medium-grey;
   background-color: $light-grey;
 }
 
 input:hover, input:focus {
   margin: 0px;
-  border: 2px solid $dark-grey;
+  @include border($dark-grey, solid, 2px, 0);
 }
 
 hr {
   width: 100%;
   border-bottom: 1px dotted $dark-grey;
 }
-/*
-ul {
-  display: inline-block;
-}
-*/
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -118,26 +120,21 @@ strong {
 
 .data-table {
   table-layout: fixed;
-  border: 1px solid;
-  border-color: $medium-grey;
-  background-color: $white;
+  @include border($medium-grey, solid, 1px, 0);
   border-collapse: collapse;
+  background-color: $white;
   width: 100%;
-}
-
-.data-table th {
-  border: 1px solid;
-  border-color: $medium-grey;
-  background-color: $light-grey;
-  padding: 5px 10px;
-  font-weight: bold;
-}
-
-.data-table td {
-  border: 1px solid;
-  border-color: $medium-grey;
-  padding: 5px 10px;
-  text-align: center;
+  th {
+    @include border($medium-grey, solid, 1px, 0);
+    background-color: $light-grey;
+    padding: 5px 10px;
+    font-weight: bold;
+  }
+  td {
+    @include border($medium-grey, solid, 1px, 0);
+    padding: 5px 10px;
+    text-align: center;
+  }
 }
 
 body {
@@ -148,30 +145,22 @@ body {
   font-family: 'monospace';
   line-height: 1.61803;
   margin-bottom: 100px;
-  // background-image: url('../img/background.png');
-  // background-repeat: repeat;
-  // background-color: rgb(31, 31, 31);
   background-color: $white;
 }
 
 code {
   font-size: 1rem;
-}
-
-code.language-plaintext {
-  border: 1px solid;
-  border-radius: 5px;
-  border-color: $light-grey;
-  padding: 0 2px 0 2px;
-  color: $medium-grey;
-  background-color: $light-grey;
-  font-style: italic;
+  .langunage-plaintext {
+    @include border($light-grey, solid, 1px, 5px);
+    padding: 0 2px 0 2px;
+    color: $medium-grey;
+    background-color: $light-grey;
+    font-style: italic;
+  }
 }
 
 .tag {
-  border: 1px solid;
-  border-radius: 5px;
-  border-color: $light-grey;
+  @include border($light-grey, solid, 1px, 0);
   padding: 0 2px 0 2px;
   color: $medium-grey;
   background-color: $light-grey;

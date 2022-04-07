@@ -35,8 +35,7 @@ button {
     justify-content: flex-start;
     padding: 5px;
     background-color: green;
-    border: 1px solid greenyellow;
-    border-radius: 5px;
+    @include border(greenyellow, solid, 1px, 5px);
     transition: opacity 2s, transform 2s, border-color 2s;
 }
 
@@ -85,15 +84,14 @@ button {
 }
 
 #fs-button {
-    border: 1px solid greenyellow;
-    border-radius: 5px;
+    @include border(greenyellow, solid, 1px, 5px);
     background-color: green;
     cursor: pointer;
     height: 35px;
 }
 
 #fs-button:hover {
-    border: 1px solid green;
+    @include border(green, solid, 1px, 5px);
     background-color: greenyellow;
     outline: none;
     outline-offset: none;
@@ -148,8 +146,7 @@ button {
 
 #command-wrap > .command {
     display: flex;
-    border: 1px solid greenyellow;
-    border-radius: 5px;
+    @include border(greenyellow, solid, 1px, 5px);
     background-color: green;
     color: #2d2d2d;
     padding: 1px;

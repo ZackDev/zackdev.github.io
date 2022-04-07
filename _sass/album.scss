@@ -25,8 +25,7 @@
 
 .album-preview-selected-image {
     height: 50px;
-    border: 2px solid $wine-berry;
-    border-radius: 5px;
+    @include border($wine-berry, solid, 2px, 5px);
     pointer-events: none;
 }
 
