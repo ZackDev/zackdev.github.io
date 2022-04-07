@@ -11,7 +11,7 @@ archived: false
 
 > The images are retrieved through the [Mars Rover Photos API][1].
 
-<button id="mars-load-btn">connect and load</button>
+<button id="mars-load-btn" class="fg-light-grey bg-medium-grey">connect and load</button>
 
 [1]: <https://api.nasa.gov/> "NASA Open APIs"
 

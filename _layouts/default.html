@@ -15,11 +15,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32x32.png">
   </head>
-  <body>
+  <body class="fg-medium-grey bg-white">
     <!-- header start -->
-    <div id="header-wrap" class="outer">
+    <div id="header-wrap" class="outer bg-dark-grey">
       <header id="header" class="inner flex-row">
-        <div id="page-title">{{ page.title }}</div>
+        <div id="page-title" class="fg-light-grey">{{ page.title }}</div>
       </header>
     </div>
     <!-- header end -->
@@ -33,14 +33,14 @@
     <!-- content end -->
 
     <!-- footer start -->
-    <div id="footer-wrap" class="outer">
+    <div id="footer-wrap" class="outer bg-dark-grey">
       <footer id="footer" class="inner flex-row">
         {% if page.url != "/" %}
         <a href="{{ site.url }}">back home</a>
         {% else %}
         <div></div>
         {% endif %}
-        <div id="site-details"><s>tracking & cookies</s>&nbsp;<img src="/assets/icons/logo.png" style="vertical-align: middle; height: 32px;"/></div>
+        <div class="fg-light-grey"><s>tracking & cookies</s>&nbsp;<img src="/assets/icons/logo.png" style="vertical-align: middle; height: 32px;"/></div>
       </footer>
     </div>
     <!-- footer end -->

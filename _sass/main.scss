@@ -21,23 +21,39 @@ button, input {
 }
 
 @mixin border($color, $style, $thickness, $radius) {
-  border-color: $color;
-  border-style: $style;
-  border-width: $thickness;
+  border: $thickness $style $color;
   border-radius: $radius;
 }
+
+@mixin fg($name, $color) {
+  .fg-#{$name} {
+      color: $color;
+  }
+}
+
+@mixin bg($name, $color) {
+  .bg-#{$name} {
+      background-color: $color;
+  }
+}
+
+@include fg("white", $white);
+@include fg("blue", $blue);
+@include fg("light-grey", $light-grey);
+@include fg("medium-grey", $medium-grey);
+@include fg("dark-grey", $dark-grey);
+@include fg("black", $black);
+
+@include bg("white", $white);
+@include bg("blue", $blue);
+@include bg("light-grey", $light-grey);
+@include bg("medium-grey", $medium-grey);
+@include bg("dark-grey", $dark-grey);
+@include bg("black", $black);
 
 button {
   padding: 0 5px !important;
   border-radius: 5px;
-  color: $light-grey;
-  background-color: $medium-grey;
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0.0),
-    rgba(0, 0, 0, 0.0) 90%,
-    rgba(0, 0, 0, 0.5)
-  );
 }
 
 button:hover {
@@ -54,13 +70,25 @@ button:hover:disabled {
 input {
   margin: 1px;
   @include border($medium-grey, solid, 1px, 5px);
-  color: $medium-grey;
-  background-color: $light-grey;
 }
 
 input:hover, input:focus {
   margin: 0px;
-  @include border($dark-grey, solid, 2px, 0);
+  @include border($dark-grey, solid, 2px, 5px);
+}
+
+.clickable {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.unclickable {
+  cursor: none;
+  pointer-events: none;
+}
+
+.not-selectable {
+  user-select: none;
 }
 
 hr {
@@ -139,13 +167,11 @@ strong {
 
 body {
   box-sizing: border-box;
-  color: $medium-grey;
   text-align: justify;
   font-size: 1em;
   font-family: 'monospace';
   line-height: 1.61803;
   margin-bottom: 100px;
-  background-color: $white;
 }
 
 code {
@@ -162,8 +188,6 @@ code {
 .tag {
   @include border($light-grey, solid, 1px, 0);
   padding: 0 2px 0 2px;
-  color: $medium-grey;
-  background-color: $light-grey;
   font-style: italic;
 }
 
@@ -267,7 +291,6 @@ ul.index-menu li {
   position: fixed;
   left: 0;
   top: 0;
-  background: $dark-grey;
   z-index: 2;
   opacity: 0.75;
   box-shadow: 0 2px 2px $dark-grey;
@@ -294,7 +317,6 @@ ul.index-menu li {
   position: fixed;
   left: 0;
   bottom: 0;
-  background: $dark-grey;
   z-index: 2;
   opacity: 0.75;
   box-shadow: 0 -2px 2px $dark-grey;
@@ -302,17 +324,8 @@ ul.index-menu li {
 
 #page-title {
   font-variant: small-caps;
-  color: $light-grey;
   margin: 0;
   font-size: 2rem;
-}
-
-.post-info {
-
-}
-
-#site-details {
-  color: $light-grey;
 }
 
 /* adjustments for small displays */
@@ -346,6 +359,15 @@ ul.index-menu li {
   .inner {
     min-width: 240px;
     max-width: 320px;
+  }
+}
+
+@keyframes rotate-left {
+  from {
+      transform: rotate(0deg)
+  }
+  to {
+      transform: rotate(-360deg)
   }
 }
 

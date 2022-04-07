@@ -8,10 +8,10 @@ Use the following input to translate your text into a visual representation of M
 
 <div id="morse-wrap">
 	<label for="text-input">Text-To-Morse</label>
-	<input id="text-input" name="text-input" type="text" oninput="onTextInput();">
+	<input name="text-input" id="text-input" class="fg-medium-grey bg-light-grey" type="text" oninput="onTextInput();">
 	<div id="morse-output" class="word-wrap"></div>
 	<label for="morse-input">Morse-To-Text</label>
-	<input id="morse-input" name="morse-input" type="text" oninput="onMorseInput();">
+	<input name="morse-input" id="morse-input"  class="fg-medium-grey bg-light-grey" type="text" oninput="onMorseInput();">
 	<div id="text-output" class="word-wrap"></div>
 </div>
 
