@@ -577,13 +577,18 @@
         },
         {
             "calendar_week": "2022-W11",
-            "weekly_tests": 2474404,
+            "weekly_tests": 2475648,
             "total_tests": 115528079
         },
         {
             "calendar_week": "2022-W12",
-            "weekly_tests": 2300588,
-            "total_tests": 118002483
+            "weekly_tests": 2317791,
+            "total_tests": 118003727
+        },
+        {
+            "calendar_week": "2022-W13",
+            "weekly_tests": 1943095,
+            "total_tests": 120321518
         }
     ]
 }
