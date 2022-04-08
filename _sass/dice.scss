@@ -63,7 +63,7 @@
 #dice-name-input:hover, #dice-sides-input:hover, #dice-name-input:focus, #dice-sides-input:focus {
     /* override default behaviour */
     margin: 5px 5px 5px 5px;
-    @include border($chicago, dotted, 1px, 10%);
+    @include border(1px, dotted, $chicago, 10%);
 }
 
 .icon {
@@ -71,7 +71,7 @@
     height: 50px;
     width: 50px;
     background-color: $sorrell-brown;
-    @include border($sorrell-brown, solid, none, 5px);
+    @include border(none, solid, $sorrell-brown, 5px);
     box-shadow: 2px 2px 2px $sorrell-brown;
 }
 
@@ -105,7 +105,7 @@
     width: 50px;
     color: $chicago;
     background-color: $sorrell-brown;
-    @include border($chicago, dotted, 1px, 10%);
+    @include border(1px, dotted, $chicago, 10%);
     box-shadow: 5px 5px 0 $sorrell-brown;
 }
 
@@ -129,7 +129,7 @@
     width: 50px;
     color: $chicago;
     background-color: $wild-sand;
-    @include border($chicago, dotted, 1px, 10%);
+    @include border(1px, dotted, $chicago, 10%);
     box-shadow: 5px 5px 0 $silver-chalice;
 }
 

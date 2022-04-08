@@ -20,7 +20,7 @@ button, input {
   vertical-align: baseline;
 }
 
-@mixin border($color, $style, $thickness, $radius) {
+@mixin border($thickness, $style, $color, $radius) {
   border: $thickness $style $color;
   border-radius: $radius;
 }
@@ -69,12 +69,12 @@ button:hover:disabled {
 
 input {
   margin: 1px;
-  @include border($medium-grey, solid, 1px, 5px);
+  @include border(1px, solid, $medium-grey, 5px);
 }
 
 input:hover, input:focus {
   margin: 0px;
-  @include border($dark-grey, solid, 2px, 5px);
+  @include border(2px, solid, $dark-grey, 5px);
 }
 
 .clickable {
@@ -148,18 +148,18 @@ strong {
 
 .data-table {
   table-layout: fixed;
-  @include border($medium-grey, solid, 1px, 0);
+  @include border(1px, solid, $medium-grey, 0);
   border-collapse: collapse;
   background-color: $white;
   width: 100%;
   th {
-    @include border($medium-grey, solid, 1px, 0);
+    @include border(1px, solid, $medium-grey, 0);
     background-color: $light-grey;
     padding: 5px 10px;
     font-weight: bold;
   }
   td {
-    @include border($medium-grey, solid, 1px, 0);
+    @include border(1px, solid, $medium-grey, 0);
     padding: 5px 10px;
     text-align: center;
   }
@@ -177,7 +177,7 @@ body {
 code {
   font-size: 1rem;
   .langunage-plaintext {
-    @include border($light-grey, solid, 1px, 5px);
+    @include border(1px, solid, $light-grey, 5px);
     padding: 0 2px 0 2px;
     color: $medium-grey;
     background-color: $light-grey;
@@ -186,7 +186,7 @@ code {
 }
 
 .tag {
-  @include border($light-grey, solid, 1px, 0);
+  @include border(1px, solid, $light-grey, 0);
   padding: 0 2px 0 2px;
   font-style: italic;
 }
