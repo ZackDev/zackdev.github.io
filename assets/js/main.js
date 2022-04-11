@@ -68,15 +68,15 @@ class Tacho {
     try {
       this.targetDiv = document.getElementById(targetDiv);
     }
-    catch(error){
+    catch (error) {
       console.log(error.message);
     }
   }
-  run(){
-    for (let i=0; i<=this.numsteps; i++) {
+  run() {
+    for (let i = 0; i <= this.numsteps; i++) {
       this.stepSpeed = this.stepSpeed * this.dynamicSpeed;
       let timeout = i * this.stepSpeed;
-      setTimeout(function(){
+      setTimeout(function () {
         let value = 0;
         if (i == this.numsteps) {
           value = this.targetValue;

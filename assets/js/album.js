@@ -1,21 +1,10 @@
-export { Album }
+import {ViewPort} from './viewport.js';
+export { Album };
 
-class Album {
+class Album extends ViewPort {
     constructor(attachTo) {
-        if (attachTo !== undefined) {
-            // append to the div identified by "attachTo"
-            this.root = document.getElementById(attachTo);
-            if (this.root === null) {
-                console.log(`HTMLElement: "${attachTo}" not found.`);
-            }
-        } else {
-            // create and append "album-container" div to document.body
-            let albumContainer = document.createElement("div");
-            albumContainer.id = "album-container";
-            this.root = albumContainer;
-            document.body.append(this.root);
-        }
-
+        super(attachTo);
+        this.root = this.viewPort;
         // array holding the album's images' urls
         this.images = [];
         this.imagesLoaded = 0;

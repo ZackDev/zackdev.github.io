@@ -1,3 +1,4 @@
+import { ViewPort } from '/assets/js/viewport.js';
 import { UIDRandomProvider } from '../uidrandomprovider.js';
 
 export { TableView };
@@ -5,18 +6,19 @@ export { TableView };
 /**
  * a class representing the table, where rolled dices get displayed
  */
- class TableView {
+ class TableView extends ViewPort {
     
     /**
      * creates a TableView object
      * @param {DiceController} controller for notifying the controller about user interactions with the table
-     * @param {HTMLElement} appendTo the element where the view appends itself to
+     * @param {String} appendToID the HTML-Element's ID where the view appends itself to
      */
-    constructor(controller, appendTo) {
+    constructor(controller, appendToID) {
+        super(appendToID);
         let root = document.createElement("div");
         root.id = "table-container";
         root.classList.add("flex-row", "not-selectable");
-        appendTo.append(root);
+        this.viewPort.append(root);
         this.root = root;
         this.dices = [];
         this.controller = controller;

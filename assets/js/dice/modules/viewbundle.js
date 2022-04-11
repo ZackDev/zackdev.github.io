@@ -8,15 +8,15 @@ class ViewBundle {
     /**
      * 
      * @param {DiceController} controller 
-     * @param {HTMLElement} attachTo 
+     * @param {String} attachToID the ID of the HTMLElement to attach to
      */
-    constructor(controller, attachTo) {
+    constructor(controller, attachToID) {
         try {
-            new DiceTypeSetView(controller, attachTo);
-            new DiceTypesView(controller, attachTo);
-            new BucketView(controller, attachTo);
-            new TableView(controller, attachTo);
-            new NewDiceTypeView(controller, attachTo);
+            new DiceTypeSetView(controller, attachToID);
+            new DiceTypesView(controller, attachToID);
+            new BucketView(controller, attachToID);
+            new TableView(controller, attachToID);
+            new NewDiceTypeView(controller, attachToID);
             controller.onViewInitSuccess();
         }
         catch (exception) {

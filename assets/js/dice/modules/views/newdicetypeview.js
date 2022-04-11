@@ -1,21 +1,23 @@
+import { ViewPort } from '/assets/js/viewport.js';
 export { NewDiceTypeView };
 
 /**
  * a class representing the NewDiceTypeView for creating new dice types. contains the view's logic.
  */
- class NewDiceTypeView {
+ class NewDiceTypeView extends ViewPort {
     
     /**
      * creates a NewDiceView object
      * @param {DiceController} controller for notifying the controller about user actions
-     * @param {HTMLElement} appendTo the element where the view appends itself to
+     * @param {String} appendToID the HTML-Element's ID where the view appends itself to
      */
-    constructor(controller, appendTo) {
+    constructor(controller, appendToID) {
+        super(appendToID);
         // create the root div containing the view and add it to the DOM
         let root = document.createElement("div");
         root.id = "create-dice-type-container";
         root.classList.add("flex-column", "not-selectable", "shadow");
-        appendTo.append(root);
+        this.viewPort.append(root);
         this.root = root;
         // an array for adding and removing the dice's sides
         this.diceSides = [];

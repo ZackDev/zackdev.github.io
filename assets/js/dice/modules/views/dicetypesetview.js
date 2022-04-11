@@ -1,20 +1,22 @@
+import { ViewPort } from '/assets/js/viewport.js';
 export { DiceTypeSetView };
 
 /**
  * STUB
  */
-class DiceTypeSetView {
+class DiceTypeSetView extends ViewPort {
 
     /**
      * 
      * @param {DiceController} controller to delegate specific user interaction with the UI to
-     * @param {HTMLElement} appendTo the element where the view appends itself to
+     * @param {HTMLElement} appendToID the ID of the HTML-Element where the view appends itself to
      */
-    constructor(controller, appendTo) {
+    constructor(controller, appendToID) {
+        super(appendToID);
         let root = document.createElement("div");
         root.id = "dice-sets-container";
         root.classList.add("flex-row", "not-selectable", "shadow");
-        appendTo.append(root);
+        this.viewPort.append(root);
         this.root = root;
         this.sets = [];
         this.selectedDiceSet = undefined;

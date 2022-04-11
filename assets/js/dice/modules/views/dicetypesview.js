@@ -1,21 +1,23 @@
+import { ViewPort } from '/assets/js/viewport.js';
 export { DiceTypesView };
 
 /**
  * 
  */
- class DiceTypesView {
+ class DiceTypesView extends ViewPort {
     
     /**
      * creates a DiceTypesView object
      * @param {DiceController} controller for notifying the controller of relevant user interactions
-     * @param {HTMLElement} appendTo the element where the view appends itself to
+     * @param {String} appendToID the ID of the HTML-Element where the view appends itself to
      */
-    constructor(controller, appendTo) {
+    constructor(controller, appendToID) {
+        super(appendToID);
         // create the view's container and add it to the DOM
         let root = document.createElement("div");
         root.id = "dice-types-container";
         root.classList.add("flex-row", "not-selectable");
-        appendTo.append(root);
+        this.viewPort.append(root);
         this.root = root;
         this.addNewDiceTypeBtn();
         this.setNewDiceTypeBtnState("inactive");

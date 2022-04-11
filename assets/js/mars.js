@@ -7,7 +7,7 @@ const initMars = () => {
 
   let insightApiUrl = 'https://api.nasa.gov/insight_weather/?feedtype=json&ver=1.0&api_key=DEMO_KEY';
   let marsPhotosApiUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/latest_photos?api_key=DEMO_KEY';
-  
+
   let mLoadBtn = document.getElementById("mars-load-btn");
 
   // disabled insight weather
@@ -19,31 +19,31 @@ const initMars = () => {
       reject => console.log(reject)
     );
   */
-  
+
   let fInit = {
     method: 'GET',
     cache: 'no-cache'
   }
-  
-  let load = function() {
+
+  let load = function () {
     mLoadBtn.setAttribute("disabled", "disabled");
     fetch(marsPhotosApiUrl, fInit)
-    .then(
-      res => checkHTTPResponse(res),
-      rej => console.log(rej))
-    .then(
-      res => res.json(),
-      rej => console.log(rej)
-    )
-    .then(
-      res => photosCallback(res),
-      rej => console.log(rej)
-    );
+      .then(
+        res => checkHTTPResponse(res),
+        rej => console.log(rej))
+      .then(
+        res => res.json(),
+        rej => console.log(rej)
+      )
+      .then(
+        res => photosCallback(res),
+        rej => console.log(rej)
+      );
   }
 
   mLoadBtn.onclick = load;
 
-  
+
   /* for debugging w/o using the API */
   /*
   insightCallback(

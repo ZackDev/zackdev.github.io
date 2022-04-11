@@ -1,21 +1,23 @@
+import { ViewPort } from '/assets/js/viewport.js';
 export { BucketView };
 
 /**
  * a class presenting the dices' bucket to the user
  */
- class BucketView {
+ class BucketView extends ViewPort {
     
     /**
      * creates a new DiceController object
      * @param {DiceController} controller for notifying the controller about the user's interaction with the view
-     * @param {HTMLElement} appendTo the HTML-Element where the view appends to
+     * @param {String} appendToID the ID of the HTML-Element to append to
      */
-    constructor(controller, appendTo) {
+    constructor(controller, appendToID) {
+        super(appendToID);
         // create the container of the view
         let root = document.createElement("div");
         root.id = "bucket-container";
         root.classList.add("flex-row", "not-selectable");
-        appendTo.append(root);
+        this.viewPort.append(root);
         this.root = root;
         // tracks the state of the bucket/roll button
         this.bucketButtonActive = false;
