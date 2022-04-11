@@ -90,7 +90,7 @@ class TerminalView extends ViewPort {
                 }
                 else {
                     // document is not fullscreen, go fullscreen
-                    this.viewPort.requestFullscreen();
+                    document.requestFullscreen();
                 }
             });
             let goFs = document.createElement("img");
