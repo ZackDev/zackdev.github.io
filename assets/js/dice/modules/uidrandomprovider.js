@@ -3,10 +3,10 @@ export { UIDRandomProvider };
 /**
  * creates random UIDs
  */
- const UIDRandomProvider = {
+const UIDRandomProvider = {
     // stores generated UIDs
     used: [],
-    
+
     /**
      * 
      * @returns a pseudo-random Integer

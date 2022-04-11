@@ -94,7 +94,7 @@ const getAsyncDailyCasesCallback = (callbackObject) => {
     const incidences7 = [];
     const reprValues = [];
     const smoothedReprValues = [];
-  
+
     const data = callbackObject.data;
     data.forEach(e => {
       dates.push(e.date)
@@ -104,13 +104,13 @@ const getAsyncDailyCasesCallback = (callbackObject) => {
       reprValues.push(e.rrate);
       smoothedReprValues.push(e.rratesmoothed);
     });
-  
+
     const dataObj0 = {
       cases,
       dailyCases,
       dates,
     };
-  
+
     const dataObj1 = {
       incidences7,
       reprValues,
@@ -128,21 +128,21 @@ const getAsyncDailyCasesCallback = (callbackObject) => {
 
 const getAsyncWeeklyTestsCallback = (callbackObject) => {
   console.log('weekly tests callback');
-  
+
   if (Array.isArray(callbackObject.data)) {
     let initialValue = {
       calendarWeeks: [],
       weeklyTests: [],
       totalTests: []
     }
-  
-    const dataObj = callbackObject.data.reduce(function(p, c){
+
+    const dataObj = callbackObject.data.reduce(function (p, c) {
       p.calendarWeeks.push(c.calendar_week)
       p.weeklyTests.push(c.weekly_tests)
       p.totalTests.push(c.total_tests)
       return p
     }, initialValue);
-  
+
     drawWeeklyTestsChart(dataObj);
   }
   else {
@@ -165,7 +165,7 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
       totalBoosterVaccinations: [],
       boosterVaccinationsPercentage: []
     }
-    const dataObj = callbackObject.data.reduce(function(p, c) {
+    const dataObj = callbackObject.data.reduce(function (p, c) {
       p.dates.push(c.date)
       p.primaryVaccinations.push(c.primary_vaccinations)
       p.secondaryVaccinations.push(c.secondary_vaccinations)
@@ -177,7 +177,7 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
       p.secondaryVaccinationsPercentage.push(c.secondary_vaccinations_percentage)
       p.boosterVaccinationsPercentage.push(c.booster_vaccinations_percentage)
       return p
-  
+
     }, initialValue)
 
     drawDailyVaccinationsChart(dataObj)
@@ -189,7 +189,7 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
 
 const getAsyncDailyICUOCallback = (callbackObject) => {
   if (Array.isArray(callbackObject.data)) {
-    const dataObj = callbackObject.data.reduce(function(p, c) {
+    const dataObj = callbackObject.data.reduce(function (p, c) {
       p.dates.push(c.date)
       p.freeICU.push(c.free_icu)
       p.covidICU.push(c.covid_icu)
@@ -201,7 +201,7 @@ const getAsyncDailyICUOCallback = (callbackObject) => {
       covidICU: [],
       covidICUInvasive: []
     });
-  
+
     drawDailyICUOChart(dataObj);
   }
   else {

@@ -1,15 +1,15 @@
-import { Bucket , DiceTypeSet, DiceType } from './modelbundle.js';
+import { Bucket, DiceTypeSet, DiceType } from './modelbundle.js';
 import { DiceAudio } from './diceaudio.js';
 import { DiceProvider } from './diceprovider.js';
 import { DiceTypeSetProvider } from './dicetypesetprovider.js';
 
 
-export {DiceController};
+export { DiceController };
 
 /**
  * acts as layer between the views and the dice logic
  */
- class DiceController {
+class DiceController {
     constructor() {
 
     }
@@ -50,23 +50,23 @@ export {DiceController};
     addDiceSets() {
         // 'special' dice set
         let sDsName = "special";
-        
+
         // - 4Df dice type
-        let sD4fType = new DiceType("4Df", ['+', '+', '-', '-', '&nbsp;' , '&nbsp;']);
-             
+        let sD4fType = new DiceType("4Df", ['+', '+', '-', '-', '&nbsp;', '&nbsp;']);
+
         // - D12 dice type
         let sD12Type = new DiceType("D12", ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]);
-        
+
         // - D20 dice type
         let d20Sides = [];
-        for (let i=1; i<=20; i++) {
+        for (let i = 1; i <= 20; i++) {
             d20Sides.push(i.toString());
         }
         let sD20Type = new DiceType("D20", d20Sides);
-        
+
         // - D100 dice type
         let d100Sides = [];
-        for (let i=1; i<=100; i++) {
+        for (let i = 1; i <= 100; i++) {
             d100Sides.push(i.toString());
         }
         let sD100Type = new DiceType("D100", d100Sides);
@@ -109,9 +109,9 @@ export {DiceController};
                 i != 12519 &&
                 i != 12526 &&
                 i != 12537 &&
-                i != 12534 ) {
-                    katakanaSymbols.push(`&#${i};`);
-                }
+                i != 12534) {
+                katakanaSymbols.push(`&#${i};`);
+            }
         }
         let kDiceType = new DiceType("kata", katakanaSymbols);
         this.diceTypeSetProvider.addDiceSet(new DiceTypeSet("symbols", [kDiceType, sAType]));
@@ -146,7 +146,7 @@ export {DiceController};
         // called by the DiceTypesView
         this.newDiceTypeView.toggleVisibility();
     }
-    
+
     /**
      * creates a new dice from the provided dice type UID and adds it to the Bucket
      * @param {number} UID the UID of the dice type used to create the dice 
@@ -156,7 +156,7 @@ export {DiceController};
         let dice = this.diceProvider.createDice(UID);
         this.bucket.addDice(dice);
     }
-    
+
     /**
      * adds a new dice type to the DiceProvider
      * @param {string} name the name of the dice type
@@ -180,7 +180,7 @@ export {DiceController};
             console.log("no DiceSet selected, can't add DiceType");
         }
     }
-    
+
     /**
      * adds a dice type to the DiceTypesView
      * @param {number} UID the UID of the dice type
@@ -190,7 +190,7 @@ export {DiceController};
         // called by the DiceProvider
         this.diceTypesView.displayDiceType(UID, diceType.name);
     }
-    
+
     onDiceTypeRemoved(UID) {
         // called by the DiceProvider
         this.diceTypesView.removeDiceType(UID);
@@ -204,7 +204,7 @@ export {DiceController};
         // called by the BucketView
         this.bucket.removeDice(UID);
     }
-    
+
     /**
      * adds a dice to the BucketView
      * @param {Dice} dice the dice added to the bucket
@@ -214,7 +214,7 @@ export {DiceController};
         this.bucketView.displayDice(UID, dice.name);
         this.diceAudio.playAudio("bucket");
     }
-    
+
     /**
      * removes a dice from the BucketView
      * @param {number} UID the UID of the to remove
@@ -223,7 +223,7 @@ export {DiceController};
         // called by the Bucket
         this.bucketView.removeDice(UID);
     }
-    
+
     /**
      * rolls all the Dices in the Bucket
      */
@@ -232,7 +232,7 @@ export {DiceController};
         this.bucket.roll();
         this.diceAudio.playAudio("table");
     }
-    
+
     /**
      * adds a dice to the TableView
      * @param {Dice} dice the dice to add
@@ -258,7 +258,7 @@ export {DiceController};
         // - activate the NewDiceTypeBtn of the DiceTypesView
         this.diceTypesView.setNewDiceTypeBtnState("active");
     }
-    
+
     /**
      * adds the dice set associated with the given UID of he dice set to the DiceTypeSetView
      */

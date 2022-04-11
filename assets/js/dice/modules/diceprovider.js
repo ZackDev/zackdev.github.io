@@ -6,7 +6,7 @@ export { DiceProvider };
 /**
  * a class for providing different type of dices, creates concrete Dice objects from a DiceType
  */
- class DiceProvider {
+class DiceProvider {
     /**
      * creates a DiceProvider object
      * @param {DiceController} controller for notifying changes made to the DiceProvider
@@ -16,7 +16,7 @@ export { DiceProvider };
         // map for retrieving dice types identified by UID
         this.diceTypes = new Map();
     }
-    
+
     /**
      * 
      * @param {String} UID the UID of the dice type
@@ -37,7 +37,7 @@ export { DiceProvider };
         this.diceTypes.set(UID, diceType);
         this.controller.onDiceTypeAdded(UID, diceType);
     }
-    
+
     /**
      * removes a dice type from the DiceProvider
      * @param {number} UID the UID of the dice type
@@ -46,7 +46,7 @@ export { DiceProvider };
         this.diceTypes.delete(UID);
         this.controller.onDiceTypeRemoved(UID);
     }
-    
+
     /**
      * removes all dice types from the DiceProvider
      */
@@ -66,5 +66,5 @@ export { DiceProvider };
         // - create and return a new dice specified by name and sides
         let diceType = this.getDiceType(UID);
         return new Dice(diceType.name, diceType.sides);
-    }  
+    }
 }

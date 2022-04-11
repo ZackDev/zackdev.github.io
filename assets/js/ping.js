@@ -16,28 +16,28 @@ const ping = (targetUrl, dataset) => {
 
 const initChart = (interval) => {
   return Highcharts.chart('ping-chart', {
-      chart: {
-        type: 'line'
-      },
+    chart: {
+      type: 'line'
+    },
+    title: {
+      text: 'Round Trip Time'
+    },
+    subtitle: {
+      text: `updated every ${parseFloat(interval / 1000).toFixed(2)} seconds`
+    },
+    xAxis: [{
+      crosshair: true,
+      allowDecimals: false,
+    }],
+    yAxis: [{
       title: {
-        text: 'Round Trip Time'
+        text: 'Milliseconds'
       },
-      subtitle: {
-        text: `updated every ${parseFloat(interval/1000).toFixed(2)} seconds`
-      },
-      xAxis: [{
-        crosshair: true,
-        allowDecimals: false,
-      }],
-      yAxis: [{
-        title: {
-          text: 'Milliseconds'
-        },
-        crosshair: true
-      }],
-      series: [{
-        name: 'Ping In Milliseconds'
-      }]
+      crosshair: true
+    }],
+    series: [{
+      name: 'Ping In Milliseconds'
+    }]
   });
 }
 

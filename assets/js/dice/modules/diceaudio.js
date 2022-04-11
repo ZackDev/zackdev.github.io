@@ -16,7 +16,7 @@ class DiceAudio {
                         break
                     }
                 }
-                if (!registered){
+                if (!registered) {
                     typeAudios.push(audio)
                     this.audioObjects.set(type, typeAudios)
                 }
@@ -38,7 +38,7 @@ class DiceAudio {
             audio.addEventListener("ended", () => {
                 audio.remove()
             })
-            audio.play()            
+            audio.play()
         }
         else {
             console.log("no audio registered for type:", type)
