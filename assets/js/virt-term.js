@@ -1,3 +1,5 @@
+import { ViewPort } from '/assets/js/viewport.js';
+
 // eslint-disable-next-line no-unused-vars
 class Command {
     constructor(command, result, hidden) {
@@ -55,11 +57,11 @@ class CommandProvider {
 }
 
 // eslint-disable-next-line no-unused-vars
-class TerminalView {
-    constructor(controller, root = document.body) {
+class TerminalView extends ViewPort {
+    constructor(controller, id) {
+        super(id);
         // constructor, binding a controller and a DOM element as root to the view
         this.controller = controller;
-        this.root = root;
         // maps a command's key to it's DIV and a boolean indicating visibility
         this.commandsViewMap = new Map();
         this.initView();
@@ -88,7 +90,7 @@ class TerminalView {
                 }
                 else {
                     // document is not fullscreen, go fullscreen
-                    this.root.requestFullscreen();
+                    this.viewPort.requestFullscreen();
                 }
             });
             let goFs = document.createElement("img");
@@ -121,7 +123,7 @@ class TerminalView {
         this.cmdInput = input;
         this.cmdWrap = cmdWrap;
         this.screen = screen;
-        this.root.append(terminalWrap);
+        this.viewPort.append(terminalWrap);
         this.cmdInput.addEventListener("input", this.onInput.bind(this));
         this.cmdInput.addEventListener("keyup", this.onEnterReleased.bind(this));
         this.cmdInput.addEventListener("blur", (event) => {
@@ -518,7 +520,7 @@ class TerminalController {
 
 const initVirtTerm = () => {
     let tc = new TerminalController();
-    let tv = new TerminalView(tc, document.getElementById("main-content"));
+    let tv = new TerminalView(tc, "main-content");
 }
 
 new Init(initVirtTerm);
