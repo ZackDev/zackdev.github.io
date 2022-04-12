@@ -6562,71 +6562,71 @@
         },
         {
             "date": "2022-03-31",
-            "totalcases": 21394747,
-            "dailycases": 565139,
+            "totalcases": 21357095,
+            "dailycases": 527487,
             "incidence": 1866.51,
-            "rrate": 2.1,
+            "rrate": 1.96,
             "rratesmoothed": 1.23
         },
         {
             "date": "2022-04-01",
-            "totalcases": 21394747,
+            "totalcases": 21357095,
             "dailycases": 0,
-            "incidence": 2163.36,
+            "incidence": 2118.07,
             "rrate": 0.0,
-            "rratesmoothed": 1.37
+            "rratesmoothed": 1.35
         },
         {
             "date": "2022-04-02",
-            "totalcases": 21591147,
+            "totalcases": 21553495,
             "dailycases": 196400,
-            "incidence": 1806.66,
+            "incidence": 1761.36,
             "rrate": 0,
-            "rratesmoothed": 1.24
+            "rratesmoothed": 1.22
         },
         {
             "date": "2022-04-03",
-            "totalcases": 21706329,
+            "totalcases": 21668677,
             "dailycases": 115182,
-            "incidence": 1739.74,
+            "incidence": 1694.44,
             "rrate": 0.59,
-            "rratesmoothed": 1.11
+            "rratesmoothed": 1.09
         },
         {
             "date": "2022-04-04",
-            "totalcases": 21706329,
+            "totalcases": 21668677,
             "dailycases": 0,
-            "incidence": 1744.5,
+            "incidence": 1699.2,
             "rrate": 0.0,
-            "rratesmoothed": 1.14
+            "rratesmoothed": 1.12
         },
         {
             "date": "2022-04-05",
-            "totalcases": 21886726,
+            "totalcases": 21849074,
             "dailycases": 180397,
-            "incidence": 1663.29,
+            "incidence": 1617.99,
             "rrate": 0,
-            "rratesmoothed": 1.05
+            "rratesmoothed": 1.03
         },
         {
             "date": "2022-04-06",
-            "totalcases": 22303440,
+            "totalcases": 22265788,
             "dailycases": 416714,
-            "incidence": 1594.77,
+            "incidence": 1549.47,
             "rrate": 2.31,
-            "rratesmoothed": 0.55
+            "rratesmoothed": 0.53
         },
         {
             "date": "2022-04-07",
-            "totalcases": 22478703,
+            "totalcases": 22441051,
             "dailycases": 175263,
-            "incidence": 1773.11,
+            "incidence": 1727.81,
             "rrate": 0.42,
-            "rratesmoothed": 0.71
+            "rratesmoothed": 0.69
         },
         {
             "date": "2022-04-08",
-            "totalcases": 22629378,
+            "totalcases": 22591726,
             "dailycases": 150675,
             "incidence": 1304.06,
             "rrate": 0.86,
@@ -6634,11 +6634,19 @@
         },
         {
             "date": "2022-04-09",
-            "totalcases": 22684849,
+            "totalcases": 22647197,
             "dailycases": 55471,
             "incidence": 1485.34,
             "rrate": 0.37,
             "rratesmoothed": 0.6
+        },
+        {
+            "date": "2022-04-10",
+            "totalcases": 22677986,
+            "dailycases": 30789,
+            "incidence": 1315.79,
+            "rrate": 0.56,
+            "rratesmoothed": 0.65
         }
     ]
 }
