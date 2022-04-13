@@ -5,8 +5,8 @@ export { DiceTypesView };
 /**
  * 
  */
- class DiceTypesView extends ViewPort {
-    
+class DiceTypesView extends ViewPort {
+
     /**
      * creates a DiceTypesView object
      * @param {DiceController} controller for notifying the controller of relevant user interactions
@@ -27,7 +27,7 @@ export { DiceTypesView };
         this.controller = controller;
         this.controller.diceTypesView = this;
     }
-    
+
     /**
      * adds the 'new dice type' button to the view 
      */

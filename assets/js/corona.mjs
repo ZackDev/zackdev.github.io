@@ -203,7 +203,7 @@ const getAsyncDailyICUOCallback = (callbackObject) => {
       p.covidICU.push(c.covid_icu)
       p.covidICUInvasive.push(c.covid_icu_invasive)
       return p
-    }, initialValue );
+    }, initialValue);
 
     drawDailyICUOChart(dataObj);
   }

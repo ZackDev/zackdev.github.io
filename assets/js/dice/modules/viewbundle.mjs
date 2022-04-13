@@ -1,5 +1,5 @@
 import { BucketView } from './views/bucketview.mjs';
-import { DiceTypeSetView} from './views/dicetypesetview.mjs';
+import { DiceTypeSetView } from './views/dicetypesetview.mjs';
 import { DiceTypesView } from './views/dicetypesview.mjs';
 import { NewDiceTypeView } from './views/newdicetypeview.mjs';
 import { TableView } from './views/tableview.mjs';

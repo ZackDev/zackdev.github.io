@@ -5,8 +5,8 @@ export { NewDiceTypeView };
 /**
  * a class representing the NewDiceTypeView for creating new dice types. contains the view's logic.
  */
- class NewDiceTypeView extends ViewPort {
-    
+class NewDiceTypeView extends ViewPort {
+
     /**
      * creates a NewDiceView object
      * @param {DiceController} controller for notifying the controller about user actions
@@ -143,7 +143,7 @@ export { NewDiceTypeView };
         sideOutput.id = "sides-container";
         sideOutput.classList.add("flex-row");
         sideOutput.style.flexWrap = "wrap";
-        
+
         sideWrap.append(sidesInfoWrap, sideInputWrap, sideOutput);
 
         // - the 'createDiceBtn', calls the controllers onCreateDiceClicked() method
@@ -155,7 +155,7 @@ export { NewDiceTypeView };
             // only create 'valid' dices
             // - with minimum two sides
             // - and the length of the name bewtween one and four
-            if (this.diceSides.length >= 2 && this.nameInput.value.length >= 1 && this.nameInput.value.length <= 4 && this.nameInput.value.length >= 1 ) {
+            if (this.diceSides.length >= 2 && this.nameInput.value.length >= 1 && this.nameInput.value.length <= 4 && this.nameInput.value.length >= 1) {
                 this.controller.onCreateDiceTypeClicked(this.nameInput.value, this.diceSides);
                 this.clear();
                 this.adaptNameInfo();
@@ -183,7 +183,7 @@ export { NewDiceTypeView };
 
         this.controller.newDiceTypeView = this;
     }
-    
+
     /**
      * clears | resets the view
      */
@@ -228,7 +228,7 @@ export { NewDiceTypeView };
     adaptCreateButton() {
         let lenName = this.nameInput.value.length;
         let numSides = this.diceSides.length;
-        if (lenName >= 1 && lenName <=4 && numSides >=2) {
+        if (lenName >= 1 && lenName <= 4 && numSides >= 2) {
             this.createDiceBtn.classList.remove("unclickable");
             this.createDiceBtn.classList.add("clickable");
         }
@@ -264,7 +264,7 @@ export { NewDiceTypeView };
             this.hide();
         }
     }
-    
+
     /**
      * hides the view by setting the containers opacity to zero
      */
@@ -272,7 +272,7 @@ export { NewDiceTypeView };
         this.root.style.opacity = 0;
         this.visible = false;
     }
-    
+
     /**
      * shows the view by setting the containers opacity to one
      */

@@ -80,7 +80,7 @@ class TerminalView extends ViewPort {
         terminalWrap.id = "terminal-wrap";
         let consoleWrap = document.createElement("div");
         consoleWrap.id = "console-wrap";
-        if (document.fullscreenEnabled === true ) {
+        if (document.fullscreenEnabled === true) {
             let fsButton = document.createElement("button");
             fsButton.id = "fs-button";
             fsButton.addEventListener("click", () => {
@@ -265,7 +265,7 @@ class TerminalView extends ViewPort {
         // an array of unmatched entries, those get removed from the <cmdWrap> if visible
         let commandEntriesUnmatched = commandsMapArray.filter(entry => !entry[1].command.startsWith(input)).filter(entry => entry[1].hidden === false).sort();
         for (let cmdEntry of commandEntriesUnmatched) {
-            let cmdKey =  cmdEntry[0];
+            let cmdKey = cmdEntry[0];
             let isVisible = this.commandsViewMap.get(cmdKey)[1];
             if (isVisible === true) {
                 this.removeCommand(cmdKey);

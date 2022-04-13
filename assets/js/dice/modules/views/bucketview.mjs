@@ -5,8 +5,8 @@ export { BucketView };
 /**
  * a class presenting the dices' bucket to the user
  */
- class BucketView extends ViewPort {
-    
+class BucketView extends ViewPort {
+
     /**
      * creates a new DiceController object
      * @param {DiceController} controller for notifying the controller about the user's interaction with the view
@@ -29,7 +29,7 @@ export { BucketView };
         this.addBucketBtn();
         this.controller.bucketView = this;
     }
-    
+
     /**
      * adds the bucket button to the view
      */
@@ -43,7 +43,7 @@ export { BucketView };
         this.adaptBucketBtnState();
         this.root.append(bucketBtn);
     }
-    
+
     /**
     * checks the bucket button's state in relation to the size of the bucket
     */
@@ -61,7 +61,7 @@ export { BucketView };
             this.setBucketButtonState("inactive");
         }
     }
-    
+
     /**
      * changes the buttons html properties and eventhandler
      * @param {string} state the state to set the button to ("active"|"inactive")
@@ -80,14 +80,14 @@ export { BucketView };
                 break;
         }
     }
-    
+
     /**
      * notifies the controller that the roll-button has been clicked
      */
     onRollClickedEventHandler = () => {
         this.controller.onRollClicked();
     }
-    
+
     /**
      * adds a dice to the view
      * @param {number} UID the UID of the dice
@@ -106,7 +106,7 @@ export { BucketView };
         this.dices.push(UID);
         this.adaptBucketBtnState();
     }
-    
+
     /**
      * removes a dice from  the view
      * @param {number} UID the UID of the dice to remove 

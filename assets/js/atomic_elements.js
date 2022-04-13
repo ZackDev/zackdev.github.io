@@ -3,7 +3,7 @@ const init_atomic_elements = function init_atomic_elements() {
   async_request(atomic_elements_data_url, "json", true, get_atomic_elements_data_callback);
 }
 
-const get_atomic_elements_data_callback = function get_atomic_elements_data_callback(callback_object){
+const get_atomic_elements_data_callback = function get_atomic_elements_data_callback(callback_object) {
   let elements = callback_object.response.elements;
   let series = new Array();
   for (elem in elements) {
@@ -18,7 +18,7 @@ const get_atomic_elements_data_callback = function get_atomic_elements_data_call
   draw_atomic_elements_chart(series_json);
 }
 
-function draw_atomic_elements_chart(series){
+function draw_atomic_elements_chart(series) {
   var atomic_chart = Highcharts.chart('atomic_elements_chart', {
     chart: {
       polar: true

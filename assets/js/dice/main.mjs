@@ -10,9 +10,8 @@ new Init(
             let appendToID = "main-content";
             let vb = new ViewBundle(dc, appendToID);
         }
-        catch(e) {
+        catch (e) {
             console.log(e);
         }
     }
 );
-

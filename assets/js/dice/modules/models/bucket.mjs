@@ -5,8 +5,8 @@ export { Bucket };
 /**
  * a class representing a bucket where dices can be added, removed and rolled
  */
- class Bucket {
-    
+class Bucket {
+
     /**
      * creates a Bucket object
      * @param {DiceController} controller for notifying the controller about the bucket's changes
@@ -16,7 +16,7 @@ export { Bucket };
         // a map holding dices added to the bucket
         this.dices = new Map();
     }
-    
+
     /**
      * adds a dice to the bucket
      * notifies the controller which dice has been added
@@ -27,7 +27,7 @@ export { Bucket };
         this.dices.set(UID, dice);
         this.controller.onDiceAddedToBucket(UID, dice);
     }
-    
+
     /**
      * removes a dice from the bucket
      * notifies the controller about the removed dice's UID
@@ -37,7 +37,7 @@ export { Bucket };
         this.dices.delete(UID);
         this.controller.onDiceRemovedFromBucket(UID);
     }
-    
+
     /**
      * rolls all dices in the bucket
      */

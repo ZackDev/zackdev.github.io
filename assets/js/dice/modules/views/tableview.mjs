@@ -7,8 +7,8 @@ export { TableView };
 /**
  * a class representing the table, where rolled dices get displayed
  */
- class TableView extends ViewPort {
-    
+class TableView extends ViewPort {
+
     /**
      * creates a TableView object
      * @param {DiceController} controller for notifying the controller about user interactions with the table
@@ -27,7 +27,7 @@ export { TableView };
 
         this.controller.tableView = this;
     }
-    
+
     /**
      * adds the table button to the table
      */
@@ -41,7 +41,7 @@ export { TableView };
         this.adaptTableBtnState();
         this.root.append(tableBtn);
     }
-    
+
     /**
     * checks the table button's state in relation to the dices on the table
     */
@@ -53,7 +53,7 @@ export { TableView };
             this.setTableButtonState("inactive");
         }
     }
-    
+
     /**
      * changes the table button state ("active"|"inactive")
      * @param {string} state the new state
@@ -78,7 +78,7 @@ export { TableView };
                 break;
         }
     }
-    
+
     /**
      * adds a dice to the view
      * @param {number} UID the UID of the dice
@@ -96,7 +96,7 @@ export { TableView };
         this.root.append(dice);
         this.adaptTableBtnState();
     }
-    
+
     /**
      * removes a dice from the view
      * @param {number} UID the dice's UID
@@ -110,13 +110,13 @@ export { TableView };
             this.adaptTableBtnState();
         }
     }
-    
+
     /**
      * removes all dices from the view
      */
     clearTable = () => {
         // backward loop, prevent array items from becoming unreachable
-        for (let i = this.dices.length -1; i > -1; i--) {
+        for (let i = this.dices.length - 1; i > -1; i--) {
             this.removeDice(this.dices[i]);
         }
     }
