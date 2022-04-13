@@ -1,4 +1,4 @@
-import { Init } from '/assets/js/main.js';
+import { Init } from '/assets/js/main.mjs';
 
 const ping = (targetUrl, dataset) => {
   let fInit = {

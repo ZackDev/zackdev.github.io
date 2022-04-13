@@ -46,4 +46,4 @@ New chart added since focus shifted from incidence to `Intensive Care Unit` metr
 # Update 2021-08-30
 Added pie chart that shows administered doses by vaccine name.
 
-<script type="text/javascript" src="/assets/js/corona.js" />
+<script type="module" src="/assets/js/corona.mjs" />

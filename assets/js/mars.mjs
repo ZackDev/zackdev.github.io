@@ -1,5 +1,5 @@
-import { Album } from './album.js';
-import { checkHTTPResponse, Init } from './main.js';
+import { Album } from '/assets/js/album.mjs';
+import { checkHTTPResponse, Init } from '/assets/js/main.mjs';
 
 const initMars = () => {
   // disabled insight weather

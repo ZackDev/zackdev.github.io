@@ -1,4 +1,4 @@
-import { ViewPort } from '/assets/js/viewport.js';
+import { ViewPort } from '/assets/js/viewport.mjs';
 
 export { checkHTTPResponse, Init, registerCustomHTMLElements };
 

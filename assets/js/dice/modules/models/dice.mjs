@@ -1,4 +1,4 @@
-import { DiceType } from './dicetype.js';
+import { DiceType } from './dicetype.mjs';
 
 export { Dice };
 

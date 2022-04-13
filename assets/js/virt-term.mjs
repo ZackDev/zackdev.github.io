@@ -1,5 +1,5 @@
-import { registerCustomHTMLElements, Init } from '/assets/js/main.js';
-import { ViewPort } from '/assets/js/viewport.js';
+import { registerCustomHTMLElements, Init } from '/assets/js/main.mjs';
+import { ViewPort } from '/assets/js/viewport.mjs';
 
 // eslint-disable-next-line no-unused-vars
 class Command {

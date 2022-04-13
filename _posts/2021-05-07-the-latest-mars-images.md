@@ -15,4 +15,4 @@ archived: false
 
 [1]: <https://api.nasa.gov/> "NASA Open APIs"
 
-<script type="module" src="/assets/js/mars.js" />
+<script type="module" src="/assets/js/mars.mjs" />

@@ -8,4 +8,4 @@ Since the well-known ping is not available at browser level, the script on this 
 
 <div id="ping-chart"></div>
 
-<script type="module" src="/assets/js/ping.js"></script>
+<script type="module" src="/assets/js/ping.mjs"></script>

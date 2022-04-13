@@ -1,3 +1,5 @@
+import { checkHTTPResponse, Init } from '/assets/js/main.mjs';
+
 /* eslint-disable no-console */
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-undef */
@@ -189,18 +191,19 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
 
 const getAsyncDailyICUOCallback = (callbackObject) => {
   if (Array.isArray(callbackObject.data)) {
+    let initialValue = {
+      dates: [],
+      freeICU: [],
+      covidICU: [],
+      covidICUInvasive: []
+    }
     const dataObj = callbackObject.data.reduce(function (p, c) {
       p.dates.push(c.date)
       p.freeICU.push(c.free_icu)
       p.covidICU.push(c.covid_icu)
       p.covidICUInvasive.push(c.covid_icu_invasive)
       return p
-    }, initialValue = {
-      dates: [],
-      freeICU: [],
-      covidICU: [],
-      covidICUInvasive: []
-    });
+    }, initialValue );
 
     drawDailyICUOChart(dataObj);
   }

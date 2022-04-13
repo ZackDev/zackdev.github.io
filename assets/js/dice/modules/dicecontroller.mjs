@@ -1,7 +1,7 @@
-import { Bucket, DiceTypeSet, DiceType } from './modelbundle.js';
-import { DiceAudio } from './diceaudio.js';
-import { DiceProvider } from './diceprovider.js';
-import { DiceTypeSetProvider } from './dicetypesetprovider.js';
+import { Bucket, DiceTypeSet, DiceType } from './modelbundle.mjs';
+import { DiceAudio } from './diceaudio.mjs';
+import { DiceProvider } from './diceprovider.mjs';
+import { DiceTypeSetProvider } from './dicetypesetprovider.mjs';
 
 
 export { DiceController };

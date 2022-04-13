@@ -1,5 +1,5 @@
-import { registerCustomHTMLElements } from './main.js';
-import { ViewPort } from './viewport.js';
+import { registerCustomHTMLElements } from '/assets/js/main.mjs';
+import { ViewPort } from '/assets/js/viewport.mjs';
 
 export { Album };
 

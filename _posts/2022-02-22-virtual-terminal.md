@@ -4,4 +4,4 @@ tags: [terminal, coding]
 published: true
 archived: true
 ---
-<script type="module" src="/assets/js/virt-term.js"/>
+<script type="module" src="/assets/js/virt-term.mjs"/>
