@@ -1,4 +1,6 @@
-import {ViewPort} from './viewport.js';
+import { registerCustomHTMLElements } from './main.js';
+import { ViewPort } from './viewport.js';
+
 export { Album };
 
 class Album extends ViewPort {
@@ -129,3 +131,5 @@ class Album extends ViewPort {
         this.albumStats.innerText = `${this.imagesLoaded} images out of ${this.images.length} loaded.`;
     }
 }
+
+registerCustomHTMLElements('photo-album', Album);

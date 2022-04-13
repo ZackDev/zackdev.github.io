@@ -27,7 +27,6 @@ class DiceAudio {
             else {
                 this.audioObjects.set(type, new Array(audio))
             }
-            console.log(this.audioObjects)
         });
     }
     playAudio(type) {

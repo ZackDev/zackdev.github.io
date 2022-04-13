@@ -1,3 +1,4 @@
+import { registerCustomHTMLElements, Init } from '/assets/js/main.js';
 import { ViewPort } from '/assets/js/viewport.js';
 
 // eslint-disable-next-line no-unused-vars
@@ -86,7 +87,7 @@ class TerminalView extends ViewPort {
                 // get fullscreen state and toggle it
                 if (document.fullscreenElement !== null) {
                     // document is fullscreen, exit fullscreen
-                    document.exitFullscreen();
+                    this.viewPort.exitFullscreen();
                 }
                 else {
                     // document is not fullscreen, go fullscreen
@@ -519,6 +520,7 @@ class TerminalController {
 }
 
 const initVirtTerm = () => {
+    registerCustomHTMLElements('terminal-view', TerminalView);
     let tc = new TerminalController();
     let tv = new TerminalView(tc, "main-content");
 }

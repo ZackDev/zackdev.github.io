@@ -1,3 +1,5 @@
+import { Init } from '/assets/js/main.js';
+
 const ping = (targetUrl, dataset) => {
   let fInit = {
     method: 'GET',

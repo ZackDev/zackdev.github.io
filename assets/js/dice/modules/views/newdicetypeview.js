@@ -1,3 +1,4 @@
+import { registerCustomHTMLElements } from '/assets/js/main.js';
 import { ViewPort } from '/assets/js/viewport.js';
 export { NewDiceTypeView };
 
@@ -280,3 +281,5 @@ export { NewDiceTypeView };
         this.visible = true;
     }
 }
+
+registerCustomHTMLElements('new-dice-type-view', NewDiceTypeView);

@@ -1,3 +1,4 @@
+import { registerCustomHTMLElements } from '/assets/js/main.js';
 import { ViewPort } from '/assets/js/viewport.js';
 export { BucketView };
 
@@ -120,3 +121,5 @@ export { BucketView };
         }
     }
 }
+
+registerCustomHTMLElements('bucket-view', BucketView);

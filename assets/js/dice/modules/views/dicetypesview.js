@@ -1,3 +1,4 @@
+import { registerCustomHTMLElements } from '/assets/js/main.js';
 import { ViewPort } from '/assets/js/viewport.js';
 export { DiceTypesView };
 
@@ -96,3 +97,5 @@ export { DiceTypesView };
         }
     }
 }
+
+registerCustomHTMLElements('dice-types-view', DiceTypesView);

@@ -1,3 +1,4 @@
+import { registerCustomHTMLElements } from '/assets/js/main.js';
 import { ViewPort } from '/assets/js/viewport.js';
 export { DiceTypeSetView };
 
@@ -60,3 +61,5 @@ class DiceTypeSetView extends ViewPort {
         }
     }
 }
+
+registerCustomHTMLElements('dice-type-set-view', DiceTypeSetView);

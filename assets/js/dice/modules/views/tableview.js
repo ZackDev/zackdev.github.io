@@ -1,3 +1,4 @@
+import { registerCustomHTMLElements } from '/assets/js/main.js';
 import { ViewPort } from '/assets/js/viewport.js';
 import { UIDRandomProvider } from '../uidrandomprovider.js';
 
@@ -120,3 +121,5 @@ export { TableView };
         }
     }
 }
+
+registerCustomHTMLElements('table-view', TableView);

@@ -1,3 +1,15 @@
+import { ViewPort } from '/assets/js/viewport.js';
+
+export { checkHTTPResponse, Init, registerCustomHTMLElements };
+
+function registerCustomHTMLElements(tag, cls) {
+  /*
+  window.customElements.define('img-album', Album);
+  window.customElements.define('view-port', ViewPort);
+  */
+  window.customElements.define(tag, cls);
+}
+
 const checkHTTPResponse = (response) => {
   if (response.ok && response.status === 200) {
     return Promise.resolve(response);
@@ -32,6 +44,7 @@ class Init {
   static functionArray = new Array();
   static run() {
     for (let f of Init.functionArray) {
+      console.log(`${f}`);
       f();
     }
   }
@@ -97,6 +110,7 @@ class Tacho {
 
 //new Init(resizeContent);
 new Init(initHighcharts);
+new Init(registerCustomHTMLElements('view-port', ViewPort));
 
 document.onreadystatechange = () => {
   if (document.readyState === 'complete') {

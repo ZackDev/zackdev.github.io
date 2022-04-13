@@ -1,5 +1,6 @@
-import { ViewBundle } from './modules/viewbundle.js';
 import { DiceController } from './modules/dicecontroller.js';
+import { Init } from '/assets/js/main.js';
+import { ViewBundle } from './modules/viewbundle.js';
 
 
 new Init(
