@@ -24,7 +24,7 @@ class ViewPort extends HTMLElement {
     }
     
     requestFullscreen() {
-        this.requestFullscreen();
+        this.HTMLElement.requestFullscreen();
     }
 
     exitFullscreen() {
