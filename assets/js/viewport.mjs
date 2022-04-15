@@ -11,7 +11,7 @@ class ViewPort extends HTMLElement {
     constructor(id) {
         super();
         if (document.readyState === 'complete') {
-            this.viewPort = document.getElementById(id) || document.body;
+            this.HTMLElement = document.getElementById(id) || document.body;
         }
         else {
             let errorStr = `ViewPort: unexpected ready state: ${document.readyState}`;
@@ -19,6 +19,10 @@ class ViewPort extends HTMLElement {
         }
     }
 
+    append(e) {
+        this.HTMLElement.append(e);
+    }
+    
     requestFullscreen() {
         this.requestFullscreen();
     }

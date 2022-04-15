@@ -1,4 +1,3 @@
-import { registerCustomHTMLElements } from '/assets/js/main.mjs';
 import { ViewPort } from '/assets/js/viewport.mjs';
 import { UIDRandomProvider } from '../uidrandomprovider.mjs';
 
@@ -7,7 +6,7 @@ export { TableView };
 /**
  * a class representing the table, where rolled dices get displayed
  */
-class TableView extends ViewPort {
+class TableView {
 
     /**
      * creates a TableView object
@@ -15,7 +14,7 @@ class TableView extends ViewPort {
      * @param {String} appendToID the HTML-Element's ID where the view appends itself to
      */
     constructor(controller, appendToID) {
-        super(appendToID);
+        this.viewPort = new ViewPort(appendToID);
         let root = document.createElement("div");
         root.id = "table-container";
         root.classList.add("flex-row", "not-selectable");
@@ -121,5 +120,3 @@ class TableView extends ViewPort {
         }
     }
 }
-
-registerCustomHTMLElements('table-view', TableView);

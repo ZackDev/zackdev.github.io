@@ -1,12 +1,10 @@
-import { registerCustomHTMLElements } from '/assets/js/main.mjs';
 import { ViewPort } from '/assets/js/viewport.mjs';
 
 export { Album };
 
-class Album extends ViewPort {
+class Album {
     constructor(attachTo) {
-        super(attachTo);
-        this.root = this.viewPort;
+        this.root = new ViewPort(attachTo);
         // array holding the album's images' urls
         this.images = [];
         this.imagesLoaded = 0;
@@ -131,5 +129,3 @@ class Album extends ViewPort {
         this.albumStats.innerText = `${this.imagesLoaded} images out of ${this.images.length} loaded.`;
     }
 }
-
-registerCustomHTMLElements('photo-album', Album);

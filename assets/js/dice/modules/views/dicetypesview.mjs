@@ -1,11 +1,10 @@
-import { registerCustomHTMLElements } from '/assets/js/main.mjs';
 import { ViewPort } from '/assets/js/viewport.mjs';
 export { DiceTypesView };
 
 /**
  * 
  */
-class DiceTypesView extends ViewPort {
+class DiceTypesView {
 
     /**
      * creates a DiceTypesView object
@@ -13,7 +12,7 @@ class DiceTypesView extends ViewPort {
      * @param {String} appendToID the ID of the HTML-Element where the view appends itself to
      */
     constructor(controller, appendToID) {
-        super(appendToID);
+        this.viewPort = new ViewPort(appendToID);
         // create the view's container and add it to the DOM
         let root = document.createElement("div");
         root.id = "dice-types-container";
@@ -97,5 +96,3 @@ class DiceTypesView extends ViewPort {
         }
     }
 }
-
-registerCustomHTMLElements('dice-types-view', DiceTypesView);

@@ -1,4 +1,4 @@
-import { registerCustomHTMLElements, Init } from '/assets/js/main.mjs';
+import { Init } from '/assets/js/main.mjs';
 import { ViewPort } from '/assets/js/viewport.mjs';
 
 // eslint-disable-next-line no-unused-vars
@@ -58,9 +58,9 @@ class CommandProvider {
 }
 
 // eslint-disable-next-line no-unused-vars
-class TerminalView extends ViewPort {
+class TerminalView {
     constructor(controller, id) {
-        super(id);
+        this.viewPort = new ViewPort(id);
         // constructor, binding a controller and a DOM element as root to the view
         this.controller = controller;
         // maps a command's key to it's DIV and a boolean indicating visibility
@@ -520,7 +520,6 @@ class TerminalController {
 }
 
 const initVirtTerm = () => {
-    registerCustomHTMLElements('terminal-view', TerminalView);
     let tc = new TerminalController();
     let tv = new TerminalView(tc, "main-content");
 }

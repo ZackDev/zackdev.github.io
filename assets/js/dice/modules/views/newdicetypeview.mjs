@@ -1,11 +1,10 @@
-import { registerCustomHTMLElements } from '/assets/js/main.mjs';
 import { ViewPort } from '/assets/js/viewport.mjs';
 export { NewDiceTypeView };
 
 /**
  * a class representing the NewDiceTypeView for creating new dice types. contains the view's logic.
  */
-class NewDiceTypeView extends ViewPort {
+class NewDiceTypeView {
 
     /**
      * creates a NewDiceView object
@@ -13,7 +12,7 @@ class NewDiceTypeView extends ViewPort {
      * @param {String} appendToID the HTML-Element's ID where the view appends itself to
      */
     constructor(controller, appendToID) {
-        super(appendToID);
+        this.viewPort = new ViewPort(appendToID);
         // create the root div containing the view and add it to the DOM
         let root = document.createElement("div");
         root.id = "create-dice-type-container";
@@ -281,5 +280,3 @@ class NewDiceTypeView extends ViewPort {
         this.visible = true;
     }
 }
-
-registerCustomHTMLElements('new-dice-type-view', NewDiceTypeView);

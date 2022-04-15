@@ -1,11 +1,10 @@
-import { registerCustomHTMLElements } from '/assets/js/main.mjs';
 import { ViewPort } from '/assets/js/viewport.mjs';
 export { BucketView };
 
 /**
  * a class presenting the dices' bucket to the user
  */
-class BucketView extends ViewPort {
+class BucketView {
 
     /**
      * creates a new DiceController object
@@ -13,7 +12,7 @@ class BucketView extends ViewPort {
      * @param {String} appendToID the ID of the HTML-Element to append to
      */
     constructor(controller, appendToID) {
-        super(appendToID);
+        this.viewPort = new ViewPort(appendToID);
         // create the container of the view
         let root = document.createElement("div");
         root.id = "bucket-container";
@@ -121,5 +120,3 @@ class BucketView extends ViewPort {
         }
     }
 }
-
-registerCustomHTMLElements('bucket-view', BucketView);
