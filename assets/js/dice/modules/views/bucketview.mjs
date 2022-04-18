@@ -96,7 +96,12 @@ class BucketView {
         let dice = document.createElement("div");
         dice.classList.add("dice", "clickable");
         dice.id = UID;
-        dice.innerHTML = name;
+        let shortName = name;
+        if (name.length > 4) {
+            shortName = name.substring(0, 3) + '.';
+        }
+        dice.innerHTML = shortName;
+        dice.title = name;
         dice.addEventListener("click", () => {
             // clickhandler for removing the dice from the bucket
             this.controller.removeDiceFromBucket(UID);

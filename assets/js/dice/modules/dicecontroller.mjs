@@ -92,7 +92,7 @@ class DiceController {
                 sASides.push(`&#${i};`);
             }
         }
-        let sAType = new DiceType("Arr.", sASides);
+        let sAType = new DiceType("Arrows", sASides);
 
         // - Katakana dice type
         let katakanaSymbols = [];
@@ -113,7 +113,7 @@ class DiceController {
                 katakanaSymbols.push(`&#${i};`);
             }
         }
-        let kDiceType = new DiceType("kata", katakanaSymbols);
+        let kDiceType = new DiceType("katakana symbols", katakanaSymbols);
         this.diceTypeSetProvider.addDiceSet(new DiceTypeSet("symbols", [kDiceType, sAType]));
         /**
          * tested hieroglyphs are not available to the font 

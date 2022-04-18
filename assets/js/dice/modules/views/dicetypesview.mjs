@@ -73,7 +73,12 @@ class DiceTypesView {
         let diceType = document.createElement("div");
         diceType.classList.add("dice-type", "clickable");
         diceType.id = UID;
-        diceType.innerText = name;
+        let shortName = name;
+        if (name.length > 4) {
+            shortName = name.substring(0, 3) + '.';
+        }
+        diceType.innerText = shortName;
+        diceType.title = name;
         diceType.addEventListener("click", () => {
             this.controller.onDiceTypeClicked(UID);
         });

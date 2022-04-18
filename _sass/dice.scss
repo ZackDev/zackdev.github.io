@@ -64,7 +64,7 @@
     font-size: 1rem;
 }
 
-#dice-name-input:hover, #dice-sides-input:hover, #dice-name-input:focus, #dice-sides-input:focus {
+#dice-sides-input:hover, #dice-sides-input:focus {
     /* override default behaviour */
     margin: 5px 5px 5px 5px;
     @include border(1px, dotted, $chicago, 10%);

@@ -63,12 +63,10 @@ class NewDiceTypeView {
         nameInfoWrap.append(nameInfoText, nameInfoCheckOrX);
         // - the input for setting the dice's name
         let nameInput = document.createElement("input");
-        nameInput.classList.add("dice-type");
         nameInput.id = "dice-name-input";
         nameInput.type = "text";
-        nameInput.placeholder = "....";
+        nameInput.placeholder = "...";
         nameInput.minLength = 1;
-        nameInput.maxLength = 4;
         nameInput.addEventListener("input", () => {
             this.adaptNameInfo();
         });
@@ -154,7 +152,7 @@ class NewDiceTypeView {
             // only create 'valid' dices
             // - with minimum two sides
             // - and the length of the name bewtween one and four
-            if (this.diceSides.length >= 2 && this.nameInput.value.length >= 1 && this.nameInput.value.length <= 4 && this.nameInput.value.length >= 1) {
+            if (this.diceSides.length >= 2 && this.nameInput.value.length >= 1) {
                 this.controller.onCreateDiceTypeClicked(this.nameInput.value, this.diceSides);
                 this.clear();
                 this.adaptNameInfo();
@@ -198,7 +196,7 @@ class NewDiceTypeView {
      */
     adaptNameInfo() {
         let lenName = this.nameInput.value.length;
-        if (lenName >= 1 && lenName <= 4) {
+        if (lenName >= 1) {
             document.getElementById("create-dice-type-name-check-or-x").innerHTML = "&check;";
         }
         else {
@@ -227,7 +225,7 @@ class NewDiceTypeView {
     adaptCreateButton() {
         let lenName = this.nameInput.value.length;
         let numSides = this.diceSides.length;
-        if (lenName >= 1 && lenName <= 4 && numSides >= 2) {
+        if (lenName >= 1 && numSides >= 2) {
             this.createDiceBtn.classList.remove("unclickable");
             this.createDiceBtn.classList.add("clickable");
         }
