@@ -212,7 +212,9 @@ class DiceController {
     onDiceAddedToBucket(UID, dice) {
         // called by the Bucket
         this.bucketView.displayDice(UID, dice.name);
-        this.diceAudio.playAudio("bucket");
+        if (this.settingsView.getAudioMutedState() === false) {
+            this.diceAudio.playAudio("bucket");
+        }
     }
 
     /**
@@ -230,7 +232,9 @@ class DiceController {
     onRollClicked() {
         // called by the BucketView
         this.bucket.roll();
-        this.diceAudio.playAudio("table");
+        if (this.settingsView.getAudioMutedState() === false) {
+            this.diceAudio.playAudio("table");
+        }
     }
 
     /**

@@ -2,6 +2,10 @@
     box-shadow: 2px 2px 2px $silver-chalice;
 }
 
+#dice-ui-settings-container {
+    //
+}
+
 #dice-sets-container {
     margin: 5px 5px 5px 5px;
     flex-wrap: wrap;
@@ -75,7 +79,16 @@
     box-shadow: 2px 2px 2px $sorrell-brown;
 }
 
-.icon.clickable:hover {
+.icon-small {
+    margin: 5px 5px 5px 5px;
+    height: 32px;
+    width: 32px;
+    background-color: $sorrell-brown;
+    @include border(none, solid, $sorrell-brown, 5px);
+    box-shadow: 2px 2px 2px $sorrell-brown;
+}
+
+.icon.clickable:hover, .icon-small.clickable:hover {
     background-color: $cape-palliser;
 }
 
