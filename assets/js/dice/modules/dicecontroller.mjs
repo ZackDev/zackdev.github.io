@@ -3,7 +3,6 @@ import { DiceAudio } from './diceaudio.mjs';
 import { DiceProvider } from './diceprovider.mjs';
 import { DiceTypeSetProvider } from './dicetypesetprovider.mjs';
 
-
 export { DiceController };
 
 /**

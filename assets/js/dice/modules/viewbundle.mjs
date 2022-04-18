@@ -5,6 +5,8 @@ import { SettingsView } from './views/settingsview.mjs';
 import { TableView } from './views/tableview.mjs';
 import { NewDiceTypeView } from './views/newdicetypeview.mjs';
 
+export { ViewBundle };
+
 class ViewBundle {
     /**
      * 
@@ -26,5 +28,3 @@ class ViewBundle {
         }
     }
 }
-
-export { ViewBundle };

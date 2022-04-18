@@ -2,7 +2,6 @@ import { DiceController } from './modules/dicecontroller.mjs';
 import { Init } from '/assets/js/main.mjs';
 import { ViewBundle } from './modules/viewbundle.mjs';
 
-
 new Init(
     () => {
         try {
