@@ -1,4 +1,4 @@
-import { ViewPort } from '/assets/js/viewport.mjs';
+import { changeClickableState, ViewPort } from '/assets/js/ui-tools.mjs';
 
 export { DiceTypesView };
 
@@ -55,11 +55,11 @@ class DiceTypesView {
     setNewDiceTypeBtnState(state) {
         switch (state) {
             case "active":
-                this.newDiceTypeBtn.classList.add("clickable");
+                changeClickableState(this.newDiceTypeBtn, state);
                 this.newDiceTypeBtn.addEventListener("click", this.onAddNewDiceTypeClickedHandler);
                 break;
             case "inactive":
-                this.newDiceTypeBtn.classList.remove("clickable");
+                changeClickableState(this.newDiceTypeBtn, state);
                 this.newDiceTypeBtn.removeEventListener("click", this.onAddNewDiceTypeClickedHandler);
                 break;
         }

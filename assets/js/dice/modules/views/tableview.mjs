@@ -1,4 +1,4 @@
-import { ViewPort } from '/assets/js/viewport.mjs';
+import { changeClickableState, ViewPort } from '/assets/js/ui-tools.mjs';
 import { UIDRandomProvider } from '../uidrandomprovider.mjs';
 
 export { TableView };
@@ -64,7 +64,7 @@ class TableView {
                 // - the number of dices is greater than zero
                 // - and the button is inactive
                 this.tableBtn.addEventListener("click", this.clearTable);
-                this.tableBtn.classList.add("clickable");
+                changeClickableState(this.tableBtn, state);
                 this.tableBtnActive = true;
                 break;
             case "inactive":
@@ -72,7 +72,7 @@ class TableView {
                 // - the number of dices is zero
                 // - and the button is active
                 this.tableBtn.removeEventListener("click", this.clearTable);
-                this.tableBtn.classList.remove("clickable");
+                changeClickableState(this.tableBtn, state);
                 this.tableBtnActive = false;
                 break;
         }

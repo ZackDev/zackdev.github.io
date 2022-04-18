@@ -1,4 +1,4 @@
-import { ViewPort } from '/assets/js/viewport.mjs';
+import { changeClickableState, ViewPort } from '/assets/js/ui-tools.mjs';
 
 export { SettingsView };
 

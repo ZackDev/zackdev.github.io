@@ -1,4 +1,4 @@
-import { ViewPort } from '/assets/js/viewport.mjs';
+import { changeClickableState, ViewPort } from '/assets/js/ui-tools.mjs';
 
 export { BucketView };
 
@@ -70,12 +70,12 @@ class BucketView {
         switch (state) {
             case "active":
                 this.bucketBtn.addEventListener("click", this.onRollClickedEventHandler);
-                this.bucketBtn.classList.add("clickable");
+                changeClickableState(this.bucketBtn, state);
                 this.bucketBtnActive = true;
                 break;
             case "inactive":
                 this.bucketBtn.removeEventListener("click", this.onRollClickedEventHandler);
-                this.bucketBtn.classList.remove("clickable");
+                changeClickableState(this.bucketBtn, state);
                 this.bucketBtnActive = false;
                 break;
         }

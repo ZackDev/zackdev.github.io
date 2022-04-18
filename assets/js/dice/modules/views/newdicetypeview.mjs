@@ -1,4 +1,4 @@
-import { ViewPort } from '/assets/js/viewport.mjs';
+import { changeClickableState, ViewPort } from '/assets/js/ui-tools.mjs';
 
 export { NewDiceTypeView };
 
@@ -151,8 +151,6 @@ class NewDiceTypeView {
         createDiceBtn.innerText = "Create Dice";
         createDiceBtn.addEventListener("click", () => {
             // only create 'valid' dices
-            // - with minimum two sides
-            // - and the length of the name bewtween one and four
             if (this.diceSides.length >= 2 && this.nameInput.value.length >= 1) {
                 this.controller.onCreateDiceTypeClicked(this.nameInput.value, this.diceSides);
                 this.clear();
@@ -227,12 +225,10 @@ class NewDiceTypeView {
         let lenName = this.nameInput.value.length;
         let numSides = this.diceSides.length;
         if (lenName >= 1 && numSides >= 2) {
-            this.createDiceBtn.classList.remove("unclickable");
-            this.createDiceBtn.classList.add("clickable");
+            changeClickableState(this.createDiceBtn, "active");
         }
         else {
-            this.createDiceBtn.classList.remove("clickable");
-            this.createDiceBtn.classList.add("unclickable");
+            changeClickableState(this.createDiceBtn, "inactive");
         }
     }
 
@@ -242,12 +238,10 @@ class NewDiceTypeView {
     adaptAddSideButton() {
         let lenSideInput = this.sideInput.value.length;
         if (lenSideInput >= 1 && lenSideInput <= 4) {
-            this.addSideBtn.classList.remove("unclickable");
-            this.addSideBtn.classList.add("clickable");
+            changeClickableState(this.addSideBtn, "active");
         }
         else {
-            this.addSideBtn.classList.remove("clickable");
-            this.addSideBtn.classList.add("unclickable");
+            changeClickableState(this.addSideBtn, "inactive");
         }
     }
 

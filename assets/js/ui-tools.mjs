@@ -1,4 +1,4 @@
-export { ViewPort };
+export { changeClickableState, ViewPort };
 
 /**
  * class for objects providing the HTML-Element *viewPort*
@@ -29,5 +29,21 @@ class ViewPort extends HTMLElement {
 
     exitFullscreen() {
         document.exitFullscreen();
+    }
+}
+
+/**
+ * 
+ * @param {HTMLElement} element 
+ * @param {String} state 
+ */
+const changeClickableState = (element, state) => {
+    if (state === "active") {
+        element.classList.add("clickable");
+        element.classList.remove("unclickable")
+    }
+    else if (state === "inactive") {
+        element.classList.add("unclickable");
+        element.classList.remove("clickable");
     }
 }
