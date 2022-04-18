@@ -54,7 +54,7 @@ class NewDiceTypeView {
         nameInfoWrap.classList.add("flex-row");
         nameInfoWrap.style.justifyContent = "space-between";
         let nameInfoText = document.createElement("div");
-        nameInfoText.innerText = "Name: 1 to 4 characters";
+        nameInfoText.innerText = "Name: minmum 1 character";
         nameInfoText.style.fontSize = "16px";
         nameInfoText.style.color = "#605c59";
         let nameInfoCheckOrX = document.createElement("div");
