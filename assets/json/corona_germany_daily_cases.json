@@ -6695,6 +6695,14 @@
             "incidence": 944.59,
             "rrate": 1.06,
             "rratesmoothed": 1.5
+        },
+        {
+            "date": "2022-04-17",
+            "totalcases": 23437145,
+            "dailycases": 20482,
+            "incidence": 925.71,
+            "rrate": 0.51,
+            "rratesmoothed": 1.6
         }
     ]
 }
