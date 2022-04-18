@@ -4,7 +4,10 @@ tags: [howto]
 published: true
 archived: true
 ---
-The [Dices UI]({% post_url 2021-10-28-roll-some-dices %}) consists of five elements, which are described below in order of appeareance.
+The [Dices UI]({% post_url 2021-10-28-roll-some-dices %}) consists of six elements, which are described below in order of appearance.
+
+# Settings
+<img src="/assets/icons/audio-enabled.svg" style="height:20px;width:20px"/> Turn audio on/off.
 
 # Dice Sets
 Available sets of dices are listed here. Select a set of dices by clicking on it. Doing so changes the available types of dices presented in the next element.
