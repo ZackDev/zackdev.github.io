@@ -81,8 +81,8 @@ class TableView {
     /**
      * adds a dice to the view
      * @param {number} UID the UID of the dice
-     * @param {string} name the name of the dice
-     * @param {*} result the result of the dice
+     * @param {String} name the name of the dice
+     * @param {String} result the result of the dice
      */
     displayDice(name, result) {
         let UID = UIDRandomProvider.getUID();
@@ -90,7 +90,12 @@ class TableView {
         dice.classList.add("dice", "rolled");
         dice.id = UID;
         dice.title = `dice: ${name}`;
-        dice.innerHTML = `<div class="side">${result}</div>`;
+        if (result.startsWith('&#', 0) && result.endsWith(';')) {
+            dice.innerHTML = `<div class="side" style="font-size: 2rem;">${result}</div>`;
+        }
+        else {
+            dice.innerHTML = `<div class="side">${result}</div>`;
+        }
         this.dices.push(UID);
         this.root.append(dice);
         this.adaptTableBtnState();
