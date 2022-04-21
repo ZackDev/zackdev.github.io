@@ -4,8 +4,6 @@ tags: [linux, gnome, applications]
 published: true
 archived: true
 ---
-{% include image.html url="/assets/img/gnome-applications-screenshot.png" description="Screenshot Gnome Applications" %}
-
 # Your favorite program is not listed in the Gnome Applications menu?
 
 The entries displayed in the menu are defined in the `/usr/share/applications/` folder, where each applications meta data are defined separate .ini syntax style files.
