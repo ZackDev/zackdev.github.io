@@ -96,6 +96,9 @@ class TableView {
         if (result.startsWith('&#', 0) && result.endsWith(';')) {
             side.style.fontSize = "2rem";
         }
+        else if (result.length === 1)  {
+            side.style.fontSize = "2rem";
+        }
         else {
             side.style.fontSize = "1rem";
         }
