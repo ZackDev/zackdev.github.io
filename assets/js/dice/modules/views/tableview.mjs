@@ -90,12 +90,16 @@ class TableView {
         dice.classList.add("dice", "rolled");
         dice.id = UID;
         dice.title = `dice: ${name}`;
+        let side = document.createElement("div");
+        side.classList.add("side");
+        side.innerHTML = result;
         if (result.startsWith('&#', 0) && result.endsWith(';')) {
-            dice.innerHTML = `<div class="side" style="font-size: 2rem;">${result}</div>`;
+            side.style.fontSize = "2rem";
         }
         else {
-            dice.innerHTML = `<div class="side">${result}</div>`;
+            side.style.fontSize = "1rem";
         }
+        dice.append(side);
         this.dices.push(UID);
         this.root.append(dice);
         this.adaptTableBtnState();
