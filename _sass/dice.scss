@@ -158,6 +158,12 @@
 
 .dice.rolled {
     cursor: help;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .side {
+        font-size: 1rem;
+    }
 }
 
 .icosahedron-rotate {

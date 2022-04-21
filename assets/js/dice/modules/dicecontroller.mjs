@@ -2,6 +2,7 @@ import { Bucket, DiceTypeSet, DiceType } from './modelbundle.mjs';
 import { DiceAudio } from './diceaudio.mjs';
 import { DiceProvider } from './diceprovider.mjs';
 import { DiceTypeSetProvider } from './dicetypesetprovider.mjs';
+import { checkHTTPResponse } from '/assets/js/main.mjs';
 
 export { DiceController };
 
@@ -47,95 +48,26 @@ class DiceController {
      * 
      */
     addDiceSets() {
-        // 'special' dice set
-        let sDsName = "special";
-
-        // - 4Df dice type
-        let sD4fType = new DiceType("4Df", ['+', '+', '-', '-', '&nbsp;', '&nbsp;']);
-
-        // - D12 dice type
-        let sD12Type = new DiceType("D12", ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]);
-
-        // - D20 dice type
-        let d20Sides = [];
-        for (let i = 1; i <= 20; i++) {
-            d20Sides.push(i.toString());
+        let diceSetsURL = "/assets/json/dices.json";
+        let fInit = {
+            method: 'GET',
+            cache: 'no-cache'
         }
-        let sD20Type = new DiceType("D20", d20Sides);
 
-        // - D100 dice type
-        let d100Sides = [];
-        for (let i = 1; i <= 100; i++) {
-            d100Sides.push(i.toString());
-        }
-        let sD100Type = new DiceType("D100", d100Sides);
-
-        let sDiceSet = new DiceTypeSet(sDsName, [sD4fType, sD12Type, sD20Type, sD100Type]);
-        this.diceTypeSetProvider.addDiceSet(sDiceSet);
-
-        // D2 to D6 dice set
-        let bDsName = "D2-6";
-        let bD2Type = new DiceType("D2", ['&#9856;', '&#9857;']);
-        let bD3Type = new DiceType("D3", ['&#9856;', '&#9857;', '&#9858;']);
-        let bD4Type = new DiceType("D4", ['&#9856;', '&#9857;', '&#9858;', '&#9859;']);
-        let bD5Type = new DiceType("D5", ['&#9856;', '&#9857;', '&#9858;', '&#9859;', '&#9860;']);
-        let bD6Type = new DiceType("D6", ['&#9856;', '&#9857;', '&#9858;', '&#9859;', '&#9860;', '&#9861;']);
-        let bDiceSet = new DiceTypeSet(bDsName, [bD2Type, bD3Type, bD4Type, bD5Type, bD6Type]);
-        this.diceTypeSetProvider.addDiceSet(bDiceSet);
-
-        // symbols dice type set
-        // - Arrow dice type
-        let sASides = [];
-        for (let i = 8592; i <= 8601; i++) {
-            if (i != 8596 && i != 8597) {
-                sASides.push(`&#${i};`);
-            }
-        }
-        let sAType = new DiceType("Arrows", sASides);
-
-        // - Katakana dice type
-        let katakanaSymbols = [];
-        for (let i = 12449; i <= 12538; i++) {
-            // use uppercase katakanas only
-            if (i != 12449 &&
-                i != 12451 &&
-                i != 12453 &&
-                i != 12455 &&
-                i != 12457 &&
-                i != 12483 &&
-                i != 12515 &&
-                i != 12517 &&
-                i != 12519 &&
-                i != 12526 &&
-                i != 12537 &&
-                i != 12534) {
-                katakanaSymbols.push(`&#${i};`);
-            }
-        }
-        let kDiceType = new DiceType("katakana symbols", katakanaSymbols);
-        this.diceTypeSetProvider.addDiceSet(new DiceTypeSet("symbols", [kDiceType, sAType]));
-        /**
-         * tested hieroglyphs are not available to the font 
-         */
-        /*
-        let hieroglyphsDsName = "hieroglyphs";
-        let hType = ["all", ['&#x13001;']];
-        let hDiceSet = new DiceSet(hieroglyphsDsName, [hType]);
-        this.diceTypeSetProvider.addDiceSet(hDiceSet);
-        */
-
-        // Katakana circled symbols dice set
-        /**
-         * replaced by uncircled uppercase katakana symbols
-         */
-        /*
-        let katakanaSymbols = [];
-        for (let i = 13008; i <= 13054; i++) {
-            katakanaSymbols.push(`&#${i};`);
-        }
-        let kType = new DiceType("cKk", katakanaSymbols);
-        this.diceTypeSetProvider.addDiceSet(new DiceTypeSet("katakana", [kType]));
-        */
+        fetch(diceSetsURL, fInit)
+            .then(res => checkHTTPResponse(res))
+            .then(res => res.json())
+            .then(res => {
+                if (res.dicesets !== null && res.dicesets !== undefined) {
+                    for (let diceset of res.dicesets) {
+                        let diceTypes = [];
+                        for (let dicetype of diceset["dice-types"]) {
+                            diceTypes.push(new DiceType(dicetype["name"], dicetype["sides"]));
+                        }
+                        this.diceTypeSetProvider.addDiceSet(new DiceTypeSet(diceset.name, diceTypes));
+                    }
+                }
+            })
     }
 
     /**
