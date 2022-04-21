@@ -96,13 +96,10 @@ class TableView {
             side.innerHTML = result;
             side.style.fontSize = "2rem";
         }
-        else if (result.length === 1)  {
-            side.innerText = result;
-            side.style.fontSize = "2rem";
-        }
         else {
             side.innerText = result;
-            side.style.fontSize = "1rem";
+            let rem = (3 / result.length).toFixed(2);
+            side.style.fontSize = [rem, "rem"].join('');
         }
         dice.append(side);
         this.dices.push(UID);
