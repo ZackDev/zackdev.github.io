@@ -92,14 +92,16 @@ class TableView {
         dice.title = `dice: ${name}`;
         let side = document.createElement("div");
         side.classList.add("side");
-        side.innerHTML = result;
         if (result.startsWith('&#', 0) && result.endsWith(';')) {
+            side.innerHTML = result;
             side.style.fontSize = "2rem";
         }
         else if (result.length === 1)  {
+            side.innerText = result;
             side.style.fontSize = "2rem";
         }
         else {
+            side.innerText = result;
             side.style.fontSize = "1rem";
         }
         dice.append(side);
