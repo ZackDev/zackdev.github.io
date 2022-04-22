@@ -71,7 +71,9 @@ class DiceController {
                                     }
                                 }
                             }
-                            this.diceTypeSetProvider.addDiceSet(new DiceTypeSet(diceset.name, diceTypes));
+                            if (diceTypes.length > 0) {
+                                this.diceTypeSetProvider.addDiceSet(new DiceTypeSet(diceset.name, diceTypes));
+                            }
                         }
                     }
                 }
