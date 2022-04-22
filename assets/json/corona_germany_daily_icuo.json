@@ -4364,9 +4364,15 @@
         },
         {
             "date": "2022-04-21",
-            "free_icu": 3974,
-            "covid_icu": 990,
+            "free_icu": 3975,
+            "covid_icu": 989,
             "covid_icu_invasive": 657
+        },
+        {
+            "date": "2022-04-22",
+            "free_icu": 4018,
+            "covid_icu": 986,
+            "covid_icu_invasive": 628
         }
     ]
 }
