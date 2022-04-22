@@ -61,10 +61,18 @@ class DiceController {
                 if (res.dicesets !== null && res.dicesets !== undefined) {
                     for (let diceset of res.dicesets) {
                         let diceTypes = [];
-                        for (let dicetype of diceset["dice-types"]) {
-                            diceTypes.push(new DiceType(dicetype["name"], dicetype["sides"]));
+                        if (diceset["dice-types"] !== undefined) {
+                            for (let dicetype of diceset["dice-types"]) {
+                                if (dicetype["name"] !== undefined && dicetype["sides"] !== undefined) {
+                                    let typeName = dicetype["name"];
+                                    let typeSides = dicetype["sides"];
+                                    if (typeof typeName === String && typeof typeSides === Array) {
+                                        diceTypes.push(new DiceType(typeName, typeSides));
+                                    }
+                                }
+                            }
+                            this.diceTypeSetProvider.addDiceSet(new DiceTypeSet(diceset.name, diceTypes));
                         }
-                        this.diceTypeSetProvider.addDiceSet(new DiceTypeSet(diceset.name, diceTypes));
                     }
                 }
             })
