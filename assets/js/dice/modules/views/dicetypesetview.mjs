@@ -10,7 +10,7 @@ class DiceTypeSetView {
     /**
      * 
      * @param {DiceController} controller to delegate specific user interaction with the UI to
-     * @param {HTMLElement} appendToID the ID of the HTML-Element where the view appends itself to
+     * @param {String} appendToID the ID of the HTML-Element where the view appends itself to
      */
     constructor(controller, appendToID) {
         this.viewPort = new ViewPort(appendToID);
