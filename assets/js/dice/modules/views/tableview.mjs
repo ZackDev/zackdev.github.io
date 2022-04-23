@@ -92,7 +92,9 @@ class TableView {
         dice.title = `dice: ${name}`;
         let side = document.createElement("div");
         side.classList.add("side");
-        if (result.length >= 4 && result.startsWith('&#', 0) && result.endsWith(';') && parseInt(result.substring(3, result.length - 1)) !== NaN) {
+        const hr = /^&#\d{1,};$/
+        let rm = result.match(hr);
+        if (rm.length === 1 && rm.pop() === result) {
             side.innerHTML = result;
             side.style.fontSize = "2rem";
         }
