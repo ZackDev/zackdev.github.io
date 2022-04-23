@@ -2,7 +2,7 @@
     "dicesets": [
         {
             "name": "D2-D6",
-            "dice-types": [
+            "dicetypes": [
                 {
                     "name": "D2",
                     "sides": [
@@ -52,7 +52,7 @@
         },
         {
             "name": "special",
-            "dice-types": [
+            "dicetypes": [
                 {
                     "name": "4Df",
                     "sides": [
@@ -202,7 +202,7 @@
         },
         {
             "name": "symbols",
-            "dice-types": [
+            "dicetypes": [
                 {
                     "name": "katakana",
                     "sides": [
@@ -316,7 +316,7 @@
         },
         {
             "name": "cards",
-            "dice-types": [
+            "dicetypes": [
                 {
                     "name": "suits",
                     "sides": [
