@@ -92,8 +92,8 @@ class TableView {
         dice.title = `dice: ${name}`;
         let side = document.createElement("div");
         side.classList.add("side");
-        /* regex: matches '&#123;' and '&abc;' */
-        const hr = /^&#\d{1,};$|^&[a-z0-9]{1,};$/
+        /* regex: matches '&#9273;' and '&check;' */
+        const hr = /^&#\d{1,};$|^&[a-zA-Z0-9]{1,};$/
         let rm = result.match(hr);
         if (rm !== null && rm.length === 1 && rm.pop() === result) {
             side.innerHTML = result;
