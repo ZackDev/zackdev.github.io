@@ -5,7 +5,7 @@ var triangleRotation = 0;
 
 const initTutorial = () => {
     var then = 0;
-    const cv = document.getElementById("gl-canvas-04");
+    const cv = document.getElementById("gl-canvas-05");
     const gl = cv.getContext("webgl");
 
     gl.clearColor(0.0, 0.0, 0.0, 0.7);
@@ -28,8 +28,9 @@ const initTutorial = () => {
 
     const fsSource = `
             varying lowp vec4 vColor;
+
             void main() {
-                gl_FragColor = vColor;
+                gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
             }
         `;
 
@@ -104,11 +105,28 @@ function initBuffers(gl) {
     // operations to from here out.
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
-    // Now create an array of positions for the triangle.
+    // Now create an array of positions for the pyramid.
     const positions = [
-        0.0, 1.0,
-        -1.0, -1.0,
-        1.0, -1.0
+        0.0, 0.0, 1.0,
+        -1.0, -1.0, -1.0,
+        1.0, -1.0, -1.0,
+        
+        0.0, 0.0, 1.0,
+        -1.0, 1.0, -1.0,
+        -1.0, -1.0, -1.0,
+
+        0.0, 0.0, 1.0,
+        1.0, 1.0, -1.0,
+        1.0, -1.0, -1.0,
+
+        0.0, 0.0, 1.0,
+        1.0, 1.0, -1.0,
+        -1.0, 1.0, -1.0,
+
+        1.0, 1.0, -1.0,
+        1.0, -1.0, -1.0,
+        -1.0, -1.0, -1.0,
+        
     ];
 
     // Now pass the list of positions into WebGL to build the
@@ -126,12 +144,12 @@ function initBuffers(gl) {
 
     // The colors for the triangle
     const colors = [
-        1.0, 0.0, 0.0, 1.0, //red
-        0.0, 1.0, 0.0, 1.0, //green
-        0.0, 0.0, 1.0, 1.0  //blue
+        1.0, 0.0, 0.0, 1.0,
+        0.0, 1.0, 0.0, 1.0,
+        0.0, 0.0, 1.0, 1.0
     ];
 
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
+     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
 
 
     return {
@@ -182,12 +200,12 @@ function drawScene(gl, programInfo, buffers, deltaTime) {
         modelViewMatrix,     // matrix to translate
         [-0.0, 0.0, -6.0]);  // amount to translate
 
-    mat4.rotate(modelViewMatrix, modelViewMatrix, triangleRotation, [1, 0, 0]);
+    mat4.rotate(modelViewMatrix, modelViewMatrix, triangleRotation, [1, 1, 1]);
 
     // Tell WebGL how to pull out the positions from the position
     // buffer into the vertexPosition attribute.
     {
-        const numComponents = 2;  // pull out 2 values per iteration
+        const numComponents = 3;  // pull out 2 values per iteration
         const type = gl.FLOAT;    // the data in the buffer is 32bit floats
         const normalize = false;  // don't normalize
         const stride = 0;         // how many bytes to get from one set of values to the next
@@ -206,6 +224,7 @@ function drawScene(gl, programInfo, buffers, deltaTime) {
     }
     {
         // the color buffer
+        
         gl.bindBuffer(gl.ARRAY_BUFFER, buffers.color);
         gl.vertexAttribPointer(
             programInfo.attribLocations.vertexColor,
@@ -216,6 +235,7 @@ function drawScene(gl, programInfo, buffers, deltaTime) {
             0
         );
         gl.enableVertexAttribArray(programInfo.attribLocations.vertexColor);
+        
     }
 
     // Tell WebGL to use our program when drawing
@@ -235,7 +255,7 @@ function drawScene(gl, programInfo, buffers, deltaTime) {
 
     {
         const offset = 0;
-        const vertexCount = 3;
+        const vertexCount = 15;
         gl.drawArrays(gl.TRIANGLE_STRIP, offset, vertexCount);
     }
     triangleRotation += deltaTime;

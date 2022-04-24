@@ -195,7 +195,7 @@ function drawScene(gl, programInfo, buffers) {
         gl.bindBuffer(gl.ARRAY_BUFFER, buffers.color);
         gl.vertexAttribPointer(
             programInfo.attribLocations.vertexColor,
-            3,
+            4,
             gl.FLOAT,
             false,
             0,
