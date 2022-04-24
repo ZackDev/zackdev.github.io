@@ -30,7 +30,7 @@ const initTutorial = () => {
             varying lowp vec4 vColor;
 
             void main() {
-                gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+                gl_FragColor = vColor;
             }
         `;
 
@@ -98,11 +98,8 @@ const initTutorial = () => {
 
 function initBuffers(gl) {
 
-    // Create a buffer for the square's positions.
     const positionBuffer = gl.createBuffer();
 
-    // Select the positionBuffer as the one to apply buffer
-    // operations to from here out.
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
     // Now create an array of positions for the pyramid.
@@ -129,9 +126,6 @@ function initBuffers(gl) {
         
     ];
 
-    // Now pass the list of positions into WebGL to build the
-    // shape. We do this by creating a Float32Array from the
-    // JavaScript array, then use it to fill the current buffer.
     gl.bufferData(gl.ARRAY_BUFFER,
         new Float32Array(positions),
         gl.STATIC_DRAW);
@@ -142,11 +136,23 @@ function initBuffers(gl) {
 
     gl.bindBuffer(gl.ARRAY_BUFFER, colorBuffer);
 
-    // The colors for the triangle
+    // The colors FOR EACH OF the vertices
     const colors = [
         1.0, 0.0, 0.0, 1.0,
         0.0, 1.0, 0.0, 1.0,
-        0.0, 0.0, 1.0, 1.0
+        0.0, 0.0, 1.0, 1.0,
+        1.0, 0.0, 0.0, 1.0,
+        0.0, 1.0, 0.0, 1.0,
+        0.0, 0.0, 1.0, 1.0,
+        1.0, 0.0, 0.0, 1.0,
+        0.0, 1.0, 0.0, 1.0,
+        0.0, 0.0, 1.0, 1.0,
+        1.0, 0.0, 0.0, 1.0,
+        0.0, 1.0, 0.0, 1.0,
+        0.0, 0.0, 1.0, 1.0,
+        1.0, 0.0, 0.0, 1.0,
+        0.0, 1.0, 0.0, 1.0,
+        0.0, 0.0, 1.0, 1.0,
     ];
 
      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
@@ -164,16 +170,7 @@ function drawScene(gl, programInfo, buffers, deltaTime) {
     gl.enable(gl.DEPTH_TEST);           // Enable depth testing
     gl.depthFunc(gl.LEQUAL);            // Near things obscure far things
 
-    // Clear the canvas before we start drawing on it.
-
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-
-    // Create a perspective matrix, a special matrix that is
-    // used to simulate the distortion of perspective in a camera.
-    // Our field of view is 45 degrees, with a width/height
-    // ratio that matches the display size of the canvas
-    // and we only want to see objects between 0.1 units
-    // and 100 units away from the camera.
 
     const fieldOfView = 45 * Math.PI / 180;   // in radians
     const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
@@ -189,12 +186,7 @@ function drawScene(gl, programInfo, buffers, deltaTime) {
         zNear,
         zFar);
 
-    // Set the drawing position to the "identity" point, which is
-    // the center of the scene.
     const modelViewMatrix = mat4.create();
-
-    // Now move the drawing position a bit to where we want to
-    // start drawing the square.
 
     mat4.translate(modelViewMatrix,     // destination matrix
         modelViewMatrix,     // matrix to translate
@@ -202,15 +194,12 @@ function drawScene(gl, programInfo, buffers, deltaTime) {
 
     mat4.rotate(modelViewMatrix, modelViewMatrix, triangleRotation, [1, 1, 1]);
 
-    // Tell WebGL how to pull out the positions from the position
-    // buffer into the vertexPosition attribute.
     {
-        const numComponents = 3;  // pull out 2 values per iteration
-        const type = gl.FLOAT;    // the data in the buffer is 32bit floats
-        const normalize = false;  // don't normalize
-        const stride = 0;         // how many bytes to get from one set of values to the next
-        // 0 = use type and numComponents above
-        const offset = 0;         // how many bytes inside the buffer to start from
+        const numComponents = 3;  // 3, since those are vec3
+        const type = gl.FLOAT;
+        const normalize = false;
+        const stride = 0;
+        const offset = 0;
         gl.bindBuffer(gl.ARRAY_BUFFER, buffers.position);
         gl.vertexAttribPointer(
             programInfo.attribLocations.vertexPosition,
