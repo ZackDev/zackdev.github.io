@@ -1,8 +1,8 @@
 import { Init } from '/assets/js/main.mjs';
-import { mat4 } from '/assets/js/gl-matrix/esm/index.js';
+import { mat4 } from '/assets/js/mdn-webgl/gl-matrix/esm/index.js';
 
 const initTutorial = () => {
-    const cv = document.getElementById("gl-canvas");
+    const cv = document.getElementById("gl-canvas-02");
     const gl = cv.getContext("webgl");
 
     gl.clearColor(0.0, 0.0, 0.0, 0.7);
@@ -90,7 +90,7 @@ function initBuffers(gl) {
         1.0, 1.0,
         -1.0, 1.0,
         1.0, -1.0,
-        -1.0, -1.0,
+        -1.0, -1.0
     ];
 
     // Now pass the list of positions into WebGL to build the
