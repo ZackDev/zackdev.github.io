@@ -102,7 +102,9 @@ function initBuffers(gl) {
 
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
-    // Now create an array of positions for the pyramid.
+    // Now create an array of positions(x, y, z) for the pyramid.
+    // where x is horizontal, y is vertical and z is depth
+    /*
     const positions = [
         // front
         // - top, left, right
@@ -139,6 +141,38 @@ function initBuffers(gl) {
         -1.0, 1.0, -1.0
         
     ];
+    */
+    const positions = [
+        // front
+        0.0, 1.0, 0.0,
+        -1.0, -1.0, 1.0,
+        1.0, -1.0, 1.0,
+
+        // left
+        0.0, 1.0, 0.0,
+        -1.0, -1.0, -1.0,
+        -1.0, -1.0, 1.0,
+
+        // right
+        0.0, 1.0, 0.0,
+        1.0, -1.0, 1.0,
+        1.0, -1.0, -1.0,
+
+        // back
+        0.0, 1.0, 0.0,
+        -1.0, -1.0, -1.0,
+        1.0, -1.0, -1.0,
+
+        // bottom
+        1.0, -1.0, -1.0,
+        -1.0, -1.0, 1.0,
+        1.0, -1.0, 1.0,
+
+        // bottom
+        1.0, -1.0, -1.0,
+        -1.0, -1.0, -1.0,
+        -1.0, -1.0, 1.0,
+    ];
 
     gl.bufferData(gl.ARRAY_BUFFER,
         new Float32Array(positions),
@@ -152,35 +186,35 @@ function initBuffers(gl) {
 
     // The colors FOR EACH OF the vertices
     const colors = [
-        // top
+        // front
+        1.0, 0.84, 0.0, 1.0,
+        1.0, 0.54, 0.0, 1.0,
         1.0, 0.0, 0.0, 1.0,
-        0.0, 1.0, 0.0, 1.0,
-        0.0, 0.0, 1.0, 1.0,
 
         // left
+        1.0, 0.84, 0.0, 1.0,
         1.0, 0.0, 0.0, 1.0,
-        0.0, 0.0, 1.0, 1.0,
-        0.0, 1.0, 0.0, 1.0,
+        1.0, 0.54, 0.0, 1.0,
 
         // right
+        1.0, 0.84, 0.0, 1.0,
         1.0, 0.0, 0.0, 1.0,
-        0.0, 0.0, 1.0, 1.0,
-        0.0, 1.0, 0.0, 1.0,
+        1.0, 0.54, 0.0, 1.0,
 
         // back
+        1.0, 0.84, 0.0, 1.0,
         1.0, 0.0, 0.0, 1.0,
-        0.0, 1.0, 0.0, 1.0,
-        0.0, 0.0, 1.0, 1.0,
+        1.0, 0.54, 0.0, 1.0,
 
-        // bottom
-        0.0, 1.0, 0.0, 1.0,
-        0.0, 0.0, 1.0, 1.0,
-        0.0, 1.0, 0.0, 1.0,
+        // bottom - A
+        1.0, 0.54, 0.0, 1.0,
+        1.0, 0.54, 0.0, 1.0,
+        1.0, 0.0, 0.0, 1.0,
 
-        // bottom
-        0.0, 1.0, 0.0, 1.0,
-        0.0, 1.0, 0.0, 1.0,
-        0.0, 0.0, 1.0, 1.0
+        // bottom - B
+        1.0, 0.54, 0.0, 1.0,
+        1.0, 0.0, 0.0, 1.0,
+        1.0, 0.54, 0.0, 1.0,
     ];
 
      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
