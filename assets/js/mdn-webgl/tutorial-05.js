@@ -104,25 +104,39 @@ function initBuffers(gl) {
 
     // Now create an array of positions for the pyramid.
     const positions = [
+        // front
+        // - top, left, right
         0.0, 0.0, 1.0,
         -1.0, -1.0, -1.0,
         1.0, -1.0, -1.0,
         
+        // left
+        // - top, left, right
         0.0, 0.0, 1.0,
         -1.0, 1.0, -1.0,
         -1.0, -1.0, -1.0,
 
+        // right
+        // - top, left, right
         0.0, 0.0, 1.0,
-        1.0, 1.0, -1.0,
         1.0, -1.0, -1.0,
+        1.0, 1.0, -1.0,
 
+        // back
+        // - top, left, right
         0.0, 0.0, 1.0,
         1.0, 1.0, -1.0,
         -1.0, 1.0, -1.0,
 
+        // bottom tlr
         1.0, 1.0, -1.0,
         1.0, -1.0, -1.0,
         -1.0, -1.0, -1.0,
+
+        // bottom tlr
+        1.0, 1.0, -1.0,
+        -1.0, -1.0, -1.0,
+        -1.0, 1.0, -1.0
         
     ];
 
@@ -138,21 +152,35 @@ function initBuffers(gl) {
 
     // The colors FOR EACH OF the vertices
     const colors = [
+        // top
         1.0, 0.0, 0.0, 1.0,
         0.0, 1.0, 0.0, 1.0,
         0.0, 0.0, 1.0, 1.0,
+
+        // left
+        1.0, 0.0, 0.0, 1.0,
+        0.0, 0.0, 1.0, 1.0,
+        0.0, 1.0, 0.0, 1.0,
+
+        // right
+        1.0, 0.0, 0.0, 1.0,
+        0.0, 0.0, 1.0, 1.0,
+        0.0, 1.0, 0.0, 1.0,
+
+        // back
         1.0, 0.0, 0.0, 1.0,
         0.0, 1.0, 0.0, 1.0,
         0.0, 0.0, 1.0, 1.0,
-        1.0, 0.0, 0.0, 1.0,
+
+        // bottom
         0.0, 1.0, 0.0, 1.0,
         0.0, 0.0, 1.0, 1.0,
-        1.0, 0.0, 0.0, 1.0,
         0.0, 1.0, 0.0, 1.0,
-        0.0, 0.0, 1.0, 1.0,
-        1.0, 0.0, 0.0, 1.0,
+
+        // bottom
         0.0, 1.0, 0.0, 1.0,
-        0.0, 0.0, 1.0, 1.0,
+        0.0, 1.0, 0.0, 1.0,
+        0.0, 0.0, 1.0, 1.0
     ];
 
      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
@@ -244,8 +272,8 @@ function drawScene(gl, programInfo, buffers, deltaTime) {
 
     {
         const offset = 0;
-        const vertexCount = 15;
-        gl.drawArrays(gl.TRIANGLE_STRIP, offset, vertexCount);
+        const vertexCount = 18;
+        gl.drawArrays(gl.TRIANGLES, offset, vertexCount);
     }
     triangleRotation += deltaTime;
 }
