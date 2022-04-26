@@ -40,5 +40,7 @@ Taken from [https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial]
 
 # Links found on the way:
 [https://thebookofshaders.com/](https://thebookofshaders.com/)
+
 [https://webgl.brown37.net/](https://webgl.brown37.net/)
+
 [https://shader-tutorial.dev/](https://shader-tutorial.dev/)
