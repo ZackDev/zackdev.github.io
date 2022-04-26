@@ -38,7 +38,7 @@ const initTutorial = () => {
         }
     `;
 
-    
+
 
     const fsSource = `
         varying highp vec2 vTextureCoord;
@@ -51,7 +51,7 @@ const initTutorial = () => {
 
             gl_FragColor = vec4(texelColor.rgb * vLighting, texelColor.a);
         }
-  `;
+    `;
 
     const shaderProgram = initShaderProgram(gl, vsSource, fsSource);
 
@@ -178,27 +178,27 @@ function initBuffers(gl) {
         0.5, 1.0,
         0.0, 0.0,
         1.0, 0.0,
-        
+
         // left
         0.5, 1.0,
         0.0, 0.0,
         1.0, 0.0,
-        
+
         // right
         0.5, 1.0,
         0.0, 0.0,
         1.0, 0.0,
-        
+
         // back
         0.5, 1.0,
         0.0, 0.0,
         1.0, 0.0,
-        
+
         // bottom
         0.5, 1.0,
         0.0, 0.0,
         1.0, 0.0,
-        
+
         // bottom
         0.5, 1.0,
         0.0, 0.0,
@@ -246,11 +246,11 @@ function initBuffers(gl) {
     */
 
     const normals = [];
-    
-    for (let i = 0; i < positions.length; i=i+9) {
-        let p1 = vec3.clone([positions[i], positions[i+1], positions[i+2]]);
-        let p2 = vec3.clone([positions[i+3], positions[i+4], positions[i+5]]);
-        let p3 = vec3.clone([positions[i+6], positions[i+7], positions[i+8]]);
+
+    for (let i = 0; i < positions.length; i = i + 9) {
+        let p1 = vec3.clone([positions[i], positions[i + 1], positions[i + 2]]);
+        let p2 = vec3.clone([positions[i + 3], positions[i + 4], positions[i + 5]]);
+        let p3 = vec3.clone([positions[i + 6], positions[i + 7], positions[i + 8]]);
 
         let s1 = vec3.subtract([0, 0, 0], p1, p2);
         let s2 = vec3.subtract([0, 0, 0], p1, p3);
@@ -285,7 +285,7 @@ function loadTexture(gl, url) {
     gl.texImage2D(gl.TEXTURE_2D, level, internalFormat,
         width, height, border, srcFormat, srcType,
         pixel);
-    
+
     const image = new Image();
     image.addEventListener("load", () => {
         gl.bindTexture(gl.TEXTURE_2D, texture);
@@ -321,7 +321,7 @@ function drawScene(gl, programInfo, buffers, texture, deltaTime) {
     const aspect = gl.canvas.clientWidth / gl.canvas.clientHeight;
     const zNear = 0.1;
     const zFar = 100.0;
-    
+
     const projectionMatrix = mat4.create();
     mat4.perspective(projectionMatrix, fieldOfView, aspect, zNear, zFar);
 
