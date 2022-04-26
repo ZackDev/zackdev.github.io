@@ -8,27 +8,32 @@ Taken from [https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial]
 
 <script type="text/javascript" src="/assets/js/mdn-webgl/gl-matrix/gl-matrix-min.js"></script>
 
-# unicolored square
+# Unicolored Square
 
 <canvas id="gl-canvas-02" width="640" height="480"></canvas>
 <script type="module" src="/assets/js/mdn-webgl/tutorial-02.js"></script>
 
-# colored triangle
+# Colored Triangle
 
 <canvas id="gl-canvas-03" width="640" height="480"></canvas>
 <script type="module" src="/assets/js/mdn-webgl/tutorial-03.js"></script>
 
-# rotating triangle
+# Rotating Triangle
 
 <canvas id="gl-canvas-04" width="640" height="480"></canvas>
 <script type="module" src="/assets/js/mdn-webgl/tutorial-04.js"></script>
 
-# rotating pyramid
+# Rotating Pyramid
 
 <canvas id="gl-canvas-05" width="640" height="480"></canvas>
 <script type="module" src="/assets/js/mdn-webgl/tutorial-05.js"></script>
 
-# rotating ratatösk
+# Rotating Ratatösk
 
 <canvas id="gl-canvas-06" width="640" height="480"></canvas>
 <script type="module" src="/assets/js/mdn-webgl/tutorial-06.js"></script>
+
+# RRR
+
+<canvas id="gl-canvas-07" width="640" height="480"></canvas>
+<script type="module" src="/assets/js/mdn-webgl/tutorial-07.js"></script>
