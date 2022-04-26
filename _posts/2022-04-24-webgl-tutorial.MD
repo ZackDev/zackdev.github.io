@@ -9,7 +9,7 @@ Taken from [https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial]
 <script type="text/javascript" src="/assets/js/mdn-webgl/gl-matrix/gl-matrix-min.js"></script>
 
 # unicolored square
- 
+
 <canvas id="gl-canvas-02" width="640" height="480"></canvas>
 <script type="module" src="/assets/js/mdn-webgl/tutorial-02.js"></script>
 
@@ -27,3 +27,8 @@ Taken from [https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial]
 
 <canvas id="gl-canvas-05" width="640" height="480"></canvas>
 <script type="module" src="/assets/js/mdn-webgl/tutorial-05.js"></script>
+
+# rotating ratatösk
+
+<canvas id="gl-canvas-06" width="640" height="480"></canvas>
+<script type="module" src="/assets/js/mdn-webgl/tutorial-06.js"></script>
