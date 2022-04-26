@@ -37,3 +37,8 @@ Taken from [https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial]
 
 <canvas id="gl-canvas-07" width="640" height="480"></canvas>
 <script type="module" src="/assets/js/mdn-webgl/tutorial-07.js"></script>
+
+# Links found on the way:
+[https://thebookofshaders.com/](https://thebookofshaders.com/)
+[https://webgl.brown37.net/](https://webgl.brown37.net/)
+[https://shader-tutorial.dev/](https://shader-tutorial.dev/)
