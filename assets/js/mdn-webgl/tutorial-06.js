@@ -8,7 +8,7 @@ const initTutorial = () => {
     const cv = document.getElementById("gl-canvas-06");
     const gl = cv.getContext("webgl");
 
-    gl.clearColor(0.0, 0.0, 0.0, 0.7);
+    gl.clearColor(1.0, 1.0, 1.0, 1.0);
     gl.clear(gl.COLOR_BUFFER_BIT);
 
     const vsSource = `
@@ -236,7 +236,7 @@ function loadTexture(gl, url) {
 }
 
 function drawScene(gl, programInfo, buffers, texture, deltaTime) {
-    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    gl.clearColor(1.0, 1.0, 1.0, 1.0);
     gl.clearDepth(1.0);
     gl.enable(gl.DEPTH_TEST);
     gl.depthFunc(gl.LEQUAL);
