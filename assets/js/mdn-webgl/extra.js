@@ -43,6 +43,9 @@ const initTutorial = () => {
             void main() {
                 vec2 p = vec2(gl_FragCoord.x, gl_FragCoord.y);
                 
+                // stretch the sine (p.x * 0.03)
+                // invert the y values < 0.0 (ntop)
+                // move it up the y-axis (+ 0.7)
                 gl_FragColor = vec4(1.0, ntop(sin(p.x * 0.03)) + 0.7, 0.0, 1.0);
             }
         `;
