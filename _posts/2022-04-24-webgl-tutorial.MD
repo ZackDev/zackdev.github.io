@@ -42,6 +42,12 @@ Taken from [https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial]
 
 <canvas id="gl-canvas-07" width="640" height="480"></canvas>
 <script type="module" src="/assets/js/mdn-webgl/tutorial-07.js"></script>
+<hr>
+
+# Extra
+
+<canvas id="gl-canvas-08" width="400" height="400"></canvas>
+<script type="module" src="/assets/js/mdn-webgl/extra.js"></script>
 
 # Links found on the way:
 [https://thebookofshaders.com/](https://thebookofshaders.com/)
