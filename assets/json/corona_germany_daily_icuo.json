@@ -4412,9 +4412,15 @@
         },
         {
             "date": "2022-04-29",
-            "free_icu": 3804,
-            "covid_icu": 833,
+            "free_icu": 3802,
+            "covid_icu": 834,
             "covid_icu_invasive": 546
+        },
+        {
+            "date": "2022-04-30",
+            "free_icu": 3900,
+            "covid_icu": 834,
+            "covid_icu_invasive": 519
         }
     ]
 }
