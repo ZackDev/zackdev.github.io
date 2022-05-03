@@ -23,7 +23,7 @@ const dispatcher = {
         if (dispatcher.connector.has(id)) {
             let subscribers = dispatcher.connector.get(id);
             for (let sub of subscribers) {
-                sub.push(data);
+                sub.notify(data);
             }
         }
     },
@@ -42,7 +42,7 @@ class Subscriber {
     unsubscribe(id) {
         dispatcher.deregister(this, id);
     }
-    push(data) {
+    notify(data) {
         console.log(data);
     }
 }
