@@ -46,3 +46,8 @@ class Subscriber {
         console.log(data);
     }
 }
+
+export const pubsub = {
+    Subscriber,
+    Publisher,
+}
