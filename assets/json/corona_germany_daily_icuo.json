@@ -4455,20 +4455,26 @@
         {
             "date": "2022-05-06",
             "free_icu": 3817,
-            "covid_icu": 672,
-            "covid_icu_invasive": 444
+            "covid_icu": 671,
+            "covid_icu_invasive": 445
         },
         {
             "date": "2022-05-07",
-            "free_icu": 4047,
-            "covid_icu": 643,
-            "covid_icu_invasive": 435
+            "free_icu": 4049,
+            "covid_icu": 646,
+            "covid_icu_invasive": 438
         },
         {
             "date": "2022-05-08",
-            "free_icu": 4383,
-            "covid_icu": 654,
-            "covid_icu_invasive": 436
+            "free_icu": 4384,
+            "covid_icu": 657,
+            "covid_icu_invasive": 439
+        },
+        {
+            "date": "2022-05-09",
+            "free_icu": 4360,
+            "covid_icu": 674,
+            "covid_icu_invasive": 420
         }
     ]
 }
