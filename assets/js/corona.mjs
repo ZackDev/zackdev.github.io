@@ -217,12 +217,14 @@ const getAsyncVaccinationsByVaccineCallback = (callbackObject) => {
   const astrazenecaCount = callbackObject.AstraZeneca;
   const janssenCount = callbackObject.Janssen;
   const comirnatyCount = callbackObject.Comirnaty;
+  const novavaxCount = callbackObject.Novavax;
 
   const dataObj = {
     moderna: modernaCount,
     astrazeneca: astrazenecaCount,
     janssen: janssenCount,
     comirnaty: comirnatyCount,
+    novavax: novavaxCount,
   };
 
   drawVaccinationsByVaccineChart(dataObj);
@@ -513,7 +515,7 @@ function drawVaccinationsByVaccineChart(dataObj) {
       text: 'Vaccinations By Vaccine',
     },
     subtitle: {
-      text: `Doses administered: ${Highcharts.numberFormat(dataObj.moderna + dataObj.comirnaty + dataObj.astrazeneca + dataObj.janssen, 0)}`
+      text: `Doses administered: ${Highcharts.numberFormat(dataObj.moderna + dataObj.comirnaty + dataObj.astrazeneca + dataObj.janssen + dataObj.novavax, 0)}`
     },
     plotOptions: {
       pie: {
@@ -539,7 +541,10 @@ function drawVaccinationsByVaccineChart(dataObj) {
         }, {
           name: 'Janssen',
           y: dataObj.janssen,
-        },
+        }, {
+          name: 'Novavax',
+          y: dataObj.novavax,
+        }
       ],
     }]
   });
