@@ -161,10 +161,12 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
       secondVaccinations: [],
       thirdVaccinations: [],
       fourthVaccinations: [],
+
       totalFirstVaccinations: [],
       totalSecondVaccinations: [],
       totalThirdVaccinations: [],
       totalFourthVaccinations: [],
+
       firstVaccinationsPercentage: [],
       secondVaccinationsPercentage: [],
       thirdVaccinationsPercentage: [],
@@ -468,7 +470,7 @@ function drawDailyVaccinationsChart(dataObj) {
       data: dataObj.totalFourthVaccinations,
       tooltip: {
         pointFormatter() {
-          return `<span class="highcharts-color-${this.colorIndex}">&#9679;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.thirdFourthPercentage[this.x]}%</br>`;
+          return `<span class="highcharts-color-${this.colorIndex}">&#9679;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.fourthVaccinationsPercentage[this.x]}%</br>`;
         },
       },
     }],
