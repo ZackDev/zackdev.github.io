@@ -157,27 +157,35 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
   if (Array.isArray(callbackObject.data)) {
     let initialValue = {
       dates: [],
-      primaryVaccinations: [],
-      secondaryVaccinations: [],
-      boosterVaccinations: [],
-      totalPrimaryVaccinations: [],
-      primaryVaccinationsPercentage: [],
-      totalSecondaryVaccinations: [],
-      secondaryVaccinationsPercentage: [],
-      totalBoosterVaccinations: [],
-      boosterVaccinationsPercentage: []
+      firstVaccinations: [],
+      secondVaccinations: [],
+      thirdVaccinations: [],
+      fourthVaccinations: [],
+      totalFirstVaccinations: [],
+      totalSecondVaccinations: [],
+      totalThirdVaccinations: [],
+      totalFourthVaccinations: [],
+      firstVaccinationsPercentage: [],
+      secondVaccinationsPercentage: [],
+      thirdVaccinationsPercentage: [],
+      fourthVaccinationsPercentage: [],
     }
     const dataObj = callbackObject.data.reduce(function (p, c) {
       p.dates.push(c.date)
-      p.primaryVaccinations.push(c.primary_vaccinations)
-      p.secondaryVaccinations.push(c.secondary_vaccinations)
-      p.boosterVaccinations.push(c.booster_vaccinations)
-      p.totalPrimaryVaccinations.push(c.total_primary_vaccinations)
-      p.totalSecondaryVaccinations.push(c.total_secondary_vaccinations)
-      p.totalBoosterVaccinations.push(c.total_booster_vaccinations)
-      p.primaryVaccinationsPercentage.push(c.primary_vaccinations_percentage)
-      p.secondaryVaccinationsPercentage.push(c.secondary_vaccinations_percentage)
-      p.boosterVaccinationsPercentage.push(c.booster_vaccinations_percentage)
+      p.firstVaccinations.push(c.first_vaccinations)
+      p.secondVaccinations.push(c.second_vaccinations)
+      p.thirdVaccinations.push(c.third_vaccinations)
+      p.fourthVaccinations.push(c.fourth_vaccinations)
+
+      p.totalFirstVaccinations.push(c.total_first_vaccinations)
+      p.totalSecondVaccinations.push(c.total_second_vaccinations)
+      p.totalThirdVaccinations.push(c.total_third_vaccinations)
+      p.totalFourthVaccinations.push(c.total_fourth_vaccinations)
+
+      p.firstVaccinationsPercentage.push(c.first_vaccinations_percentage)
+      p.secondVaccinationsPercentage.push(c.second_vaccinations_percentage)
+      p.thirdVaccinationsPercentage.push(c.third_vaccinations_percentage)
+      p.fourthVaccinationsPercentage.push(c.fourth_vaccinations_percentage)
       return p
 
     }, initialValue)
@@ -370,7 +378,7 @@ function drawDailyVaccinationsChart(dataObj) {
       text: 'Daily And Total Vaccinations',
     },
     subtitle: {
-      text: 'includes primary, secondary and booster vaccinations',
+      text: 'includes 1st, 2nd, 3rd and 4th vaccinations',
     },
     xAxis: {
       categories: dataObj.dates,
@@ -396,53 +404,71 @@ function drawDailyVaccinationsChart(dataObj) {
       stack: 0,
       index: 0,
       legendIndex: 0,
-      name: 'Primary Vaccinations',
-      data: dataObj.primaryVaccinations,
+      name: '1st Vaccinations',
+      data: dataObj.firstVaccinations,
     }, {
       yAxis: 0,
       stack: 0,
       index: 1,
       legendIndex: 1,
-      name: 'Secondary Vaccinations',
-      data: dataObj.secondaryVaccinations,
+      name: '2nd Vaccinations',
+      data: dataObj.secondVaccinations,
     }, {
       yAxis: 0,
       stack: 0,
       index: 2,
       legendIndex: 2,
-      name: 'Booster Vaccinations',
-      data: dataObj.boosterVaccinations,
+      name: '3rd Vaccinations',
+      data: dataObj.thirdVaccinations,
     }, {
-      type: 'line',
-      yAxis: 1,
+      yAxis: 0,
+      stack: 0,
+      index: 3,
       legendIndex: 3,
-      name: 'Total Primary Vaccinations',
-      data: dataObj.totalPrimaryVaccinations,
-      tooltip: {
-        pointFormatter() {
-          return `<span class="highcharts-color-${this.colorIndex}">&#9679;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.primaryVaccinationsPercentage[this.x]}%</br>`;
-        },
-      },
+      name: '4th Vaccinations',
+      data: dataObj.fourthVaccinations,
     }, {
       type: 'line',
       yAxis: 1,
       legendIndex: 4,
-      name: 'Total Secondary Vaccinations',
-      data: dataObj.totalSecondaryVaccinations,
+      name: 'Total 1st Vaccinations',
+      data: dataObj.totalFirstVaccinations,
       tooltip: {
         pointFormatter() {
-          return `<span class="highcharts-color-${this.colorIndex}">&#9679;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.secondaryVaccinationsPercentage[this.x]}%</br>`;
+          return `<span class="highcharts-color-${this.colorIndex}">&#9679;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.firstVaccinationsPercentage[this.x]}%</br>`;
         },
       },
     }, {
       type: 'line',
       yAxis: 1,
       legendIndex: 5,
-      name: 'Total Booster Vaccinations',
-      data: dataObj.totalBoosterVaccinations,
+      name: 'Total 2nd Vaccinations',
+      data: dataObj.totalSecondVaccinations,
       tooltip: {
         pointFormatter() {
-          return `<span class="highcharts-color-${this.colorIndex}">&#9679;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.boosterVaccinationsPercentage[this.x]}%</br>`;
+          return `<span class="highcharts-color-${this.colorIndex}">&#9679;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.secondVaccinationsPercentage[this.x]}%</br>`;
+        },
+      },
+    }, {
+      type: 'line',
+      yAxis: 1,
+      legendIndex: 6,
+      name: 'Total 3rd Vaccinations',
+      data: dataObj.totalThirdVaccinations,
+      tooltip: {
+        pointFormatter() {
+          return `<span class="highcharts-color-${this.colorIndex}">&#9679;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.thirdVaccinationsPercentage[this.x]}%</br>`;
+        },
+      },
+    }, {
+      type: 'line',
+      yAxis: 1,
+      legendIndex: 7,
+      name: 'Total 4th Vaccinations',
+      data: dataObj.totalFourthVaccinations,
+      tooltip: {
+        pointFormatter() {
+          return `<span class="highcharts-color-${this.colorIndex}">&#9679;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.thirdFourthPercentage[this.x]}%</br>`;
         },
       },
     }],
