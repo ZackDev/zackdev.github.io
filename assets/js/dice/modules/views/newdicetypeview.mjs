@@ -27,22 +27,22 @@ class NewDiceTypeView {
         labelWrap.style.justifyContent = "center";
         labelWrap.style.alignItems = "baseline";
         let diceDecorationL0 = document.createElement("div");
-        diceDecorationL0.classList.add("dice-type", "small");
+        diceDecorationL0.classList.add("dice-decoration", "small");
         diceDecorationL0.innerHTML = "&AElig;";
         diceDecorationL0.style.rotate = "23deg";
         let diceDecorationL1 = document.createElement("div");
-        diceDecorationL1.classList.add("dice-type", "small");
+        diceDecorationL1.classList.add("dice-decoration", "small");
         diceDecorationL1.innerHTML = "&#556;";
         diceDecorationL1.style.rotate = "-172deg";
         let label = document.createElement("label");
         label.style.textAlign = "center";
         label.innerText = "Create A Dice";
         let diceDecorationR0 = document.createElement("div");
-        diceDecorationR0.classList.add("dice-type", "small");
+        diceDecorationR0.classList.add("dice-decoration", "small");
         diceDecorationR0.innerHTML = "&#1002;";
         diceDecorationR0.style.rotate = "-5deg";
         let diceDecorationR1 = document.createElement("div");
-        diceDecorationR1.classList.add("dice-type", "small");
+        diceDecorationR1.classList.add("dice-decoration", "small");
         diceDecorationR1.innerHTML = "&#1758;";
 
         labelWrap.append(diceDecorationL0, diceDecorationL1, label, diceDecorationR0, diceDecorationR1);

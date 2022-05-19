@@ -199,7 +199,7 @@ class DiceController {
             this.diceProvider.addDiceType(diceType);
         }
         // - activate the NewDiceTypeBtn of the DiceTypesView
-        this.diceTypesView.setNewDiceTypeBtnState("active");
+        this.settingsView.setNewDiceTypeBtnState("active");
     }
 
     /**
