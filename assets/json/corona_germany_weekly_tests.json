@@ -48,587 +48,587 @@
         {
             "calendar_week": "2020-W10",
             "weekly_tests": 1722,
-            "total_tests": 0
+            "total_tests": 1722
         },
         {
             "calendar_week": "2020-W11",
             "weekly_tests": 129291,
-            "total_tests": 1722
+            "total_tests": 131013
         },
         {
             "calendar_week": "2020-W12",
             "weekly_tests": 374534,
-            "total_tests": 131013
+            "total_tests": 505547
         },
         {
             "calendar_week": "2020-W13",
             "weekly_tests": 377599,
-            "total_tests": 505547
+            "total_tests": 883146
         },
         {
             "calendar_week": "2020-W14",
             "weekly_tests": 417646,
-            "total_tests": 883146
+            "total_tests": 1300792
         },
         {
             "calendar_week": "2020-W15",
             "weekly_tests": 383694,
-            "total_tests": 1300792
+            "total_tests": 1684486
         },
         {
             "calendar_week": "2020-W16",
             "weekly_tests": 339983,
-            "total_tests": 1684486
+            "total_tests": 2024469
         },
         {
             "calendar_week": "2020-W17",
             "weekly_tests": 363659,
-            "total_tests": 2024469
+            "total_tests": 2388128
         },
         {
             "calendar_week": "2020-W18",
             "weekly_tests": 327799,
-            "total_tests": 2388128
+            "total_tests": 2715927
         },
         {
             "calendar_week": "2020-W19",
             "weekly_tests": 385638,
-            "total_tests": 2715927
+            "total_tests": 3101565
         },
         {
             "calendar_week": "2020-W20",
             "weekly_tests": 431682,
-            "total_tests": 3101565
+            "total_tests": 3533247
         },
         {
             "calendar_week": "2020-W21",
             "weekly_tests": 356489,
-            "total_tests": 3533247
+            "total_tests": 3889736
         },
         {
             "calendar_week": "2020-W22",
             "weekly_tests": 408078,
-            "total_tests": 3889736
+            "total_tests": 4297814
         },
         {
             "calendar_week": "2020-W23",
             "weekly_tests": 342328,
-            "total_tests": 4297814
+            "total_tests": 4640142
         },
         {
             "calendar_week": "2020-W24",
             "weekly_tests": 327980,
-            "total_tests": 4640142
+            "total_tests": 4968122
         },
         {
             "calendar_week": "2020-W25",
             "weekly_tests": 384834,
-            "total_tests": 4968122
+            "total_tests": 5352956
         },
         {
             "calendar_week": "2020-W26",
             "weekly_tests": 472823,
-            "total_tests": 5352956
+            "total_tests": 5825779
         },
         {
             "calendar_week": "2020-W27",
             "weekly_tests": 512969,
-            "total_tests": 5825779
+            "total_tests": 6338748
         },
         {
             "calendar_week": "2020-W28",
             "weekly_tests": 513572,
-            "total_tests": 6338748
+            "total_tests": 6852320
         },
         {
             "calendar_week": "2020-W29",
             "weekly_tests": 544219,
-            "total_tests": 6852320
+            "total_tests": 7396539
         },
         {
             "calendar_week": "2020-W30",
             "weekly_tests": 556634,
-            "total_tests": 7396539
+            "total_tests": 7953173
         },
         {
             "calendar_week": "2020-W31",
             "weekly_tests": 589201,
-            "total_tests": 7953173
+            "total_tests": 8542374
         },
         {
             "calendar_week": "2020-W32",
             "weekly_tests": 719476,
-            "total_tests": 8542374
+            "total_tests": 9261850
         },
         {
             "calendar_week": "2020-W33",
             "weekly_tests": 871191,
-            "total_tests": 9261850
+            "total_tests": 10133041
         },
         {
             "calendar_week": "2020-W34",
             "weekly_tests": 1034449,
-            "total_tests": 10133041
+            "total_tests": 11167490
         },
         {
             "calendar_week": "2020-W35",
             "weekly_tests": 1133623,
-            "total_tests": 11167490
+            "total_tests": 12301113
         },
         {
             "calendar_week": "2020-W36",
             "weekly_tests": 1052942,
-            "total_tests": 12301113
+            "total_tests": 13354055
         },
         {
             "calendar_week": "2020-W37",
             "weekly_tests": 1148465,
-            "total_tests": 13354055
+            "total_tests": 14502520
         },
         {
             "calendar_week": "2020-W38",
             "weekly_tests": 1147879,
-            "total_tests": 14502520
+            "total_tests": 15650399
         },
         {
             "calendar_week": "2020-W39",
             "weekly_tests": 1220279,
-            "total_tests": 15650399
+            "total_tests": 16870678
         },
         {
             "calendar_week": "2020-W40",
             "weekly_tests": 1129127,
-            "total_tests": 16870678
+            "total_tests": 17999805
         },
         {
             "calendar_week": "2020-W41",
             "weekly_tests": 1218988,
-            "total_tests": 17999805
+            "total_tests": 19218793
         },
         {
             "calendar_week": "2020-W42",
             "weekly_tests": 1284349,
-            "total_tests": 19218793
+            "total_tests": 20503142
         },
         {
             "calendar_week": "2020-W43",
             "weekly_tests": 1445463,
-            "total_tests": 20503142
+            "total_tests": 21948605
         },
         {
             "calendar_week": "2020-W44",
             "weekly_tests": 1663992,
-            "total_tests": 21948605
+            "total_tests": 23612597
         },
         {
             "calendar_week": "2020-W45",
             "weekly_tests": 1634729,
-            "total_tests": 23612597
+            "total_tests": 25247326
         },
         {
             "calendar_week": "2020-W46",
             "weekly_tests": 1467454,
-            "total_tests": 25247326
+            "total_tests": 26714780
         },
         {
             "calendar_week": "2020-W47",
             "weekly_tests": 1400145,
-            "total_tests": 26714780
+            "total_tests": 28114925
         },
         {
             "calendar_week": "2020-W48",
             "weekly_tests": 1381117,
-            "total_tests": 28114925
+            "total_tests": 29496042
         },
         {
             "calendar_week": "2020-W49",
             "weekly_tests": 1395790,
-            "total_tests": 29496042
+            "total_tests": 30891832
         },
         {
             "calendar_week": "2020-W50",
             "weekly_tests": 1516038,
-            "total_tests": 30891832
+            "total_tests": 32407870
         },
         {
             "calendar_week": "2020-W51",
             "weekly_tests": 1676387,
-            "total_tests": 32407870
+            "total_tests": 34084257
         },
         {
             "calendar_week": "2020-W52",
             "weekly_tests": 1090372,
-            "total_tests": 34084257
+            "total_tests": 35174629
         },
         {
             "calendar_week": "2020-W53",
             "weekly_tests": 845729,
-            "total_tests": 35174629
+            "total_tests": 36020358
         },
         {
             "calendar_week": "2021-W01",
             "weekly_tests": 1234110,
-            "total_tests": 36020358
+            "total_tests": 37254468
         },
         {
             "calendar_week": "2021-W02",
             "weekly_tests": 1190777,
-            "total_tests": 37254468
+            "total_tests": 38445245
         },
         {
             "calendar_week": "2021-W03",
             "weekly_tests": 1117130,
-            "total_tests": 38445245
+            "total_tests": 39562375
         },
         {
             "calendar_week": "2021-W04",
             "weekly_tests": 1155450,
-            "total_tests": 39562375
+            "total_tests": 40717825
         },
         {
             "calendar_week": "2021-W05",
             "weekly_tests": 1104870,
-            "total_tests": 40717825
+            "total_tests": 41822695
         },
         {
             "calendar_week": "2021-W06",
             "weekly_tests": 1063470,
-            "total_tests": 41822695
+            "total_tests": 42886165
         },
         {
             "calendar_week": "2021-W07",
             "weekly_tests": 1108250,
-            "total_tests": 42886165
+            "total_tests": 43994415
         },
         {
             "calendar_week": "2021-W08",
             "weekly_tests": 1175587,
-            "total_tests": 43994415
+            "total_tests": 45170002
         },
         {
             "calendar_week": "2021-W09",
             "weekly_tests": 1157635,
-            "total_tests": 45170002
+            "total_tests": 46327637
         },
         {
             "calendar_week": "2021-W10",
             "weekly_tests": 1284448,
-            "total_tests": 46327637
+            "total_tests": 47612085
         },
         {
             "calendar_week": "2021-W11",
             "weekly_tests": 1374661,
-            "total_tests": 47612085
+            "total_tests": 48986746
         },
         {
             "calendar_week": "2021-W12",
             "weekly_tests": 1422960,
-            "total_tests": 48986746
+            "total_tests": 50409706
         },
         {
             "calendar_week": "2021-W13",
             "weekly_tests": 1186007,
-            "total_tests": 50409706
+            "total_tests": 51595713
         },
         {
             "calendar_week": "2021-W14",
             "weekly_tests": 1177749,
-            "total_tests": 51595713
+            "total_tests": 52773462
         },
         {
             "calendar_week": "2021-W15",
             "weekly_tests": 1321244,
-            "total_tests": 52773462
+            "total_tests": 54094706
         },
         {
             "calendar_week": "2021-W16",
             "weekly_tests": 1436474,
-            "total_tests": 54094706
+            "total_tests": 55531180
         },
         {
             "calendar_week": "2021-W17",
             "weekly_tests": 1370030,
-            "total_tests": 55531180
+            "total_tests": 56901210
         },
         {
             "calendar_week": "2021-W18",
             "weekly_tests": 1264101,
-            "total_tests": 56901210
+            "total_tests": 58165311
         },
         {
             "calendar_week": "2021-W19",
             "weekly_tests": 1107022,
-            "total_tests": 58165311
+            "total_tests": 59272333
         },
         {
             "calendar_week": "2021-W20",
             "weekly_tests": 1226169,
-            "total_tests": 59272333
+            "total_tests": 60498502
         },
         {
             "calendar_week": "2021-W21",
             "weekly_tests": 955957,
-            "total_tests": 60498502
+            "total_tests": 61454459
         },
         {
             "calendar_week": "2021-W22",
             "weekly_tests": 888506,
-            "total_tests": 61454459
+            "total_tests": 62342965
         },
         {
             "calendar_week": "2021-W23",
             "weekly_tests": 840267,
-            "total_tests": 62342965
+            "total_tests": 63183232
         },
         {
             "calendar_week": "2021-W24",
             "weekly_tests": 735246,
-            "total_tests": 63183232
+            "total_tests": 63918478
         },
         {
             "calendar_week": "2021-W25",
             "weekly_tests": 718914,
-            "total_tests": 63918478
+            "total_tests": 64637392
         },
         {
             "calendar_week": "2021-W26",
             "weekly_tests": 731164,
-            "total_tests": 64637392
+            "total_tests": 65368556
         },
         {
             "calendar_week": "2021-W27",
             "weekly_tests": 616567,
-            "total_tests": 65368556
+            "total_tests": 65985123
         },
         {
             "calendar_week": "2021-W28",
             "weekly_tests": 612370,
-            "total_tests": 65985123
+            "total_tests": 66597493
         },
         {
             "calendar_week": "2021-W29",
             "weekly_tests": 598947,
-            "total_tests": 66597493
+            "total_tests": 67196440
         },
         {
             "calendar_week": "2021-W30",
             "weekly_tests": 587834,
-            "total_tests": 67196440
+            "total_tests": 67784274
         },
         {
             "calendar_week": "2021-W31",
             "weekly_tests": 594459,
-            "total_tests": 67784274
+            "total_tests": 68378733
         },
         {
             "calendar_week": "2021-W32",
             "weekly_tests": 572722,
-            "total_tests": 68378733
+            "total_tests": 68951455
         },
         {
             "calendar_week": "2021-W33",
             "weekly_tests": 695805,
-            "total_tests": 68951455
+            "total_tests": 69647260
         },
         {
             "calendar_week": "2021-W34",
             "weekly_tests": 866361,
-            "total_tests": 69647260
+            "total_tests": 70513621
         },
         {
             "calendar_week": "2021-W35",
             "weekly_tests": 951403,
-            "total_tests": 70513621
+            "total_tests": 71465024
         },
         {
             "calendar_week": "2021-W36",
             "weekly_tests": 1016044,
-            "total_tests": 71465024
+            "total_tests": 72481068
         },
         {
             "calendar_week": "2021-W37",
             "weekly_tests": 987125,
-            "total_tests": 72481068
+            "total_tests": 73468193
         },
         {
             "calendar_week": "2021-W38",
             "weekly_tests": 968235,
-            "total_tests": 73468193
+            "total_tests": 74436428
         },
         {
             "calendar_week": "2021-W39",
             "weekly_tests": 970280,
-            "total_tests": 74436428
+            "total_tests": 75406708
         },
         {
             "calendar_week": "2021-W40",
             "weekly_tests": 964097,
-            "total_tests": 75406708
+            "total_tests": 76370805
         },
         {
             "calendar_week": "2021-W41",
             "weekly_tests": 864132,
-            "total_tests": 76370805
+            "total_tests": 77234937
         },
         {
             "calendar_week": "2021-W42",
             "weekly_tests": 913283,
-            "total_tests": 77234937
+            "total_tests": 78148220
         },
         {
             "calendar_week": "2021-W43",
             "weekly_tests": 1169746,
-            "total_tests": 78148220
+            "total_tests": 79317966
         },
         {
             "calendar_week": "2021-W44",
             "weekly_tests": 1197687,
-            "total_tests": 79317966
+            "total_tests": 80515653
         },
         {
             "calendar_week": "2021-W45",
             "weekly_tests": 1638310,
-            "total_tests": 80515653
+            "total_tests": 82153963
         },
         {
             "calendar_week": "2021-W46",
             "weekly_tests": 1871731,
-            "total_tests": 82153963
+            "total_tests": 84025694
         },
         {
             "calendar_week": "2021-W47",
             "weekly_tests": 1952979,
-            "total_tests": 84025694
+            "total_tests": 85978673
         },
         {
             "calendar_week": "2021-W48",
             "weekly_tests": 1950817,
-            "total_tests": 85978673
+            "total_tests": 87929490
         },
         {
             "calendar_week": "2021-W49",
             "weekly_tests": 1742512,
-            "total_tests": 87929490
+            "total_tests": 89672002
         },
         {
             "calendar_week": "2021-W50",
             "weekly_tests": 1557054,
-            "total_tests": 89672002
+            "total_tests": 91229056
         },
         {
             "calendar_week": "2021-W51",
             "weekly_tests": 1245166,
-            "total_tests": 91229056
+            "total_tests": 92474222
         },
         {
             "calendar_week": "2021-W52",
             "weekly_tests": 960454,
-            "total_tests": 92474222
+            "total_tests": 93434676
         },
         {
             "calendar_week": "2022-W01",
             "weekly_tests": 1500387,
-            "total_tests": 93434676
+            "total_tests": 94935063
         },
         {
             "calendar_week": "2022-W02",
             "weekly_tests": 2053526,
-            "total_tests": 94935063
+            "total_tests": 96988589
         },
         {
             "calendar_week": "2022-W03",
             "weekly_tests": 2525594,
-            "total_tests": 96988589
+            "total_tests": 99514183
         },
         {
             "calendar_week": "2022-W04",
             "weekly_tests": 2564665,
-            "total_tests": 99514183
+            "total_tests": 102078848
         },
         {
             "calendar_week": "2022-W05",
             "weekly_tests": 2619696,
-            "total_tests": 102078848
+            "total_tests": 104698544
         },
         {
             "calendar_week": "2022-W06",
             "weekly_tests": 2490590,
-            "total_tests": 104698544
+            "total_tests": 107189134
         },
         {
             "calendar_week": "2022-W07",
             "weekly_tests": 2176754,
-            "total_tests": 107189134
+            "total_tests": 109365888
         },
         {
             "calendar_week": "2022-W08",
             "weekly_tests": 1994194,
-            "total_tests": 109365888
+            "total_tests": 111360082
         },
         {
             "calendar_week": "2022-W09",
             "weekly_tests": 1873409,
-            "total_tests": 111360082
+            "total_tests": 113233491
         },
         {
             "calendar_week": "2022-W10",
             "weekly_tests": 2298071,
-            "total_tests": 113233491
+            "total_tests": 115531562
         },
         {
             "calendar_week": "2022-W11",
             "weekly_tests": 2487011,
-            "total_tests": 115531562
+            "total_tests": 118018573
         },
         {
             "calendar_week": "2022-W12",
             "weekly_tests": 2331811,
-            "total_tests": 118018573
+            "total_tests": 120350384
         },
         {
             "calendar_week": "2022-W13",
             "weekly_tests": 1969661,
-            "total_tests": 120350384
+            "total_tests": 122320045
         },
         {
             "calendar_week": "2022-W14",
             "weekly_tests": 1558368,
-            "total_tests": 122320045
+            "total_tests": 123878413
         },
         {
             "calendar_week": "2022-W15",
             "weekly_tests": 1142423,
-            "total_tests": 123878413
+            "total_tests": 125020836
         },
         {
             "calendar_week": "2022-W16",
             "weekly_tests": 1071298,
-            "total_tests": 125020836
+            "total_tests": 126092134
         },
         {
             "calendar_week": "2022-W17",
             "weekly_tests": 1093326,
-            "total_tests": 126092134
+            "total_tests": 127185460
         },
         {
             "calendar_week": "2022-W18",
             "weekly_tests": 895929,
-            "total_tests": 127185460
+            "total_tests": 128081389
         },
         {
             "calendar_week": "2022-W19",
             "weekly_tests": 804719,
-            "total_tests": 128081389
+            "total_tests": 128886108
         },
         {
             "calendar_week": "2022-W20",
             "weekly_tests": 679872,
-            "total_tests": 128886108
+            "total_tests": 129565980
         },
         {
             "calendar_week": "2022-W21",
             "weekly_tests": 496484,
-            "total_tests": 129565980
+            "total_tests": 130062464
         }
     ]
 }
