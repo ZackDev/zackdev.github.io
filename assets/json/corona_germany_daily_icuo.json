@@ -4733,6 +4733,12 @@
             "free_icu": 3789,
             "covid_icu": 558,
             "covid_icu_invasive": 237
+        },
+        {
+            "date": "2022-06-22",
+            "free_icu": 3693,
+            "covid_icu": 532,
+            "covid_icu_invasive": 248
         }
     ]
 }
