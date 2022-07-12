@@ -7375,6 +7375,14 @@
             "incidence": 757.49,
             "rrate": 0,
             "rratesmoothed": 347.28
+        },
+        {
+            "date": "2022-07-11",
+            "totalcases": 29180489,
+            "dailycases": 154729,
+            "incidence": 758.85,
+            "rrate": 44.27,
+            "rratesmoothed": 9.42
         }
     ]
 }
