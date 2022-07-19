@@ -222,7 +222,7 @@ h6 {
 }
 
 p {
-  margin: 10px 0 15px 0;
+  margin: 20px 0 5px 0;
 }
 
 a {
@@ -280,6 +280,25 @@ ul.index-menu li {
   position: relative;
   max-width: 800px;
   margin: 0 auto;
+}
+
+table {
+  border: 1px solid $dark-grey;
+  border-spacing: 0;
+}
+
+th {
+  font-weight: bold;
+  padding: 0 2px 0 2px;
+}
+
+td {
+  padding: 0 2px 0 2px;
+  margin: 0;
+}
+
+td, th {
+  border: 1px solid $dark-grey;
 }
 
 #header {
@@ -374,4 +393,15 @@ ul.index-menu li {
 /* highcharts styled mode font */
 .highcharts-root {
   font-family: "monospace";
+}
+
+.highlight {
+  border-radius: 2px;
+}
+
+code.language-plaintext.highlighter-rouge {
+  padding: 0 5px 0 5px;
+  color: $medium-grey;
+  background-color: $light-grey;
+  border-radius: 2px;
 }
