@@ -282,7 +282,7 @@ ul.index-menu li {
   margin: 0 auto;
 }
 
-table {
+table:not(.rouge-table) {
   border: 1px solid $dark-grey;
   border-spacing: 0;
   margin: 0 auto;
