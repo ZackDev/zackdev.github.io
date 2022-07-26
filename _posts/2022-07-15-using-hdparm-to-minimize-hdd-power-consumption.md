@@ -94,4 +94,4 @@ No, unfortunately not. After some testing, by accessing files so the drive goes 
 
 {% include image.html url="/assets/img/seagate-manual.png" %}
 
-So, this specific drive neither supports the general `APM` nor the vendor specific mechanism. First thing to do should have been `RTFM`.
+So, this specific drive neither supports the general APM nor the vendor specific mechanism. `First thing to do should have been RTFM`.
