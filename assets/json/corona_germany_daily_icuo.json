@@ -4941,50 +4941,56 @@
         {
             "date": "2022-07-26",
             "free_icu": 3568,
-            "covid_icu": 1128,
+            "covid_icu": 1129,
             "covid_icu_invasive": 492
         },
         {
             "date": "2022-07-27",
             "free_icu": 3481,
-            "covid_icu": 1086,
+            "covid_icu": 1087,
             "covid_icu_invasive": 502
         },
         {
             "date": "2022-07-28",
             "free_icu": 3546,
-            "covid_icu": 1066,
+            "covid_icu": 1067,
             "covid_icu_invasive": 486
         },
         {
             "date": "2022-07-29",
             "free_icu": 3617,
-            "covid_icu": 1017,
+            "covid_icu": 1018,
             "covid_icu_invasive": 477
         },
         {
             "date": "2022-07-30",
             "free_icu": 3672,
-            "covid_icu": 967,
+            "covid_icu": 968,
             "covid_icu_invasive": 490
         },
         {
             "date": "2022-07-31",
             "free_icu": 3830,
-            "covid_icu": 966,
+            "covid_icu": 967,
             "covid_icu_invasive": 479
         },
         {
             "date": "2022-08-01",
             "free_icu": 3930,
-            "covid_icu": 978,
+            "covid_icu": 980,
             "covid_icu_invasive": 490
         },
         {
             "date": "2022-08-02",
-            "free_icu": 3903,
-            "covid_icu": 967,
-            "covid_icu_invasive": 474
+            "free_icu": 3909,
+            "covid_icu": 970,
+            "covid_icu_invasive": 473
+        },
+        {
+            "date": "2022-08-03",
+            "free_icu": 3804,
+            "covid_icu": 933,
+            "covid_icu_invasive": 462
         }
     ]
 }
