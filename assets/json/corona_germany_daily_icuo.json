@@ -5000,9 +5000,15 @@
         },
         {
             "date": "2022-08-05",
-            "free_icu": 3694,
+            "free_icu": 3696,
             "covid_icu": 927,
             "covid_icu_invasive": 449
+        },
+        {
+            "date": "2022-08-06",
+            "free_icu": 3716,
+            "covid_icu": 887,
+            "covid_icu_invasive": 459
         }
     ]
 }
