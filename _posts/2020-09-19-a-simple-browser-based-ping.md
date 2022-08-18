@@ -2,7 +2,7 @@
 title: A Simple Browser-Based Ping
 tags: [coding, ping]
 published: true
-archived: false
+archived: true
 ---
 Since the well-known ping is not available at browser level, the script on this page retrieves a sample json file from the webserver. The time elapsed from sending the request to receiving the sample, called `Round Trip Time`, is displayed below.
 
