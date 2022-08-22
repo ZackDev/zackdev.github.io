@@ -7703,6 +7703,14 @@
             "incidence": 328.24,
             "rrate": 0.0,
             "rratesmoothed": 0.5
+        },
+        {
+            "date": "2022-08-21",
+            "totalcases": 31808228,
+            "dailycases": 49,
+            "incidence": 328.24,
+            "rrate": 0,
+            "rratesmoothed": 0.5
         }
     ]
 }
