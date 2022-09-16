@@ -7903,6 +7903,14 @@
             "incidence": 257.99,
             "rrate": 0.91,
             "rratesmoothed": 0.5
+        },
+        {
+            "date": "2022-09-15",
+            "totalcases": 32643742,
+            "dailycases": 38749,
+            "incidence": 263.35,
+            "rrate": 0.83,
+            "rratesmoothed": 0.51
         }
     ]
 }
