@@ -9644,6 +9644,51 @@
             "second_vaccinations_percentage": 73.59,
             "third_vaccinations_percentage": 62.23,
             "fourth_vaccinations_percentage": 9.74
+        },
+        {
+            "date": "2022-10-01",
+            "first_vaccinations": 159,
+            "second_vaccinations": 339,
+            "third_vaccinations": 1460,
+            "fourth_vaccinations": 9767,
+            "total_first_vaccinations": 63119995,
+            "total_second_vaccinations": 61172963,
+            "total_third_vaccinations": 51727964,
+            "total_fourth_vaccinations": 8107349,
+            "first_vaccinations_percentage": 75.94,
+            "second_vaccinations_percentage": 73.59,
+            "third_vaccinations_percentage": 62.23,
+            "fourth_vaccinations_percentage": 9.75
+        },
+        {
+            "date": "2022-10-02",
+            "first_vaccinations": 155,
+            "second_vaccinations": 338,
+            "third_vaccinations": 566,
+            "fourth_vaccinations": 2944,
+            "total_first_vaccinations": 63120150,
+            "total_second_vaccinations": 61173301,
+            "total_third_vaccinations": 51728530,
+            "total_fourth_vaccinations": 8110293,
+            "first_vaccinations_percentage": 75.94,
+            "second_vaccinations_percentage": 73.6,
+            "third_vaccinations_percentage": 62.23,
+            "fourth_vaccinations_percentage": 9.76
+        },
+        {
+            "date": "2022-10-03",
+            "first_vaccinations": 272,
+            "second_vaccinations": 364,
+            "third_vaccinations": 1022,
+            "fourth_vaccinations": 5042,
+            "total_first_vaccinations": 63120422,
+            "total_second_vaccinations": 61173665,
+            "total_third_vaccinations": 51729552,
+            "total_fourth_vaccinations": 8115335,
+            "first_vaccinations_percentage": 75.94,
+            "second_vaccinations_percentage": 73.6,
+            "third_vaccinations_percentage": 62.23,
+            "fourth_vaccinations_percentage": 9.76
         }
     ]
 }
