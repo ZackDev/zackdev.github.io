@@ -223,27 +223,20 @@ const getAsyncDailyICUOCallback = (callbackObject) => {
 };
 
 const getAsyncVaccinationsByVaccineCallback = (callbackObject) => {
-  const comirnatyCount = callbackObject.Comirnaty;
-  const spikevaxCount = callbackObject.Spikevax;
-  const vaxzevriaCount = callbackObject.Vaxzevria;
-  const jcovdenCount = callbackObject.Jcovden;
-  const nuvaxovidCount = callbackObject.Nuvaxovid;
-  const comirnatyBivalentCount = callbackObject["Comirnaty bivalent (Original/Omikron)"];
-  const spikevaxBivalentCount = callbackObject["Spikevax bivalent (Original/Omikron)"];
-  const valnevaCount = callbackObject.Valneva;
-
-  const dataObj = {
-    comirnaty: comirnatyCount,
-    spikevax: spikevaxCount,
-    vaxzevria: vaxzevriaCount,
-    jcovden: jcovdenCount,
-    nuvaxovid: nuvaxovidCount,
-    comirnatyBivalent: comirnatyBivalentCount,
-    spikevaxBivalent: spikevaxBivalentCount,
-    valneva: valnevaCount,
-  };
-
-  drawVaccinationsByVaccineChart(dataObj);
+  /**
+    very simple, redundant check on data
+    backend should dismiss zero length datasets
+  **/
+  if (Object.keys(callbackObject).length > 0) {
+    drawVaccinationsByVaccineChart(callbackObject);
+  }
+  else {
+    console.log(
+      'corona.js',
+      'getAsyncVaccinationsByVaccineCallback',
+      'callbackObject has zero keys / no data',
+    );
+  }
 };
 
 function drawDailyCasesChart(dataObj) {
@@ -541,7 +534,13 @@ function drawDailyICUOChart(dataObj) {
 }
 
 function drawVaccinationsByVaccineChart(dataObj) {
-  console.log(dataObj);
+  const data = [];
+  for (let entry in dataObj) {
+    data.push({
+      name: entry,
+      y: dataObj[entry]
+    });
+  }
   Highcharts.chart('chart-corona-vaccinations-by-vaccine-germany', {
     chart: {
       type: 'pie',
@@ -567,33 +566,7 @@ function drawVaccinationsByVaccineChart(dataObj) {
           enabled: true,
           padding: 0
       },
-      data: [
-        {
-          name: 'Comirnaty',
-          y: dataObj.comirnaty,
-        }, {
-          name: 'Spikevax',
-          y: dataObj.spikevax,
-        }, {
-          name: 'Vaxzevria',
-          y: dataObj.vaxzevria,
-        }, {
-          name: 'Jcovden',
-          y: dataObj.jcovden,
-        }, {
-          name: 'Nuvaxovid',
-          y: dataObj.nuvaxovid,
-        }, {
-          name: 'Comirnaty Bivalent',
-          y: dataObj.comirnatyBivalent,
-        }, {
-          name: 'Spikevax Bivalent',
-          y: dataObj.spikevaxBivalent,
-        }, {
-          name: 'Valneva',
-          y: dataObj.valneva,
-        },
-      ],
+      data: data,
     }]
   });
 }
