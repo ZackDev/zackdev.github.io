@@ -535,11 +535,14 @@ function drawDailyICUOChart(dataObj) {
 
 function drawVaccinationsByVaccineChart(dataObj) {
   const data = [];
+  var dosesAdministered = 0;
   for (let entry in dataObj) {
+    let doses = dataObj[entry];
     data.push({
       name: entry,
-      y: dataObj[entry]
+      y: doses
     });
+    dosesAdministered += doses;
   }
   Highcharts.chart('chart-corona-vaccinations-by-vaccine-germany', {
     chart: {
@@ -549,7 +552,7 @@ function drawVaccinationsByVaccineChart(dataObj) {
       text: 'Vaccinations By Vaccine',
     },
     subtitle: {
-      text: `Doses administered: ${Highcharts.numberFormat(dataObj.moderna + dataObj.comirnaty + dataObj.astrazeneca + dataObj.janssen + dataObj.novavax, 0)}`
+      text: `Doses administered: ${Highcharts.numberFormat(dosesAdministered, 0)}`
     },
     plotOptions: {
       pie: {
