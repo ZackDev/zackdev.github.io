@@ -223,18 +223,24 @@ const getAsyncDailyICUOCallback = (callbackObject) => {
 };
 
 const getAsyncVaccinationsByVaccineCallback = (callbackObject) => {
-  const modernaCount = callbackObject.Moderna;
-  const astrazenecaCount = callbackObject.AstraZeneca;
-  const janssenCount = callbackObject.Janssen;
   const comirnatyCount = callbackObject.Comirnaty;
-  const novavaxCount = callbackObject.Novavax;
+  const spikevaxCount = callbackObject.Spikevax;
+  const vaxzevriaCount = callbackObject.Vaxzevria;
+  const jcovdenCount = callbackObject.Jcovden;
+  const nuvaxovidCount = callbackObject.Nuvaxovid;
+  const comirnatyBivalentCount = callbackObject["Comirnaty bivalent (Original/Omikron)"];
+  const spikevaxBivalentCount = callbackObject["Spikevax bivalent (Original/Omikron)"];
+  const valnevaCount = callbackObject.Valneva;
 
   const dataObj = {
-    moderna: modernaCount,
-    astrazeneca: astrazenecaCount,
-    janssen: janssenCount,
     comirnaty: comirnatyCount,
-    novavax: novavaxCount,
+    spikevax: spikevaxCount,
+    vaxzevria: vaxzevriaCount,
+    jcovden: jcovdenCount,
+    nuvaxovid: nuvaxovidCount,
+    comirnatyBivalent: comirnatyBivalentCount,
+    spikevaxBivalent: spikevaxBivalentCount,
+    valneva: valnevaCount,
   };
 
   drawVaccinationsByVaccineChart(dataObj);
@@ -535,6 +541,7 @@ function drawDailyICUOChart(dataObj) {
 }
 
 function drawVaccinationsByVaccineChart(dataObj) {
+  console.log(dataObj);
   Highcharts.chart('chart-corona-vaccinations-by-vaccine-germany', {
     chart: {
       type: 'pie',
@@ -556,23 +563,36 @@ function drawVaccinationsByVaccineChart(dataObj) {
     series: [{
       name: 'doses',
       colorByPoint: true,
+      dataLabels: {
+          enabled: true,
+          padding: 0
+      },
       data: [
         {
-          name: 'Moderna',
-          y: dataObj.moderna,
-        }, {
           name: 'Comirnaty',
           y: dataObj.comirnaty,
         }, {
-          name: 'AstraZeneca',
-          y: dataObj.astrazeneca,
+          name: 'Spikevax',
+          y: dataObj.spikevax,
         }, {
-          name: 'Janssen',
-          y: dataObj.janssen,
+          name: 'Vaxzevria',
+          y: dataObj.vaxzevria,
         }, {
-          name: 'Novavax',
-          y: dataObj.novavax,
-        }
+          name: 'Jcovden',
+          y: dataObj.jcovden,
+        }, {
+          name: 'Nuvaxovid',
+          y: dataObj.nuvaxovid,
+        }, {
+          name: 'Comirnaty Bivalent',
+          y: dataObj.comirnatyBivalent,
+        }, {
+          name: 'Spikevax Bivalent',
+          y: dataObj.spikevaxBivalent,
+        }, {
+          name: 'Valneva',
+          y: dataObj.valneva,
+        },
       ],
     }]
   });
