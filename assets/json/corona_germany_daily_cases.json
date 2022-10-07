@@ -8071,6 +8071,14 @@
             "incidence": 460.31,
             "rrate": 0.99,
             "rratesmoothed": 0.4
+        },
+        {
+            "date": "2022-10-06",
+            "totalcases": 33826367,
+            "dailycases": 174112,
+            "incidence": 524.83,
+            "rrate": 1.31,
+            "rratesmoothed": 0.43
         }
     ]
 }
