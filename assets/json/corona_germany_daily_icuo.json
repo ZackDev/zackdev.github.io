@@ -5378,9 +5378,15 @@
         },
         {
             "date": "2022-10-07",
-            "free_icu": 3312,
+            "free_icu": 3310,
             "covid_icu": 996,
-            "covid_icu_invasive": 388
+            "covid_icu_invasive": 387
+        },
+        {
+            "date": "2022-10-08",
+            "free_icu": 3442,
+            "covid_icu": 1011,
+            "covid_icu_invasive": 411
         }
     ]
 }
