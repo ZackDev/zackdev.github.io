@@ -9,7 +9,7 @@ The internet offers a multitude of content to the user, which contain different 
 # Block content at different system levels
 
 ## Program
-Typical example is an AdBlocker plugin for browsers, which prevents Ads from getting inserted into the DOM. This does not stop the browser from requesting Ads from third party resources.
+Typical example is an AdBlocker plugin for browsers, which prevents Ads from getting inserted into the DOM. This does, however, only stop the browser from accessing certain content.
 
 ## Local System
 Easiest way to block certain domain names is to modify `/etc/hosts` file which gets searched for hostnames before a request is made to an DNS resolver.
@@ -69,7 +69,7 @@ addn-hosts=/etc/dnsmasq-addn-hosts
 * domain-needed: only forward domain names
 * bogus-priv: don't forward private IPs when doing reverse lookups
 * resolv-file: use nameserver from file other than /etc/resolv.conf
-* addn-hosts: read additional host-ip-pairs from this hosts style formatted file
+* addn-hosts: read additional ip-host-pairs from this hosts style formatted file
 
 For the new config parameters to be read, restart the service. Check if the host uses the forwarder.
 ``` terminal
