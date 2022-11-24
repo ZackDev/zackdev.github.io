@@ -170,7 +170,7 @@ dnsmasq --test
 
 Test a specific config:
 ``` terminal
-dnsmasq --test -C -<your.conf>
+dnsmasq --test -C <your.conf>
 ```
 
 Automate hosts file download and reloading dnsmasq with cron:
