@@ -9,7 +9,7 @@
       <span class="fg-medium-grey">{{ post.date | date: "%Y-%m-%d" }}</span>
       {% assign tags = post.tags | sort_natural %}
       {% for tag in tags %}
-      <span class="tag fg-medium-grey bg-light-grey">{{ tag }}</span>
+      <span class="tag fg-medium-grey bg-light-grey"><a href="/tag/{{ tag }}">{{ tag }}</a></span>
       {% endfor %}
     </div>
   </li>

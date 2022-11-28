@@ -243,6 +243,15 @@ footer a:hover {
   text-decoration: underline dotted $light-grey;
 }
 
+.tag a {
+  text-decoration: underline $dark-grey;
+  color: $dark-grey;
+}
+
+.tag a:hover {
+  text-decoration: underline dotted $dark-grey;
+}
+
 a.footnote {
   vertical-align: sub;
 }
