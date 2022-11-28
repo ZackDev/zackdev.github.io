@@ -1,6 +1,6 @@
 ---
 title: a technique using DNS for blocking webcontent
-tags: [linux, dns, block content]
+tags: [linux, dns, block-content]
 published: true
 archived: false
 ---
