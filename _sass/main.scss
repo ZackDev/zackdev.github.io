@@ -309,8 +309,10 @@ td {
   margin: 0;
 }
 
-td, th {
-  border: 1px solid $dark-grey;
+.highlight:not {
+  td, th {
+    border: 1px solid $dark-grey;
+  }
 }
 
 #header {
