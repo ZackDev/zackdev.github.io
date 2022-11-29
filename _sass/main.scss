@@ -187,8 +187,8 @@ code {
 
 .tag {
   @include border(1px, solid, $light-grey, 0);
+  border-radius: 5px;
   padding: 0 2px 0 2px;
-  font-style: italic;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -226,12 +226,23 @@ p {
 }
 
 a {
-  text-decoration: underline $blue;
-  color: $blue;
+  text-decoration: underline $dark-grey;
+  color: $dark-grey;
 }
 
 a:hover {
-  text-decoration: underline dotted $blue;
+  text-decoration: underline dotted $dark-grey;
+}
+
+.tag a {
+  font-size: 0.8rem;
+  vertical-align: middle;
+  text-decoration: none;
+  color: $dark-grey;
+}
+
+.tag a:hover {
+  text-decoration: underline dotted $dark-grey;
 }
 
 footer a {
@@ -241,15 +252,6 @@ footer a {
 
 footer a:hover {
   text-decoration: underline dotted $light-grey;
-}
-
-.tag a {
-  text-decoration: underline $dark-grey;
-  color: $dark-grey;
-}
-
-.tag a:hover {
-  text-decoration: underline dotted $dark-grey;
 }
 
 a.footnote {
