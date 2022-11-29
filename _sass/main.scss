@@ -225,24 +225,10 @@ p {
   margin: 20px 0 5px 0;
 }
 
-a {
-  text-decoration: underline $dark-grey;
-  color: $dark-grey;
-}
-
-a:hover {
-  text-decoration: underline dotted $dark-grey;
-}
-
 .tag a {
   font-size: 0.8rem;
   vertical-align: middle;
   text-decoration: none;
-  color: $dark-grey;
-}
-
-.tag a:hover {
-  text-decoration: underline dotted $dark-grey;
 }
 
 footer a {
@@ -250,12 +236,8 @@ footer a {
   color: $light-grey;
 }
 
-footer a:hover {
-  text-decoration: underline dotted $light-grey;
-}
-
 a.footnote {
-  vertical-align: sub;
+  vertical-align: baseline;
 }
 
 cite {
