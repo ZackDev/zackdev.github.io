@@ -18,7 +18,7 @@ Easiest way to block certain domain names is to modify `/etc/hosts` file which g
 blocked.domain 0.0.0.0
 ```
 
-Any program relying on the hosts file that wants to know the IP-Address of `blocked.domain` now receives the non-routable IP-address `0.0.0.0`[^1].
+Any program relying on the hosts file that wants to know the IP-Address of `blocked.domain` now receives the non-routable IP-address [0.0.0.0][1].
 
 ## Network
 The most elegant solution, especially if you have several devices in your network, is to block at network level, by setting up a lightweight DNS forwarder.
@@ -34,10 +34,10 @@ As noted above, the 0.0.0.0 address is a special case where the forwarder respon
 # Prerequisites for a forwarder
 Following the chart above, the forwarder needs a DNS-resolver to use for name resolution. Many profit and non-profit oriented organiations provide DNS-resolvers within their mode of operations. Note that DNS-resolvers can be used to censor, misdirect and track those who use it.
 
-If there is a need to block certain domains, the forwarder needs to be able to process a list of names and domains for which it returns `NXDOMAIN`. Thankfully there are numerous maintained lists. This project here[^2] combines a plethora of lists and makes the aggregate available for download[^3].
+If there is a need to block certain domains, the forwarder needs to be able to process a list of names and domains for which it returns `NXDOMAIN`. Thankfully there are numerous maintained lists. This project [here][2] combines a plethora of lists and makes the aggregate available for [download][3].
 
 # Setting up the forwarder
-Debian provides `dnsmasq`[^4] which has the needed features. Assume that it's IP is 10.0.0.11, which is later needed to configure the clients.
+Debian provides [dnsmasq][4] which has the needed features. Assume that it's IP is 10.0.0.11, which is later needed to configure the clients.
 
 Install:
 ``` terminal
@@ -180,7 +180,7 @@ crontab -e
 0 0 * * * wget https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts -O /etc/dnsmasq-addn-hosts && systemctl reload dnsmasq.service
 ```
 
-[^1]: <https://en.wikipedia.org/wiki/0.0.0.0>
-[^2]: <https://github.com/StevenBlack/hosts>
-[^3]: <https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts>
-[^4]: <https://dnsmasq.org/>
+[1]: <https://en.wikipedia.org/wiki/0.0.0.0>
+[2]: <https://github.com/StevenBlack/hosts>
+[3]: <https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts>
+[4]: <https://dnsmasq.org/>
