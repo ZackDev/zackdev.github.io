@@ -8,4 +8,89 @@ This post shows how to further take control of the name resolution process. In a
 
 {% include image.html url="/assets/img/dns-resolver.png" description="" %}
 
-The chart above shows the different  topologies (A.* and B.*)
+The chart above shows the hosts and paths involved which emerge from the different setups (A.* (default) and B.* (intended)). The main purpose of setup B is to replace the public recursive DNS-resolver with a self-hosted, private one. The motivation is derived from the fact that a query for the name `example.com` in setup A can be logged and manipulated by the operator of the public recursive DNS-resolver. Further enhancements are to block certain domain resolutions for `blocked.domain` and to provide domain and name resolution for hosts in the local network.
+
+Resolving a *Fully Qualified Domain Name (FQDN)* by the Domain Name System starts at the root zone, followed by the *Top Level Domain (TLD)* and subsequent subdomains separated by dots (`.`), each answering queries specified for their domain. This explains the recursive nature of the DNS-resolver as implied by the steps A.2.* and B.3.*. This is a [complete list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) as currently served by the IANA root zone.
+
+# Setting up unbound
+
+Debian provides the unbound package, a caching, recursive DNS resolver, which additionally can be configured as DNS server for specific names, without the need for querying the domain name system.
+
+``` terminal
+apt install unbound
+```
+
+Unbound reads it's configuration from `/etc/unbound/unbound.conf` and from `<anyname>.conf` in the `/etc/unbound/undbound.conf.d/` directory. For segregation, unbound.conf holds basic parameters, details about the local network are defined in local.conf and block.conf finally defines domain-names for which `NXDOMAIN` is to be returned.
+
+# /etc/unbound/unbound.conf:
+
+{% highlight config linenos %}
+server:
+        root-hints: "/etc/unbound/named.root" 
+
+        interface: 10.0.0.11
+        interface: 127.0.0.1
+
+        access-control: 10.0.0.0/24 allow
+        access-control: 127.0.0.0/24 allow
+{% endhighlight %}
+
+Line 2: by default, unbound has hardcoded information about the root zone. Servers in the zone might change, so by [downloading](https://www.internic.net/domain/named.root) and adding the file as `root-hints` to the config is a good practice.
+
+Line 4-5: specifies network interfaces, unbound operates on. In this setup, queries from the localhost and the local network are answered.
+
+Line 7-8: limit access to the server by IP, CIDR notation.
+
+# /etc/unbound/unbound.conf.d/local.conf:
+
+Names and IPs for which the public Domain Name System is not responsible can be added and served like this. Assume that the local domain is named `sol`, that there are two entities, a client (10.0.0.1) called `mars` and a server (10.0.0.11) going by the name of `saturn`.
+
+{% highlight config %}
+server:
+        local-zone: "sol." static
+        local-data: "mars.sol.      IN A 10.0.0.1"
+        local-data: "saturn.sol.    IN A 10.0.0.11"
+        local-data-ptr: "10.0.0.1   mars.sol."
+        local-data-ptr: "10.0.0.11  saturn.sol."
+{% endhighlight %}
+
+# /etc/unbound/unbound.conf.d/block.conf:
+
+Entries defined by `local-zone: "<domain>" always_nxdomain` don't get recursively resolved, instead queries get answered directly by unbound with the NXDOMAIN status.
+
+{% highlight config %}
+server:
+        local-zone: "blocked.domain" always_nxdomain
+        local-zone: "another-blocked.domain" always_nxdomain
+{% endhighlight %}
+
+The following bash script fetches a list of ip-name-pairs and converts it to the config file format unbound expects, and saves the result to the block.conf. The new entries get read by reloading unbound while conserving the cache of resolved entries.
+
+{% highlight bash %}
+#!/bin/bash
+
+# ds: url of the hosts file to download
+# dt: target to save <ds> to
+# ll: file to save the list of blocked domains to
+# cl: file to save the unbound cache to
+# hs: hosts file size
+
+ds='https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts'
+dt='/etc/unbound/hoststoblock'
+ll='/etc/unbound/unbound.conf.d/block.conf'
+cl='/etc/unbound/cache.dump'
+
+wget $ds -O $dt
+
+hs=$(du $dt | cut -f 1)
+
+if [[ -f $dt && $hs -gt 4 ]]; then
+    echo "server:" > $ll
+    cat $dt | awk '/^0.0.0.0/ {print "\tlocal-zone: "$2" always_nxdomain"}' >> $ll
+    unbound-control dump_cache > $cl
+    unbound-control reload
+    cat $cl | unbound-control load_cache
+    rm $dt $cl
+fi
+
+{% endhighlight %}
