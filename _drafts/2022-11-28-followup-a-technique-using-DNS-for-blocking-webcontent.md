@@ -97,7 +97,9 @@ fi
 {% endhighlight %}
 
 # Testing the setup
+
 Some examples to query unbound using dig. 
+
 {% highlight terminal %}
 dig @127.0.0.1 -p 53 example.com
 
@@ -110,3 +112,5 @@ dig @127.0.0.1 -p 53 invalid.sol
 dig @127.0.0.1 -p 53 -x 10.0.0.1
 {% endhighlight %}
 
+# Hardening unbound
+TODO
