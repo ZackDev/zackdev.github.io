@@ -54,9 +54,11 @@ server:
         local-data-ptr: "10.0.0.11  saturn.sol."
 {% endhighlight %}
 
+`local-zone: "sol." static` defines the local zone `sol.`. Queries for this zone don't get recursively queried, but rather looked up locally by searching for entries of type `local-data: "<resource record string>"`. There are numerous types of RRs, for this usecase, the A (IPv4 address) type is sufficient. A query for `mars.sol` is answered with `10.0.0.1`. The `local-data-ptr: "<IPaddr> <name>"` is an entry for reverse lookups, which delivers a name for an IP-address.
+
 # /etc/unbound/unbound.conf.d/block.conf:
 
-Entries defined by `local-zone: "<domain>" always_nxdomain` don't get recursively resolved, instead queries get answered directly by unbound with the NXDOMAIN status.
+Entries defined by `local-zone: "<domain>" always_nxdomain` get answered with the NXDOMAIN status.
 
 {% highlight config %}
 server:
@@ -92,5 +94,19 @@ if [[ -f $dt && $hs -gt 4 ]]; then
     cat $cl | unbound-control load_cache
     rm $dt $cl
 fi
-
 {% endhighlight %}
+
+# Testing the setup
+Some examples to query unbound using dig. 
+{% highlight terminal %}
+dig @127.0.0.1 -p 53 example.com
+
+dig @127.0.0.1 -p 53 blocked.domain
+
+dig @127.0.0.1 -p 53 mars.sol
+
+dig @127.0.0.1 -p 53 invalid.sol
+
+dig @127.0.0.1 -p 53 -x 10.0.0.1
+{% endhighlight %}
+
