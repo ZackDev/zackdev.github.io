@@ -8,9 +8,9 @@ This post shows how to further take control of the name resolution process. In a
 
 {% include image.html url="/assets/img/dns-resolver.png" description="" %}
 
-The chart above shows the hosts and paths involved which emerge from the different setups (A.* (default) and B.* (intended)). The main purpose of setup B is to replace the public recursive DNS-resolver with a self-hosted, private one. The motivation is derived from the fact that a query for the name `example.com` in setup A can be logged and manipulated by the operator of the public recursive DNS-resolver. Further enhancements are to block certain domain resolutions for `blocked.domain` and to provide domain and name resolution for hosts in the local network.
+The chart above shows the hosts and paths involved which emerge from the different setups (A.* (default) and B.* (intended)). The main purpose of setup B is to replace the public recursive DNS-resolver with a self-hosted, private one. The motivation is derived from the fact that a query for the name `example.com` in setup A can be logged and manipulated by the operator of the public recursive DNS-resolver. Further enhancements are to block certain domain resolutions and to provide a zone for the local network.
 
-Resolving a *Fully Qualified Domain Name (FQDN)* by the Domain Name System starts at the root zone, followed by the *Top Level Domain (TLD)* and subsequent subdomains separated by dots (`.`), each answering queries specified for their domain. This explains the recursive nature of the DNS-resolver as implied by the steps A.2.* and B.3.*. This is a [complete list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) as currently served by the IANA root zone.
+Resolving a *Fully Qualified Domain Name (FQDN)* by the Domain Name System starts at the root zone, followed by the *Top Level Domain (TLD)* and subsequent subdomains separated by dots, each answering queries specified for their domain. This explains the recursive nature of the DNS-resolver as implied by the steps A.2.* and B.3.*.
 
 # Setting up unbound
 
@@ -31,8 +31,8 @@ server:
         interface: 10.0.0.11
         interface: 127.0.0.1
 
-        access-control: 10.0.0.0/24 allow
-        access-control: 127.0.0.0/24 allow
+        access-control: 10.0.0.0/8 allow
+        access-control: 127.0.0.0/8 allow
 {% endhighlight %}
 
 Line 2: by default, unbound has hardcoded information about the root zone. Servers in the zone might change, so by [downloading](https://www.internic.net/domain/named.root) and adding the file as `root-hints` to the config is a good practice.
@@ -113,4 +113,29 @@ dig @127.0.0.1 -p 53 -x 10.0.0.1
 {% endhighlight %}
 
 # Hardening unbound
-TODO
+
+Don't leak private IPs to upstream DNS-servers when performing reverse lookups:
+
+{% highlight config %}
+server:
+        private-address: 10.0.0.0/8
+        private-address: 192.168.0.0/16
+{% endhighlight %}
+
+Avoid querying upstream DNS-servers for local zone(s):
+
+{% highlight config %}
+server:
+        private-zone: sol.
+{% endhighlight %}
+
+Minimize the QNAME sent to upstream DNS-servers:
+
+{% highlight config %}
+server:
+        qname-minimization: yes
+{% endhighlight %}
+
+# Links found on the way:
+* [unbound homepage](https://nlnetlabs.nl/projects/unbound/about/)
+* a [complete list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) as served by the IANA root zone.
