@@ -37,6 +37,12 @@ button, input {
   }
 }
 
+@mixin fs($name, $rem) {
+  .fs-#{$name} {
+      font-size: #{$rem}rem;
+  }
+}
+
 @include fg("white", $white);
 @include fg("blue", $blue);
 @include fg("light-grey", $light-grey);
@@ -50,6 +56,8 @@ button, input {
 @include bg("medium-grey", $medium-grey);
 @include bg("dark-grey", $dark-grey);
 @include bg("black", $black);
+
+@include fs("small", "0.8");
 
 button {
   padding: 0 5px !important;
@@ -89,6 +97,10 @@ input:hover, input:focus {
 
 .not-selectable {
   user-select: none;
+}
+
+.vam {
+  vertical-align: middle;
 }
 
 hr {
@@ -223,12 +235,6 @@ h6 {
 
 p {
   margin: 20px 0 5px 0;
-}
-
-.tag a {
-  font-size: 0.8rem;
-  vertical-align: middle;
-  text-decoration: none;
 }
 
 footer a {
