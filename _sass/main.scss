@@ -1,6 +1,10 @@
 @font-face {
   font-family: "Vollkorn";
-  src: local("Vollkorn"), url("/assets/fonts/Vollkorn-Regular.woff2");
+  src: local("Vollkorn"),
+    url("/assets/fonts/Vollkorn-Regular.eot"),
+    url("/assets/fonts/Vollkorn-Regular.ttf"),
+    url("/assets/fonts/Vollkorn-Regular.woff2")
+  ;
 }
 
 /* equalize attributes */
