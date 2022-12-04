@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Vollkorn";
+  src: local("Vollkorn"), url("/assets/fonts/Vollkorn-Regular.woff2");
+}
+
 /* equalize attributes */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr,
@@ -27,19 +32,19 @@ button, input {
 
 @mixin fg($name, $color) {
   .fg-#{$name} {
-      color: $color;
+    color: $color;
   }
 }
 
 @mixin bg($name, $color) {
   .bg-#{$name} {
-      background-color: $color;
+    background-color: $color;
   }
 }
 
 @mixin fs($name, $rem) {
   .fs-#{$name} {
-      font-size: #{$rem}rem;
+    font-size: #{$rem}rem;
   }
 }
 
@@ -179,9 +184,8 @@ strong {
 
 body {
   box-sizing: border-box;
-  text-align: justify;
-  font-size: 1em;
-  font-family: 'monospace';
+  font-family: "Vollkorn";
+  font-size: 1.3em;
   line-height: 1.61803;
   margin-bottom: 100px;
 }
@@ -347,12 +351,6 @@ td {
   background-size: auto 100%;
 }
 
-#page-title {
-  font-variant: small-caps;
-  margin: 0;
-  font-size: 2rem;
-}
-
 /* adjustments for small displays */
 @media screen and (max-width: 1024px) {
   body {
@@ -403,6 +401,7 @@ td {
 
 .highlight {
   border-radius: 2px;
+  font-family: "monospace";
 }
 
 code.language-plaintext.highlighter-rouge {
