@@ -70,6 +70,9 @@ A man practices by shooting at his barn in Texas. Most of the shots randomly hit
 The tendency to positivize circumstances, with `Negativity Bias` as it's counterpart. Best described with the following meme:
 {% include image.html url="/assets/img/this-is-fine.jpeg" description="<a href='https://i.imgur.com/2sOw7GL.jpeg'>https://i.imgur.com/2sOw7GL.jpeg</a>" %}
 
+# Complexity Bias
+The preference of complex over simple explanations, thus bypassing rational means of validation.
+
 # Conclusion
 Though one may be convinced that his or her decision making process is purely rational, biases distort thinking. By being aware of those biases, one maintains his ability of critical thinking.
 
