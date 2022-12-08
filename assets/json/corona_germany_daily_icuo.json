@@ -5696,7 +5696,7 @@
         },
         {
             "date": "2022-11-29",
-            "free_icu": 3029,
+            "free_icu": 3028,
             "covid_icu": 581,
             "covid_icu_invasive": 314
         },
@@ -5708,45 +5708,51 @@
         },
         {
             "date": "2022-12-01",
-            "free_icu": 2988,
-            "covid_icu": 587,
-            "covid_icu_invasive": 295
+            "free_icu": 2987,
+            "covid_icu": 588,
+            "covid_icu_invasive": 294
         },
         {
             "date": "2022-12-02",
-            "free_icu": 2935,
-            "covid_icu": 604,
-            "covid_icu_invasive": 299
+            "free_icu": 2934,
+            "covid_icu": 605,
+            "covid_icu_invasive": 298
         },
         {
             "date": "2022-12-03",
-            "free_icu": 2962,
+            "free_icu": 2963,
             "covid_icu": 625,
             "covid_icu_invasive": 301
         },
         {
             "date": "2022-12-04",
-            "free_icu": 3142,
+            "free_icu": 3140,
             "covid_icu": 637,
-            "covid_icu_invasive": 312
+            "covid_icu_invasive": 314
         },
         {
             "date": "2022-12-05",
-            "free_icu": 3078,
+            "free_icu": 3076,
             "covid_icu": 645,
-            "covid_icu_invasive": 323
+            "covid_icu_invasive": 325
         },
         {
             "date": "2022-12-06",
-            "free_icu": 2751,
-            "covid_icu": 682,
-            "covid_icu_invasive": 331
+            "free_icu": 2752,
+            "covid_icu": 683,
+            "covid_icu_invasive": 330
         },
         {
             "date": "2022-12-07",
-            "free_icu": 2653,
-            "covid_icu": 672,
+            "free_icu": 2654,
+            "covid_icu": 674,
             "covid_icu_invasive": 317
+        },
+        {
+            "date": "2022-12-08",
+            "free_icu": 2582,
+            "covid_icu": 667,
+            "covid_icu_invasive": 302
         }
     ]
 }
