@@ -66,7 +66,7 @@ server:
         local-zone: "another-blocked.domain" always_nxdomain
 {% endhighlight %}
 
-The following bash script fetches a list of ip-name-pairs and converts it to the config file format unbound expects, and saves the result to the block.conf. The new entries get read by reloading unbound while conserving the cache of resolved entries.
+The following bash script fetches a list of ip-name-pairs and converts it to the config file format unbound expects, and saves the result to the block.conf. The new entries get read by reloading unbound while conserving the cache of previously resolved entries.
 
 {% highlight bash %}
 #!/bin/bash
@@ -119,21 +119,15 @@ Don't leak private IPs to upstream DNS-servers when performing reverse lookups:
 {% highlight config %}
 server:
         private-address: 10.0.0.0/8
-        private-address: 192.168.0.0/16
 {% endhighlight %}
 
-Minimize the QNAME sent to upstream DNS-servers:
-
-{% highlight config %}
-server:
-        qname-minimization: yes
-{% endhighlight %}
-
-# Allowlisting domain-names
+# Allowlisting domains
 
 Is it possible to build a config which allows resolving specific domains while dropping the unspecified?
 
-Define the root zone as a local-zone, which gets answered with NXDOMAIN. Then subsequently define transparent local-zones for domains that should get resolved normally. Note that this also allows subdomains of example.com resolved but not higher level domains like .com. This does not mean that the process of resolving example.com doesn't include querying the com. domain for the example. subdomain.
+Define the root zone as a local-zone, which gets answered with NXDOMAIN. Then subsequently define transparent local-zones for domains that should get resolved normally.
+
+> Note that this also allows subdomains of example.com resolved but not higher level domains like .com.
 
 {% highlight config %}
 server:
