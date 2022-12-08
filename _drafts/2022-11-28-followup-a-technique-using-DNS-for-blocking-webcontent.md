@@ -122,18 +122,23 @@ server:
         private-address: 192.168.0.0/16
 {% endhighlight %}
 
-Avoid querying upstream DNS-servers for local zone(s):
-
-{% highlight config %}
-server:
-        private-zone: sol.
-{% endhighlight %}
-
 Minimize the QNAME sent to upstream DNS-servers:
 
 {% highlight config %}
 server:
         qname-minimization: yes
+{% endhighlight %}
+
+# Allowlisting domain-names
+
+Is it possible to build a config which allows resolving specific domains while dropping the unspecified?
+
+Define the root zone as a local-zone, which gets answered with NXDOMAIN. Then subsequently define transparent local-zones for domains that should get resolved normally. Note that this also allows subdomains of example.com resolved but not relative superdomains like .com. This does not mean that the process of resolving example.com doesn't include querying the com. domain for the example. subdomain.
+
+{% highlight config %}
+server:
+        local-zone: "." always_nxdomain
+        local-zone: "example.com" transparent
 {% endhighlight %}
 
 # Links found on the way:
