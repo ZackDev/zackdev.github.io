@@ -133,12 +133,12 @@ server:
 
 Is it possible to build a config which allows resolving specific domains while dropping the unspecified?
 
-Define the root zone as a local-zone, which gets answered with NXDOMAIN. Then subsequently define transparent local-zones for domains that should get resolved normally. Note that this also allows subdomains of example.com resolved but not relative superdomains like .com. This does not mean that the process of resolving example.com doesn't include querying the com. domain for the example. subdomain.
+Define the root zone as a local-zone, which gets answered with NXDOMAIN. Then subsequently define transparent local-zones for domains that should get resolved normally. Note that this also allows subdomains of example.com resolved but not higher level domains like .com. This does not mean that the process of resolving example.com doesn't include querying the com. domain for the example. subdomain.
 
 {% highlight config %}
 server:
         local-zone: "." always_nxdomain
-        local-zone: "example.com" transparent
+        local-zone: "example.com" always_transparent
 {% endhighlight %}
 
 # Links found on the way:
