@@ -154,6 +154,7 @@ const getAsyncWeeklyTestsCallback = (callbackObject) => {
 
 const getAsyncDailyVaccinationsCallback = (callbackObject) => {
   console.log('daily vaccinations callback');
+  console.log(callbackObject);
   if (Array.isArray(callbackObject.data)) {
     let initialValue = {
       dates: [],
@@ -161,16 +162,22 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
       secondVaccinations: [],
       thirdVaccinations: [],
       fourthVaccinations: [],
+      fifthVaccinations: [],
+      sixthVaccinations: [],
 
       totalFirstVaccinations: [],
       totalSecondVaccinations: [],
       totalThirdVaccinations: [],
       totalFourthVaccinations: [],
+      totalFifthVaccinations: [],
+      totalSixthVaccinations: [],
 
       firstVaccinationsPercentage: [],
       secondVaccinationsPercentage: [],
       thirdVaccinationsPercentage: [],
       fourthVaccinationsPercentage: [],
+      fifthVaccinationsPercentage: [],
+      sixthVaccinationsPercentage: [],
     }
     const dataObj = callbackObject.data.reduce(function (p, c) {
       p.dates.push(c.date)
@@ -178,16 +185,22 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
       p.secondVaccinations.push(c.second_vaccinations)
       p.thirdVaccinations.push(c.third_vaccinations)
       p.fourthVaccinations.push(c.fourth_vaccinations)
+      p.fifthVaccinations.push(c.fifth_vaccinations)
+      p.sixthVaccinations.push(c.sixth_vaccinations)
 
       p.totalFirstVaccinations.push(c.total_first_vaccinations)
       p.totalSecondVaccinations.push(c.total_second_vaccinations)
       p.totalThirdVaccinations.push(c.total_third_vaccinations)
       p.totalFourthVaccinations.push(c.total_fourth_vaccinations)
+      p.totalFifthVaccinations.push(c.total_fifth_vaccinations)
+      p.totalSixthVaccinations.push(c.total_sixth_vaccinations)
 
       p.firstVaccinationsPercentage.push(c.first_vaccinations_percentage)
       p.secondVaccinationsPercentage.push(c.second_vaccinations_percentage)
       p.thirdVaccinationsPercentage.push(c.third_vaccinations_percentage)
       p.fourthVaccinationsPercentage.push(c.fourth_vaccinations_percentage)
+      p.fifthVaccinationsPercentage.push(c.fifth_vaccinations_percentage)
+      p.sixthVaccinationsPercentage.push(c.sixth_vaccinations_percentage)
       return p
 
     }, initialValue)
@@ -200,6 +213,7 @@ const getAsyncDailyVaccinationsCallback = (callbackObject) => {
 };
 
 const getAsyncDailyICUOCallback = (callbackObject) => {
+  console.log('daily icuo callback');
   if (Array.isArray(callbackObject.data)) {
     let initialValue = {
       dates: [],
@@ -223,6 +237,7 @@ const getAsyncDailyICUOCallback = (callbackObject) => {
 };
 
 const getAsyncVaccinationsByVaccineCallback = (callbackObject) => {
+  console.log('vaccinations by vaccine callback');
   /**
     very simple, redundant check on data
     backend should dismiss zero length datasets
@@ -379,7 +394,7 @@ function drawDailyVaccinationsChart(dataObj) {
       text: 'Daily And Total Vaccinations',
     },
     subtitle: {
-      text: 'includes 1st, 2nd, 3rd and 4th vaccinations',
+      text: 'includes 1st to 6th vaccinations',
     },
     xAxis: {
       categories: dataObj.dates,
@@ -429,6 +444,20 @@ function drawDailyVaccinationsChart(dataObj) {
       name: '4th Vaccinations',
       data: dataObj.fourthVaccinations,
     }, {
+      yAxis: 0,
+      stack: 0,
+      index: 4,
+      legendIndex: 4,
+      name: '5th Vaccinations',
+      data: dataObj.fifthVaccinations,
+    }, {
+      yAxis: 0,
+      stack: 0,
+      index: 5,
+      legendIndex: 5,
+      name: '6th Vaccinations',
+      data: dataObj.sixthVaccinations,
+    }, {
       type: 'line',
       yAxis: 1,
       legendIndex: 4,
@@ -470,6 +499,28 @@ function drawDailyVaccinationsChart(dataObj) {
       tooltip: {
         pointFormatter() {
           return `<span class="highcharts-color-${this.colorIndex}">&#9679;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.fourthVaccinationsPercentage[this.x]}%</br>`;
+        },
+      },
+    }, {
+      type: 'line',
+      yAxis: 1,
+      legendIndex: 8,
+      name: 'Total 5th Vaccinations',
+      data: dataObj.totalFifthVaccinations,
+      tooltip: {
+        pointFormatter() {
+          return `<span class="highcharts-color-${this.colorIndex}">&#9679;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.fifthVaccinationsPercentage[this.x]}%</br>`;
+        },
+      },
+    }, {
+      type: 'line',
+      yAxis: 1,
+      legendIndex: 9,
+      name: 'Total 6th Vaccinations',
+      data: dataObj.totalSixthVaccinations,
+      tooltip: {
+        pointFormatter() {
+          return `<span class="highcharts-color-${this.colorIndex}">&#9679;</span> ${this.series.name}: <b>${Highcharts.numberFormat(this.y, -1, ' ', ' ')}</b>: ${dataObj.sixthVaccinationsPercentage[this.x]}%</br>`;
         },
       },
     }],
