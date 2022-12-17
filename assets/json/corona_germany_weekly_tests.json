@@ -752,13 +752,23 @@
         },
         {
             "calendar_week": "2022-W46",
-            "weekly_tests": 494351,
-            "total_tests": 147278257
+            "weekly_tests": 494504,
+            "total_tests": 147278410
         },
         {
             "calendar_week": "2022-W47",
-            "weekly_tests": 492319,
-            "total_tests": 147770576
+            "weekly_tests": 492954,
+            "total_tests": 147771364
+        },
+        {
+            "calendar_week": "2022-W48",
+            "weekly_tests": 501658,
+            "total_tests": 148273022
+        },
+        {
+            "calendar_week": "2022-W49",
+            "weekly_tests": 509358,
+            "total_tests": 148782380
         }
     ]
 }
