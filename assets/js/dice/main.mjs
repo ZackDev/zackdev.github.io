@@ -6,7 +6,7 @@ new Init(
     () => {
         try {
             let dc = new DiceController();
-            let appendToID = "main-content";
+            let appendToID = "dice-ui-wrap";
             let vb = new ViewBundle(dc, appendToID);
         }
         catch (e) {
