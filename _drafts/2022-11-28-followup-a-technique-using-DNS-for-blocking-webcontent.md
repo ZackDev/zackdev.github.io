@@ -112,15 +112,6 @@ dig @127.0.0.1 -p 53 invalid.sol
 dig @127.0.0.1 -p 53 -x 10.0.0.1
 {% endhighlight %}
 
-# Hardening unbound
-
-Don't leak private IPs to upstream DNS-servers when performing reverse lookups:
-
-{% highlight config %}
-server:
-        private-address: 10.0.0.0/8
-{% endhighlight %}
-
 # Allowlisting domains
 
 Is it possible to build a config which allows resolving specific domains while dropping the unspecified?
