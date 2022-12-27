@@ -2,7 +2,7 @@
 title: Corona Chart For Germany
 tags: [corona, virus, germany, chart]
 published: true
-archived: false
+archived: true
 ---
 The following charts use publicly available data surrounding the SARS-CoV-2 virus. *Click and drag on the charts to select a specific range and zoom into the data.*
 

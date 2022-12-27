@@ -2,7 +2,7 @@
 title: using hdparm to minimize hdd power consumption
 tags: [linux, hdparm, hdd]
 published: true
-archived: false
+archived: true
 ---
 The following steps are only recommended if it fits your hard drive usage. In my case, the hard drive is only used for storing a few MB of data once a day. So most of the time it sits there in idle state.
 
