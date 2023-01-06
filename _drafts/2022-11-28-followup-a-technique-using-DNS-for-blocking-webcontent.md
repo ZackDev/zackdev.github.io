@@ -8,9 +8,9 @@ This post shows how to further take control of the name resolution process. In a
 
 {% include image.html url="/assets/img/dns-resolver.png" description="" %}
 
-The chart above shows the hosts and paths involved which emerge from the different setups (A.* (default) and B.* (intended)). The main purpose of setup B is to replace the public recursive DNS-resolver with a self-hosted, private one. The motivation is derived from the fact that a query for the name `example.com` in setup A can be logged and manipulated by the operator of the public recursive DNS-resolver. Further enhancements are to block certain domain resolutions and to provide a zone for the local network.
+The chart above shows the hosts and paths involved which emerge from the different setups (A.* (default) and B.* (intended)). The main purpose of setup B is to replace the public recursive DNS-resolver with a self-hosted, private one. The motivation is derived from the fact that a query for the name `example.com` in setup A can be logged and manipulated by the operator of the public recursive DNS-resolver. Further enhancements are to block certain domain resolutions and to provide records for machines in the local network without querying upstream servers.
 
-Resolving a *Fully Qualified Domain Name (FQDN)* by the Domain Name System starts at the root zone, followed by the *Top Level Domain (TLD)* and subsequent subdomains separated by dots, each answering queries specified for their domain. This explains the recursive nature of the DNS-resolver as implied by the steps A.2.* and B.3.*.
+Resolving a *Fully Qualified Domain Name (FQDN)* by the Domain Name System starts at the root zone, followed by the *Top Level Domain (TLD)* and subsequent subdomains separated by dots, where queries for each section are handled by DNS-servers designated for that specific section. This explains the recursive nature of the DNS-resolver as implied by the steps A.2.* and B.3.*.
 
 # Setting up unbound
 
@@ -31,19 +31,19 @@ server:
         interface: 10.0.0.11
         interface: 127.0.0.1
 
-        access-control: 10.0.0.0/8 allow
+        access-control: 10.0.0.0/24 allow
         access-control: 127.0.0.0/8 allow
 {% endhighlight %}
 
 Line 2: by default, unbound has hardcoded information about the root zone. Servers in the zone might change, so by [downloading](https://www.internic.net/domain/named.root) and adding the file as `root-hints` to the config is a good practice.
 
-Line 4-5: specifies network interfaces, unbound operates on. In this setup, queries from the localhost and the local network are answered.
+Line 4-5: specifies network interfaces, unbound listens on. In this setup, queries from the localhost and the local network are answered.
 
 Line 7-8: limit access to the server by IP, CIDR notation.
 
 # /etc/unbound/unbound.conf.d/local.conf:
 
-Names and IPs for which the public Domain Name System is not responsible can be added and served like this. Assume that the local domain is named `sol`, that there are two entities, a client (10.0.0.1) called `mars` and a server (10.0.0.11) going by the name of `saturn`.
+Names and IPs for which the public Domain Name System is not responsible can be added and served like this. Assume that the local domain is named `sol`, that there are two entities, first (10.0.0.1) called `mars` and a second (10.0.0.11) going by the name of `saturn`.
 
 {% highlight config %}
 server:
@@ -54,7 +54,7 @@ server:
         local-data-ptr: "10.0.0.11  saturn.sol."
 {% endhighlight %}
 
-`local-zone: "sol." static` defines the local zone `sol.`. Queries for this zone don't get recursively queried, but rather looked up locally by searching for entries of type `local-data: "<resource record string>"`. There are numerous types of RRs, for this usecase, the A (IPv4 address) type is sufficient. A query for `mars.sol` is answered with `10.0.0.1`. The `local-data-ptr: "<IPaddr> <name>"` is an entry for reverse lookups, which delivers a name for an IP-address.
+`local-zone: "sol." static` defines the local zone `sol.`. Queries for this zone don't get recursively queried upstream, but rather looked up locally by searching for entries of type `local-data: "<resource record string>"`. There are numerous types of RRs, for this usecase, the A (IPv4 address) type is sufficient. A query for the IP of `mars.sol` is answered with `IN A 10.0.0.1`. The `local-data-ptr: "<IPaddr> <name>"` is an entry for reverse lookups, which delivers a name for an IP-address.
 
 # /etc/unbound/unbound.conf.d/block.conf:
 
@@ -82,17 +82,17 @@ dt='/etc/unbound/hoststoblock'
 ll='/etc/unbound/unbound.conf.d/block.conf'
 cl='/etc/unbound/cache.dump'
 
-wget $ds -O $dt
+wget "$ds" -O "$dt"
 
-hs=$(du $dt | cut -f 1)
+hs="$(du "$dt" | cut -f 1)"
 
-if [[ -f $dt && $hs -gt 4 ]]; then
-    echo "server:" > $ll
-    cat $dt | awk '/^0.0.0.0/ {print "\tlocal-zone: "$2" always_nxdomain"}' >> $ll
-    unbound-control dump_cache > $cl
+if [[ -f "$dt" && "$hs" -gt "4" ]] ; then
+    echo "server:" > "$ll"
+    cat "$dt" | awk '/^0.0.0.0/ {print "\tlocal-zone: "$2" always_nxdomain"}' >> "$ll"
+    unbound-control dump_cache > "$cl"
     unbound-control reload
-    cat $cl | unbound-control load_cache
-    rm $dt $cl
+    cat "$cl" | unbound-control load_cache
+    rm "$dt" "$cl"
 fi
 {% endhighlight %}
 
@@ -127,5 +127,6 @@ server:
 {% endhighlight %}
 
 # Links found on the way:
+
 * [unbound homepage](https://nlnetlabs.nl/projects/unbound/about/)
 * a [complete list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) as served by the IANA root zone.
