@@ -2,7 +2,7 @@
 title: a technique using DNS for blocking webcontent
 tags: [linux, dns, block-content]
 published: true
-archived: false
+archived: true
 ---
 The internet offers a multitude of content to the user, which contain different user tracking and profiling mechanics like `third party cookies` or `zero sized pixels`. Utilizing freely available tools can reduce the potential chance of exposure.
 
