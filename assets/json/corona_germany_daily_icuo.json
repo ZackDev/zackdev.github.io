@@ -5963,6 +5963,12 @@
             "free_icu": 2772,
             "covid_icu": 674,
             "covid_icu_invasive": 429
+        },
+        {
+            "date": "2023-01-13",
+            "free_icu": 2832,
+            "covid_icu": 653,
+            "covid_icu_invasive": 406
         }
     ]
 }
