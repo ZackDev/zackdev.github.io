@@ -15833,6 +15833,27 @@
             "fourth_vaccinations_percentage": 14.98,
             "fifth_vaccinations_percentage": 1.26,
             "sixth_vaccinations_percentage": 0.13
+        },
+        {
+            "date": "2023-01-20",
+            "first_vaccinations": 338,
+            "second_vaccinations": 247,
+            "third_vaccinations": 860,
+            "fourth_vaccinations": 9136,
+            "fifth_vaccinations": 4326,
+            "sixth_vaccinations": 349,
+            "total_first_vaccinations": 63200395,
+            "total_second_vaccinations": 61259964,
+            "total_third_vaccinations": 52109224,
+            "total_fourth_vaccinations": 12460780,
+            "total_fifth_vaccinations": 1053074,
+            "total_sixth_vaccinations": 107858,
+            "first_vaccinations_percentage": 76.03,
+            "second_vaccinations_percentage": 73.7,
+            "third_vaccinations_percentage": 62.69,
+            "fourth_vaccinations_percentage": 14.99,
+            "fifth_vaccinations_percentage": 1.27,
+            "sixth_vaccinations_percentage": 0.13
         }
     ]
 }
