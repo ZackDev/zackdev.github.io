@@ -1,6 +1,5 @@
 ---
 title: This Blog Is
-layout: default
 permalink: /
 published: true
 ---

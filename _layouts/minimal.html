@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    {% if page.url != "/" %}
+      {% assign title = page.title %}
+    {% else %}
+      {% assign title = "zackdev.github.io" %}
+    {% endif %}
+    <title>{{ title }}</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, nofollow">
+    <script type="module" src="/assets/js/main.mjs"></script>
+    <script type="text/javascript" src="/assets/js/highcharts.min.js"></script>
+    <link href="/assets/css/style.css" rel="stylesheet" type="text/css">
+  </head>
+  <body class="fg-medium-grey bg-white">
+    <!-- content start -->
+    <div id="main-content-wrap" class="outer">
+      <section id="main-content" class="inner">
+        {% if page.url != "/" %}
+        <a href="{{ site.url }}" style="margin: auto 0 auto 0;">back home</a>
+        <hr>
+        {% endif %}
+        <h1>{{ page.title }}</h1>
+        {{ content }}
+        {% if page.url != "/" %}
+        <hr>
+        <a href="{{ site.url }}" style="margin: auto 0 auto 0;">back home</a>
+        {% endif %}
+      </section>
+    </div>
+    <!-- content end -->
+  </body>
+</html>
