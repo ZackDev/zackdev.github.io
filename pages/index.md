@@ -1,5 +1,5 @@
 ---
-title: This Blog Is
+title: Index
 permalink: /
 published: true
 ---
