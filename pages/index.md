@@ -3,10 +3,8 @@ title: Index
 permalink: /
 published: true
 ---
-{% include listposts.html archived=false %}
+{% include listposts.html archive=false %}
 
-{% assign archived_posts = site.posts | where: "archived", true %}
-
-{% if archived_posts.size > 0 %}
+{% if site.posts.size > site.index_post_capacity %}
   [archived posts](/archive.html)
 {% endif %}

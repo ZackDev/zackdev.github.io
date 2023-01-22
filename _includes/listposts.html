@@ -1,4 +1,9 @@
-{% assign posts = site.posts | where: "archived", include.archived %}
+{% if include.archive == true %}
+  {% assign posts = site.posts | slice: site.index_post_capacity, site.posts.size %}
+{% elsif include.archive == false %}
+  {% assign posts = site.posts | slice: 0, site.index_post_capacity %}
+{% endif %}
+
 {% if posts.size > 0 %}
 <ul class="index-menu">
   {% for post in posts %}
