@@ -1,5 +1,5 @@
 ---
-title: archived posts
+title: archive
 permalink: /archive.html
 published: true
 ---
