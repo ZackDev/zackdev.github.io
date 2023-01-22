@@ -2,7 +2,6 @@
 title: Machine Soul
 tags: [fiction]
 published: true
-archived: true
 ---
 {% include image.html url="/assets/img/pexels-philippe-donn-1169754.jpg" description="" %}
 

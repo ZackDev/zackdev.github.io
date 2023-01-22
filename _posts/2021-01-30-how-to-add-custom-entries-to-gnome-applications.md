@@ -2,7 +2,6 @@
 title: How To Add Custom Entries To Gnome Applications
 tags: [linux, gnome, applications]
 published: true
-archived: true
 ---
 # Your favorite program is not listed in the Gnome Applications menu?
 

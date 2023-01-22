@@ -2,7 +2,6 @@
 title: The Latest Mars Images
 tags: [mars, images, NASA]
 published: true
-archived: false
 ---
 
 # Ever wanted to know how it looks like on Mars ?

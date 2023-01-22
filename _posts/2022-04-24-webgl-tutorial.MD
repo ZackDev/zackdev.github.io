@@ -2,7 +2,6 @@
 title: MDN WebGL Tutorial
 tags: [MDN, webgl]
 published: true
-archived: true
 ---
 Taken from [https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial](https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial) and slightly variated.
 

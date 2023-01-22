@@ -2,7 +2,6 @@
 title: homeserver postmortem
 tags: [linux, networking]
 published: true
-archived: false
 ---
 When exploring the local filesystem of my homeserver, i stumbled upon this, in my eyes, a folder polluted with data /lib/modules/. Nothing stopped me from deleting a plethora of folders inside /lib/modules/. The damage was done, but only manifested itself after a reboot a few days later. Debian booted into some emergency mode, `failing to load needed kernel modules` like vfat, which is required to mount fat filesystems. Another custom module and the corresponding fallback module for providing network access failed to load too.
 

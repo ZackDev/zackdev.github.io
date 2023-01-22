@@ -2,6 +2,8 @@ timezone: DE
 encoding: utf-8
 highlighter: rouge
 
+index_post_capacity: 5
+
 defaults:
   -
     scope:

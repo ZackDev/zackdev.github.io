@@ -2,7 +2,6 @@
 title: Why Coding Style Is Useful
 tags: [coding, style, python]
 published: true
-archived: true
 ---
 One of the skills a developer should have is a sense for readable code. Not just for oneself, but also for other developers working on or with the same code. I won't get into design patterns here, they contribute to the architecture e.g. maintenance and extend-ability of a program, not necessarily to it's readability.
 

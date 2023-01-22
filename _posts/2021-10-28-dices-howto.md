@@ -2,7 +2,6 @@
 title: dices howto
 tags: [howto]
 published: true
-archived: true
 ---
 The [Dices UI]({% post_url 2021-10-28-roll-some-dices %}) consists of six elements, which are described below in order of appearance.
 

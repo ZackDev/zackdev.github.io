@@ -2,7 +2,6 @@
 title: Digital Security And Political Power Transition
 tags: [afghanistan, data-security]
 published: true
-archived: true
 ---
 Data is being generated when when using digital services like online shops, travel agencies, social networks. Information, when in the wrong hands, can have serious consequences. Just imagine a data-leak about the next planned vacation. Now back to the real world, where whole governments change.
 
