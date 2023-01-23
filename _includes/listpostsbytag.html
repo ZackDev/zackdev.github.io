@@ -1,12 +1,8 @@
 {% assign posts = site.posts %}
 {% if posts.size > 0 %}
-<ul class="index-menu">
   {% for post in posts %}
     {% if post.tags contains include.tag %}
-    <li>
       {% include postinfo.html post=post %}
-    </li>
     {% endif %}
   {% endfor %}
-</ul>
 {% endif %}

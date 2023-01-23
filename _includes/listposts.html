@@ -5,11 +5,7 @@
 {% endif %}
 
 {% if posts.size > 0 %}
-<ul class="index-menu">
   {% for post in posts %}
-  <li>
     {% include postinfo.html post=post %}
-  </li>
   {% endfor %}
-</ul>
 {% endif %}
