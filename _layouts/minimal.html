@@ -17,10 +17,6 @@
     <!-- content start -->
     <div id="main-content-wrap" class="outer">
       <section id="main-content" class="inner">
-        {% if page.url != "/" %}
-        <a href="{{ site.url }}" style="margin: auto 0 auto 0;">back home</a>
-        <hr>
-        {% endif %}
         <h1>{{ page.title }}</h1>
         {{ content }}
         {% if page.url != "/" %}
