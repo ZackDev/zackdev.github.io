@@ -189,13 +189,13 @@ strong {
 body {
   box-sizing: border-box;
   font-family: "Vollkorn";
-  font-size: 1.3em;
+  font-size: 1.0em;
   line-height: 1.61803;
   margin-bottom: 100px;
 }
 
 code {
-  font-size: 1rem;
+  font-size: 1.0rem;
   font: inherit;
   .language-plaintext {
     @include border(1px, solid, $light-grey, 5px);
