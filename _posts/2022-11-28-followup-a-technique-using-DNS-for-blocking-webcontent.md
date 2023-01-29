@@ -129,3 +129,7 @@ server:
 
 * [unbound homepage](https://nlnetlabs.nl/projects/unbound/about/)
 * a [complete list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) as served by the IANA root zone.
+
+# Update 2023-01-29:
+
+The `ubound-control` command now natively allows reloading unbound, thus re-reading configs, by passing the `reload_keep_cache` parameter.
