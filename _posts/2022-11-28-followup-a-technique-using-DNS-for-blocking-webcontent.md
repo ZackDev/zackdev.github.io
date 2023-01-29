@@ -132,4 +132,4 @@ server:
 
 # Update 2023-01-29:
 
-The `ubound-control` command now natively allows reloading unbound, thus re-reading configs, by passing the `reload_keep_cache` parameter.
+The `ubound-control` command now natively allows reloading unbound while preserving it's cache by passing the `reload_keep_cache` parameter.
