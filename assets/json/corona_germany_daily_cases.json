@@ -8991,6 +8991,14 @@
             "incidence": 85.52,
             "rrate": 0.0,
             "rratesmoothed": 0.52
+        },
+        {
+            "date": "2023-01-29",
+            "totalcases": 37739472,
+            "dailycases": 0,
+            "incidence": 85.52,
+            "rrate": 0,
+            "rratesmoothed": 0.52
         }
     ]
 }
