@@ -1,6 +1,6 @@
 ---
 title: duckduckgo stopped exposing service usage data
-tags: [web, search-engine]
+tags: [chart, web, search-engine]
 published: true
 ---
 
