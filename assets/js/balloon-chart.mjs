@@ -23,7 +23,7 @@ const initBalloonChart = () => {
         },
         plotOptions: {
             pie: {
-                colors: ['#FF0000'],
+                colors: ['#AC0000'],
                 allowPointSelect: true,
                 cursor: 'pointer',
                 dataLabels: {
