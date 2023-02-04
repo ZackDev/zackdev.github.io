@@ -36,13 +36,10 @@ const initBalloonChart = () => {
             name: 'Balloons',
             data: [{
                 name: 'Made In China',
-                y: 1,
-                sliced: true,
-                selected: true
+                y: 2,
             }]
         }]
-    });
-    
+    });   
 }
 
 new Init(initBalloonChart)
