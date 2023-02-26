@@ -20,7 +20,7 @@ Regulation of the state is done by the HDD firmware in combination with the driv
 
 NOTE: *SeaGate, for example, use their own power management for some of their drives, which knows 6 states. [https://github.com/Seagate/openSeaChest](https://github.com/Seagate/openSeaChest)*
 
-# Using hdparm
+## Using hdparm
 
 [https://www.man7.org/linux/man-pages/man8/hdparm.8.html](https://www.man7.org/linux/man-pages/man8/hdparm.8.html)
 
@@ -87,7 +87,7 @@ Persist the settings over reboot by editing /etc/hdparm.conf:
 }
 ```
 
-# Is that all?
+## Is that all?
 
 No, unfortunately not. After some testing, by accessing files so the drive goes `active` -> `idle` -> `standby`, which yielded inconsistent results, the drive's manual provided the missing information:
 

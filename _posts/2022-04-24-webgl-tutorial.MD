@@ -7,48 +7,48 @@ Taken from [https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API/Tutorial]
 
 <script type="text/javascript" src="/assets/js/mdn-webgl/gl-matrix/gl-matrix-min.js"></script>
 
-# Unicolored Square
+## Unicolored Square
 
 <canvas id="gl-canvas-02" width="640" height="480"></canvas>
 <script type="module" src="/assets/js/mdn-webgl/tutorial-02.js"></script>
 <hr>
 
-# Colored Triangle
+## Colored Triangle
 
 <canvas id="gl-canvas-03" width="640" height="480"></canvas>
 <script type="module" src="/assets/js/mdn-webgl/tutorial-03.js"></script>
 <hr>
 
-# Rotating Triangle
+## Rotating Triangle
 
 <canvas id="gl-canvas-04" width="640" height="480"></canvas>
 <script type="module" src="/assets/js/mdn-webgl/tutorial-04.js"></script>
 <hr>
 
-# Rotating Pyramid
+## Rotating Pyramid
 
 <canvas id="gl-canvas-05" width="640" height="480"></canvas>
 <script type="module" src="/assets/js/mdn-webgl/tutorial-05.js"></script>
 <hr>
 
-# Rotating Ratatösk
+## Rotating Ratatösk
 
 <canvas id="gl-canvas-06" width="640" height="480"></canvas>
 <script type="module" src="/assets/js/mdn-webgl/tutorial-06.js"></script>
 <hr>
 
-# RRR
+## RRR
 
 <canvas id="gl-canvas-07" width="640" height="480"></canvas>
 <script type="module" src="/assets/js/mdn-webgl/tutorial-07.js"></script>
 <hr>
 
-# Extra
+## Extra
 
 <canvas id="gl-canvas-08" width="400" height="400"></canvas>
 <script type="module" src="/assets/js/mdn-webgl/extra.js"></script>
 
-# Links found on the way:
+## Links found on the way:
 [https://thebookofshaders.com/](https://thebookofshaders.com/)
 
 [https://webgl.brown37.net/](https://webgl.brown37.net/)

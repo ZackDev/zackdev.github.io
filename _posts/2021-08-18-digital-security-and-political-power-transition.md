@@ -13,7 +13,7 @@ There is a strong possibility that the data is used to identify former collabora
 
 The *Human Rights First* organization has already published a guide on how to possibly bypass, at least making the use of bio-metric recognition systems harder to use.[^3]
 
-# Update 2021-08-18:
+## Update 2021-08-18:
 
 The scanners used, can each directly hold up 10,000s of data-sets, with the option to access online data-bases.[^4]
 

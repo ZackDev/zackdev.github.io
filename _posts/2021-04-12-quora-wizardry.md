@@ -3,7 +3,7 @@ title: Quora Wizardry
 tags: [internet, web, quora]
 published: true
 ---
-# How to access related articles on Quora
+## How to access related articles on Quora
 
 Without having a social media account of the ones seen below, `Quora` presents you this when trying to access an article that is related to the one you're currently viewing.
 

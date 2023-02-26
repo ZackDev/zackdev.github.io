@@ -22,7 +22,7 @@ The following charts use publicly available data surrounding the SARS-CoV-2 viru
 <div class="spacer"></div>
 <div id="chart-corona-vaccinations-by-vaccine-germany"></div>
 
-# Used Datasources
+## Used Datasources
 * COVID-19-Cases and Incidence: [CSSE Github Repository][1]. The day to day increase in cases is a calculation on that data.
 * Weekly And Total Performed PCR Tests: [Robert Koch Institute (1)][2]
 * Intensive Care Unit Occupancy: COVID-19 cases plus those which require invasive ventilation in comparison to free intensive care beds. Data source is the [DIVI-Intensivregister (www.intensivregister.de)][3]
@@ -36,13 +36,13 @@ The following charts use publicly available data surrounding the SARS-CoV-2 viru
 [4]: <https://raw.githubusercontent.com/robert-koch-institut/COVID-19-Impfungen_in_Deutschland/master/Aktuell_Deutschland_Bundeslaender_COVID-19-Impfungen.csv> "COVID-19-Impfungen_in_Deutschland/Aktuell_Deutschland_Bundeslaender_COVID-19-Impfungen.csv"
 [5]: <https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Bevoelkerungsstand/Tabellen/zensus-geschlecht-staatsangehoerigkeit-2021.html> "Bevölkerung nach Nationalität und Geschlecht 2021"
 
-# Update 2021-02-14
+## Update 2021-02-14
 Because the `7 Day Incidence` became a goalpost value for political decision makers, a chart is now available.
 
-# Update 2021-08-24
+## Update 2021-08-24
 New chart added since focus shifted from incidence to `Intensive Care Unit` metrics.
 
-# Update 2021-08-30
+## Update 2021-08-30
 Added pie chart that shows administered doses by vaccine name.
 
 <script type="module" src="/assets/js/corona.mjs" />

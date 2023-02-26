@@ -11,7 +11,7 @@ The chart above shows the hosts and paths involved which emerge from the differe
 
 Resolving a *Fully Qualified Domain Name (FQDN)* by the Domain Name System starts at the root zone, followed by the *Top Level Domain (TLD)* and subsequent subdomains separated by dots, where queries for each section are handled by DNS-servers designated for that specific section. This explains the recursive nature of the DNS-resolver as implied by the steps A.2.* and B.3.*.
 
-# Setting up unbound
+## Setting up unbound
 
 Debian provides the unbound package, a caching, recursive DNS resolver, which additionally can be configured as DNS server for specific names, without the need for querying the domain name system.
 
@@ -21,7 +21,7 @@ apt install unbound
 
 Unbound reads it's configuration from `/etc/unbound/unbound.conf` and from `<anyname>.conf` in the `/etc/unbound/undbound.conf.d/` directory. For segregation, unbound.conf holds basic parameters, details about the local network are defined in local.conf and block.conf finally defines domain-names for which `NXDOMAIN` is to be returned.
 
-# /etc/unbound/unbound.conf:
+## /etc/unbound/unbound.conf:
 
 {% highlight config linenos %}
 server:
@@ -40,7 +40,7 @@ Line 4-5: specifies network interfaces, unbound listens on. In this setup, queri
 
 Line 7-8: limit access to the server by IP, CIDR notation.
 
-# /etc/unbound/unbound.conf.d/local.conf:
+## /etc/unbound/unbound.conf.d/local.conf:
 
 Names and IPs for which the public Domain Name System is not responsible can be added and served like this. Assume that the local domain is named `sol`, that there are two entities, first (10.0.0.1) called `mars` and a second (10.0.0.11) going by the name of `saturn`.
 
@@ -55,7 +55,7 @@ server:
 
 `local-zone: "sol." static` defines the local zone `sol.`. Queries for this zone don't get recursively queried upstream, but rather looked up locally by searching for entries of type `local-data: "<resource record string>"`. There are numerous types of RRs, for this usecase, the A (IPv4 address) type is sufficient. A query for the IP of `mars.sol` is answered with `IN A 10.0.0.1`. The `local-data-ptr: "<IPaddr> <name>"` is an entry for reverse lookups, which delivers a name for an IP-address.
 
-# /etc/unbound/unbound.conf.d/block.conf:
+## /etc/unbound/unbound.conf.d/block.conf:
 
 Entries defined by `local-zone: "<domain>" always_nxdomain` get answered with the NXDOMAIN status.
 
@@ -95,7 +95,7 @@ if [[ -f "$dt" && "$hs" -gt "4" ]] ; then
 fi
 {% endhighlight %}
 
-# Testing the setup
+## Testing the setup
 
 Some examples to query unbound using dig. 
 
@@ -111,7 +111,7 @@ dig @127.0.0.1 -p 53 invalid.sol
 dig @127.0.0.1 -p 53 -x 10.0.0.1
 {% endhighlight %}
 
-# Allowlisting domains
+## Allowlisting domains
 
 Is it possible to build a config which allows resolving specific domains while dropping the unspecified?
 
@@ -125,11 +125,11 @@ server:
         local-zone: "example.com" always_transparent
 {% endhighlight %}
 
-# Links found on the way:
+## Links found on the way:
 
 * [unbound homepage](https://nlnetlabs.nl/projects/unbound/about/)
 * a [complete list of TLDs](https://data.iana.org/TLD/tlds-alpha-by-domain.txt) as served by the IANA root zone.
 
-# Update 2023-01-29:
+## Update 2023-01-29:
 
 The `ubound-control` command now natively allows reloading unbound while preserving it's cache by passing the `reload_keep_cache` parameter.

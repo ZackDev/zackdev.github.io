@@ -3,7 +3,7 @@ title: How To Add Custom Entries To Gnome Applications
 tags: [linux, gnome, applications]
 published: true
 ---
-# Your favorite program is not listed in the Gnome Applications menu?
+## Your favorite program is not listed in the Gnome Applications menu?
 
 The entries displayed in the menu are defined in the `/usr/share/applications/` folder, where each applications meta data are defined separate .ini syntax style files.
 
