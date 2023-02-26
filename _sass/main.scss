@@ -29,6 +29,8 @@ button, input {
   vertical-align: baseline;
 }
 
+$sheet-opacity: 0.8;
+
 @mixin border($thickness, $style, $color, $radius) {
   border: $thickness $style $color;
   border-radius: $radius;
@@ -321,7 +323,7 @@ td {
   left: 0;
   top: 0;
   z-index: 2;
-  opacity: 0.95;
+  opacity: $sheet-opacity;
   box-shadow: 0 2px 2px $dark-grey;
 }
 
@@ -345,7 +347,7 @@ td {
   left: 0;
   bottom: 0;
   z-index: 2;
-  opacity: 0.95;
+  opacity: $sheet-opacity;
   box-shadow: 0 -2px 2px $dark-grey;
 }
 
