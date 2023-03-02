@@ -1,5 +1,5 @@
 ---
-title: a technique using DNS for blocking webcontent
+title: A technique using DNS for blocking webcontent
 tags: [linux, dns, block-content]
 published: true
 ---

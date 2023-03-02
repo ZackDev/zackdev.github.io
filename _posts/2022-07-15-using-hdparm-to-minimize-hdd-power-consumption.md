@@ -1,5 +1,5 @@
 ---
-title: using hdparm to minimize hdd power consumption
+title: Using hdparm to minimize HDD power consumption
 tags: [linux, hdparm, hdd]
 published: true
 ---

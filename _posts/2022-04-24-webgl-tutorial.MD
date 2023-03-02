@@ -1,5 +1,5 @@
 ---
-title: MDN WebGL Tutorial
+title: MDN WebGL tutorial
 tags: [MDN, webgl]
 published: true
 ---

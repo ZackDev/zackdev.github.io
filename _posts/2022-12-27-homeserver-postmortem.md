@@ -1,5 +1,5 @@
 ---
-title: homeserver postmortem
+title: Homeserver postmortem
 tags: [linux, networking]
 published: true
 ---

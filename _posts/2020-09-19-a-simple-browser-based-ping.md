@@ -1,5 +1,5 @@
 ---
-title: A Simple Browser-Based Ping
+title: A simple browser-based ping
 tags: [chart, coding, ping]
 published: true
 ---

@@ -1,5 +1,5 @@
 ---
-title: The Latest Mars Images
+title: The latest mars images
 tags: [mars, images, NASA]
 published: true
 ---

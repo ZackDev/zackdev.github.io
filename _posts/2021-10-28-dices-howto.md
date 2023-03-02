@@ -1,5 +1,5 @@
 ---
-title: dices howto
+title: Dices HowTo
 tags: [howto]
 published: true
 ---

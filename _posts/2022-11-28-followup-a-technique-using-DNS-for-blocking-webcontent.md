@@ -1,5 +1,5 @@
 ---
-title: followup a technique using DNS for blocking webcontent
+title: Followup a technique using DNS for blocking webcontent
 tags: [linux, dns, block-content]
 published: true
 ---

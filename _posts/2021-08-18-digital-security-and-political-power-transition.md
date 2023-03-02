@@ -1,5 +1,5 @@
 ---
-title: Digital Security And Political Power Transition
+title: Digital security and political power transition
 tags: [afghanistan, data-security]
 published: true
 ---

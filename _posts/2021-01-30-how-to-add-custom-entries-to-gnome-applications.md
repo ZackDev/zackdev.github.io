@@ -1,5 +1,5 @@
 ---
-title: How To Add Custom Entries To Gnome Applications
+title: How to add custom entries to Gnome applications
 tags: [linux, gnome, applications]
 published: true
 ---

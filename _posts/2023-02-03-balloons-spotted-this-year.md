@@ -1,5 +1,5 @@
 ---
-title: balloons spotted this year
+title: Balloons spotted this year
 tags: [chart]
 published: true
 ---

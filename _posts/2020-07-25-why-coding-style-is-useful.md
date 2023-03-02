@@ -1,5 +1,5 @@
 ---
-title: Why Coding Style Is Useful
+title: Why coding style is useful
 tags: [coding, style, python]
 published: true
 ---

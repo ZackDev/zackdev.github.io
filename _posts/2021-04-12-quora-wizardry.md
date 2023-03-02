@@ -1,5 +1,5 @@
 ---
-title: Quora Wizardry
+title: Quora wizardry
 tags: [internet, web, quora]
 published: true
 ---

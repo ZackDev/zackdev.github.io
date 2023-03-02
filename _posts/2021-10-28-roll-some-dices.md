@@ -1,5 +1,5 @@
 ---
-title: Roll Some Dices
+title: Roll some dices
 tags: [coding, dices]
 published: true
 ---

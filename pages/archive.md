@@ -1,5 +1,5 @@
 ---
-title: archive
+title: Archive
 permalink: /archive.html
 published: true
 ---

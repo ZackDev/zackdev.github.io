@@ -1,5 +1,5 @@
 ---
-title: Generate Morse Code From Text
+title: Generate morse code from text
 tags: [coding, morse]
 published: true
 ---

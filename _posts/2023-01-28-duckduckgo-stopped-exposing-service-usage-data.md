@@ -1,5 +1,5 @@
 ---
-title: duckduckgo stopped exposing service usage data
+title: DuckDuckGo stopped exposing service usage data
 tags: [chart, web, search-engine]
 published: true
 ---

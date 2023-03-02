@@ -1,6 +1,6 @@
 {% assign post = include.post %}
 <div class="post-info">
-    <a href="{{ post.url }}">{{ post.title | downcase }}</a>
+    <a href="{{ post.url }}">{{ post.title }}</a>
     <br>
     <span class="fs-small vam">
         {{ post.date | date_to_long_string }}
