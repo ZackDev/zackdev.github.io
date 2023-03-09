@@ -45,7 +45,7 @@ const initChart = (interval) => {
 
 const initPing = () => {
   let interval = 3000;
-  let targetUrl = "/assets/json/dummy.json";
+  let targetUrl = "https://raw.githubusercontent.com/ZackDev/data/master/json/dummy.json";
   let chart = initChart(interval);
   /* ping instantly for first datapoint, then with periodic interval */
   ping(targetUrl, chart.series[0])

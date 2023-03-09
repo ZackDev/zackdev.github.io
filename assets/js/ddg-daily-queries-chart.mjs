@@ -4,7 +4,7 @@ import { checkHTTPResponse, Init } from '/assets/js/main.mjs';
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-undef */
 const initDDGQueries = () => {
-    const dailyQueriesUrl = '/assets/json/daily_queries_ddg.json';
+    const dailyQueriesUrl = 'https://raw.githubusercontent.com/ZackDev/data/master/json/daily_queries_ddg.json';
 
     const fInit = {
         method: 'GET',

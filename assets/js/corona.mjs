@@ -4,11 +4,11 @@ import { checkHTTPResponse, Init } from '/assets/js/main.mjs';
 /* eslint-disable no-use-before-define */
 /* eslint-disable no-undef */
 const initCorona = () => {
-  const dailyCasesUrl = '/assets/json/corona_germany_daily_cases.json';
-  const weeklyTestsUrl = '/assets/json/corona_germany_weekly_tests.json';
-  const dailyVaccinationsUrl = '/assets/json/corona_germany_daily_vaccinations.json';
-  const dailyIcuoUrl = '/assets/json/corona_germany_daily_icuo.json';
-  const vaccinationsByVaccineUrl = '/assets/json/corona_germany_vaccinations_by_vaccine.json';
+  const dailyCasesUrl = 'https://raw.githubusercontent.com/ZackDev/data/master/json/corona_germany_daily_cases.json';
+  const weeklyTestsUrl = 'https://raw.githubusercontent.com/ZackDev/data/master/json/corona_germany_weekly_tests.json';
+  const dailyVaccinationsUrl = 'https://raw.githubusercontent.com/ZackDev/data/master/json/corona_germany_daily_vaccinations.json';
+  const dailyIcuoUrl = 'https://raw.githubusercontent.com/ZackDev/data/master/json/corona_germany_daily_icuo.json';
+  const vaccinationsByVaccineUrl = 'https://raw.githubusercontent.com/ZackDev/data/master/json/corona_germany_vaccinations_by_vaccine.json';
 
   const fInit = {
     method: 'GET',
