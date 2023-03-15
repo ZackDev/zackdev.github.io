@@ -45,4 +45,7 @@ New chart added since focus shifted from incidence to `Intensive Care Unit` metr
 ## Update 2021-08-30
 Added pie chart that shows administered doses by vaccine name.
 
+## Update 2023-03-15
+The CSSE stopped collecting and reporting data for the COVID-19 virus. Thus, the charts `COVID-19 Cases` and `Incidence` stop receiving updates.
+
 <script type="module" src="/assets/js/corona.mjs" />
