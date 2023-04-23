@@ -24,7 +24,7 @@ The following charts use publicly available data surrounding the SARS-CoV-2 viru
 
 ## Used Datasources
 * COVID-19-Cases and Incidence: [CSSE Github Repository][1]. The day to day increase in cases is a calculation on that data.
-* Weekly And Total Performed PCR Tests: [Robert Koch Institute (1)][2]
+* Weekly And Total Performed PCR Tests: [Robert Koch Institute (1)][2], replaced in 2023 by [Robert Koch Institute (3)][6]
 * Intensive Care Unit Occupancy: COVID-19 cases plus those which require invasive ventilation in comparison to free intensive care beds. Data source is the [DIVI-Intensivregister (www.intensivregister.de)][3]
 * Daily And Total Vaccinations: [Robert Koch Institute (2)][4], Population: [Destatis][5]
 * Vaccinations By Vaccine: [Robert Koch Institute (2)][4]
@@ -35,6 +35,7 @@ The following charts use publicly available data surrounding the SARS-CoV-2 viru
 [3]: <https://www.intensivregister.de> "DIVI-Intensivregister (www.intensivregister.de)"
 [4]: <https://raw.githubusercontent.com/robert-koch-institut/COVID-19-Impfungen_in_Deutschland/master/Aktuell_Deutschland_Bundeslaender_COVID-19-Impfungen.csv> "COVID-19-Impfungen_in_Deutschland/Aktuell_Deutschland_Bundeslaender_COVID-19-Impfungen.csv"
 [5]: <https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Bevoelkerungsstand/Tabellen/zensus-geschlecht-staatsangehoerigkeit-2021.html> "Bevölkerung nach Nationalität und Geschlecht 2021"
+[6]: <https://github.com/robert-koch-institut/SARS-CoV-2-PCR-Testungen_in_Deutschland> "SARS-CoV-2-PCR-Testungen in Deutschland"
 
 ## Update 2021-02-14
 Because the `7 Day Incidence` became a goalpost value for political decision makers, a chart is now available.

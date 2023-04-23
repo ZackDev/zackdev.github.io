@@ -31,6 +31,10 @@ button, input {
 
 $sheet-opacity: 0.8;
 
+::selection {
+  background-color: #1efa46;
+}
+
 @mixin border($thickness, $style, $color, $radius) {
   border: $thickness $style $color;
   border-radius: $radius;
