@@ -48,7 +48,7 @@ class DiceController {
      * 
      */
     addDiceSets() {
-        let diceSetsURL = "/assets/json/dices.json";
+        let diceSetsURL = "https://raw.githubusercontent.com/ZackDev/data/master/json/dices.json";
         let fInit = {
             method: 'GET',
             cache: 'no-cache'
