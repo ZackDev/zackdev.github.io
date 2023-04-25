@@ -11,4 +11,4 @@ On the other hand, entertainment bleeds into the domain of systems which should 
 
 Something which is definitely on the horizon, AI dominating the creation, distribution of content as well as readjusting itself based on gathered feedback, optimizing the attention target function, further blurring the fine line between fiction and reality by using powerful models which are capable to generate nearly realistic images, voices and videos.
 
-Will such an AI generate events similar to [the radio broadcast of Orson Well's "War of the Worlds"](https://en.wikipedia.org/wiki/The_War_of_the_Worlds_(1938_radio_drama))? Or will AI generated content be required to get explicitly marked as such, and will models be required to disclose it's training data? 
+Will such an AI generate events similar to [the radio broadcast of Orson Well's "War of the Worlds"](https://en.wikipedia.org/wiki/The_War_of_the_Worlds_(1938_radio_drama))? Or will AI generated material be required to get explicitly marked as such, and will model trainers be required to disclose their training data?
