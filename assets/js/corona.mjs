@@ -134,13 +134,15 @@ const getAsyncWeeklyTestsCallback = (callbackObject) => {
   if (Array.isArray(callbackObject.data)) {
     let initialValue = {
       calendarWeeks: [],
-      weeklyTests: [],
+      weeklyTestsPositive: [],
+      weeklyTestsNegative: [],
       totalTests: []
     }
 
     const dataObj = callbackObject.data.reduce(function (p, c) {
       p.calendarWeeks.push(c.calendar_week)
-      p.weeklyTests.push(c.weekly_tests)
+      p.weeklyTestsPositive.push(c.weekly_tests_positive)
+      p.weeklyTestsNegative.push(c.weekly_tests - c.weekly_tests_positive)
       p.totalTests.push(c.total_tests)
       return p
     }, initialValue);
@@ -368,11 +370,24 @@ function drawWeeklyTestsChart(dataObj) {
       },
       opposite: true,
     }],
+    plotOptions: {
+      column: {
+        stacking: 'normal',
+      },
+    },
     series: [{
       yAxis: 0,
-      name: 'Weekly PCR Tests',
-      data: dataObj.weeklyTests,
+      stack: 0,
+      index: 0,
+      name: 'Weekly PCR Tests Positive',
+      data: dataObj.weeklyTestsPositive,
     }, {
+      yAxis: 0,
+      stack: 0,
+      index: 1,
+      name: 'Weekly PCR Tests Negative',
+      data: dataObj.weeklyTestsNegative,
+    },{
       type: 'line',
       yAxis: 1,
       name: 'Total PCR Tests',
