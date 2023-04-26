@@ -142,7 +142,7 @@ const getAsyncWeeklyTestsCallback = (callbackObject) => {
     const dataObj = callbackObject.data.reduce(function (p, c) {
       p.calendarWeeks.push(c.calendar_week)
       p.weeklyTestsPositive.push(c.weekly_tests_positive)
-      p.weeklyTestsNegative.push(c.weekly_tests - c.weekly_tests_positive)
+      p.weeklyTestsNegative.push(c.weekly_tests_negative)
       p.totalTests.push(c.total_tests)
       return p
     }, initialValue);
