@@ -210,8 +210,7 @@ const insightCallback = (callbackObject) => {
 
 const photosCallback = (callbackObject) => {
   let imgObj = [...callbackObject.latest_photos];
-  let urls = [];
-  imgObj.forEach((i) => urls.push(i.img_src));
+  let urls = imgObj.map((i) => i.img_src);
   new Album("album-container", urls);
 }
 
