@@ -3,7 +3,7 @@ import { ViewPort } from '/assets/js/ui-tools.mjs';
 export { Album };
 
 class Album {
-    constructor(attachTo) {
+    constructor(attachTo, urls) {
         this.root = new ViewPort(attachTo);
         // array holding the album's images' urls
         this.images = [];
@@ -63,7 +63,7 @@ class Album {
         this.mainImage = mainImage;
         this.imagesPreviewContainer = imagesPreviewContainer;
 
-
+        urls.forEach(u => this.addImage(u));
     }
 
     addImage(url) {
