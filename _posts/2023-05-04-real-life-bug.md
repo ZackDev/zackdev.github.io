@@ -1,6 +1,6 @@
 ---
 title: Real life bug
-tags: [nature]
+tags: [images, nature]
 published: true
 ---
 <div id="album-container"></div>
