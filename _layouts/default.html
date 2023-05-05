@@ -32,10 +32,13 @@
 
     <!-- footer start -->
     <div id="footer-wrap" class="outer bg-dark-grey">
-      <footer id="footer" class="inner flex-row">
+      <footer id="footer" class="inner flex-row" style="justify-content: space-between;">
         {% if page.url != "/" %}
         <a href="{{ site.url }}" style="margin: auto 0 auto 0;">back home</a>
+        {% else %}
+        <div></div>
         {% endif %}
+        <a href="/impressum.html" style="margin: auto 0 auto 0;">impressum</a>
       </footer>
     </div>
     <!-- footer end -->

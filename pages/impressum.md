@@ -1,5 +1,9 @@
 ---
 title: Impressum
 permalink: /impressum.html
-published: false
+published: true
 ---
+Bastian Maier  
+Fischeräckerstraße 2  
+75417 Mühlacker  
+zackdev(at)gmx(dot)net
