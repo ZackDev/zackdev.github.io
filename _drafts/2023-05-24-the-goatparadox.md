@@ -15,33 +15,34 @@ Mysteriously, the chance for winning the Cadillac increases to 2/3 if the player
 import random
 
 
-def rechoose(doors):
+def rechoose(prizes):
     # initial player guess
-    doors.pop(random.randint(0, len(doors) - 1))
+    prizes.pop(random.randint(0, len(prizes) - 1))
 
     # goat revealed by moderator
-    doors.pop(doors.index('G'))
+    prizes.pop(prizes.index(False))
 
     # item rechosen by player
-    return doors.pop(-1)
+    return prizes.pop(-1)
 
 
 if __name__ == '__main__':
-    doors = ['G', 'G', 'C']
+    prizes = [False, False, True]
     cycles = 100000
     results = []
-    [results.append(rechoose(doors.copy())) for _ in range(cycles)]
-    print(results.count('C') / len(results))
+    [results.append(rechoose(prizes.copy())) for _ in range(cycles)]
+    print(results.count(True) / (len(results)))
+
 
 ```
 
-The program defines the prizes `Goat, Goat, Cadillac` as the list `doors = ['G', 'G', 'C']`, the number of games to run is denoted by `cycles` and the list named `results` to store the results, from which the probability to win the Cadillac is derived.
+The program defines the prizes `Goat, Goat, Cadillac` as the list `prizes = [False, False, True]`, the number of games to run is denoted by `cycles` and the list named `results` to store the results, from which the probability to win the Cadillac is derived.
 
-A copy of the list of doors is passed `cycles` times to the `rechoose(doors)` function, simulating the gameshow:
+A copy of the list of prizes is passed `cycles` times to the `rechoose(prizes)` function, simulating the gameshow:
 
-1. initial player guess - the player chooses a random door, which he doesn't take, gets removed.
-2. goat revealed by moderator - one door with a goat is removed.
-3. item choosen by player - in this case the player always rechooses, which makes the last remaining element the choosen element.
+1. initial player guess - the player chooses a random prize, which he doesn't take, gets removed.
+2. goat revealed by moderator - one prize with a goat is removed.
+3. prize choosen by player - in this case the player always rechooses, which makes the last remaining element the choosen element.
 
 Finally, the Cadillacs won, as fraction of the total games played, gets printed:
 
@@ -50,21 +51,22 @@ python3 goatparadox.py
 0.6672
 ```
 
-But why does the probability for C linger around 2/3? Let's break it down to the three cases possible from the starting configuration: the doors `G G C`.
+But why does the probability for C linger around 2/3? Let's break it down to the three cases possible from the starting configuration: the prizes `Goat Goat Cadillac`.
 
 ## Case 1:
-1. player chooses the first G
-2. moderator reveals the other G
+1. player chooses the first goat
+2. moderator reveals the other goat
 
 ## Case 2:
-1. player chooses the second G
-2. moderator reveals the first G
+1. player chooses the second goat
+2. moderator reveals the first goat
 
 ## Case 3:
-1. player chooses the C
-2. moderator reveals one of the G
+1. player chooses the Cadillac
+2. moderator reveals one of the Cadillac
 
 ## As a table:
+Letter G is for goat, C for Cadillac. Bold letters are those prizes removed.
 
 | step/case | case 1 | case 2 | case 3 |
 | --- | --- | --- | --- | --- |
