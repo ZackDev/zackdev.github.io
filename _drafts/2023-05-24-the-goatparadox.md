@@ -35,7 +35,7 @@ if __name__ == '__main__':
 
 ```
 
-The program defines the 3 doors as the list `doors = ['G', 'G', 'C']`, the number of games to run is denoted by `cycles` and the list named `results` to store the results, from which the probability to win the Cadillac is derived.
+The program defines the prizes `Goat, Goat, Cadillac` as the list `doors = ['G', 'G', 'C']`, the number of games to run is denoted by `cycles` and the list named `results` to store the results, from which the probability to win the Cadillac is derived.
 
 A copy of the list of doors is passed `cycles` times to the `rechoose(doors)` function, simulating the gameshow:
 
@@ -50,7 +50,7 @@ python3 goatparadox.py
 0.6672
 ```
 
-But why does the probability for C linger around 2/3? Let's break it down to the three possible starting configurations, the doors `['G', 'G', 'C']`.
+But why does the probability for C linger around 2/3? Let's break it down to the three cases possible from the starting configuration: the doors `G G C`.
 
 ## Case 1:
 1. player chooses the first G
@@ -68,7 +68,7 @@ But why does the probability for C linger around 2/3? Let's break it down to the
 
 | step/case | case 1 | case 2 | case 3 |
 | --- | --- | --- | --- | --- |
-| step 1 | G **G** **C** | **G** G **C** | **G** **G** C |
-| step 2 | G G **C** | G G **C** | **G** G C |
+| step 1 | **G** G C | G **G** C | G G **C** |
+| step 2 | **G** **G** C | **G** **G** C | G **G** **C** |
 
 Overall, thats 2 times Cadillac and 1 Goat, for obviously 3 games, yielding the probability of 2/3.
