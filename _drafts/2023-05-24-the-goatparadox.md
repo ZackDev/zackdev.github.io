@@ -52,15 +52,15 @@ python3 goatparadox.py
 
 But why does the probability for C linger around 2/3? Let's break it down to the three possible starting configurations, the doors `['G', 'G', 'C']`.
 
-## Case 1: player wins the C
+## Case 1:
 1. player chooses the first G
 2. moderator reveals the other G
 
-## Case 2: player wins the C
+## Case 2:
 1. player chooses the second G
 2. moderator reveals the first G
 
-## Case 3: player wins one of the G
+## Case 3:
 1. player chooses the C
 2. moderator reveals one of the G
 
