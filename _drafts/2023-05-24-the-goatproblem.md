@@ -23,12 +23,7 @@ def rechoose(doors):
     doors.pop(doors.index('G'))
 
     # item rechosen by user
-    ur = doors.pop(-1)
-
-    if ur == 'C':
-        return True
-    else:
-        return False
+    return doors.pop(-1)
 
 
 if __name__ == '__main__':
@@ -36,18 +31,17 @@ if __name__ == '__main__':
     cycles = 100000
     results = []
     [results.append(rechoose(doors.copy())) for i in range(cycles)]
-    print(results.count(True) / (len(results)))
+    print(results.count('C') / (len(results)))
 
 ```
 
 The program defines the 3 doors as the list `doors = ['G', 'G', 'C']`, the number of games to run is denoted by `cycles` and the list named `results` to store the results, from which the probability to win the Cadillac is derived.
 
-A copy of the array of doors is passed `cycles` times to the `rechoose` function, simulating the gameshow:
+A copy of the array of doors is passed `cycles` times to the `rechoose(doors)` function, simulating the gameshow:
 
 1. initial user guess - the user chooses a random door, which he doesn't take, gets removed.
 2. goat revealed by moderator - one door with a goat is removed.
 3. item choosen by user - in this case the user always rechooses, which makes the last remaining element the choosen element.
-4. the result, Cadillac or not, gets returned.
 
 Finally, the Cadillacs won, as fraction of the total games played, gets printed:
 
