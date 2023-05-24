@@ -176,6 +176,7 @@ table:not(.rouge-table) {
   table-layout: fixed;
   @include border(1px, solid, $medium-grey, 0);
   border-collapse: collapse;
+  border-spacing: 0;
   background-color: $white;
   width: 100%;
   th {
@@ -199,7 +200,7 @@ body {
   box-sizing: border-box;
   font-family: "Vollkorn";
   font-size: 1.0em;
-  line-height: 1.61803;
+  line-height: 1.33;
   margin-bottom: 100px;
 }
 
@@ -251,7 +252,7 @@ h6 {
 }
 
 p {
-  margin: 20px 0 5px 0;
+  margin: 5px 0;
 }
 
 footer a {
@@ -295,12 +296,6 @@ ul.index-menu li {
 .inner {
   position: relative;
   max-width: 800px;
-  margin: 0 auto;
-}
-
-table:not(.rouge-table) {
-  border: 1px solid $dark-grey;
-  border-spacing: 0;
   margin: 0 auto;
 }
 
