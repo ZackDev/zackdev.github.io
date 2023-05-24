@@ -173,7 +173,7 @@ strong {
   font-weight: bold;
 }
 
-.data-table {
+table:not(.rouge-table) {
   table-layout: fixed;
   @include border(1px, solid, $medium-grey, 0);
   border-collapse: collapse;
@@ -220,6 +220,7 @@ code {
 
 h1, h2, h3, h4, h5, h6 {
   color: $dark-grey;
+  margin: 20px 0 0 0;
 }
 
 h1 {
