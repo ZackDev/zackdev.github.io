@@ -37,7 +37,7 @@ if __name__ == '__main__':
 
 The program defines the 3 doors as the list `doors = ['G', 'G', 'C']`, the number of games to run is denoted by `cycles` and the list named `results` to store the results, from which the probability to win the Cadillac is derived.
 
-A copy of the array of doors is passed `cycles` times to the `rechoose(doors)` function, simulating the gameshow:
+A copy of the list of doors is passed `cycles` times to the `rechoose(doors)` function, simulating the gameshow:
 
 1. initial player guess - the player chooses a random door, which he doesn't take, gets removed.
 2. goat revealed by moderator - one door with a goat is removed.
@@ -68,7 +68,6 @@ But why does the probability for C linger around 2/3? Let's break it down to the
 
 | step/case | case 1 | case 2 | case 3 |
 | --- | --- | --- | --- | --- |
-| step 0 | **G** **G** **C** | **G** **G** **C** | **G** **G** **C** |
 | step 1 | G **G** **C** | **G** G **C** | **G** **G** C |
 | step 2 | G G **C** | G G **C** | **G** G C |
 
