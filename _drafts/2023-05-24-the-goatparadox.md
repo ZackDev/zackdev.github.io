@@ -11,11 +11,11 @@ Here comes the twist. Instead of simply opening the chosen door, the moderator r
 
 Mysteriously, the chance for winning the Cadillac increases to 2/3 if the player always rechoose the door. Let's hack the code:
 
-``` python
+{% highlight python linenos %}
 import random
 
 
-def rechoose(prizes):
+def game(prizes):
     # initial player guess
     prizes.pop(random.randint(0, len(prizes) - 1))
 
@@ -30,15 +30,14 @@ if __name__ == '__main__':
     prizes = [False, False, True]
     cycles = 100000
     results = []
-    [results.append(rechoose(prizes.copy())) for _ in range(cycles)]
+    [results.append(game(prizes.copy())) for _ in range(cycles)]
     print(results.count(True) / (len(results)))
+    
+{% endhighlight %}
 
+The program defines the prizes `2x Goat and a Cadillac` as the list `prizes = [False, False, True]`, the number of games to run is denoted by `cycles` and the list named `results` to store each of the results, from which the probability to win the Cadillac is derived.
 
-```
-
-The program defines the prizes `Goat, Goat, Cadillac` as the list `prizes = [False, False, True]`, the number of games to run is denoted by `cycles` and the list named `results` to store the results, from which the probability to win the Cadillac is derived.
-
-A copy of the list of prizes is passed `cycles` times to the `rechoose(prizes)` function, simulating the gameshow:
+A copy of the list of prizes is passed `cycles` times to the `game(prizes)` function, simulating the gameshow:
 
 1. initial player guess - the player chooses a random prize, which he doesn't take, gets removed.
 2. goat revealed by moderator - one prize with a goat is removed.
@@ -63,7 +62,7 @@ But why does the probability for C linger around 2/3? Let's break it down to the
 
 ## Case 3:
 1. player chooses the Cadillac
-2. moderator reveals one of the Cadillac
+2. moderator reveals one of the goats
 
 ## As a table:
 Letter G is for goat, C for Cadillac. Bold letters are those prizes removed.
@@ -73,4 +72,4 @@ Letter G is for goat, C for Cadillac. Bold letters are those prizes removed.
 | step 1 | **G** G C | G **G** C | G G **C** |
 | step 2 | **G** **G** C | **G** **G** C | G **G** **C** |
 
-Overall, thats 2 times Cadillac and 1 Goat, for obviously 3 games, yielding the probability of 2/3.
+Overall, thats 2 times Cadillac and 1 Goat won, for obviously 3 games, yielding the probability of 2/3.
