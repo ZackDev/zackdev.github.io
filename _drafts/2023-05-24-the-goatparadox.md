@@ -31,11 +31,11 @@ if __name__ == '__main__':
     cycles = 100000
     results = []
     [results.append(game(prizes.copy())) for _ in range(cycles)]
-    print(results.count(True) / (len(results)))
+    print(results.count(True) / len(results))
     
 {% endhighlight %}
 
-The program defines the prizes `2x Goat and a Cadillac` as the list `prizes = [False, False, True]`, the number of games to run is denoted by `cycles` and the list named `results` to store each of the results, from which the probability to win the Cadillac is derived.
+The program defines the prizes `2x Goat and a Cadillac` as the list `prizes = [False, False, True]`, the number of games to run is denoted by `cycles`, and the list named `results` where the result of each game is stored, from which the probability to win the Cadillac is derived.
 
 A copy of the list of prizes is passed `cycles` times to the `game(prizes)` function, simulating the gameshow:
 
