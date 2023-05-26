@@ -39,9 +39,9 @@ The program defines the prizes `2x Goat and a Cadillac` as the list `prizes = [F
 
 A copy of the list of prizes is passed `cycles` times to the `game(prizes)` function, simulating the gameshow:
 
-1. initial player guess - the player chooses a random prize, which he doesn't take, gets removed.
-2. goat revealed by moderator - one prize with a goat is removed.
-3. prize choosen by player - in this case the player always rechooses, which makes the last remaining element the choosen element.
+- *\# initial player guess* - the player chooses a random prize, which he doesn't take, gets removed.
+- *\# goat revealed by moderator* - one prize with a goat is removed.
+- *\# prize choosen by player* - in this case the player always rechooses, which makes the last remaining element the choosen element.
 
 Finally, the Cadillacs won, as fraction of the total games played, gets printed:
 
@@ -53,16 +53,19 @@ python3 goatparadox.py
 But why does the probability for C linger around 2/3? Let's break it down to the three cases possible from the starting configuration: the prizes `Goat Goat Cadillac`.
 
 ## Case 1:
-1. player chooses the first goat
-2. moderator reveals the other goat
+- player chooses the first goat
+- moderator reveals the other goat
+- player wins the Cadillac
 
 ## Case 2:
-1. player chooses the second goat
-2. moderator reveals the first goat
+- player chooses the second goat
+- moderator reveals the first goat
+- player wins the Cadillac
 
 ## Case 3:
-1. player chooses the Cadillac
-2. moderator reveals one of the goats
+- player chooses the Cadillac
+- moderator reveals one of the goats
+- player wins the goat
 
 ## As a table:
 Letter G is for goat, C for Cadillac. Bold letters are those prizes removed.
