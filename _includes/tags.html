@@ -1,0 +1,10 @@
+{% assign post = include.post %}
+{% if post.tags.size > 0 %}
+{% assign tags = post.tags | sort_natural %}
+<hr>
+<span> tags:
+{% for tag in tags %}
+    <a style="margin: 0 3px 0 3px;" href="/tag/{{ tag }}">#{{ tag }}</a>
+{% endfor %}
+</span>
+{% endif %}
