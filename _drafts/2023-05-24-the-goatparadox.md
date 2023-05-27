@@ -39,7 +39,7 @@ The program defines the prizes `2x Goat and a Cadillac` as the list `prizes = [F
 
 A copy of the list of prizes is passed `cycles` times to the `game(prizes)` function, simulating the gameshow:
 
-- *\# initial player guess* - the player chooses a random prize, which he doesn't take, gets removed.
+- *\# initial player guess* - the player chooses a random prize, which gets removed.
 - *\# goat revealed by moderator* - one prize with a goat is removed.
 - *\# prize choosen by player* - in this case the player always rechooses, which makes the last remaining element the choosen element.
 
@@ -66,6 +66,8 @@ But why does the probability for C linger around 2/3? Let's break it down to the
 - player chooses the Cadillac
 - moderator reveals one of the goats
 - player wins the goat
+
+Noteable is that the moderator *always* reveals a goat, and that the third step: the player "selecting" a prize is unneeded, because it is the last available prize anyways.
 
 ## As a table:
 Letter G is for goat, C for Cadillac. Bold letters are those prizes removed.
