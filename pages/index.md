@@ -8,3 +8,4 @@ published: true
 {% if site.posts.size > site.index_post_capacity %}
   [Archive](/archive.html)
 {% endif %}
+[Tags](/tags.html)
