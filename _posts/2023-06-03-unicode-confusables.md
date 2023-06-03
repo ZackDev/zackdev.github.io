@@ -22,4 +22,4 @@ Usually, computers work with the number associated with a specific symbol. And a
 * phishing
 * <input type="text" size="5">
 
-Additionally to the confusables, Unicode provides a rich set of symbols, available for its users, where many everyday symbols (math, traffic, games, pizza, ...) can be found and used instead of creating new ones.
+Additionally to the confusables, Unicode provides a rich set of symbols, available for its users, where many everyday symbols (&#x1F506; &#x1F5B0;  &#x1F355; &#x1F30C;) can be found and used instead of creating new ones.
