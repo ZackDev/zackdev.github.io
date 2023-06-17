@@ -16,7 +16,17 @@
   <body class="fg-medium-grey bg-white">
     <!-- header start -->
     <div id="header-wrap" class="outer bg-dark-grey">
-      <header id="header" class="inner"></header>
+      <header id="header" class="inner flex-row" style="justify-content: right">
+        {% for item in site.nav %}
+          {% if item == "archive %}
+            {% if site.posts.size > site.index_post_capacity %}
+            <a href="/{{ item }}.html" style="margin: auto 0px auto 15px;">{{ item }}</a>
+            {% endif %}
+          {% else %}
+          <a href="/{{ item }}.html" style="margin: auto 0px auto 15px;">{{ item }}</a>
+          {% endif %}
+        {% endfor %}
+      </header>
     </div>
     <!-- header end -->
 
@@ -35,13 +45,10 @@
 
     <!-- footer start -->
     <div id="footer-wrap" class="outer bg-dark-grey">
-      <footer id="footer" class="inner flex-row" style="justify-content: space-between;">
+      <footer id="footer" class="inner flex-row" style="justify-content: left;">
         {% if page.url != "/" %}
         <a href="{{ site.url }}" style="margin: auto 0 auto 0;">back home</a>
-        {% else %}
-        <div></div>
         {% endif %}
-        <a href="/impressum.html" style="margin: auto 0 auto 0;">impressum</a>
       </footer>
     </div>
     <!-- footer end -->

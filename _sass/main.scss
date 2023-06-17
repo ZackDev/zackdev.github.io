@@ -260,6 +260,11 @@ footer a {
   color: $light-grey;
 }
 
+header a {
+  text-decoration: underline $light-grey;
+  color: $light-grey;
+}
+
 a.footnote {
   vertical-align: baseline;
 }
