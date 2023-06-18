@@ -18,12 +18,12 @@
     <div id="header-wrap" class="outer bg-dark-grey">
       <header id="header" class="inner flex-row" style="justify-content: right">
         {% for item in site.nav %}
-          {% if item == "archive" %}
+          {% if item.name == "archive" %}
             {% if site.posts.size > site.index_post_capacity %}
-            <a href="/{{ item }}.html" style="margin: auto 0px auto 15px;">{{ item }}</a>
+            <a href="/{{ item.url }}" style="margin: auto 0px auto 15px;">{{ item.name }}</a>
             {% endif %}
           {% else %}
-          <a href="/{{ item }}.html" style="margin: auto 0px auto 15px;">{{ item }}</a>
+          <a href="/{{ item.url }}" style="margin: auto 0px auto 15px;">{{ item.name }}</a>
           {% endif %}
         {% endfor %}
       </header>

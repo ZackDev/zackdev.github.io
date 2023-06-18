@@ -3,7 +3,15 @@ encoding: utf-8
 highlighter: rouge
 
 index_post_capacity: 5
-nav: [ index , tags , archive , impressum ]
+nav:
+  - name: index
+    url: /index.html
+  - name: archive
+    url: /archive.html
+  - name: tags
+    url: /tags.html
+  - name: impressum
+    url: impressum.html
 
 defaults:
   -
