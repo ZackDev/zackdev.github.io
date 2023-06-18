@@ -255,14 +255,13 @@ p {
   margin: 15px 0;
 }
 
-footer a {
-  text-decoration: underline $light-grey;
+header a {
+  text-decoration: none;
   color: $light-grey;
 }
 
-header a {
+header a:hover {
   text-decoration: underline $light-grey;
-  color: $light-grey;
 }
 
 a.footnote {
