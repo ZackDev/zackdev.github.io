@@ -4,13 +4,13 @@ highlighter: rouge
 
 index_post_capacity: 5
 nav:
-  - name: INDEX
+  - name: Index
     url: /
-  - name: ARCHIVE
+  - name: Archive
     url: /archive.html
-  - name: TAGS
+  - name: Tags
     url: /tags.html
-  - name: IMPRESSUM
+  - name: Imprint
     url: /impressum.html
 
 defaults:
