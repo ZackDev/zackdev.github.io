@@ -6,7 +6,7 @@
         {% else %}
             {% assign navclass = "nav-item" %}
         {% endif %}
-        {% if item.name == "archive" %}
+        {% if item.url == "/archive.html" %}
             {% if site.posts.size > site.index_post_capacity %}
                 <div class="{{navclass}}">
                     <a href="{{ item.url }}">{{ item.name }}</a>
