@@ -1,5 +1,5 @@
 {% if site.nav.size > 0 %}
-    <div class="flex-row" style="justify-content: right; align-items: center;">
+    <div class="flex-row" style="justify-content: right; align-items: center; gap: 0 10px;">
     {% for item in site.nav %}
         {% if page.url == item.url %}
             {% assign navclass = "nav-item nav-item-active" %}
@@ -8,10 +8,14 @@
         {% endif %}
         {% if item.name == "archive" %}
             {% if site.posts.size > site.index_post_capacity %}
-                <a href="{{ item.url }}" class={{navclass}}>{{ item.name }}</a>
+                <div class="{{navclass}}">
+                    <a href="{{ item.url }}">{{ item.name }}</a>
+                </div>
             {% endif %}
         {% else %}
-            <a href="{{ item.url }}" class="{{navclass}}">{{ item.name }}</a>
+            <div class="{{navclass}}">
+                <a href="{{ item.url }}">{{ item.name }}</a>
+            </div>
         {% endif %}
     {% endfor %}
 
