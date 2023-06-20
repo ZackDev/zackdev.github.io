@@ -1,13 +1,19 @@
 {% if site.nav.size > 0 %}
-    <div class="flex-row" style="justify-content: right;">
+    <div class="flex-row" style="justify-content: right; align-items: center;">
     {% for item in site.nav %}
+        {% if page.url == item.url %}
+            {% assign navclass = "nav-item nav-item-active" %}
+        {% else %}
+            {% assign navclass = "nav-item" %}
+        {% endif %}
         {% if item.name == "archive" %}
             {% if site.posts.size > site.index_post_capacity %}
-                <a href="{{ item.url }}" style="margin: auto 0px auto 15px;">{{ item.name }}</a>
+                <a href="{{ item.url }}" class={{navclass}}>{{ item.name }}</a>
             {% endif %}
         {% else %}
-            <a href="{{ item.url }}" style="margin: auto 0px auto 15px;">{{ item.name }}</a>
+            <a href="{{ item.url }}" class="{{navclass}}">{{ item.name }}</a>
         {% endif %}
-    {% endfor %}  
+    {% endfor %}
+
     </div>
 {% endif %}
