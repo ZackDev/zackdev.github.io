@@ -14,13 +14,11 @@ published: true
     {% if schar != tchar %}
         {% assign schar = tchar %}
         {% if forloop.first == true %}
-<h1>{{ schar }}</h1>
 <div class="flex-row; vam;" style="flex-wrap: wrap;">
         {% elsif foorloop.last == true %}
 </div>
         {% else %}
 </div>
-<h1>{{ schar }}</h1>
 <div class="flex-row; vam;" style="flex-wrap: wrap;">
         {% endif %}
     {% endif %}
