@@ -274,6 +274,10 @@ p {
   background-color: $light-grey;
 }
 
+.nav-item-active a:hover {
+  text-decoration: underline $dark-grey;
+}
+
 .nav-item-active a {
   color: $dark-grey;
   text-decoration: underline $dark-grey;
