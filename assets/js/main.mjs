@@ -32,7 +32,7 @@ const resizeContent = () => {
 const initHighcharts = () => {
   Highcharts.setOptions({
     credits: {
-      enabled: false,
+      enabled: true,
     }
   });
 }
