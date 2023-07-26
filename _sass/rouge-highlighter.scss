@@ -209,6 +209,8 @@
   color: #bbbbbb;
 }
 .highlight {
-  background-color: #f8f8f8;
+  background-color: $light-grey;
   overflow-x: auto;
+  margin-bottom: 20px;
+  padding-left: 10px;
 }
