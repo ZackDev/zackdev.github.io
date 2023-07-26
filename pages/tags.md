@@ -22,5 +22,5 @@ published: true
 <div class="flex-row vamcd" style="flex-wrap: wrap;">
         {% endif %}
     {% endif %}
-<a href="/tag/{{tag}}.html" style="padding: 0 5px;">#{{ tag }}</a>
+<a href="/tag/{{tag}}.html" style="padding: 0 5px;">{{ tag }}</a>
 {% endfor %}
