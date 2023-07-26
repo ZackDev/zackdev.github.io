@@ -6,7 +6,7 @@ published: true
 A collection of links to websites / blogs which, imho, are worth more than consuming.
 
 ## Morf
-* [https://www.youtube.com/@morfmitMeinung/about](https://www.youtube.com/@morfmitMeinung/about)
+* [https://www.youtube.com/@morfmitMeinung/videos](https://www.youtube.com/@morfmitMeinung/videos)
 * [https://www.twitch.tv/morfsbutze](https://www.twitch.tv/morfsbutze)
 
 ## Felix von Leitner
