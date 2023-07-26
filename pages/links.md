@@ -9,8 +9,12 @@ A collection of links to websites / blogs which, imho, are worth more than consu
 * [https://www.youtube.com/@morfmitMeinung/about](https://www.youtube.com/@morfmitMeinung/about)
 * [https://www.twitch.tv/morfsbutze](https://www.twitch.tv/morfsbutze)
 
-## Fefes Blog - Felix von Leitner
+## Felix von Leitner
 * [https://blog.fefe.de/](https://blog.fefe.de/)
+* [https://alternativlos.org/](https://alternativlos.org/)
 
-## web3isgoinggreat - Molly White
+## Molly White
 * [https://web3isgoinggreat.com/](https://web3isgoinggreat.com/)
+
+## Cory Doctorov
+* [https://pluralistic.net/](https://pluralistic.net/)
