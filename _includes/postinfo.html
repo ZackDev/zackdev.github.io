@@ -1,11 +1,11 @@
 {% assign post = include.post %}
 <div class="post-info">
-    <div><a href="{{ post.url }}">{{ post.title }}</a></div>
+    <div><a class="post-link" href="{{ post.url }}">{{ post.title }}</a></div>
     <span class="fs-small vam">
         {{ post.date | date_to_long_string }}
         {% assign tags = post.tags | sort_natural %}
         {% for tag in tags %}
-        <a style="margin: 0 3px 0 3px;" href="/tag/{{ tag }}">#{{ tag }}</a>
+        <a style="margin: 0 3px 0 3px;" href="/tag/{{ tag }}">{{ tag }}</a>
         {% endfor %}
     </span>
 </div>

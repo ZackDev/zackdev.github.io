@@ -356,6 +356,14 @@ td {
   padding: 5px;
 }
 
+.post-link {
+  color: $dark-grey;
+}
+
+.post-link:visited {
+  color: #551A8B;
+}
+
 /* adjustments for small displays */
 @media screen and (max-width: 1024px) {
   body {
