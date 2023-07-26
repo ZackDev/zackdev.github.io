@@ -358,11 +358,16 @@ td {
 
 .post-link {
   color: $dark-grey;
+}  
+
+.post-link:hover {
+  color: #0000EE;
 }
 
 .post-link:visited {
   color: #551A8B;
 }
+
 
 /* adjustments for small displays */
 @media screen and (max-width: 1024px) {
