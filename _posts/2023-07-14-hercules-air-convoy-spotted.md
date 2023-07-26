@@ -1,6 +1,6 @@
 ---
 title: Hercules air convoy spotted
-tags: [aircraft, Hercules]
+tags: [aircraft, Hercules, images]
 published: true
 ---
 
