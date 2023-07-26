@@ -216,6 +216,7 @@ h1, h2, h3, h4, h5, h6 {
   color: $dark-grey;
   margin: 20px 0 0 0;
   border-bottom: 3px solid $dark-grey;
+  font-weight: bold;
 }
 
 h1 {
@@ -358,6 +359,9 @@ td {
 
 .post-link {
   color: $dark-grey;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
 }  
 
 .post-link:hover {
