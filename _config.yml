@@ -10,6 +10,8 @@ nav:
     url: /archive.html
   - name: Tags
     url: /tags.html
+  - name: Links
+    url: /links.html
   - name: Imprint
     url: /impressum.html
 
