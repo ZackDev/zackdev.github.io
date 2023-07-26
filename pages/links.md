@@ -16,5 +16,5 @@ A collection of links to websites / blogs which, imho, are worth more than consu
 ## Molly White
 * [https://web3isgoinggreat.com/](https://web3isgoinggreat.com/)
 
-## Cory Doctorov
+## Cory Doctorow
 * [https://pluralistic.net/](https://pluralistic.net/)
