@@ -14,7 +14,7 @@ Those seemed to be **four smaller** and **one bigger** airplane lagging behind a
 
 {% include image.html url="/assets/img/hercules-air-convoy-screenshot.png" %}
 
-# Other than that, the rest is open for pure speculation:
+## Other than that, the rest is open for pure speculation:
 
 * What did they transport? Troops, supplies, vehicles?
 * Why does one not show up at [https://www.flightradar24.com](https://www.flightradar24.com)?

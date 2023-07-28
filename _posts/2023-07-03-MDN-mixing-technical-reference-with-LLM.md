@@ -11,6 +11,6 @@ While the internet is full of examples of the small multiplication table [1-10] 
 
 What could possibly go wrong when MDN uses LLMs? [Users on GitHub have collected some examples!](https://github.com/mdn/yari/issues/9208)
 
-# Howto get a message through when the conversation is locked:
+## Howto get a message through when the conversation is locked:
 
 {% include image.html url="/assets/img/mdn-ai-discussion-github.png" %}

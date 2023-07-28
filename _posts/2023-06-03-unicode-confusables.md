@@ -16,7 +16,7 @@ Usually, computers work with the number associated with a specific symbol. And a
 
 > x is not x is not x. **Huh?**
 
-# What is there to do with the confusables?
+## What is there to do with the confusables?
 
 * webform fuzzing, or the person dealing with the input
 * phishing
