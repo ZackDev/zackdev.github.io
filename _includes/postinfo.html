@@ -5,7 +5,7 @@
         {{ post.date | date_to_long_string }}
         {% assign tags = post.tags | sort_natural %}
         {% for tag in tags %}
-        <a style="margin: 0 3px 0 3px;" href="/tag/{{ tag }}">{{ tag }}</a>
+        <a class="tag-link" style="margin: 0 3px 0 3px;" href="/tag/{{ tag }}">{{ tag }}</a>
         {% endfor %}
     </span>
 </div>
