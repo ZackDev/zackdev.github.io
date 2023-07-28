@@ -247,30 +247,23 @@ p {
   margin: 15px 0;
 }
 
-.nav-item {
-  height: 100%;
+.nav-plate {
+  height: 48px;
   display: flex;
   align-items: center;
   padding: 0 10px;
 }
 
-.nav-item a {
+.nav-link {
   color: $light-grey;
 }
 
-.nav-item a:hover {
+.nav-link:hover {
   text-decoration: underline $light-grey;
 }
 
-.nav-item-active {
+.nav-link-active {
   background-color: $white;
-}
-
-.nav-item-active a:hover {
-  text-decoration: underline $dark-grey;
-}
-
-.nav-item-active a {
   color: $dark-grey;
   text-decoration: underline $dark-grey;
 }
