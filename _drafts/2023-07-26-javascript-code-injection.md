@@ -37,3 +37,5 @@ Any type of pure clientside detection technique can be bypassed simply by saving
 * any attribute of DOM elements
 * etc
 
+## Ways of injecting code.
+What one basically wants is a way to piggyback to different mechanisms of the browser / website combo. Script elements (<script></script>) attached to the head and body elements get *executed* by the JavaScript engine.
