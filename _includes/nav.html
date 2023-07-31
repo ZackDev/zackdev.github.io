@@ -1,5 +1,5 @@
 {% if site.nav.size > 0 %}
-    <div class="flex-row" style="justify-content: right; align-items: center; gap: 0 10px;">
+    <div id="nav-container" class="flex-row" style="align-items: center;">
     {% for item in site.nav %}
         {% if page.url == item.url %}
             {% assign navclass = "nav-link nav-link-active" %}

@@ -259,6 +259,11 @@ p {
   margin: 15px 0;
 }
 
+#nav-container {
+  justify-content: right;
+  gap: 0 10px;
+}
+
 .nav-plate {
   height: 48px;
   display: flex;
@@ -390,6 +395,15 @@ td {
     min-width: 560px;
     max-width: 640px;
   }
+
+  #nav-container {
+    justify-content: left;
+    gap: 0 5px;
+  }
+  
+  .nav-plate {
+    padding: 0 10px;
+  }
 }
 
 /* adjustments for tiny displays */
@@ -401,6 +415,15 @@ td {
   .inner {
     min-width: 240px;
     max-width: 320px;
+  }
+
+  #nav-container {
+    justify-content: left;
+    gap: 0;
+  }
+
+  .nav-plate {
+    padding: 0 5px;
   }
 }
 
