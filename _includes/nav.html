@@ -2,7 +2,7 @@
     <div id="nav-container" class="flex-row" style="align-items: center;">
     {% for item in site.nav %}
         {% if page.url == item.url %}
-            {% assign navclass = "nav-link nav-link-active" %}
+            {% assign navclass = "nav-link-active unclickable" %}
         {% else %}
             {% assign navclass = "nav-link" %}
         {% endif %}
