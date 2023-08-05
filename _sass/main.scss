@@ -272,17 +272,23 @@ p {
 }
 
 .nav-link {
-  color: $light-grey;
+  color: $medium-grey;
   text-decoration: none;
+  transition: 0.2s;
 }
 
 .nav-link:hover {
+  color: $light-grey;
   text-decoration: underline solid;
+  transition: 0.2s;
 }
 
 .nav-link-active {
-  color: $medium-grey;
   background-color: $white;
+}
+
+.nav-link-active:hover {
+  color: $medium-grey;
 }
 
 a.footnote {
