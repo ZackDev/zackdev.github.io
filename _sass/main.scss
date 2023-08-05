@@ -272,7 +272,7 @@ p {
 }
 
 .nav-link {
-  color: #1EFAEF;
+  color: $light-grey;
   text-decoration: none;
 }
 
@@ -281,7 +281,7 @@ p {
 }
 
 .nav-link-active {
-  color: #551A8B;
+  color: $medium-grey;
   background-color: $white;
 }
 
