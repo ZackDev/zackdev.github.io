@@ -20,7 +20,7 @@ button, input {
   vertical-align: baseline;
 }
 
-$sheet-opacity: 0.8;
+$sheet-opacity: 0.95;
 
 ::selection {
   background-color: #1efa46;
@@ -206,12 +206,6 @@ code {
   }
 }
 
-.tag {
-  @include border(1px, solid, $light-grey, 0);
-  border-radius: 5px;
-  padding: 0 2px 0 2px;
-}
-
 .tag-link {
   text-decoration: none;
 }
@@ -272,7 +266,6 @@ p {
 }
 
 .nav-link {
-  color: $medium-grey;
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -283,8 +276,6 @@ p {
 }
 
 .nav-link-active {
-  background-color: $white;
-  color: $dark-grey;
   text-decoration: none;
 }
 

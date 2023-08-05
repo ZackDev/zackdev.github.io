@@ -2,9 +2,9 @@
     <div id="nav-container" class="flex-row" style="align-items: center;">
     {% for item in site.nav %}
         {% if page.url == item.url %}
-            {% assign navclass = "nav-link-active unclickable" %}
+            {% assign navclass = "nav-link-active fg-dark-grey bg-white unclickable" %}
         {% else %}
-            {% assign navclass = "nav-link" %}
+            {% assign navclass = "nav-link fg-medium-grey bg-dark-grey" %}
         {% endif %}
         {% if item.url == "/archive.html" %}
             {% if site.posts.size > site.index_post_capacity %}
