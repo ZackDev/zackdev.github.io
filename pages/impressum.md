@@ -6,6 +6,6 @@ published: true
 Bastian Maier  
 Fischeräckerstraße 2  
 75417 Mühlacker  
-GERMANY  
+Germany  
 	
 &#128231; zackdev(at)gmx(dot)net
